@@ -36,15 +36,15 @@
 		.xdmin {
 			background : #27292A;
 			border-radius: 20px;
-			width: 600px;
-			height: 600px;
+			width: 500px;
+			height: 500px;
 			margin: 0px 100px 0px 10px;
 		}
 		.user {
 			background : #27292A;
 			border-radius: 20px;
-			width: 600px;
-			height: 600px;
+			width: 500px;
+			height: 500px;
 			margin: 0px 10px 0px 100px;
 		}
 		.xdmintitle{
