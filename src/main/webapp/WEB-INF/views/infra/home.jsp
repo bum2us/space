@@ -23,56 +23,94 @@
     <link rel="stylesheet" href="/resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
-	<style>
-		
-		div	{
-			/* border: solid 1px orange; */
+	<style type="text/css">
+		div {
+			display: block;	
 		}
-		
-		.card {
-			width: 300px;
-			height: 300px;
+		.container {
+			scale: 80%;
+			margin-top: -10%;
+			text-align: center;
+		}
+		.xdmin {
 			background : #27292A;
 			border-radius: 20px;
-			padding
+			width: 600px;
+			height: 600px;
+			margin: 0px 100px 0px 10px;
 		}
-		
-		.card i {
+		.user {
+			background : #27292A;
+			border-radius: 20px;
+			width: 600px;
+			height: 600px;
+			margin: 0px 10px 0px 100px;
+		}
+		.xdmintitle{
+			font-size: 50px;
+			margin: 50px 0px 50px 0px;
 			color: white;
-			font-size : 50pt;
 		}
+		.usertitle {
+			font-size: 50px;
+			margin: 50px 0px 50px 0px;
+			color: white;
+		}
+		img {
+			max-width: 100%; 
+			height: auto;
+		}
+		.main-button {
+			margin-top: 20px;
 		
+		}
 	</style>
-</head>
-<body> 
+	</head>
+	<body>
 	
-	<div class ="container">
-		<div class="row justify-content-center">   
-			<img alt="" src="/resources/images/space_logo.png" style="scale: 50%;"> 
-		</div>
-		<div class="row justify-content-center"> 
-			<div class="card col mx-3 text-center">
-				<div class="row justify-content-center my-4">
-					<i class="fa-solid fa-user"></i>
+	
+	
+		<div class="container">
+			<div class="row justify-content-center">   
+				<img alt="" src="/resources/images/space_logo.png" style="scale: 80%;"> 
+			</div>
+			<div class="row">
+				<div class="col xdmin">
+					<div class="row">
+						<div class="col xdmintitle" style="font-size: 100px">
+							<i class="fa-solid fa-user"></i>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<img alt="" src="/resources/images/space_logo.png">
+						</div>
+					</div>
+					<div class="row">
+						<div class="main-button">
+							<a href="#">USER</a>
+						</div>	
+					</div>
 				</div>
-				<div class="row  justify-content-center my-4">
-					<div class="main-button">
-						<a href="#">USER</a>
-					</div>			
-				</div>
-			</div>   
-			<div class="card col mx-3 text-center">
-				<div class="row justify-content-center my-4">
-					<i class="fa-solid fa-screwdriver-wrench"></i>
-				</div>
-				<div class="row justify-content-center my-4">
-					<div class="main-button">
-						<a href="#">ADMIN</a>
-					</div>			
+				<div class="col user">
+					<div class="row">
+						<div class="col usertitle" style="font-size: 100px">
+							<i class="fa-solid fa-screwdriver-wrench"></i>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<img alt="" src="/resources/images/space_logo.png">
+						</div>
+					</div>
+					<div class="row">
+						<div class="main-button">
+							<a href="#">ADMIN</a>
+						</div>	
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	
 <!--  스크립트  -->		
 	<script src="https://kit.fontawesome.com/63aa3074b3.js" crossorigin="anonymous"></script>

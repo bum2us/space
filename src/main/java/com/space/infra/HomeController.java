@@ -13,10 +13,4 @@ public class HomeController {
 		return "infra/home";
 	}
 	
-	@RequestMapping(value="/2")
-	public String home2() throws Exception{
-		
-		return "infra/home2";
-	}
-	
 }
