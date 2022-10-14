@@ -12,7 +12,7 @@
 	
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-	<title>🅷🅴🅻🅻🅾 우주마켓 𝙒𝙝𝙮𝙧𝙖𝙣𝙤...</title> 
+	<title>▶▶▶우주마켓◀◀◀</title>
 	
 	<!-- Bootstrap core CSS  -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -24,55 +24,15 @@
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
 	<style>
-		
 		div	{
 			/* border: solid 1px orange; */
 		}
 		
-		.card {
-			width: 300px;
-			height: 300px;
-			background : #27292A;
-			border-radius: 20px;
-			padding
-		}
-		
-		.card i {
-			color: white;
-			font-size : 50pt;
-		}
-		
 	</style>
 </head>
-<body> 
+<body>
 	
-	<div class ="container">
-		<div class="row justify-content-center">   
-			<img alt="" src="/resources/images/space_logo.png" style="scale: 50%;"> 
-		</div>
-		<div class="row justify-content-center"> 
-			<div class="card col mx-3 text-center">
-				<div class="row justify-content-center my-4">
-					<i class="fa-solid fa-user"></i>
-				</div>
-				<div class="row  justify-content-center my-4">
-					<div class="main-button">
-						<a href="#">USER</a>
-					</div>			
-				</div>
-			</div>   
-			<div class="card col mx-3 text-center">
-				<div class="row justify-content-center my-4">
-					<i class="fa-solid fa-screwdriver-wrench"></i>
-				</div>
-				<div class="row justify-content-center my-4">
-					<div class="main-button">
-						<a href="#">ADMIN</a>
-					</div>			
-				</div>
-			</div>
-		</div>
-	</div>
+	Hello world..!!
 	
 <!--  스크립트  -->		
 	<script src="https://kit.fontawesome.com/63aa3074b3.js" crossorigin="anonymous"></script>
