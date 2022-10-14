@@ -32,38 +32,26 @@
 			margin-top: -10%;
 			text-align: center;
 		}
-		.xdmin {
+		.linkContainer {
 			background : #27292A;
 			border-radius: 20px;
 			width: 600px;
 			height: 600px;
 			margin: 0px 100px 0px 10px;
 		}
-		.user {
-			background : #27292A;
-			border-radius: 20px;
-			width: 600px;
-			height: 600px;
-			margin: 0px 10px 0px 100px;
-		}
-		.xdmintitle{
-			font-size: 50px;
-			margin: 50px 0px 50px 0px;
-			color: white;
-		}
-		.usertitle {
-			font-size: 50px;
-			margin: 50px 0px 50px 0px;
-			color: white;
-		}
-		img {
-			max-width: 100%; 
-			height: auto;
-		}
-		.main-button {
-			margin-top: 20px;
 		
+		.linkicon{
+			font-size: 200pt; 
+			margin: 20px 0px 20px 0px; 
+			color: white;
 		}
+		.index-links {
+			width: 200px;
+			height: 70px;
+		}
+		
+		
+		
 	</style>
 	</head>
 	<body>
@@ -75,37 +63,27 @@
 				<img alt="" src="/resources/images/space_logo.png" style="scale: 80%;"> 
 			</div>
 			<div class="row">
-				<div class="col xdmin">
+				<div class="col linkContainer">
 					<div class="row">
-						<div class="col xdmintitle" style="font-size: 100px">
+						<div class="col linkicon">
 							<i class="fa-solid fa-user"></i>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
-							<img alt="" src="/resources/images/space_logo.png">
-						</div>
-					</div>
-					<div class="row">
 						<div class="main-button">
-							<a href="#">USER</a>
+							<a class="index-links" href="#"  style="font-size:24pt; font-weight:600;">USER</a>
 						</div>	
 					</div>
 				</div>
-				<div class="col user">
+				<div class="col linkContainer">
 					<div class="row">
-						<div class="col usertitle" style="font-size: 100px">
+						<div class="col linkicon">
 							<i class="fa-solid fa-screwdriver-wrench"></i>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col">
-							<img alt="" src="/resources/images/space_logo.png">
-						</div>
-					</div>
-					<div class="row">
-						<div class="main-button">
-							<a href="#">ADMIN</a>
+						<div class="main-button"> 
+							<a class="index-links" href="#"  style="font-size:24pt; font-weight:600;">ADMIN</a> 
 						</div>	
 					</div>
 				</div>

@@ -8,8 +8,7 @@ public class HomeController {
 
 	
 	@RequestMapping(value="/")
-	public String home() throws Exception{
-		
+	public String home() throws Exception{		
 		return "infra/home";
 	}
 	
