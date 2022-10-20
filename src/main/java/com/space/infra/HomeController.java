@@ -17,7 +17,7 @@ public class HomeController {
 	@RequestMapping(value="login")
 	public String login() throws Exception{
 		
-		return "infra/login";
+		return "infra/user/login";
 	}
 	
 }
