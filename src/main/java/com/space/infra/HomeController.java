@@ -12,4 +12,9 @@ public class HomeController {
 		return "infra/select";
 	}
 	
+	@RequestMapping(value="/")
+	public String login() throws Exception{		
+		return "infra/login";
+	}
+	
 }

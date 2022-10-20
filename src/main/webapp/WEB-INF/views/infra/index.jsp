@@ -65,7 +65,7 @@
 					</div>
 					<div class="row">
 						<div class="main-button">
-							<a class="index-links" href="#"  style="font-size:24pt; font-weight:600;">USER</a>
+							<a class="index-links" href="/login"  style="font-size:24pt; font-weight:600;">USER</a>
 						</div>	
 					</div>
 				</div>
@@ -77,7 +77,7 @@
 					</div>
 					<div class="row">
 						<div class="main-button"> 
-							<a class="index-links" href="#"  style="font-size:24pt; font-weight:600;">ADMIN</a> 
+							<a class="index-links" href="/login"  style="font-size:24pt; font-weight:600;">ADMIN</a> 
 						</div>	
 					</div>
 				</div>
