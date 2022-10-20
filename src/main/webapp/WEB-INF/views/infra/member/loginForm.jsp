@@ -25,15 +25,9 @@
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
-			font-family: 'Poppins', sans-serif;
 		}
 		
-		body {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			min-height: 100vh;
-		}
+	
 
 		.box {
 			position: relative;
@@ -85,7 +79,7 @@
 			position: absolute;
 			inset: 2px;
 			border-radius: 8px;
-			background: #28292d;
+			background: #28292d; 
 			z-index: 10;
 			padding: 50px 40px;
 			display: flex;
@@ -185,28 +179,29 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row justify-content-center">   
-			<img alt="" src="/resources/images/space_logo.png" style="scale: 80%;"> 
+		<div class="row justify-content-center" style="height: 400px;">   
+			<img alt="" src="/resources/images/space_logo.png"  height="100%" width="auto">
 		</div>
-		
-		<div class="box">
-			<div class="form">
-				<h2>Login</h2>
-				<div class="inputBox">
-					<input type="text" required="required">
-					<span>Username</span>
-					<i></i>
+		<div class="row justify-content-center pb-4">
+			<div class="box">
+				<div class="form">
+					<h2>Login</h2>
+					<div class="inputBox">
+						<input type="text" required="required">
+						<span>Username</span>
+						<i></i>
+					</div>
+					<div class="inputBox">
+						<input type="password" required="required">
+						<span>Password</span>
+						<i></i> 
+					</div>
+					<div class="links">
+						<a href="#">Forgot Password</a>
+						<a href="#">Signup</a>
+					</div>
+					<input type="submit" value="Login">
 				</div>
-				<div class="inputBox">
-					<input type="password" required="required">
-					<span>Password</span>
-					<i></i> 
-				</div>
-				<div class="links">
-					<a href="#">Forgot Password</a>
-					<a href="#">Signup</a>
-				</div>
-				<input type="submit" value="Login">
 			</div>
 		</div>
 	</div>
