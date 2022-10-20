@@ -14,8 +14,7 @@
 	<title>🅷🅴🅻🅻🅾 우주마켓 𝙒𝙝𝙮𝙧𝙖𝙣𝙤...</title> 
 	
 	<!-- common Link s -->
-	<%@include file="link.jsp"%>
-	<!-- common Link e -->
+	<%@include file="/resources/include/link.jsp"%>
 
 	<style type="text/css">
 		div {
@@ -84,10 +83,8 @@
 			</div>
 		</div>
 	
-<!--  스크립트  -->		
-	<!-- common script s -->
-	<%@include file="script.jsp"%>
-	<!-- common script e -->
+	<!--  스크립트  -->		
+	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
 		

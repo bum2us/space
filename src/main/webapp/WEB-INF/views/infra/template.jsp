@@ -13,9 +13,9 @@
 
 	<title>▶▶▶우주마켓◀◀◀</title>
 	
-	<!-- common Link s -->
-	<%@include file="link.jsp"%>
-	<!-- common Link e -->
+	<!-- link -->
+	<%@include file="/resources/include/link.jsp"%>
+	
 
 	<style>
 		div	{
@@ -28,10 +28,8 @@
 	
 	Hello world..!!
 	
-<!--  스크립트  -->		
-	<!-- common script s -->
-	<%@include file="script.jsp"%>
-	<!-- common script e -->
+	<!--  스크립트  -->		
+	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
 		
