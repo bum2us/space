@@ -13,5 +13,10 @@ public class MemberController {
 		return "infra/member/user/joinForm";
 	}
 	
-
+	@RequestMapping("memberList")
+	public String memberList() throws Exception{
+		
+		return "infra/member/xdmin/memberList";
+	}
+	
 }

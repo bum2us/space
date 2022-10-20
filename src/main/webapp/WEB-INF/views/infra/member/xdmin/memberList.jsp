@@ -26,7 +26,7 @@
 </head>
 <body>
 	
-	Hello world..!!
+	<%@include file="/resources/include/header.jsp"%>
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
