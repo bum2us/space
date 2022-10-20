@@ -21,11 +21,11 @@
 	                  <!-- ***** Search End ***** -->
 	                  <!-- ***** Menu Start ***** -->
 	                  <ul class="nav">
-	                      <li><a href="index.html">Home</a></li>
-	                      <li><a href="browse.html">Browse</a></li>
-	                      <li><a href="details.html">Details</a></li>
-	                      <li><a href="streams.html" class="active">Streams</a></li>
-	                      <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
+	                      <li><a href="index.html">Live</a></li>
+	                      <li><a href="browse.html">중고거래</a></li>
+	                      <li><a href="details.html">동네소식</a></li>
+	                      <li><a href="streams.html" class="active">채팅</a></li>
+	                      <li><a href="profile.html">은평구..<img src="assets/images/profile-header.jpg" alt=""></a></li>
 	                  </ul>   
 	                  <a class='menu-trigger'>
 	                      <span>Menu</span>
