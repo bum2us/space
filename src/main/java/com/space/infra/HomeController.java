@@ -9,7 +9,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/")
 	public String home() throws Exception{		
-		return "infra/home";
+		return "infra/select";
 	}
 	
 }
