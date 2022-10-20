@@ -15,6 +15,7 @@
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	
 
 	<style>
 		div	{
@@ -23,8 +24,9 @@
 		
 	</style>
 </head>
-<body> 
+<body>
 	
+	Hello world..!!
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>

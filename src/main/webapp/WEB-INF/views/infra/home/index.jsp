@@ -55,32 +55,35 @@
 			<div class="row justify-content-center">   
 				<img alt="" src="/resources/images/space_logo.png" style="scale: 80%;"> 
 			</div>
-			<div class="row">
-				<div class="col linkContainer">
-					<div class="row">
-						<div class="col linkicon">
-							<i class="fa-solid fa-user"></i>
+			<form id="mainForm" method="POST">
+				<input type="hidden" id="xdminNy" name="xdminNy">
+				<div class="row">
+					<div class="col linkContainer">
+						<div class="row">
+							<div class="col linkicon">
+								<i class="fa-solid fa-user"></i>
+							</div>
+						</div>
+						<div class="row">
+							<div class="main-button">
+								<a class="index-links" href="javascript:runForm('0')"  style="font-size:24pt; font-weight:600;">USER</a>
+							</div>	
 						</div>
 					</div>
-					<div class="row">
-						<div class="main-button">
-							<a class="index-links" href="/login"  style="font-size:24pt; font-weight:600;">USER</a>
-						</div>	
-					</div>
-				</div>
-				<div class="col linkContainer">
-					<div class="row">
-						<div class="col linkicon">
-							<i class="fa-solid fa-screwdriver-wrench"></i>
+					<div class="col linkContainer">
+						<div class="row">
+							<div class="col linkicon">
+								<i class="fa-solid fa-screwdriver-wrench"></i>
+							</div>
+						</div>
+						<div class="row">
+							<div class="main-button"> 
+								<a class="index-links" href="javascript:runForm('1')"  style="font-size:24pt; font-weight:600;">ADMIN</a> 
+							</div>	
 						</div>
 					</div>
-					<div class="row">
-						<div class="main-button"> 
-							<a class="index-links" href="/login"  style="font-size:24pt; font-weight:600;">ADMIN</a> 
-						</div>	
-					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	
 	<!--  스크립트  -->		
@@ -88,6 +91,13 @@
 	
 	<script>
 		
+		runForm = function(xdminNy){
+			
+			$("#xdminNy").val(xdminNy);
+			$("#mainForm").attr("action","login").submit();
+			
+		}
+	
 	</script>	
 </body>
 </html>
