@@ -32,11 +32,21 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="page-content">
-					<div class="main-banner">
+				
+					<div class="most-popular">
 						<div class="row">
 							<div class="col-lg-7">
-								<div class="header-text">
+								<div class="heading-section">
 									<h4>회원가입</h4>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<em> 이름</em>
+									
+									</div>
+									<div class="col-lg-8">
+										<input type="text">
+									</div>
 								</div>
 							</div>
 						</div>
