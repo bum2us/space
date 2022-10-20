@@ -16,7 +16,6 @@
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
 	
-
 	<style>
 		div	{
 			/* border: solid 1px orange; */
@@ -25,18 +24,35 @@
 	</style>
 </head>
 <body>
+
+	<!-- header -->
+	<%@include file="/resources/include/header.jsp"%>
 	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="page-content">
+					<div class="main-banner">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="header-text">
+									<h4>회원가입</h4>
+								</div>
+							</div>
+						</div>
+					
+					</div>
+
+				</div>
+			</div>
+		</div>	
+	</div>
 	
-	
-	
-	
-	
-	
-	
+	<!-- footer -->
+	<%@include file="/resources/include/footer.jsp"%>
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
-	
 	
 </body>
 </html>
