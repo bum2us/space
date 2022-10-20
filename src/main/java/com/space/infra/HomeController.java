@@ -11,13 +11,13 @@ public class HomeController {
 	@RequestMapping(value="")
 	public String home() throws Exception{		
 		
-		return "infra/index";
+		return "infra/home/index";
 	}
 	
 	@RequestMapping(value="login")
 	public String login() throws Exception{
 		
-		return "infra/user/login";
+		return "infra/member/loginForm";
 	}
 	
 }
