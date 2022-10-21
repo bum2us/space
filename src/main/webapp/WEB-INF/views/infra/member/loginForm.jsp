@@ -183,10 +183,12 @@
 </head>
 <body>
 	<form name="loginForm">
+		<!-- index에서 받아온 seq에 따라 user/admin 로그인 분류 -->
+		<input type="hidden" value="">
 		<div class="container-md">
 			<div class="row jutify-content-center">  
 				<div class="col text-center" style=" padding: 10px;">  
-					<img alt="" src="/resources/images/space_logo.png" style="width: 620px; height:300px;">       
+					<img src="/resources/images/space_logo.png" style="width: 620px; height:300px;">       
 				</div>			
 			</div>  
 			<div class="row justify-content-center pb-5">
