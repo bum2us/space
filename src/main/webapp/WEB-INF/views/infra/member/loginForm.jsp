@@ -104,7 +104,7 @@
 			background: transparent;
 			border: none;
 			outline: none;
-			color: #ffff;
+			/* color: #ffff; */
 			font-size: 1em;
 			letter-spacing: 0.05em;
 			z-index: 10;
@@ -166,7 +166,7 @@
 			border: none;
 			outline: none;
 			background: #E86390;
-			color: #ffff;
+			/* color: #ffff; */
 			padding: 11px 25px;
 			width: 100px;
 			margin-top: 10px;
@@ -182,35 +182,37 @@
 	</style>
 </head>
 <body>
-	<div class="container-md">
-		<div class="row jutify-content-center">  
-			<div class="col text-center" style=" padding: 10px;">  
-				<img alt="" src="/resources/images/space_logo.png" style="width: 620px; height:300px;">       
-			</div>			
-		</div>  
-		<div class="row justify-content-center pb-5">
-			<div class="box">
-				<div class="form">
-					<h2>Login</h2>
-					<div class="inputBox">
-						<input type="text" required="required">
-						<span>ID</span>
-						<i></i>
+	<form name="loginForm">
+		<div class="container-md">
+			<div class="row jutify-content-center">  
+				<div class="col text-center" style=" padding: 10px;">  
+					<img alt="" src="/resources/images/space_logo.png" style="width: 620px; height:300px;">       
+				</div>			
+			</div>  
+			<div class="row justify-content-center pb-5">
+				<div class="box">
+					<div class="form">
+						<h2>Login</h2>
+						<div class="inputBox">
+							<input type="text" required="required" value="space">
+							<span>ID</span>
+							<i></i>
+						</div>
+						<div class="inputBox">
+							<input type="password" required="required" value="space1234a">
+							<span>Password</span>
+							<i></i> 
+						</div>
+						<div class="links">
+							<a href="#">Find ID/Password</a>
+							<a href="/member/joinForm">Signup</a> 
+						</div>
+						<input type="submit" value="Login">
 					</div>
-					<div class="inputBox">
-						<input type="password" required="required">
-						<span>Password</span>
-						<i></i> 
-					</div>
-					<div class="links">
-						<a href="#">Find ID/Password</a>
-						<a href="/member/joinForm">Signup</a> 
-					</div>
-					<input type="submit" value="Login">
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>

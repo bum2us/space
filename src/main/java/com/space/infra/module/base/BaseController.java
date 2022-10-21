@@ -15,8 +15,8 @@ public class BaseController {
 		return "infra/home/index";
 	}
 	
-	@RequestMapping(value="login")
-	public String login(@ModelAttribute("loginCheck")Base dto) throws Exception{
+	@RequestMapping(value="loginForm")
+	public String loginForm(@ModelAttribute("loginCheck")Base dto) throws Exception{
 		
 		return "infra/member/loginForm";
 	}

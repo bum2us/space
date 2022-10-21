@@ -94,7 +94,7 @@
 		runForm = function(xdminNy){
 			
 			$("#xdminNy").val(xdminNy);
-			$("#mainForm").attr("action","login").submit();
+			$("#mainForm").attr("action","loginForm").submit();
 			
 		}
 	
