@@ -21,42 +21,47 @@
 			/* border: solid 1px orange; */
 		}
 		
+		.signUp_input_box {
+			width: calc(100% / 4 - 20px);   
+		}
+		 
+		.signUp_input_box input {
+		
+			height: 45px;
+			width: 100%; 
+			padding: 5px;
+			color: white;
+			background: transparent;
+			border-width: 0px 0px 2px 0px;
+		    border-style:solid;
+		    border-image:linear-gradient(to right,#3D237C, #225C9A); 
+		    border-image-slice:1;
+					
+		} 
+		
 	</style>
 </head>
 <body>
-
-	<!-- header -->
-	<%@include file="/resources/include/header.jsp"%>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="page-content">
-				
-					<div class="most-popular">
-						<div class="row">
-							<div class="col-lg-7">
-								<div class="heading-section">
-									<h4>회원가입</h4>
-								</div>
-								<div class="row">
-									<div class="col-lg-4">
-										<em> 이름</em>
-									
-									</div>
-									<div class="col-lg-8">
-										<input type="text">
-									</div>
-								</div>
-							</div>
-						</div>
-					
-					</div>
-
+	  		
+	<div class="container-md">
+		<div class="row jutify-content-center">  
+			<div class="col text-center" style=" padding: 10px;">  
+				<img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">       
+			</div>			
+		</div>  
+		<form action="">	
+			<div class="row justify-content-center mb-4">
+			
+				<div class="col text-center signUp_input_box">
+					<input type="text" placeholder="아이디를 입력하세요">
 				</div>
+				 
 			</div>
-		</div>	
-	</div>
+		
+		
+		
+		</form>
+	</div>  
 	
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
