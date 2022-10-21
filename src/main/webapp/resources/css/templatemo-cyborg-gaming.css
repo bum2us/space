@@ -25,7 +25,7 @@ Table of contents
 font & reset css
 --------------------------------------------- 
 */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900"); */
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -84,7 +84,7 @@ header, nav, section, article, aside, footer, hgroup {
 
 html, body {
   font-family: 'Pretendard-Regular';
-  font-weight: 400;
+  font-weight: 100,200,300,400,500,600,700,800,900;
   background-color: #1e1e1e;
   font-size: 16px;
   -ms-text-size-adjust: 100%;

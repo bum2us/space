@@ -21,23 +21,50 @@
 			/* border: solid 1px orange; */
 		}
 		
+		.inputLabel {
+			color:white; 
+			font-weight:800;
+		}
 		
+		.labelBox {
+			display: flex; 
+			align-items: center; 
+		}
+		
+		input {
+			width: 100%; 
+			background: transparent; 
+			border: none;  
+			border-bottom: 1px solid;
+			color: white;
+		}
+		 
 		
 		
 	</style>
 </head>
 <body>
 	  		
-	<div class="container-md">
+	<div class="container-md" style="width: 25%">   
+		
 		<div class="row jutify-content-center">  
 			<div class="col text-center" style=" padding: 10px;">  
 				<img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">       
 			</div>			
 		</div>  
+		
 		<form action="">	
-			<div class="form-group">
-				<label>이름</label>
-				<input type="text" class="form-control" placeholder="이름">
+			<div class="input-area">
+				
+				<div class="row justify-content-center mb-3">
+					<div class="col-2 labelBox">
+						<label class="inputLabel">이름</label>   
+					</div>
+					<div class="col input">
+						<input type="text" placeholder="이름">			
+					</div>
+				</div>  
+				
 			</div>
 		</form>
 	</div>  
