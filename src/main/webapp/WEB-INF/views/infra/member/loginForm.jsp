@@ -27,8 +27,6 @@
 			box-sizing: border-box;
 		}
 		
-	
-
 		.box {
 			position: relative;
 			width: 380px;
@@ -106,7 +104,7 @@
 			background: transparent;
 			border: none;
 			outline: none;
-			color: #23242a;
+			color: #ffff;
 			font-size: 1em;
 			letter-spacing: 0.05em;
 			z-index: 10;
@@ -117,7 +115,7 @@
 			left: 0;
 			padding: 20px 0px 10px;
 			font-size: 1em;
-			color: #ffff;
+			color: #8f8f8f;
 			pointer-events: none;
 			letter-spacing: 0.05em;
 			transition: 0.5s;
@@ -139,7 +137,7 @@
 			border-radius: 4px;
 			transition: 0.5s;
 			pointer-events: none;
-			z-index: 9;
+			z-index: 9;ss
 		}
 
 		.inputBox input:valid ~ i,
@@ -155,7 +153,7 @@
 		.links a {
 			margin: 10px 0;
 			font-size: 0.75em;
-			color: #ffff;
+			color: #8f8f8f;
 			text-decoration: none;
 		}
 
@@ -168,6 +166,7 @@
 			border: none;
 			outline: none;
 			background: #E86390;
+			color: #ffff;
 			padding: 11px 25px;
 			width: 100px;
 			margin-top: 10px;
@@ -175,20 +174,27 @@
 			font-weight: 600;
 			cursor: pointer;
 		}
+		
+		input[type="submit"]:active {
+			opacity: 0.8;
+		}
+		
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="row justify-content-center" style="height: 400px;">   
-			<img alt="" src="/resources/images/space_logo.png"  height="100%" width="auto">
+		<center>
+		<div class="row pb-0" style="width: 60%;">   
+			<img alt="" src="/resources/images/space_logo.png">
 		</div>
-		<div class="row justify-content-center pb-4">
+		</center>
+		<div class="row justify-content-center pb-5">
 			<div class="box">
 				<div class="form">
 					<h2>Login</h2>
 					<div class="inputBox">
 						<input type="text" required="required">
-						<span>Username</span>
+						<span>ID</span>
 						<i></i>
 					</div>
 					<div class="inputBox">
@@ -197,7 +203,7 @@
 						<i></i> 
 					</div>
 					<div class="links">
-						<a href="#">Forgot Password</a>
+						<a href="#">Find ID/Password</a>
 						<a href="#">Signup</a>
 					</div>
 					<input type="submit" value="Login">

@@ -13,6 +13,28 @@ public class MemberController {
 		return "infra/member/user/joinForm";
 	}
 	
+	@RequestMapping("loginForm")
+	public String loginForm() throws Exception{
+		
+		return "infra/member/loginForm";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* ====================admin======================== */
+	
+	
 	@RequestMapping("memberList")
 	public String memberList() throws Exception{
 		
