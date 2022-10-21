@@ -182,12 +182,12 @@
 	</style>
 </head>
 <body>
-	<div class="container">
-		<center>
-		<div class="row pb-0" style="width: 60%;">   
-			<img alt="" src="/resources/images/space_logo.png">
-		</div>
-		</center>
+	<div class="container-md">
+		<div class="row jutify-content-center">  
+			<div class="col text-center" style=" padding: 10px;">  
+				<img alt="" src="/resources/images/space_logo.png" style="width: 620px; height:300px;">       
+			</div>			
+		</div>  
 		<div class="row justify-content-center pb-5">
 			<div class="box">
 				<div class="form">
@@ -204,7 +204,7 @@
 					</div>
 					<div class="links">
 						<a href="#">Find ID/Password</a>
-						<a href="#">Signup</a>
+						<a href="/member/joinForm">Signup</a> 
 					</div>
 					<input type="submit" value="Login">
 				</div>
