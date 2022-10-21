@@ -1,4 +1,4 @@
-package com.space.infra.module.base;
+package com.space.infra.modules.base;
 
 public class Base {
 

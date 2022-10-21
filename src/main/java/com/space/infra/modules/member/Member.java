@@ -1,4 +1,4 @@
-package com.space.infra.module.member;
+package com.space.infra.modules.member;
 
 public class Member {
 	

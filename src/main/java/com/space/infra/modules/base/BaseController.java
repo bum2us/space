@@ -1,4 +1,4 @@
-package com.space.infra.module.base;
+package com.space.infra.modules.base;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

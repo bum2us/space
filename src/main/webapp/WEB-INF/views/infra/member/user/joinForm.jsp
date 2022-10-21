@@ -17,27 +17,12 @@
 	<%@include file="/resources/include/link.jsp"%>
 	
 	<style>
-		div	{
+		div	{ 
 			/* border: solid 1px orange; */
 		}
 		
-		.signUp_input_box {
-			width: calc(100% / 4 - 20px);   
-		}
-		 
-		.signUp_input_box input {
 		
-			height: 45px;
-			width: 100%; 
-			padding: 5px;
-			color: white;
-			background: transparent;
-			border-width: 0px 0px 2px 0px;
-		    border-style:solid;
-		    border-image:linear-gradient(to right,#3D237C, #225C9A); 
-		    border-image-slice:1;
-					
-		} 
+		
 		
 	</style>
 </head>
@@ -50,16 +35,10 @@
 			</div>			
 		</div>  
 		<form action="">	
-			<div class="row justify-content-center mb-4">
-			
-				<div class="col text-center signUp_input_box">
-					<input type="text" placeholder="아이디를 입력하세요">
-				</div>
-				 
+			<div class="form-group">
+				<label>이름</label>
+				<input type="text" class="form-control" placeholder="이름">
 			</div>
-		
-		
-		
 		</form>
 	</div>  
 	
