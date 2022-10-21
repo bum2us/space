@@ -13,12 +13,6 @@ public class MemberController {
 		return "infra/member/user/joinForm";
 	}
 	
-	@RequestMapping("loginForm")
-	public String loginForm() throws Exception{
-		
-		return "infra/member/loginForm";
-	}
-	
 	
 	
 	
