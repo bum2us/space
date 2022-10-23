@@ -8,7 +8,10 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.member.Member"></resultMap>
     
-    <select id="">
+    <select id="" resultMap="resultMapObj">
+    
+    	
+    
     </select>
     
 </mapper> 
