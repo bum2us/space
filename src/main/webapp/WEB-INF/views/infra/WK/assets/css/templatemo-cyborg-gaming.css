@@ -41,6 +41,10 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+hr {
+	color: solid 3px white;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -779,6 +783,15 @@ Banner Style
   min-height: 380px;
   border-radius: 23px;
   padding: 80px 60px;
+}
+
+.main-banner-map {
+background-image: url(../images/map.jpg);
+background-position: center center;
+background-size: cover;
+min-height: 380px;
+border-radius: 23px;
+padding: 80px 60px;
 }
 
 .main-banner h6 {
