@@ -781,20 +781,31 @@ Banner Style
   padding: 80px 60px;
 }
 
-.main-banner h6 {
+/* 추가 */
+.main-banner-main{
+  background-image: url(../images/holeman.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 23px;
+  padding: 80px 60px;
+}
+
+
+.main-banner-main h6 {
   font-size: 20px;
   color: #fff;
   font-weight: 400;
   margin-bottom: 25px;
 }
 
-.main-banner h4 {
+.main-banner-main h4 {
   font-size: 45px;
   text-transform: uppercase;
   margin-bottom: 25px;
 }
 
-.main-banner h4 em {
+.main-banner-main h4 em {
   font-style: normal;
   color: #ec6090;
 }

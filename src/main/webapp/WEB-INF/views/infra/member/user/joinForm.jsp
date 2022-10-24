@@ -64,6 +64,14 @@
 						<input type="text" placeholder="이름">			
 					</div>
 				</div>  
+				<div class="row justify-content-center mb-3">
+					<div class="col-2 labelBox">
+						<label class="inputLabel">이름</label>   
+					</div>
+					<div class="col input">
+						<input type="text" placeholder="이름">			
+					</div>
+				</div>  
 				
 			</div>
 		</form>
