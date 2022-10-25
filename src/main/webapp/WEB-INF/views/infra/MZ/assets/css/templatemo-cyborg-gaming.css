@@ -810,6 +810,34 @@ Banner Style
   color: #ec6090;
 }
 
+.main-banner-live {
+  background-image: url(../images/astronaut1920.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 23px;
+  padding: 80px 60px;
+}
+
+
+.main-banner-live h6 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.main-banner-live h4 {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.main-banner-live h4 em {
+  font-style: normal;
+  color: #ec6090;
+}
+
 /* 
 ---------------------------------------------
 Most Popular Style
@@ -1012,6 +1040,8 @@ Featured Games Style
 
 .featured-games .item img {
   border-radius: 23px;
+  width: 352px;
+  height: 630px;
 }
 
 .featured-games .item h4 {
@@ -1196,10 +1226,13 @@ Live Stream Style
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
+   
 }
 
 .live-stream .thumb img {
-  border-radius: 23px; 
+  border-radius: 23px;
+  width: 261px;
+  height: 235px;
 }
 
 .live-stream .thumb:hover .hover-effect {
