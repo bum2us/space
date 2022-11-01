@@ -8,6 +8,25 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.member.Member"></resultMap>
     
+    <select id="selectList" resultMap = "resultMapObj">
+	
+		SELECT
+			*
+		FROM member
+		WHERE
+			1=1
+		<include refid="searchSql"/>
+		<include refid="rangeSql"/>
+	</select>
+	
+	<select id="selectListCount" resultType ="Integer" >
+		SELECT
+			COUNT(*)
+		FROM member
+		WHERE 1 = 1
+		<include refid="searchSql"/>
+	</select>
+    
     <select id="checkLogin" resultMap="resultMapObj">
     
     	SELECT
@@ -18,5 +37,37 @@
    		AND mmPassword = #{mmPassword}
     
     </select>
+	
+	<sql id="rangeSql"> 
+		LIMIT #{pageSize} OFFSET #{pageRange}  
+	</sql>
+	
+	<sql id="searchSql">
+		AND mmDelNy LIKE 0  
+		AND
+		<choose>
+			<when test= "shOption == null"> mmName </when>
+			<when test= "shOption == 1"> mmName </when>
+			<when test= "shOption == 2"> mmId </when>
+			<when test= "shOption == 3"> mmNickname </when>
+			<when test= "shOption == 4"> mmEmail </when>
+			<when test= "shOption == 5"> mmPhone </when>
+		</choose>
+		<choose>
+			<when test=" shValue == null">LIKE CONCAT ('%','','%')</when>
+			<when test=" shValue != null">LIKE CONCAT ('%',#{shValue},'%')</when> 
+		</choose> 
+			<if test="shGender != null">AND mmGender LIKE #{shGender}</if> 
+		<choose>
+			<when test="shDateOption == null">AND  mmCreateDate </when>
+			<when test="shDateOption == 1">AND  mmCreateDate </when>
+			<when test="shDateOption == 2">AND  mmDob </when>
+		</choose>
+		<choose>
+			<when test = 'shDateStart == null or shDateStart ==""'> BETWEEN CONCAT('1700-01-01', ' 00:00:00') AND CONCAT('2300-01-01',' 00:00:00') </when>
+			<when test = "shDateStart != null and shDateEnd != null">BETWEEN CONCAT(#{shDateStart},' 00:00:00') AND CONCAT(#{shDateEnd},' 23:59:59')</when> 
+		</choose>   
+		
+	</sql> 
     
 </mapper> 

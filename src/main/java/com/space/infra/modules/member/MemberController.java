@@ -1,12 +1,15 @@
 package com.space.infra.modules.member;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -54,11 +57,7 @@ public class MemberController {
 		httpSession.invalidate();
 		
 		return "infra/member/loginForm";
-	}
-	
-	
-	
-	
+	}	
 	
 	
 	
@@ -70,7 +69,12 @@ public class MemberController {
 	
 	
 	@RequestMapping("memberList")
-	public String memberList() throws Exception{
+	public String memberList(Model model,@ModelAttribute("vo") MemberVo vo) throws Exception{
+		
+		vo.setPageTotal(service.selectListCount(vo));
+		
+		List<Member> list = service.selectList(vo);
+		model.addAttribute("list", list);
 		
 		return "infra/member/xdmin/memberList";
 	}

@@ -7620,8 +7620,14 @@ caption {
   caption-side: bottom; }
 
 th {
-  text-align: inherit;
-  text-align: -webkit-match-parent; }
+  text-align: center;
+  font-size:12pt;
+  font-weight: bold;}
+
+td {
+  text-align: center;
+  font-size:10pt;
+}
 
 label {
   display: inline-block;
@@ -17883,7 +17889,7 @@ div.tagsinput {
 .table, .jsgrid .jsgrid-table {
   margin-bottom: 0;
   color: #6c7293; }
-  .table thead th, .jsgrid .jsgrid-table thead th {
+  .jsgrid .jsgrid-table thead th {
     border-top: 0;
     border-bottom-width: 1px;
     font-weight: 500;

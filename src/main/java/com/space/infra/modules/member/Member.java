@@ -12,7 +12,7 @@ public class Member {
 	private String mmNickName;
 	private String mmId;
 	private String mmPassword;
-	private String mmPhoneNumber;
+	private String mmPhone;
 	private String mmEmail;
 	private String mmCreateDate;
 	private String mmDob;
@@ -67,11 +67,11 @@ public class Member {
 	public void setMmPassword(String mmPassword) {
 		this.mmPassword = mmPassword;
 	}
-	public String getMmPhoneNumber() {
-		return mmPhoneNumber;
+	public String getMmPhone() {
+		return mmPhone;
 	}
-	public void setMmPhoneNumber(String mmPhoneNumber) {
-		this.mmPhoneNumber = mmPhoneNumber;
+	public void setMmPhone(String mmPhone) {
+		this.mmPhone = mmPhone;
 	}
 	public String getMmEmail() {
 		return mmEmail;
