@@ -14,6 +14,8 @@ public class MemberDao {
 	private SqlSession sqlSession;
 	
 	private String namespace="com.space.infra.modules.member.MemberMapper";
+
+	public Member checkLogin(Member dto) { return sqlSession.selectOne(namespace+".checkLogin",dto); }
 	
 	
 	

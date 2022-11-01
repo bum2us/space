@@ -8,9 +8,14 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.member.Member"></resultMap>
     
-    <select id="" resultMap="resultMapObj">
+    <select id="checkLogin" resultMap="resultMapObj">
     
-    	
+    	SELECT
+    		*
+   		FROM member
+   		WHERE 1=1
+   		AND mmId = #{mmId}
+   		AND mmPassword = #{mmPassword}
     
     </select>
     

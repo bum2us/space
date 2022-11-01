@@ -179,10 +179,20 @@
 			opacity: 0.8;
 		}
 		
+		.main-button {
+			background: #E86390;
+			color: #28292D;   
+			border-radius: 5px;
+			border:none;
+			height: 50px; 
+			width: 80px;
+			font-weight: bold; 
+		}
+		
 	</style>
 </head>
 <body>
-	<form name="loginForm">
+	<form id="mainForm" method="POST">
 		<!-- index에서 받아온 seq에 따라 user/admin 로그인 분류 -->
 		<input type="hidden" value="">
 		<div class="container-md">
@@ -196,12 +206,12 @@
 					<div class="form">
 						<h2>Login</h2>
 						<div class="inputBox">
-							<input type="text" required="required" value="space">
+							<input type="text"  id="mmId" value="space">
 							<span>ID</span>
 							<i></i>
 						</div>
 						<div class="inputBox">
-							<input type="password" required="required" value="space1234a">
+							<input type="password" id="mmPassword" value="1234">
 							<span>Password</span>
 							<i></i> 
 						</div>
@@ -209,7 +219,7 @@
 							<a href="#">Find ID/Password</a>
 							<a href="/member/joinForm">Signup</a> 
 						</div>
-						<input type="submit" value="Login">
+						<button class="main-button" type="button" onclick="login()">Login</button>  
 					</div>
 				</div>
 			</div>
@@ -221,6 +231,31 @@
 	
 	<script>
 		
+		login = function() {
+			
+			$.ajax({
+			
+				url: '/member/login'
+				,type: 'POST'
+				,datatype: 'json'
+				,data: {
+					mmId: $("#mmId").val()
+					,mmPassword: $("#mmPassword").val()
+				},
+				success:function(result){
+					if(result.rt=="success"){
+						alert("로그인 성공..!");
+					}else{
+						alert("로그인 정보가 일치하는 회원이 없습니다.");
+					}
+				},
+				error:function(){
+					
+				}
+			});
+			
+		}
+	
 	</script>	
 </body>
 </html>

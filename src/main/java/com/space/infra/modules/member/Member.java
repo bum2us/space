@@ -9,6 +9,7 @@ public class Member {
 	private Integer mmAge;
 	private Integer mmTelecom;
 	private String mmName;
+	private String mmNickName;
 	private String mmId;
 	private String mmPassword;
 	private String mmPhoneNumber;
@@ -53,6 +54,12 @@ public class Member {
 	}
 	public void setMmId(String mmId) {
 		this.mmId = mmId;
+	}
+	public String getMmNickName() {
+		return mmNickName;
+	}
+	public void setMmNickName(String mmNickName) {
+		this.mmNickName = mmNickName;
 	}
 	public String getMmPassword() {
 		return mmPassword;
