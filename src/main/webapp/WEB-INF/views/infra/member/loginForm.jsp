@@ -245,6 +245,7 @@
 				success:function(result){
 					if(result.rt=="success"){
 						alert("로그인 성공..!");
+						location.href="/home";
 					}else{
 						alert("로그인 정보가 일치하는 회원이 없습니다.");
 					}

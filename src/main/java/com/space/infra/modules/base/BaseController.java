@@ -10,7 +10,7 @@ public class BaseController {
 
 	
 	@RequestMapping(value="")
-	public String home() throws Exception{		
+	public String index() throws Exception{		
 		
 		return "infra/home/index";
 	}
@@ -19,6 +19,12 @@ public class BaseController {
 	public String loginForm(@ModelAttribute("loginCheck")Base dto) throws Exception{
 		
 		return "infra/member/loginForm";
+	}
+	
+	@RequestMapping(value="home")
+	public String home() throws Exception  {
+		
+		return "infra/home/user/home";
 	}
 	
 }

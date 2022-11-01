@@ -11,9 +11,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	
-	<title>🅷🅴🅻🅻🅾 우주마켓 𝙒𝙝𝙮𝙧𝙖𝙣𝙤...</title> 
+	<title>🛸우주마켓🛸</title>
 	
-	<!-- common Link s -->
+	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
 
 	<style type="text/css">

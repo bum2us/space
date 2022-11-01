@@ -7,11 +7,8 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
 
-	<title>▶▶▶우주마켓◀◀◀</title>
+	<title>🛸우주마켓🛸</title>
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
@@ -25,8 +22,13 @@
 	</style>
 </head>
 <body>
+	<!-- header  -->
+	<%@include file="/resources/include/header.jsp"%>
 	
 	Hello world..!!
+	
+	<!-- footer -->
+	<%@include file="/resources/include/footer.jsp"%>
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
