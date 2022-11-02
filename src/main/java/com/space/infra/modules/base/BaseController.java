@@ -27,4 +27,10 @@ public class BaseController {
 		return "infra/home/user/home";
 	}
 	
+	@RequestMapping(value="adminhome")
+	public String adminhome() throws Exception  {
+		
+		return "infra/home/xdmin/home";
+	}
+	
 }
