@@ -7,7 +7,14 @@ public class BaseVo {
 	private Integer shDateOption;
 	private String shDateStart;
 	private String shDateEnd;
+	private Integer shDelNy;
 	
+	public Integer getShDelNy() {
+		return shDelNy;
+	}
+	public void setShDelNy(Integer shDelNy) {
+		this.shDelNy = shDelNy;
+	}
 	private Integer pageNumber;
 	private Integer pageSize;
 	private Integer pageRange;

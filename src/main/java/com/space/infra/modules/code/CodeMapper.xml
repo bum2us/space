@@ -21,10 +21,92 @@
     
     </select>
     
-    <select id="" resultMap="resultMapObj">
-    
-    	
-    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT 
+			cc.ccSeq
+		    ,cc.ccName
+		    ,cc.ccGroupSeq as cgSeq
+		    ,cg.cgName
+		    ,cc.ccDelNy
+		    ,cc.ccUseNy
+		    ,cc.ccOrder
+		FROM cc cc
+		join ccg cg on cg.cgSeq = cc.ccGroupSeq
+		WHERE 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND cc.ccDelNy = #{shDelNy}</if>
+			<choose>
+				<when test="shOption == 1">AND cc.ccSeq = #{shValue}</when>
+				<when test="shOption == 2">AND cc.ccName LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+		order by cc.ccSeq desc
     </select>
+    
+    <select id="selectOneCount" resultType="Integer">
+    	SELECT COUNT(*)
+    	FROM cc
+   		WHERE 1=1
+		<if test="shDelNy != null and !shDelNy.equals('')">AND ccDelNy = #{shDelNy}</if>
+		<choose>
+			<when test="shOption == 1">AND ccSeq = #{shValue}</when>
+			<when test="shOption == 2">AND ccName LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+    </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+    	SELECT 
+			cc.ccSeq
+		    ,cc.ccName
+		    ,cc.ccGroupSeq as cgSeq
+		    ,cg.cgName
+		    ,cc.ccDelNy
+		    ,cc.ccUseNy
+		    ,cc.ccOrder
+		FROM cc cc
+		join ccg cg on cg.cgSeq = cc.ccGroupSeq
+		WHERE ccSeq = #{ccSeq}
+    </select>
+    
+    <insert id="insert">
+    	insert  into cc (
+    		ccName
+		    ,ccGroupSeq
+		    ,ccDelNy
+		    ,ccUseNy
+		    ,ccOrder
+    	)
+    	values (
+    		#{ccName}
+		    ,#{ccGroupSeq}
+		    ,#{ccDelNy}
+		    ,#{ccUseNy}
+		    ,#{ccOrder}
+    	)
+    	<selectKey resultType="String" keyProperty="ccSeq" order="AFTER">
+    		SELECT last_insert_id()
+    	</selectKey>
+    </insert>
+    	
+    	<update id="update">
+    		update cc
+    		set 
+	    		ccName =#{ccName}
+			    ,ccGroupSeq=#{ccGroupSeq}
+			    ,ccDelNy=#{ccDelNy}
+			    ,ccUseNy=#{ccUseNy}
+			    ,ccOrder=#{ccOrder}
+    		where ccSeq = #{ccSeq}
+    	</update>
+    	
+    	<update id="uelete">
+    		update cc
+    		set
+    			ccDelNy = 1
+    		where ccSeq =#{ccDelNy}
+    	</update>
+    	
+    	<delete id="delete">
+    		DELETE FROM cc WHERE ccSeq = #{ccSeq}
+    	</delete>
+    
     
 </mapper> 

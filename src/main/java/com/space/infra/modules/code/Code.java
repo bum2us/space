@@ -12,9 +12,25 @@ public class Code extends Base{
 	private String ccName;
 	private Integer ccSeq;
 	private Integer ccGroupSeq;
+	private String cgSeq;
 	private Integer ccDelNy;
 	private Integer ccUseNy;
 	private Integer ccOrder;
+	private String cgName;
+	
+	
+	public String getCgName() {
+		return cgName;
+	}
+	public void setCgName(String cgName) {
+		this.cgName = cgName;
+	}
+	public String getCgSeq() {
+		return cgSeq;
+	}
+	public void setCgSeq(String cgSeq) {
+		this.cgSeq = cgSeq;
+	}
 	public static List<Code> getCachedCodeList() {
 		return cachedCodeList;
 	}
