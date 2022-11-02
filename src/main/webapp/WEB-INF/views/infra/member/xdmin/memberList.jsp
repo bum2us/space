@@ -5,6 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="selector" tagdir="/WEB-INF/tags" %> 
+<jsp:useBean id="CodeServiceImpl" class="com.space.infra.modules.code.CodeServiceImpl"/> 
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -24,6 +26,7 @@
 	</style>
 </head>
 <body>
+	<c:set var = "listMemberGender" value = "${CodeServiceImpl.selectListCachedCode('1')}"/>
 	<div class="container-scroller">
         
         <%@include file="/resources/include/adminSidebar.jsp" %>
@@ -153,7 +156,11 @@
 	                                                        <td><c:out value="${list.mmName}"/></td>
 	                                                        <td><c:out value="${list.mmNickName}"/></td>
 	                                                        <td><c:out value="${list.mmId}"/></td>
-	                                                        <td><c:out value="${list.mmGender}"/></td>
+	                                                        <td>
+	                                                        	<c:forEach items="${listMemberGender }" var="gender" varStatus="status">	                                 
+	                                                        		<c:if test="${gender.ccOrder eq list.mmGender}"><c:out value="${gender.ccName}"/></c:if>
+	                                                        	</c:forEach>
+	                                                        </td>
 	                                                        <td><c:out value="${list.mmDob}"/></td>
 	                                                        <td><c:out value="${list.mmPhone}"/></td>
 	                                                        <td><c:out value="${list.mmEmail}"/></td>

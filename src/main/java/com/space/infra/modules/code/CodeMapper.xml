@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.space.infra.modules.code.CodeMapper">
+
+    <resultMap id="resultMapObj" type="com.space.infra.modules.code.Code"></resultMap>
+    
+    <select id="selectListCachedCodeList" resultMap="resultMapObj">
+    	
+    	SELECT
+    		ccName
+    		,ccOrder
+    		,ccGroupSeq
+    	FROM cc
+    	WHERE 1=1
+    	AND ccDelNy = 0
+    	AND ccUseNy = 1
+    
+    </select>
+    
+    <select id="" resultMap="resultMapObj">
+    
+    	
+    
+    </select>
+    
+</mapper> 
