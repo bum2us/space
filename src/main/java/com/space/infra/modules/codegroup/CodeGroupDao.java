@@ -1,5 +1,7 @@
 package com.space.infra.modules.codegroup;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -14,4 +16,8 @@ public class CodeGroupDao {
 	private SqlSession sqlSession;
 	
 	private String namespace="com.space.infra.modules.codegroup.CodeGroupMapper";
+	
+	public List<CodeGroup> selectList() throws Exception {return sqlSession.selectList(namespace + ".selectList", "");}
+	
+	public CodeGroup selectOne(CodeGroup dto) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", "dto");}
 }

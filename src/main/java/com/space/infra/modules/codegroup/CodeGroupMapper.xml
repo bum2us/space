@@ -8,10 +8,25 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.codegroup.CodeGroup"></resultMap>
     
-    <select id="" resultMap="resultMapObj">
-    
-    	
-    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    		 cgSeq
+    		 ,cgName
+    		 ,cgDelNy
+    		 ,cgUseNy
+    	FROM ccg
     </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+    	SELECT
+    		cgSeq
+    		,cgName
+    		,cgDelNy
+    		,cgUseNy
+    	FROM ccg
+    	WHERE 1=1
+    		AND seq = #{seq}
+    </select>
+    
     
 </mapper> 

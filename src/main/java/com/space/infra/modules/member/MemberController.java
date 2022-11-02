@@ -32,6 +32,7 @@ public class MemberController {
 		
 		Map<String,Object> result = new HashMap<String,Object>();
 		
+		
 		Member LoginMember = service.checkLogin(dto);
 		
 		if(LoginMember == null) {
@@ -46,6 +47,10 @@ public class MemberController {
 			httpSession.setAttribute("sessName", LoginMember.getMmName());
 			//httpSession.setAttribute("sessNickName", LoginMember.getMmNickName());
 			//사용자 프로필 이미지 추가 필요
+			
+			result.put("mmId", LoginMember.getMmId());
+			//로그인할 때 adminNy 비교 조건
+			result.put("mmAdminNy", LoginMember.getMmAdminNy());
 		}
 		
 		return result;

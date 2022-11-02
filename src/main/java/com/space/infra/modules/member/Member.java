@@ -16,6 +16,10 @@ public class Member {
 	private String mmEmail;
 	private String mmCreateDate;
 	private String mmDob;
+	private Integer mmAdminNy;
+	private Integer mmDelNy;
+	
+	
 
 	private MultipartFile[] multipartFile;
 	
@@ -97,6 +101,19 @@ public class Member {
 	public void setMultipartFile(MultipartFile[] multipartFile) {
 		this.multipartFile = multipartFile;
 	}
+	public Integer getMmAdminNy() {
+		return mmAdminNy;
+	}
+	public void setMmAdminNy(Integer mmAdminNy) {
+		this.mmAdminNy = mmAdminNy;
+	}
+	public Integer getMmDelNy() {
+		return mmDelNy;
+	}
+	public void setMmDelNy(Integer mmDelNy) {
+		this.mmDelNy = mmDelNy;
+	}
+	
 
 	
 	

@@ -234,7 +234,6 @@
 		login = function() {
 			
 			$.ajax({
-			
 				url: '/member/login'
 				,type: 'POST'
 				,datatype: 'json'
@@ -244,13 +243,26 @@
 				},
 				success:function(result){
 					if(result.rt=="success"){
-						alert("로그인 성공..!");
-						location.href="/home";
+						swal("로그인 성공!", result.mmId + " 회원님 로그인되었습니다.", "success")
+						.then(function() {
+							if(result.mmAdminNy == 1) {
+								
+								/* form.attr("action", "/adminhome").submit(); */
+								
+								location.href="/adminhome";   //관리자
+							} else {
+								
+								/* form.attr("action", "/home").submit(); */
+								
+								location.href="/home";  //일반 사용자
+							}
+						});
 					}else{
 						alert("로그인 정보가 일치하는 회원이 없습니다.");
 					}
 				},
 				error:function(){
+					alert("ajax error...");
 					
 				}
 			});

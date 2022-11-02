@@ -28,14 +28,12 @@
 	</select>
     
     <select id="checkLogin" resultMap="resultMapObj">
-    
     	SELECT
     		*
    		FROM member
    		WHERE 1=1
    		AND mmId = #{mmId}
    		AND mmPassword = #{mmPassword}
-    
     </select>
 	
 	<sql id="rangeSql"> 
