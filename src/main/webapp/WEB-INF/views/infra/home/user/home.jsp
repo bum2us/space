@@ -19,7 +19,7 @@
 			/* border: solid 1px orange; */
 		}
 		.main-banner-main{
-			background-image: url(assets/images/main2.jpg);
+			background-image: url(/resources/images/mainbanner.jpg);
 			background-position: center center;
 			background-size: cover;
 			min-height: 380px;
@@ -28,7 +28,7 @@
 		}
 		
 		
-		.main-banner-main h6 {
+		.main-banner-main h6 { 
 			font-size: 20px;
 			color: #fff;
 			font-weight: 400;
@@ -81,7 +81,7 @@
 	                <div class="owl-features owl-carousel">
 	                  <div class="item">
 	                    <div class="thumb">
-	                      <img src="assets/images/liveScene1.png" alt="">
+	                      <img src="/resources/images/liveScene1.png" alt="">
 	                      <div class="hover-effect">
 	                        <h6>2.4K Streaming</h6>
 	                      </div>
@@ -94,7 +94,7 @@
 	                  </div>
 	                  <div class="item">
 	                    <div class="thumb">
-	                      <img src="assets/images/liveScene2.png" alt="">
+	                      <img src="/resources/images/liveScene2.png" alt="">
 	                      <div class="hover-effect">
 	                        <h6>2.4K Streaming</h6>
 	                      </div>
@@ -107,7 +107,7 @@
 	                  </div>
 	                  <div class="item">
 	                    <div class="thumb">
-	                      <img src="assets/images/liveScene3.jpeg" alt="">
+	                      <img src="/resources/images/liveScene3.png" alt="">
 	                      <div class="hover-effect">
 	                        <h6>2.4K Streaming</h6>
 	                      </div>
@@ -120,7 +120,7 @@
 	                  </div>
 	                  <div class="item">
 	                    <div class="thumb">
-	                      <img src="assets/images/liveScene4.png" alt="">
+	                      <img src="/resources/images/liveScene4.png" alt="">
 	                      <div class="hover-effect">
 	                        <h6>2.4K Streaming</h6>
 	                      </div>
@@ -133,7 +133,7 @@
 	                  </div>
 	                  <div class="item">
 	                    <div class="thumb">
-	                      <img src="assets/images/liveScene2.png" alt="">
+	                      <img src="/resources/images/liveScene5.png" alt="">
 	                      <div class="hover-effect">
 	                        <h6>2.4K Streaming</h6>
 	                      </div>
@@ -145,8 +145,8 @@
 	                    </ul>
 	                  </div>
 	                  <div class="item">
-	                    <div class="thumb">
-	                      <img src="assets/images/liveScene3.jpeg" alt="">
+	                    <div class="thumb"> 
+	                      <img src="/resources/images/liveScene6.png" alt="">
 	                      <div class="hover-effect">
 	                        <h6>2.4K Streaming</h6>
 	                      </div>
@@ -167,7 +167,7 @@
 	                </div>
 	                <ul>
 	                  <li>
-	                    <img src="assets/images/game-01.jpg" alt="" class="templatemo-item">
+	                    <img src="/resources/images/game-01.jpg" alt="" class="templatemo-item">
 	                    <h4>갓우갱</h4>
 	                    <h6>Sandbox</h6>
 	                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.9</span>
@@ -177,7 +177,7 @@
 	                    </div>
 	                  </li>
 	                  <li>
-	                    <img src="assets/images/game-02.jpg" alt="" class="templatemo-item">
+	                    <img src="/resources/images/game-02.jpg" alt="" class="templatemo-item">
 	                    <h4>띵지</h4>
 	                    <h6>Legendary</h6>
 	                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.9</span>
@@ -187,7 +187,7 @@
 	                    </div>
 	                  </li>
 	                  <li>
-	                    <img src="assets/images/game-03.jpg" alt="" class="templatemo-item">
+	                    <img src="/resources/images/game-03.jpg" alt="" class="templatemo-item">
 	                    <h4>사워유자</h4>
 	                    <h6>Battle Royale</h6>
 	                    <span><i class="fa fa-star" style="color: yellow;"></i> 4.9</span>
@@ -216,7 +216,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item1.png" alt="">
+	                    <img src="/resources/images/item1.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -231,7 +231,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> KenganC</span>
 	                    <h4>Just Talking With Fans</h4>
@@ -241,7 +241,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item2.png" alt="">
+	                    <img src="/resources/images/item2.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -256,7 +256,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> LunaMa</span>
 	                    <h4>CS-GO 36 Hours Live Stream</h4>
@@ -266,7 +266,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item3.png" alt="">
+	                    <img src="/resources/images/item3.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -281,7 +281,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> Areluwa</span>
 	                    <h4>Maybe Nathej Allnight Chillin'</h4>
@@ -291,7 +291,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item4.png" alt="">
+	                    <img src="/resources/images/item4.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -306,7 +306,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> GangTm</span>
 	                    <h4>Live Streaming Till Morning</h4>
@@ -318,7 +318,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item1.png" alt="">
+	                    <img src="/resources/images/item1.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -333,7 +333,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> KenganC</span>
 	                    <h4>Just Talking With Fans</h4>
@@ -343,7 +343,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item2.png" alt="">
+	                    <img src="/resources/images/item2.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -358,7 +358,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-02.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> LunaMa</span>
 	                    <h4>CS-GO 36 Hours Live Stream</h4>
@@ -368,7 +368,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item3.png" alt="">
+	                    <img src="/resources/images/item3.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -383,7 +383,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-03.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> Areluwa</span>
 	                    <h4>Maybe Nathej Allnight Chillin'</h4>
@@ -393,7 +393,7 @@
 	              <div class="col-lg-3 col-sm-6">
 	                <div class="item">
 	                  <div class="thumb">
-	                    <img src="assets/images/item4.png" alt="">
+	                    <img src="/resources/images/item4.png" alt="">
 	                    <div class="hover-effect">
 	                      <div class="content">
 	                        <div class="live">
@@ -408,7 +408,7 @@
 	                  </div>
 	                  <div class="down-content">
 	                    <div class="avatar">
-	                      <img src="assets/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
+	                      <img src="/resources/images/avatar-04.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 	                    </div>
 	                    <span><i class="fa fa-check"></i> GangTm</span>
 	                    <h4>Live Streaming Till Morning</h4>
@@ -434,7 +434,7 @@
 	                <div class="col-lg-4">
 	                  <div class="item">
 	                    <div class="icon">
-	                      <img src="assets/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+	                      <img src="/resources/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
 	                    </div>
 	                    <h4>정우경</h4>
 	                    <p>팀장. 근데 오늘 빠짐</p>
@@ -443,7 +443,7 @@
 	                <div class="col-lg-4">
 	                  <div class="item">
 	                    <div class="icon">
-	                      <img src="assets/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+	                      <img src="/resources/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
 	                    </div>
 	                    <h4>신범수</h4>
 	                    <p>엘리트. 근데 자주 빠짐</p>
@@ -452,7 +452,7 @@
 	                <div class="col-lg-4">
 	                  <div class="item">
 	                    <div class="icon">
-	                      <img src="assets/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
+	                      <img src="/resources/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
 	                    </div>
 	                    <h4>고명지</h4>
 	                    <p>팀원. 근데 안빠짐</p>

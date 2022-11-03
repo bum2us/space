@@ -779,9 +779,9 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
+  background-image: url(/resources/images/mainbanner.jpg);
   background-position: center center;
-  background-size: cover;
+  background-size: cover;  
   min-height: 380px;
   border-radius: 23px;
   padding: 80px 60px;
@@ -978,7 +978,11 @@ Featured Games Style
   position: relative;
   overflow: hidden;
 }
-
+.featured-games .item .thumb img {
+	width:180px;
+	height:360px;
+	
+}
 .featured-games .item .thumb .hover-effect {
   position: absolute;
   bottom: -100px;
@@ -989,7 +993,7 @@ Featured Games Style
   transition: all .4s;
 }
 
-.featured-games .item .thumb:hover .hover-effect {
+.featured-games .item .thumb:hover .hover-effect { 
   opacity: 1;
   visibility: visible;
   bottom: 15px;
@@ -1195,6 +1199,8 @@ Live Stream Style
 
 .live-stream .thumb img {
   border-radius: 23px; 
+  width: 210px;
+  height: 210px;
 }
 
 .live-stream .thumb:hover .hover-effect {
