@@ -76,99 +76,13 @@
                             </div>
                         </div>
 
-                        <!-- 검색 -->
-                        <div class="row">
-                            <div class="col-12 grid-margin">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">검색</h4>
-
-                                        <div class="row my-3">
-                                            <div class="col">
-                                            	<selector:selectorMember functionType="shGender" op="${vo.shGender}"></selector:selectorMember>
-                                            </div>
-                                            <div class="col">
-                                            	<selector:selectorMember functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorMember>
-
-                                            </div>
-                                            <div class="col">
-                                                <input class="form-control" type="text" id="startDate" name="shDateStart" placeholder="시작일" value="${vo.shDateStart }">
-                                            </div>
-                                            <div class="col">
-                                                <input class="form-control" type="text" id="endDate" name="shDateEnd" placeholder="종료일" value="${vo.shDateEnd }">
-                                            </div>
-                                        </div>
-										
-                                        <div class="row my-3">
-                                            <div class="col-3">
-                                                <selector:selectorMember functionType="shOption" op="${vo.shOption}"></selector:selectorMember>
-                                            </div>
-                                            <div class="col-3">
-                                                <input class="form-control" type="text" name="shValue" value="${vo.shValue }" placeholder="검색어"> 
-                                            </div>
-                                            <div class="col-1 justify-content-start" style="display:flex;">
-                                                <button style="height:100%; width:40px; margin-right:10px;" class="btn btn-outline-success" type="button" onclick="goForm(0)">
-                                                	<i class="fa-solid fa-magnifying-glass"></i>
-                                               	</button>
-                                                <button style="height:100%; width:40px;" class="btn btn-outline-warning"  type="button" onclick="location.href='/code/codeList'">
-                                                	<i class="fa-solid fa-rotate-left"></i>
-                                               	</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
                         <!-- 테이블 -->
                         <div class="row ">
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">코드 리스트</h4>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr> 
-                                                        <th> <input type="checkbox"> </th>
-                                                        <th> # </th>
-                                                        <th> seq </th>
-                                                        <th> 코드그룹 시퀀스 </th>
-                                                        <th> 코드그룹</th>
-                                                        <th> 코드 </th>
-                                                        <th> 순서 </th>
-                                                        <th> 삭제여부 </th>
-                                                        <th> 사용여부 </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                	<c:choose>
-                                                		<c:when test="${fn:length(list) eq 0}">
-                                                			<tr>
-																<td class="text-center" colspan="9">There is no data!</td>
-															</tr>
-                                                		</c:when>
-                                                		<c:otherwise>
-		                                                	<c:forEach items="${list }" var="list" varStatus="status">
-			                                                    <tr style="cursor:pointer;" onclick="goForm(${list.ccSeq})">
-			                                                        <td><input type="checkbox" onclick="event.stopPropagation()"></td>
-			                                                        <td><c:out value="${status.count}"/></td>
-			                                                        <td><c:out value="${list.ccSeq}"/></td>
-			                                                        <td><c:out value="${list.cgSeq}"/></td>
-			                                                        <td><c:out value="${list.cgName}"/></td>
-			                                                        <td><c:out value="${list.ccName}"/></td>
-			                                                        <td><c:out value="${list.ccOrder}"/></td>
-			                                                        <td><c:out value="${list.ccDelNy}"/></td>
-			                                                        <td><c:out value="${list.ccUseNy}"/></td>
-			                                                    </tr>
-															</c:forEach>
-														</c:otherwise>
-													</c:choose>		
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        <h4 class="card-title">코드 등록</h4>
+                                        
                                     </div>
                                     <div class="card-footer">
 					                     <div class="demo-inline-spacing">
