@@ -12,25 +12,12 @@ public class Code extends Base{
 	private String ccName;
 	private Integer ccSeq;
 	private Integer ccGroupSeq;
-	private String cgSeq;
+	private Integer cgSeq;
 	private Integer ccDelNy;
 	private Integer ccUseNy;
 	private Integer ccOrder;
 	private String cgName;
 	
-	
-	public String getCgName() {
-		return cgName;
-	}
-	public void setCgName(String cgName) {
-		this.cgName = cgName;
-	}
-	public String getCgSeq() {
-		return cgSeq;
-	}
-	public void setCgSeq(String cgSeq) {
-		this.cgSeq = cgSeq;
-	}
 	public static List<Code> getCachedCodeList() {
 		return cachedCodeList;
 	}
@@ -55,6 +42,12 @@ public class Code extends Base{
 	public void setCcGroupSeq(Integer ccGroupSeq) {
 		this.ccGroupSeq = ccGroupSeq;
 	}
+	public Integer getCgSeq() {
+		return cgSeq;
+	}
+	public void setCgSeq(Integer cgSeq) {
+		this.cgSeq = cgSeq;
+	}
 	public Integer getCcDelNy() {
 		return ccDelNy;
 	}
@@ -73,6 +66,14 @@ public class Code extends Base{
 	public void setCcOrder(Integer ccOrder) {
 		this.ccOrder = ccOrder;
 	}
+	public String getCgName() {
+		return cgName;
+	}
+	public void setCgName(String cgName) {
+		this.cgName = cgName;
+	}
+	
+	
 	
 	
 }
