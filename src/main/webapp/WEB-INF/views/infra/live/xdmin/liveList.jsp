@@ -26,7 +26,7 @@
 	</style>
 </head>
 <body>
-	<c:set var = "listMemberGender" value = "${CodeServiceImpl.selectListCachedCode('1')}"/>
+	<c:set var = "listLiveState" value = "${CodeServiceImpl.selectListCachedCode('7')}"/>
 	<div class="container-scroller">
         
         <%@include file="/resources/include/adminSidebar.jsp" %>
@@ -74,7 +74,7 @@
                                     <div class="card-body py-0 px-0 px-sm-3">
                                         <div class="row align-items-center">
                                             <div class="col p-4">
-                                                <h4 class="mb-1 mb-sm-0" style="font-weight: bold;">멤버 관리</h4>
+                                                <h4 class="mb-1 mb-sm-0" style="font-weight: bold;">LIVE 관리</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -91,10 +91,10 @@
 
                                         <div class="row my-3">
                                             <div class="col">
-                                            	<selector:selectorMember functionType="shGender" op="${vo.shGender}"></selector:selectorMember>
+                                            	<selector:selectorLive functionType="shState" op="${vo.shState}"></selector:selectorLive>
                                             </div>
                                             <div class="col">
-                                            	<selector:selectorMember functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorMember>
+                                            	<selector:selectorLive functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorLive>
 
                                             </div>
                                             <div class="col">
@@ -107,14 +107,14 @@
 										
                                         <div class="row my-3">
                                             <div class="col-3">
-                                                <selector:selectorMember functionType="shOption" op="${vo.shOption}"></selector:selectorMember>
+                                                <selector:selectorLive functionType="shOption" op="${vo.shOption}"></selector:selectorLive>
                                             </div>
                                             <div class="col-3">
                                                 <input class="form-control" type="text" name="shValue" value="${vo.shValue }" placeholder="검색어"> 
                                             </div>
                                             <div class="col-1 justify-content-start" style="display:flex;">
                                                 <button style="height:100%; width:40px; margin-right:10px;" class="btn btn-outline-success" type="button" onclick="goForm(0)"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                                <button style="height:100%; width:40px;" class="btn btn-outline-warning"  type="button" onclick="location.href='/member/memberList'"><i class="fa-solid fa-rotate-left"></i></button>
+                                                <button style="height:100%; width:40px;" class="btn btn-outline-warning"  type="button" onclick="location.href='/live/liveList'"><i class="fa-solid fa-rotate-left"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">멤버 리스트</h4>
+                                        <h4 class="card-title">LIVE 리스트</h4>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
@@ -137,34 +137,30 @@
                                                         <th> <input type="checkbox"> </th>
                                                         <th> # </th>
                                                         <th> seq </th>
-                                                        <th> 이름 </th>
-                                                        <th> 닉네임 </th>
-                                                        <th> 아이디 </th>
-                                                        <th> 성별 </th>
-                                                        <th> 생년월일 </th>
-                                                        <th> 연락처 </th>
-                                                        <th> 이메일 </th>
-                                                        <th> 가입일 </th>
+                                                        <th> Title </th>
+                                                        <th> 판매상품 </th>
+                                                        <th> 판매자 </th>
+                                                        <th> 상태 </th>
+                                                        <th> 시작날짜</th>
+                                                        <th> 등록날짜 </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                	<c:forEach items="${list }" var="list" varStatus="status">
-	                                                    <tr onclick="goMemberForm(${list.mmSeq})">
+                                                	<c:forEach items="${list}" var="list" varStatus="status">
+	                                                    <tr onclick="">
 	                                                        <td><input onclick="event.stopPropagation()" name="listCheckbox" type="checkbox"></td>
 	                                                        <td><c:out value="${status.count}"/></td>
-	                                                        <td><c:out value="${list.mmSeq}"/></td>
-	                                                        <td><c:out value="${list.mmName}"/></td>
-	                                                        <td><c:out value="${list.mmNickName}"/></td>
-	                                                        <td><c:out value="${list.mmId}"/></td>
+	                                                        <td><c:out value="${list.liveSeq}"/></td>
+	                                                        <td><c:out value="${list.liveTitle}"/></td>
+	                                                        <td><c:out value=""/></td>
+	                                                        <td><c:out value=""/></td>
 	                                                        <td>
-	                                                        	<c:forEach items="${listMemberGender }" var="gender" varStatus="status">	                                 
-	                                                        		<c:if test="${gender.ccOrder eq list.mmGender}"><c:out value="${gender.ccName}"/></c:if>
+	                                                        	<c:forEach items="${listLiveState }" var="state" varStatus="status">	                                 
+	                                                        		<c:if test="${state.ccOrder eq list.liveState}"><c:out value="${state.ccName}"/></c:if>
 	                                                        	</c:forEach>
 	                                                        </td>
-	                                                        <td><c:out value="${list.mmDob}"/></td>
-	                                                        <td><c:out value="${list.mmPhone}"/></td>
-	                                                        <td><c:out value="${list.mmEmail}"/></td>
-	                                                        <td><c:out value="${list.mmCreateDate}"/></td>
+	                                                        <td><c:out value="${list.liveStartDate}"/></td>
+	                                                        <td><c:out value="${list.liveCreateDate}"/></td>
 	                                                        <!--<td><div class="badge badge-outline-success">Approved</div></td>-->
 	                                                    </tr>
 													</c:forEach>
@@ -227,7 +223,7 @@
 		goForm = function(seq){
 			
 			if(seq == 0){
-				$("#mainForm").attr("action","/member/memberList").submit();
+				$("#mainForm").attr("action","/live/liveList").submit();
 			}
 			else{
 				

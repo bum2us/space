@@ -253,8 +253,8 @@
 							}
 						});
 					}else{
-						alert("로그인 정보가 일치하는 회원이 없습니다.","fail");
-					}
+						swal("로그인 실패","로그인 정보가 일치하는 회원이 없습니다.","error");
+					}  
 				},
 				error:function(){
 					alert("ajax error...");

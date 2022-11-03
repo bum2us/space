@@ -14,29 +14,25 @@
  
 	switch(functionType)
 	{
-		case "shGender":
+		case "shState":
 		{
-			txt="성별";
-			options.add("남");
-			options.add("여");
-			options.add("기타");
+			txt="상태";
+			options.add("예정");
+			options.add("진행중");
+			options.add("종료");
 			break;
 		}
 		case "shDateOption":
 		{
 			txt="날짜구분";
+			options.add("시작일");
 			options.add("등록일");
-			options.add("생년월일");
 			break;
 		}
 		case "shOption":
 		{
 			txt = "검색위치";
-			options.add("이름");
-			options.add("ID");
-			options.add("닉네임");
-			options.add("Email");
-			options.add("휴대전화");
+			options.add("TITLE");
 			break;
 		}
 	};

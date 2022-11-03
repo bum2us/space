@@ -8,10 +8,49 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.live.Live"></resultMap>
     
-    <select id="" resultMap="resultMapObj">
-    
-    	
-    
+    <select id="selectListCount" resultType="Integer">
+    	SELECT
+    		COUNT(*)
+  		FROM live
+  		WHERE 1=1
+  		<include refid="searchSql"/>
     </select>
+    
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    		*
+   		FROM live
+  		WHERE 1 = 1
+ 		<include refid="searchSql"/>
+		<include refid="rangeSql"/>
+    </select>
+    
+    <sql id="rangeSql"> 
+		LIMIT #{pageSize} OFFSET #{pageRange}  
+	</sql>
+	
+	<sql id="searchSql">
+		AND liveDelNy LIKE 0  
+		AND
+		<choose>
+			<when test= "shOption == null"> liveTitle </when>
+			<when test= "shOption == 1"> liveTitle </when>
+		</choose>
+		<choose>
+			<when test=" shValue == null">LIKE CONCAT ('%','','%')</when>
+			<when test=" shValue != null">LIKE CONCAT ('%',#{shValue},'%')</when> 
+		</choose> 
+			<if test="shState != null">AND liveState LIKE #{shState}</if> 
+		<choose>
+			<when test="shDateOption == null">AND  liveCreateDate </when>
+			<when test="shDateOption == 1">AND  liveStartDate </when>
+			<when test="shDateOption == 2">AND  liveCreateDate </when>
+		</choose>
+		<choose>
+			<when test = 'shDateStart == null or shDateStart ==""'> BETWEEN CONCAT('1700-01-01', ' 00:00:00') AND CONCAT('2300-01-01',' 00:00:00') </when>
+			<when test = "shDateStart != null and shDateEnd != null">BETWEEN CONCAT(#{shDateStart},' 00:00:00') AND CONCAT(#{shDateEnd},' 23:59:59')</when> 
+		</choose>   
+		
+	</sql> 
     
 </mapper> 

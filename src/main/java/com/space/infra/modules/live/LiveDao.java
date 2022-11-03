@@ -1,5 +1,7 @@
 package com.space.infra.modules.live;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -14,4 +16,8 @@ public class LiveDao {
 	private SqlSession sqlSession;
 	
 	private String namesapce="com.space.infra.modules.live.LiveMapper";
+
+	public Integer selectListCount(LiveVo vo) { return sqlSession.selectOne(namesapce+".selectListCount", vo); }
+
+	public List<Live> selectList(LiveVo vo) { return sqlSession.selectList(namesapce+".selectList", vo); }
 }

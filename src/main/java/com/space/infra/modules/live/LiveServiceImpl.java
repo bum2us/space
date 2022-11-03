@@ -1,13 +1,29 @@
 package com.space.infra.modules.live;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service	
-public class LiveServiceImpl {
+public class LiveServiceImpl implements LiveService{
 
 	
 	@Autowired
 	LiveDao dao;
+
+	@Override
+	public List<Live> selectList(LiveVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectList(vo);
+	}
+
+	@Override
+	public Integer selectListCount(LiveVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectListCount(vo);
+	}
+
+	
 	
 }

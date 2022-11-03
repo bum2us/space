@@ -27,7 +27,7 @@
  
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/member/memberList">
                 <span class="menu-icon">
                     <i class="fa-solid fa-user"></i>
                     <!-- <i class="mdi mdi-speedometer"></i> -->
@@ -37,7 +37,7 @@
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/post/postList">
                 <span class="menu-icon">
                     <i class="fa-solid fa-bookmark"></i>  
                 </span>
@@ -46,7 +46,7 @@
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/product/productList">
                 <span class="menu-icon">
                     <i class="fa-solid fa-gift"></i>
                 </span>
@@ -55,7 +55,7 @@
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/live/liveList">
                 <span class="menu-icon">
                     <i class="fa-solid fa-video"></i>
                 </span>
@@ -64,7 +64,7 @@
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/codeGroup/codeGroupList">
                 <span class="menu-icon">
                     <i class="fa-solid fa-layer-group"></i>
                 </span>
@@ -73,7 +73,7 @@
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/code/codeList">
                 <span class="menu-icon">
                     <i class="fa-solid fa-copyright"></i>
                 </span>
