@@ -194,7 +194,7 @@
 <body>
 	<form id="mainForm" method="POST">
 		<!-- index에서 받아온 seq에 따라 user/admin 로그인 분류 -->
-		<input type="hidden" value="">
+		<input type="hidden" id="mmAdminNy" value="${loginCheck.xdminNy}">
 		<div class="container-md">
 			<div class="row jutify-content-center">  
 				<div class="col text-center" style=" padding: 10px;">  
@@ -240,25 +240,20 @@
 				,data: {
 					mmId: $("#mmId").val()
 					,mmPassword: $("#mmPassword").val()
+					,mmAdminNy: $("#mmAdminNy").val()
 				},
 				success:function(result){
 					if(result.rt=="success"){
 						swal("로그인 성공!", result.mmId + " 회원님 로그인되었습니다.", "success")
 						.then(function() {
-							if(result.mmAdminNy == 1) {
-								
-								/* form.attr("action", "/adminhome").submit(); */
-								
+							if(result.mmAdminNy == 1) {				
 								location.href="/adminhome";   //관리자
-							} else {
-								
-								/* form.attr("action", "/home").submit(); */
-								
+							} else {				
 								location.href="/home";  //일반 사용자
 							}
 						});
 					}else{
-						alert("로그인 정보가 일치하는 회원이 없습니다.");
+						alert("로그인 정보가 일치하는 회원이 없습니다.","fail");
 					}
 				},
 				error:function(){

@@ -34,6 +34,7 @@
    		WHERE 1=1
    		AND mmId = #{mmId}
    		AND mmPassword = #{mmPassword}
+   		AND mmAdminNy = #{mmAdminNy}
     </select>
 	
 	<sql id="rangeSql"> 

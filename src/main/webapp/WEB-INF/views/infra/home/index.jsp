@@ -56,7 +56,7 @@
 				<img alt="" src="/resources/images/space_logo.png" style="scale: 80%;"> 
 			</div>
 			<form id="mainForm" method="POST">
-				<input type="hidden" id="xdminNy" name="xdminNy">
+				<input type="hidden" id="xdminNy" name="xdminNy"> 
 				<div class="row">
 					<div class="col linkContainer">
 						<div class="row">
