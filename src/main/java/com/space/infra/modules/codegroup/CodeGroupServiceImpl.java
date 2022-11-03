@@ -18,6 +18,14 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	}
 
 	@Override
+	public int insert(CodeGroup dto) throws Exception {
+
+		return dao.insert(dto);
+	}
+
+
+
+	@Override
 	public CodeGroup selectOne(CodeGroup dto) throws Exception {
 		
 		return dao.selectOne(dto);

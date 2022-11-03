@@ -17,6 +17,15 @@
     	FROM ccg
     </select>
     
+    <insert id="insert">
+    	INSERT INTO ccg (
+    	cgName
+    	)
+    	VALUES (
+    	#{cgName}
+    	)
+    </insert>
+    
     <select id="selectOne" resultMap="resultMapObj">
     	SELECT
     		cgSeq
@@ -25,7 +34,7 @@
     		,cgUseNy
     	FROM ccg
     	WHERE 1=1
-    		AND seq = #{seq}
+    		AND cgSeq = #{cgSeq}
     </select>
     
     

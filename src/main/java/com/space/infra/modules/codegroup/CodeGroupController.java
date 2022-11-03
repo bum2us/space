@@ -23,6 +23,14 @@ public class CodeGroupController {
 		return "infra/member/xdmin/codeGroupList";
 	}
 	
+	@RequestMapping("codeGroupInst")
+	public String codeGroupInst(CodeGroup dto) throws Exception {
+		
+		int insert = service.insert(dto);
+		
+		return "infra/member/xdmin/codeGroupFrom";
+	}
+	
 	@RequestMapping("codeGroupView")
 	public String codeGroupView(CodeGroup dto) throws Exception{
 		

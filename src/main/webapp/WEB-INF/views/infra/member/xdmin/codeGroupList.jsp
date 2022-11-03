@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<title>🛸멤버관리🛸</title>
+	<title>🛸코드그룹 관리🛸</title>
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
@@ -36,8 +36,7 @@
 
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
-                            alt="logo" /></a>
+                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
                     <ul class="navbar-nav navbar-nav-right">
@@ -51,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/member/logout">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                             </a>
                         </li>
@@ -74,7 +73,7 @@
                                     <div class="card-body py-0 px-0 px-sm-3">
                                         <div class="row align-items-center">
                                             <div class="col p-4">
-                                                <h4 class="mb-1 mb-sm-0" style="font-weight: bold;">멤버 관리</h4>
+                                                <h4 class="mb-1 mb-sm-0" style="font-weight: bold;">코드그룹 관리</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -149,8 +148,8 @@
 	                                                        <td><c:out value="${status.count}"/></td>
 	                                                        <td><c:out value="${list.cgSeq}"/></td>
 	                                                        <td><c:out value="${list.cgName}"/></td>
-	                                                        <td><c:out value="${list.cgDelNy}"/></td>
-	                                                        <td><c:out value="${list.cgUseNy}"/></td>
+	                                                        <td><c:out value="${list.cgDelNy == 0 ? 'N' : 'Y'}"/></td>
+	                                                        <td><c:out value="${list.cgUseNy == 0 ? 'N' : 'Y'}"/></td>
 	                                                    </tr>
 													</c:forEach>
                                                 </tbody>

@@ -160,7 +160,7 @@ p {
 	border-radius: 23px;
 }
 
-.main-button a {
+.main-button {
   font-size: 14px;
   color: #fff;
   background-color: #e75e8d;
@@ -175,12 +175,12 @@ p {
   overflow: hidden;
 }
 
-.main-button a:hover {
+.main-button:hover {
   background-color: #fff;
   color: #e75e8d;
 }
 
-.main-border-button a {
+.main-border-button {
   font-size: 14px;
   color: #ec6090;
   background-color: transparent;
@@ -196,18 +196,18 @@ p {
   overflow: hidden;
 }
 
-.main-border-button a:hover {
+.main-border-button:hover {
   border-color: #fff;
   background-color: #fff;
   color: #e75e8d;
 }
 
-.border-no-active a {
+.border-no-active {
   border-color: #666;
   color: #666;
 }
 
-.border-no-active a:hover{
+.border-no-active:hover{
   border-color: #666;
   color: #666;
   background-color: transparent;
@@ -659,7 +659,8 @@ Header Style
   .background-header .main-nav .border-button {
     top: 0px !important;
   }
-  .header-area .main-nav .border-button {
+  .header-area .main-nav .border-
+ {
     position: absolute;
     top: 15px;
     right: 70px;
@@ -1137,11 +1138,11 @@ Featured Games Style
   padding-bottom: 28px;
 }
 
-.top-downloaded .text-button  {
+.top-downloaded .text-button {
   text-align: center;
 }
 
-.top-downloaded .text-button a {
+.top-downloaded .text-button {
   font-weight: 600;
   color: #ec6090;
   font-size: 15px;
