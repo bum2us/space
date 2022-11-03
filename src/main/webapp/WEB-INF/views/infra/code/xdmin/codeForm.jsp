@@ -86,12 +86,8 @@
                                     </div>
                                     <div class="card-footer">
 					                     <div class="demo-inline-spacing">
-											<button type="button" class="btn btn-outline-primary" id="btnExcel">
-												<i class="fa-solid fa-file-arrow-down"></i>
-											</button>
-											<button type="button" class="btn btn-outline-success" id="btnForm">
-												<i class="fa-solid fa-plus"></i>
-											</button>
+											
+											
 											<button type="button" class="btn btn-outline-danger" id="btnUelete">
 												<i class="fa-solid fa-minus"></i>
 											</button>

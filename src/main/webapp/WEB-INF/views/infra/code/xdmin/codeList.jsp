@@ -85,10 +85,10 @@
 
                                         <div class="row my-3">
                                             <div class="col">
-                                            	<selector:selectorMember functionType="shGender" op="${vo.shGender}"></selector:selectorMember>
+                                            	<selector:selectorCode functionType="shDelNy" op="${vo.shDelNy}"></selector:selectorCode>
                                             </div>
                                             <div class="col">
-                                            	<selector:selectorMember functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorMember>
+                                            	<selector:selectorCode functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorCode>
 
                                             </div>
                                             <div class="col">
@@ -101,7 +101,7 @@
 										
                                         <div class="row my-3">
                                             <div class="col-3">
-                                                <selector:selectorMember functionType="shOption" op="${vo.shOption}"></selector:selectorMember>
+                                                <selector:selectorCode functionType="shOption" op="${vo.shOption}"></selector:selectorCode>
                                             </div>
                                             <div class="col-3">
                                                 <input class="form-control" type="text" name="shValue" value="${vo.shValue }" placeholder="검색어"> 

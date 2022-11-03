@@ -17,7 +17,14 @@ public class Code extends Base{
 	private Integer ccUseNy;
 	private Integer ccOrder;
 	private String cgName;
+	private String ccCreateDate;
 	
+	public String getCcCreateDate() {
+		return ccCreateDate;
+	}
+	public void setCcCreateDate(String ccCreateDate) {
+		this.ccCreateDate = ccCreateDate;
+	}
 	public static List<Code> getCachedCodeList() {
 		return cachedCodeList;
 	}

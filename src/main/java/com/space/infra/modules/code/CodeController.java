@@ -22,7 +22,7 @@ public class CodeController {
 	CodeGroupServiceImpl ccgService;
 	
 	@RequestMapping(value="codeList")
-	public String codeList(CodeVo vo, Model model) throws Exception{
+	public String codeList(@ModelAttribute("vo")CodeVo vo, Model model) throws Exception{
 		
 		vo.setPageTotal(service.selectOneCount(vo));
 		

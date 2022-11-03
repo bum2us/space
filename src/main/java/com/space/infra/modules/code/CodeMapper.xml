@@ -25,19 +25,30 @@
     	SELECT 
 			cc.ccSeq
 		    ,cc.ccName
-		    ,cc.ccGroupSeq as cgSeq
+		    ,cg.cgSeq
 		    ,cg.cgName
 		    ,cc.ccDelNy
 		    ,cc.ccUseNy
 		    ,cc.ccOrder
+		    ,cc.ccCreateDate
 		FROM cc cc
 		join ccg cg on cg.cgSeq = cc.ccGroupSeq
 		WHERE 1=1
-			<if test="shDelNy != null and !shDelNy.equals('')">AND cc.ccDelNy = #{shDelNy}</if>
+			<if test="shDelNy != null and !shDelNy.equals('')">AND cc.ccDelNy = #{shDelNy}-1</if>
 			<choose>
 				<when test="shOption == 1">AND cc.ccSeq = #{shValue}</when>
-				<when test="shOption == 2">AND cc.ccName LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND cc.ccName LIKE CONCAT('%', #{shValue},'%')</when>
+				<when test="shOption == 3">AND cg.cgSeq = #{shValue}</when>
+				<when test="shOption == 4">AND cg.cgName LIKE CONCAT('%', #{shValue}, '%')</when>
 			</choose>
+			<choose>
+				<when test="shDateOption == null">AND  ccCreateDate </when>
+				<when test="shDateOption == 1">AND  ccCreateDate </when>
+			</choose>
+			<choose>
+				<when test = 'shDateStart == null or shDateStart ==""'> BETWEEN CONCAT('1700-01-01', ' 00:00:00') AND CONCAT('2300-01-01',' 00:00:00') </when>
+				<when test = "shDateStart != null and shDateEnd != null">BETWEEN CONCAT(#{shDateStart},' 00:00:00') AND CONCAT(#{shDateEnd},' 23:59:59')</when> 
+			</choose>   
 		order by cc.ccSeq desc
     </select>
     
@@ -61,6 +72,7 @@
 		    ,cc.ccDelNy
 		    ,cc.ccUseNy
 		    ,cc.ccOrder
+		    ,cc.ccCreateDate
 		FROM cc cc
 		join ccg cg on cg.cgSeq = cc.ccGroupSeq
 		WHERE ccSeq = #{ccSeq}
