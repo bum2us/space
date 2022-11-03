@@ -9,6 +9,8 @@ public class CodeGroup extends Base{
 	private String cgName;
 	private Integer cgDelNy;
 	private Integer cgUseNy;
+	private String cgCreateDate;
+	
 	public Integer getCgSeq() {
 		return cgSeq;
 	}
@@ -33,6 +35,14 @@ public class CodeGroup extends Base{
 	public void setCgUseNy(Integer cgUseNy) {
 		this.cgUseNy = cgUseNy;
 	}
+	public String getCgCreateDate() {
+		return cgCreateDate;
+	}
+	public void setCgCreateDate(String cgCreateDate) {
+		this.cgCreateDate = cgCreateDate;
+	}
+	
+	
 
 	
 }

@@ -19,6 +19,11 @@ public class CodeGroupDao {
 	
 	public List<CodeGroup> selectList() throws Exception {return sqlSession.selectList(namespace + ".selectList", "");}
 	
+	public List<CodeGroup> search(CodeGroupVo vo) throws Exception {
+		
+		
+		return sqlSession.selectList(namespace + ".search", vo);}
+	
 	public int insert(CodeGroup dto) throws Exception {return sqlSession.insert(namespace + ".insert", dto);}
 	
 	public CodeGroup selectOne(CodeGroup dto) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", "dto");}

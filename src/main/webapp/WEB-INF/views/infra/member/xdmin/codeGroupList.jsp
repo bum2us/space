@@ -90,11 +90,10 @@
 
                                         <div class="row my-3">
                                             <div class="col">
-                                            	<selector:selectorMember functionType="shGender" op="${vo.shGender}"></selector:selectorMember>
+                                            	<selector:selectorCodeGroup functionType="shDelNy" op="${vo.shDelNy}"></selector:selectorCodeGroup>
                                             </div>
                                             <div class="col">
-                                            	<selector:selectorMember functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorMember>
-
+                                            	<selector:selectorCodeGroup functionType="shDateOption" op="${vo.shDateOption}"></selector:selectorCodeGroup>
                                             </div>
                                             <div class="col">
                                                 <input class="form-control" type="text" id="startDate" name="shDateStart" placeholder="시작일" value="${vo.shDateStart }">
@@ -105,15 +104,18 @@
                                         </div>
 										
                                         <div class="row my-3">
+                                        	<div class="col-3">
+                                            	<selector:selectorCodeGroup functionType="shUseNy" op="${vo.shUseNy}"></selector:selectorCodeGroup>
+                                            </div>
                                             <div class="col-3">
-                                                <selector:selectorMember functionType="shOption" op="${vo.shOption}"></selector:selectorMember>
+                                                <selector:selectorCodeGroup functionType="shOption" op="${vo.shOption}"></selector:selectorCodeGroup>
                                             </div>
                                             <div class="col-3">
                                                 <input class="form-control" type="text" name="shValue" value="${vo.shValue }" placeholder="검색어"> 
                                             </div>
                                             <div class="col-1 justify-content-start" style="display:flex;">
                                                 <button style="height:100%; width:40px; margin-right:10px;" class="btn btn-outline-success" type="button" onclick="goForm(0)"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                                <button style="height:100%; width:40px;" class="btn btn-outline-warning"  type="button" onclick="location.href='/member/memberList'"><i class="fa-solid fa-rotate-left"></i></button>
+                                                <button style="height:100%; width:40px;" class="btn btn-outline-warning"  type="button" onclick="location.href='/codeGroup/codeGroupList'"><i class="fa-solid fa-rotate-left"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -142,14 +144,27 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                	<c:choose>
+														<c:when test="${fn:length(list) eq 0}">
+															<tr>
+																<td class="text-center" colspan="8">There is no data!</td>
+															</tr>
+														</c:when>
+													</c:choose>
                                                 	<c:forEach items="${list }" var="list" varStatus="status">
 	                                                    <tr onclick="goMemberForm(${list.cgSeq})">
 	                                                        <td><input type="checkbox"></td>
+	                                                        
 	                                                        <td><c:out value="${status.count}"/></td>
+	                                                        
 	                                                        <td><c:out value="${list.cgSeq}"/></td>
+	                                                        
 	                                                        <td><c:out value="${list.cgName}"/></td>
+	                                                        
 	                                                        <td><c:out value="${list.cgDelNy == 0 ? 'N' : 'Y'}"/></td>
+	                                                        
 	                                                        <td><c:out value="${list.cgUseNy == 0 ? 'N' : 'Y'}"/></td>
+	                                                        
 	                                                    </tr>
 													</c:forEach>
                                                 </tbody>

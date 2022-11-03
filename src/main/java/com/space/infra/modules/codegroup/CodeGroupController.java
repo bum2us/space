@@ -1,5 +1,6 @@
 package com.space.infra.modules.codegroup;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,13 @@ public class CodeGroupController {
 	CodeGroupServiceImpl service;
 	
 	@RequestMapping("codeGroupList")
-	public String codeGroupList(Model model) throws Exception{
+	public String codeGroupList(Model model, CodeGroupVo vo) throws Exception{
 		
 		List<CodeGroup> list = service.selectList();
 		model.addAttribute("list", list);
+		
+		List<CodeGroup> search = service.search(vo);
+		model.addAttribute("list", search);
 		
 		return "infra/member/xdmin/codeGroupList";
 	}
@@ -26,7 +30,7 @@ public class CodeGroupController {
 	@RequestMapping("codeGroupInst")
 	public String codeGroupInst(CodeGroup dto) throws Exception {
 		
-		int insert = service.insert(dto);
+		service.insert(dto);
 		
 		return "infra/member/xdmin/codeGroupFrom";
 	}
