@@ -160,8 +160,8 @@
 			                                                        <td><c:out value="${list.cgName}"/></td>
 			                                                        <td><c:out value="${list.ccName}"/></td>
 			                                                        <td><c:out value="${list.ccOrder}"/></td>
-			                                                        <td><c:out value="${list.ccDelNy}"/></td>
-			                                                        <td><c:out value="${list.ccUseNy}"/></td>
+			                                                        <td><c:out value="${list.ccDelNy == 0? 'N' : 'Y'}"/></td>
+			                                                        <td><c:out value="${list.ccUseNy == 0? 'N' : 'Y'}"/></td>
 			                                                    </tr>
 															</c:forEach>
 														</c:otherwise>
