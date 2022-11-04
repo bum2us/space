@@ -17,36 +17,37 @@
     	FROM ccg
     </select>
     
-    <select id="search" resultMap="resultMapObj">
-    	SELECT
-    		cgSeq
-    		 ,cgName
-    		 ,cgDelNy
-    		 ,cgUseNy
+    <select id="selectListCount" resultType="Integer">
+    	SELECT COUNT(*)
     	FROM ccg
     	WHERE 1=1
-    		<choose>
-    			<when test="shOption == null">cgName</when>
-    			<when test="shOption == 1">cgName</when>
-    		</choose>
-    		<choose>
-    			<when test="shValue == null">LIKE CONCAT ('%','','%')</when>
-    			<when test="shValue == 1">LIKE CONCAT ('%',#{shValue},'%')</when>
-    		</choose>
-    		<choose>
-    			<when test="shDelNy != null">AND cgDelNy LIKE #{shDelNy}</when>
-    		</choose>
-    		<choose>
-    			<when test="shUseNy != null">AND cgUseNy LIKE #{shUseNy}</when>
-    		</choose>
-    		<choose>
-    		    <when test="shDateOption == null">cgCreateDate </when>
-    		    <when test="shDateOption == 1">cgCreateDate</when>
-    		</choose>
-    		<choose>
-    			<when test="shDateStart == null">AND </when>
-    		</choose>
     </select>
+    
+    <sql id="searchSql">
+   		<choose>
+   			<when test="shOption == null">AND cgName</when>
+   			<when test="shOption == 1">AND cgName</when>
+   		</choose>
+   		<choose>
+   			<when test="shValue == null">LIKE CONCAT ('%','','%')</when>
+   			<when test="shValue != null">LIKE CONCAT ('%',#{shValue},'%')</when>
+   		</choose>
+   		<choose>
+   			<when test="shDelNy == null">AND cgDelNy LIKE 0</when>
+   			<when test="shDelNy != null">AND cgDelNy LIKE #{shDelNy}</when>
+   		</choose>
+   		<choose>
+   			<when test="shUseNy != null">AND cgUseNy LIKE #{shUseNy}</when>
+   		</choose>
+   		<choose>
+   		    <when test="shDateOption == null">AND cgCreateDate BETWEEN CONCAT ('1900-01-01 00:00:00') AND CONCAT ('2030-12-30 23:59:59') </when>
+   		    <when test="shDateOption != null">AND cgCreateDate BETWEEN CONCAT (#{shDateStart},'%') AND CONCAT (#{shDateEnd},'%') </when>
+   		</choose>
+   		<!-- <choose>
+   			<when test="shDateStart == null || shDateStart == '' ">AND BETWEEN CONCAT #{1900-01-01 00:00:00} AND CONCAT #{2030-12-30 23:59:59}</when>
+   			<when test="shDateStart != null">AND BETWEEN CONCAT #{shDateStart} AND CONCAT #{shDateEnd}</when>
+   		</choose> -->
+    </sql>
     
     <insert id="insert">
     	INSERT INTO ccg (
