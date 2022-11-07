@@ -26,6 +26,14 @@ public class MemberController {
 		return "infra/member/user/joinForm";
 	}
 	
+	@RequestMapping("memberInst")
+	public String memberInst(Member dto) throws Exception{
+		
+		service.insert(dto);
+		
+		return "infra/member/loginForm";
+	}
+	
 	@ResponseBody
 	@RequestMapping("login")
 	public Map<String,Object> login(HttpSession httpSession,Member dto) throws Exception{

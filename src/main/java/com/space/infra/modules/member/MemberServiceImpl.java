@@ -33,6 +33,13 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectListCount(vo);
 	}
 
+	@Override
+	public void insert(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		dao.insert(dto);
+	}
+
+	
 	
 	
 }

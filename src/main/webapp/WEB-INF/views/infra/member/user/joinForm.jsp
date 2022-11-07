@@ -28,52 +28,62 @@
 			background: #27292A; 
 			border: none; 
 			border-radius:5px; 
-			color: #EC6090;  
+			color: #E75E8D;  
 			font-size: 10pt;   	
 		}
 		
 		input:focus {
 			background: #1F2122; 
-			border:  1px solid #EC6090;
+			border:  1px solid #E75E8D;
 		}
 		 
 		.input_label {
 			font-weight: 400;  
 			font-size: 10pt; 
-			color: #EC6090;
+			color: #E75E8D;
 		}
 		
 		.spaceBtn{
-			background: #EC6090;  
+			background: #E75E8D;  
 			padding: 5px 0px 5px 0px;
 			font-size:10pt; 
 			color:white;
 			border:none; 
 			border-radius: 10px;
-			height: 40px;
+			height: 50px;
 			min-width: 70px; 
 		}
 		
-		.spaceBtnInner{
-			background: #EC6090; 
+		.spaceBtn:hover{
+			background: white;  
+			color: #E75E8D;
+		}
+		
+		.spaceBtnInner{ 
+			background: #E75E8D; 
 			padding: 5px 0px 5px 0px;
-			font-size:10pt; 
+			font-size:10pt;
 			color:white;
 			border:none; 
 			border-radius: 10px;
 			height: 60%; 
 			min-width: 70px; 
 			position: absolute; 
-			top:20%; 
+			top:20%;  
 			right:5%;
 		} 
 		
+		.spaceBtnInner:hover{
+			background: white;  
+			color: #E75E8D;
+		}  
+		
 		
 	</style>
-</head>
+</head> 
 <body>  
 	 <div class="container-md" style="width:40%">  
-	    <form method="POST" id="mainForm"> 
+	    <form method="POST" id="mainForm" enctype="multipart/form-data"> 
 	        <div class="row jutify-content-center"> 
 	            <div class="col text-center" style=" padding: 10px;">
 	                <img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">
@@ -84,12 +94,12 @@
 	            <div class="main-profile p-5">
 	                <div class="row justify-content-center mb-2"> 
 	                    <div class="col text-center"> 
-	                        <span style="font-weight: bold; font-size: 20pt; color: #EC6090;">회원가입</span>
+	                        <span style="font-weight: bold; font-size: 20pt; color: #E75E8D;">회원가입</span>
 	                    </div> 
 	                </div> 
-	                <div class="row my-4 justify-content-center" style="position:relative"> 
-	                	<img alt="" src="/resources/images/empty.png"  style="border-radius:50%; border:none; width:100px; height:auto; ">  
-	                	<input type="file" style="position:absolute; opacity:0; cursor:pointer;"> 
+	                <div class="row my-4 justify-content-center" style="position:relative">  
+	                	<img id="profileImg" alt="" src="/resources/images/empty.png"  style="border-radius:50%; border:none; width:100px; height:100px; padding:0px;">   
+	                	<input type="file" id="multipartFile" name="multipartFile" type="file" onChange="upload('multipartFile');" style="position:absolute; opacity:0; cursor:pointer; border-radius:50%; border:none; width:100px; height:100px;"> 
 	                </div>
 	                <div class="row my-3">
 	                	<div class="col"> 
@@ -144,9 +154,11 @@
 	                </div> 
 	                <div class="row justify-content-center mt-4">   
 	                	<div class="col text-center">
-	                		<button type="button" class="spaceBtn" onclick="location.href='/loginForm'">돌아가기</button>     
-		                	<button type="button" class="spaceBtn" onclick="goForm()">가입하기</button>                	
-	                	</div> 
+	                		<button type="button" style="width:100%" class="spaceBtn" onclick="location.href='/loginForm'">돌아가기</button>      
+	                	</div>  
+	                	<div class="col text-center">	                	
+		                	<button type="button" style="width:100%" class="spaceBtn" onclick="goForm()">가입하기</button>                	
+	                	</div>
 	                </div>        	           
 	            </div>  
 	        </div>
@@ -159,5 +171,20 @@
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
 	
+	<script>
+		upload = function(objName) {
+			
+			var obj = $("#" + objName +"")[0].files;	
+			
+			if(obj == null) return false;
+			
+			var fileReader = new FileReader();
+			fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
+			
+			fileReader.onload = function () {
+				 $("#profileImg").attr("src", fileReader.result);
+			 }	
+		}
+	</script>	
 </body>
 </html>

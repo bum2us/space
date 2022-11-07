@@ -37,6 +37,35 @@
    		AND mmAdminNy = #{mmAdminNy}
     </select>
 	
+	<insert id="insert">
+		INSERT member
+		(
+			mmId
+			,mmName
+			,mmNickName
+			,mmPassword
+			,mmGender
+			,mmAge
+			,mmDob
+			,mmEmail
+			,mmTelecom
+			,mmPhone
+		)
+		VALUES
+		(
+			#{mmId}
+			,#{mmName}
+			,#{mmNickName}
+			,#{mmPassword}
+			,#{mmGender}
+			,#{mmAge}
+			,#{mmDob}
+			,#{mmEmail}
+			,#{mmTelecom}
+			,#{mmPhone}
+		)
+	</insert>
+	
 	<sql id="rangeSql"> 
 		LIMIT #{pageSize} OFFSET #{pageRange}  
 	</sql>
