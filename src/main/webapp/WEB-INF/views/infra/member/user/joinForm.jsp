@@ -71,96 +71,30 @@
 </head>
 <body>
 	  		
-	<div class="container-md" style="width: 600px;">    
-		 
-		<div class="row jutify-content-center">  
-			<div class="col text-center" style=" padding: 10px;">  
-				<img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">       
-			</div>			
-		</div>  
-		
-		<form action="">	
-			<div class="input-area">
-				<div class="row justify-content-center mb-3">
-					<img alt="" src="/resources/images/empty.png" style="border-radius: 50%; width: 150px;"> 
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">
-						<label class="inputLabel">이름</label>   
-					</div>
-					<div class="col input">
-						<input type="text">			
-					</div> 
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox"> 
-						<label class="inputLabel">아이디</label>   
-					</div>
-					<div class="col input">
-						<input type="text" placeholder="영문,숫자를 포함하여 구성해주세요">			
-					</div>
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">  
-						<label class="inputLabel">비밀번호</label>   
-					</div>
-					<div class="col input">
-						<input type="password" placeholder="영문,숫자,특수문자를 포함하여 구성해주세요">			
-					</div>
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">  
-						<label class="inputLabel">비밀번호 확인</label>   
-					</div>
-					<div class="col input">
-						<input type="password">
-					</div>
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">  
-						<label class="inputLabel">성별</label>   
-					</div>
-					<div class="col input">
-						<input type="text" placeholder="">			
-					</div>
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">  
-						<label class="inputLabel">연락처</label>   
-					</div>
-					<div class="col input">
-						<input type="text" placeholder="">			
-					</div>
-					<div class="col-2 p-0"> 
-						<button type="button" class="spaceBtn">인증</button>
-					</div>
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">  
-						<label class="inputLabel">이메일</label>   
-					</div>
-					<div class="col input">
-						<input type="text" placeholder="">			
-					</div>
-				</div>  
-				<div class="row justify-content-center mb-3">
-					<div class="col-3 labelBox">  
-						<label class="inputLabel">비밀번호</label>   
-					</div> 
-					<div class="col input">
-						<input type="text" placeholder="">			
-					</div>
-				</div>  
-			 	<div class="row justify-content-center mb-3">
-			 		<button type="button" class="spaceBtn">인증</button>  
-			 		<br>    <br> <br> <br> <br> 
-			 		
-			 		<button type="button" class="spaceBtnC">인증</button>
-			 	</div>
-				
-			</div>
-		</form>
-	</div>  
+	<div class="container">
+	    <form method="POST" id="mainForm">
+	        <div class="row">
+	            <div class="col-lg-12">
+	            	<div class="row jutify-content-center">
+                        <div class="col text-center" style=" padding: 10px;">
+                            <img alt="" src="/resources/images/space_logo.png"
+                                style="width: 420px; height:200px;">
+                        </div>
+                    </div>
+	                <div class="page-content">
+	                    <!-- ***** Featured Games Start ***** -->
+	                    <div class="main-profile ">
+	                    	<div class="row justify-content-center mb-2">
+	                    		<div class="col">
+	                                <span style="font-weight: bold; font-size: 22pt; color: #EC6090;">회원가입</span> 	                    		
+	                    		</div>
+	                    	</div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </form>
+	</div>
 	
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>
