@@ -130,14 +130,16 @@
             <center>
               <div class="col-lg-12" style="width: 80%;"> 
                 <div class="container text-center col-8 mt-3">
-                  <div id="image_container"></div>
-                  <input class="form-control" type="file" id="image" accept="image/*" onchange="setThumbnail(event);">
+                	<div id="ifmmUploadedImage1View" class="col-12 filebox">
+						<img id="imgProfile" src="" alt="업로드 이미지" style="padding-top: 10px; padding-bottom: 10px; width:300px; height:300px; border-color: solid black 2px;">
+						<input id="imgFile" class="form-control" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 3);">
+					</div>
                 </div>
                 <hr class="mt-5 mb-5">
                 <div class="container text-center mb-5">
                   <div class="row mb-5">
                     <div class="col-2 form">
-                      <select class="form-select">
+                      <select class="form-select" id="category">
                         <option value="" selected>카테고리</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -153,12 +155,10 @@
                   </div>
                 </div>
             </center>
-            <div class="col-lg-12">
-              <div class="main-button">
-                <a href="#"><i class="fa-solid fa-rotate-left"></i></a>
-                <a href="#">등록</a>
-                <a href="#">취소</a>
-              </div>
+            <div class="col-lg-12 text-center">
+               <button type="button" class="base-border-button" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
+               <button type="button" class="base-button" onclick="">등록</button>
+               <button type="button" class="base-border-button" onclick="">ㄷ</button>
             </div>
           </div>
           <!-- ***** Gaming Library End ***** -->
@@ -193,7 +193,7 @@
   <script src="https://kit.fontawesome.com/f92c8dde3d.js" crossorigin="anonymous"></script>
 
   <script>
-    function setThumbnail(event) {
+    /* function setThumbnail(event) {
       var reader = new FileReader();
 
       reader.onload = function(event) {
@@ -203,8 +203,87 @@
       };
 
       reader.readAsDataURL(event.target.files[0]);
-    }
-  </script>
+    } */
+    
+    function regFormClear() {
+    	$("#imgProfile").attr("src","");
+    	$("#imgFile").val("");
+    	$("#category").val("");
+    	$("#title").val("");
+    	$("#contents").val("");
+    };
+    
+    
+	</script>
+  
+ 	<script>
+		upload = function (objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
+	        //		objName 과 seq 는 jsp 내에서 유일 하여야 함.
+	        //		memberProfileImage: 1
+	        //		memberImage: 2
+	        //		memberFile : 3
+	
+	        var totalFileSize = 0;
+	        var obj = $("#" + objName + "")[0].files;
+	        var fileCount = obj.length;
+	        
+	        if (uiType == 1) {
+	            /* 			
+	                        $("#ulFile" + seq).children().remove();
+	                    	
+	                        for (var i = 0 ; i < fileCount ; i++) {
+	                            addUploadLi(seq, i, $("#" + objName +"")[0].files[i].name);
+	                        }
+	             */
+	            for (var i = 0; i < fileCount; i++) {
+	
+	                var divImage = "";
+	                divImage += '<div style="display: inline-block; height: 95px;">';
+	                /*divImage += '	<img src="' + obj[i] + '" class="rounded" width= "85px" height="85px">';*/
+	                divImage += '<img id="aaa' + i + '" src="" class="rounded" width= "85px" height="85px">';
+	                divImage += '<div style="position: relative; top:-85px; left:5px"><span style="color: red;">X</span></div>';
+	                divImage += '</div> ';
+	
+	                $("#ifmmUploadedImage1View").append(divImage);
+	
+	                var fileReader = new FileReader();
+	                fileReader.readAsDataURL($("#" + objName + "")[0].files[i]);
+	                //alert($("#" + objName + "")[0].files[i]);
+	                fileReader.onload = function () {
+	                    /* alert(i + " : " + fileReader.result); */
+	                    //alert($("#aaa" + i + ""));
+	
+	                    if (i == 0) {
+	                        $("#aaa0").attr("src", fileReader.result);		/* #-> */
+	                    } else if (i == 1) {
+	                        $("#aaa0").attr("src", fileReader.result);		/* #-> */
+	                    } else {
+	
+	                    }
+	                    /* $("#aaa"+i+"").attr("src", fileReader.result);		/* #-> */
+	                    /* $("#aaa1").attr("src", fileReader.result);		/* #-> */
+	                }
+	            }
+	
+	        } else if (uiType == 2) {
+	            $("#ulFile" + seq).children().remove();
+	
+	            for (var i = 0; i < fileCount; i++) {
+	                addUploadLi(seq, i, $("#" + objName + "")[0].files[i].name);
+	            }
+	        } else if (uiType == 3) {
+	            var fileReader = new FileReader();
+	            fileReader.readAsDataURL($("#" + objName + "")[0].files[0]);
+	
+	            fileReader.onload = function () {
+	                $("#imgProfile").attr("src", fileReader.result);		/* #-> */
+	            }
+	        } else {
+	            return false;
+	        }
+	        return false;
+	    }
+	</script>
 
   </body>
 

@@ -41,10 +41,6 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
-hr {
-	color: solid 3px white;
-}
-
 .clearfix:after {
   content: ".";
   display: block;
@@ -160,7 +156,7 @@ p {
 	border-radius: 23px;
 }
 
-.main-button {
+.main-button a {
   font-size: 14px;
   color: #fff;
   background-color: #e75e8d;
@@ -175,12 +171,12 @@ p {
   overflow: hidden;
 }
 
-.main-button:hover {
+.main-button a:hover {
   background-color: #fff;
   color: #e75e8d;
 }
 
-.main-border-button {
+.main-border-button a {
   font-size: 14px;
   color: #ec6090;
   background-color: transparent;
@@ -196,7 +192,62 @@ p {
   overflow: hidden;
 }
 
-.main-border-button:hover {
+.main-border-button a:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #e75e8d;
+}
+
+.border-no-active a {
+  border-color: #666;
+  color: #666;
+}
+
+.border-no-active a:hover{
+  border-color: #666;
+  color: #666;
+  background-color: transparent;
+}
+
+/* ============ base-main-button S ============= */
+
+.base-button {
+  font-size: 14px;
+  color: #fff;
+  background-color: #e75e8d;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.base-button:hover {
+  background-color: #fff;
+  color: #e75e8d;
+}
+
+.base-border-button {
+  font-size: 14px;
+  color: #ec6090;
+  background-color: transparent;
+  border: 1px solid #ec6090;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.base-border-button:hover {
   border-color: #fff;
   background-color: #fff;
   color: #e75e8d;
@@ -212,6 +263,9 @@ p {
   color: #666;
   background-color: transparent;
 }
+
+
+/* ============== base-main-button E ================= */
 
 section {
   margin-top: 120px;
@@ -659,8 +713,7 @@ Header Style
   .background-header .main-nav .border-button {
     top: 0px !important;
   }
-  .header-area .main-nav .border-
- {
+  .header-area .main-nav .border-button {
     position: absolute;
     top: 15px;
     right: 70px;
@@ -786,29 +839,59 @@ Banner Style
   padding: 80px 60px;
 }
 
-.main-banner-map {
-background-image: url(../images/map.jpg);
-background-position: center center;
-background-size: cover;
-min-height: 380px;
-border-radius: 23px;
-padding: 80px 60px;
+/* 추가 */
+.main-banner-main{
+  background-image: url(../images/IMG_2188.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 23px;
+  padding: 80px 60px;
 }
 
-.main-banner h6 {
+
+.main-banner-main h6 {
   font-size: 20px;
   color: #fff;
   font-weight: 400;
   margin-bottom: 25px;
 }
 
-.main-banner h4 {
+.main-banner-main h4 {
   font-size: 45px;
   text-transform: uppercase;
   margin-bottom: 25px;
 }
 
-.main-banner h4 em {
+.main-banner-main h4 em {
+  font-style: normal;
+  color: #ec6090;
+}
+
+.main-banner-live {
+  background-image: url(../images/astronaut1920.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 23px;
+  padding: 80px 60px;
+}
+
+
+.main-banner-live h6 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.main-banner-live h4 {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.main-banner-live h4 em {
   font-style: normal;
   color: #ec6090;
 }
@@ -1015,6 +1098,8 @@ Featured Games Style
 
 .featured-games .item img {
   border-radius: 23px;
+  width: 352px;
+  height: 630px;
 }
 
 .featured-games .item h4 {
@@ -1138,11 +1223,11 @@ Featured Games Style
   padding-bottom: 28px;
 }
 
-.top-downloaded .text-button {
+.top-downloaded .text-button  {
   text-align: center;
 }
 
-.top-downloaded .text-button {
+.top-downloaded .text-button a {
   font-weight: 600;
   color: #ec6090;
   font-size: 15px;
@@ -1199,10 +1284,13 @@ Live Stream Style
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
+   
 }
 
 .live-stream .thumb img {
-  border-radius: 23px; 
+  border-radius: 23px;
+  width: 261px;
+  height: 235px;
 }
 
 .live-stream .thumb:hover .hover-effect {
