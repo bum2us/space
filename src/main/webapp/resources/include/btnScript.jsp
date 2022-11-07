@@ -9,11 +9,11 @@ $("#btnReset").on("click", function(){
 	$(location).attr("href", goUrlList);
 });
 
-$("#btnForm").on("click", function(){
+/* $("#btnForm").on("click", function(){
 	goForm(0);
 });
-
-goList = function(thisPage){
+ */
+/* goList = function(thisPage){
 	$("input:hidden[name=thisPage]").val(thisPage);
 	form.attr("action", goUrlList).submit();
 }
@@ -21,7 +21,7 @@ goList = function(thisPage){
 goForm = function(keyValue){
 	seq.val(keyValue);
 	form.attr("action", goUrlForm).submit();
-}
+} */
 
 $("#btnSave").on("click", function(){
 	if(seq.val() == "0" || seq.val() == ""){
@@ -32,10 +32,10 @@ $("#btnSave").on("click", function(){
 });
 
 
-$("#btnList").on("click", function(){
+/* $("#btnList").on("click", function(){
 	formVo.attr("action", goUrlList).submit();
 });
-
+ */
 
 $("#btnExcel").click(function() {
 	form.attr("action", excelUri).submit();

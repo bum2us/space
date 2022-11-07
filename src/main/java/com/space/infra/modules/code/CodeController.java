@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.space.infra.modules.codegroup.CodeGroup;
 import com.space.infra.modules.codegroup.CodeGroupServiceImpl;
+import com.space.infra.modules.codegroup.CodeGroupVo;
 
 @RequestMapping(value="/code/")
 @Controller
@@ -33,7 +34,7 @@ public class CodeController {
 	}
 	
 	@RequestMapping(value="codeForm")
-	public String codeForm(@ModelAttribute("vo")CodeVo vo, Model model) throws Exception {
+	public String codeForm(@ModelAttribute("vo")CodeVo vo,Model model) throws Exception {
 		
 		if(vo.getCcSeq() != null) {
 			Code result = service.selectOne(vo);
@@ -61,7 +62,7 @@ public class CodeController {
 	public String codeDele(CodeVo vo) throws Exception {
 		service.delete(vo);
 		return "redirect:/code/codeList";
-	}
+	}    
 	
 	@RequestMapping(value="codeUete")
 	public String codeUete(Code dto) throws Exception {

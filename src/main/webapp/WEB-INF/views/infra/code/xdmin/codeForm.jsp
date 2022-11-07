@@ -20,7 +20,6 @@
 
 </head>
 <body>
-	<c:set var = "listMemberGender" value = "${CodeServiceImpl.selectListCachedCode('1')}"/>
 	<div class="container-scroller">
         
         <%@include file="/resources/include/adminSidebar.jsp" %>
@@ -30,7 +29,7 @@
 
             <nav class="navbar p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-                    <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+                    <a class="navbar-brand brand-logo-mini"><img src="assets/images/logo-mini.svg"
                             alt="logo" /></a>
                 </div>
                 <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -61,6 +60,7 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <form id="mainForm" method="POST">
+                    <input type="hidden" name="ccSeq" id="seq">
                         <!-- 상단 바 바로 아래 한줄 -->
                         <div class="row">
                             <div class="col-12 grid-margin stretch-card">
@@ -82,14 +82,67 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">코드 등록</h4>
-                                        
+                                        <div class="row">
+                                        	<div class="col p-2">
+                                        		<label class="form-label" for="inputccGroupSeq">코드 그룹 시퀀스</label>
+                                        		<input type="text" class="form-control" name="ccGroupSeq" id="inputccGroupSeq" value="${item.ccGroupSeq}" readonly>
+                                        	</div>
+                                        	<div class="col p-2">
+                                        		<label class="form-label" for="inputCgname">코드 그룹 이름</label>
+                                        		<select class="form-control" name="cgName" id="inputCgname">
+                                        			<c:forEach items="${list}" var="list" varStatus="statusCgName">
+                                        				<option value="${list.cgSeq}">${list.cgName}</option>
+                                        			</c:forEach>	
+                                        		</select>
+                                        	</div>
+                                        </div>
+                                        <div class="row">	
+                                       	 	<div class="col p-2">
+                                        		<label class="form-label" for="inputccGroupSeq">코드 시퀀스</label>
+                                        		<input type="text" class="form-control" name="ccSeq" value="${item.ccSeq}" id="inputccGroupSeq" readonly>
+                                        	</div>
+                                        	<div class="col p-2">
+                                        		<label class="form-label" for="inputCgname">코드 이름</label>
+                                        		<input type="text" class="form-control" name="ccName" value="${item.ccName}" id="inputCgname">
+                                        	</div>
+                                        </div>
+                                        <div class="row">	
+                                       	 	<div class="col p-2">
+                                        		<label class="form-label" for="inputccGroupSeq">순서</label>
+                                        		<input type="text" class="form-control" name="ccOrder" value="${item.ccOrder}" id="inputccGroupSeq">
+                                        	</div>
+                                        	<div class="col p-2">
+                                        		<label class="form-label" for="useNy">사용여부</label>
+                                        		<select id="useNy" class="form-control" name="ccUseNy" >
+                                        			<option value="0" <c:if test="${item.ccUseNy eq 0}">selected</c:if>>N</option>
+                                        			<option value="1" <c:if test="${item.ccUseNy eq 1}">selected</c:if>>Y</option>
+                                        		</select>
+                                        	</div>
+                                        </div>
+                                        <div class="row">	
+                                        	<div class="col p-2">
+                                        		<label class="form-label" for="delNy">삭제여부</label>
+                                        		<select id="delNy" class="form-control" name="ccDelNy" >
+                                        			<option value="0" <c:if test="${item.ccDelNy eq 0}">selected</c:if>>N</option>
+                                        			<option value="1" <c:if test="${item.ccDelNy eq 1}">selected</c:if>>Y</option>
+                                        		</select>
+                                        	</div>
+                                        	<div class="col p-2">
+                                        		<label class="form-label" for="createDate">등록날짜</label>
+                                        		<input type="text" class="form-control" name="ccCreateDate" value="${item.ccCreateDate}" id="createDate" readonly>
+                                        	</div>
+                                        </div>
                                     </div>
                                     <div class="card-footer">
 					                     <div class="demo-inline-spacing">
-											
-											
+											<button type="button" class="btn btn-outline-info" id="btnList" onclick="location.href='/code/codeList'">
+												<i class="fa-solid fa-bars"></i>
+											</button>
 											<button type="button" class="btn btn-outline-danger" id="btnUelete">
 												<i class="fa-solid fa-minus"></i>
+											</button>
+											<button type="button" class="btn btn-outline-primary" id="btnSave">
+												<i class="fa-solid fa-plus"></i>
 											</button>
 											<button type="button" class="btn btn-outline-danger" id="btnDelete">
 												<i class="fa-solid fa-trash-can"></i>
@@ -127,7 +180,6 @@
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%> 
-	<%@include file="/resources/include/btnScript.jsp"%>
 	<script>
         $(function () {
             $("#startDate").datepicker({
@@ -149,15 +201,23 @@
         });
     </script>
 	<script>
-		goForm = function(seq){
-			
-			if(seq == 0){
-				$("#mainForm").attr("action","/code/codeList").submit();
-			}
-			else{
-				
-			}
+	var goUrlList = "/code/codeList";
+	var goUrlInst = "/code/codeInst";
+	var goUrlUpdt = "/code/codeUpdt";
+	var goUrlUele = "/code/codeUele";
+	var goUrlDele = "/code/codeDele";
+
+
+	
+	$("#btnSave").on("click", function(){
+		if(seq.val() == "0" || seq.val() == ""){
+			$("#mainForm").attr("action", goUrlInst).submit();
+		} else {
+			$("#mainForm").attr("action", goUrlUpdt).submit();
 		}
+	});
+
+</script>	
 	</script>	
 </body>
 </html>

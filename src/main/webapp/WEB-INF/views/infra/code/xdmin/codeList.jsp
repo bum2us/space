@@ -20,7 +20,6 @@
 
 </head>
 <body>
-	<c:set var = "listMemberGender" value = "${CodeServiceImpl.selectListCachedCode('1')}"/>
 	<div class="container-scroller">
         
         <%@include file="/resources/include/adminSidebar.jsp" %>
@@ -61,6 +60,8 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <form id="mainForm" method="POST">
+                    <input type="hidden" id="seq" name="ccSeq"> 
+                    
                         <!-- 상단 바 바로 아래 한줄 -->
                         <div class="row">
                             <div class="col-12 grid-margin stretch-card">
@@ -151,7 +152,7 @@
 															</tr>
                                                 		</c:when>
                                                 		<c:otherwise>
-		                                                	<c:forEach items="${list }" var="list" varStatus="status">
+		                                                	<c:forEach items="${list}" var="list" varStatus="status">
 			                                                    <tr style="cursor:pointer;" onclick="goForm(${list.ccSeq})">
 			                                                        <td><input type="checkbox" onclick="event.stopPropagation()"></td>
 			                                                        <td><c:out value="${status.count}"/></td>
@@ -217,7 +218,6 @@
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%> 
-	<%@include file="/resources/include/btnScript.jsp"%>
 	<script>
         $(function () {
             $("#startDate").datepicker({
@@ -239,14 +239,11 @@
         });
     </script>
 	<script>
-		goForm = function(seq){
-			
-			if(seq == 0){
-				$("#mainForm").attr("action","/code/codeList").submit();
-			}
-			else{
-				
-			}
+	
+		goForm = function(keyValue){
+		
+			$("#seq").val(keyValue);
+			$("#mainForm").attr("action", "/code/codeForm").submit();
 		}
 	</script>	
 </body>
