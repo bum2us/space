@@ -8,6 +8,19 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.member.Member"></resultMap>
     
+    <select id="selectOne" parameterType="Integer" resultMap = "resultMapObj">
+    	SELECT
+    		mm.*
+    		,up.upPath
+    		,up.upUuidName
+   		FROM member mm
+   		LEFT JOIN uploadedMember up
+   		ON mm.mmSeq = up.upMemberSeq
+   		AND upDelNy = 0
+   		WHERE 1=1
+   		AND mmSeq = #{loginUserSeq}
+    </select>
+    
     <select id="selectList" resultMap = "resultMapObj">
 	
 		SELECT

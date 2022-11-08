@@ -25,7 +25,11 @@
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	Hello world..!!
+	<div class="container">
+	    <div class="page-content">
+	        
+	    </div>
+	</div>
 	
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>

@@ -34,6 +34,26 @@ public class MemberController {
 		return "infra/member/loginForm";
 	}
 	
+	@RequestMapping("profile")
+	public String profile(HttpSession httpSession,Member dto,Model model) throws Exception{
+		
+		Member item = new Member();
+		
+		if(dto.getMmSeq() != null) {
+			//다른 사람의 프로필로 갈 때
+			item = service.selectOne(dto.getMmSeq());
+		}else {
+			//나의 프로필로 갈 때
+			int loginUserSeq = (Integer)httpSession.getAttribute("sessSeq");
+			
+			item = service.selectOne(loginUserSeq);
+		}
+		
+		model.addAttribute("item", item);
+		
+		return "infra/member/user/myPage";
+	}
+	
 	@ResponseBody
 	@RequestMapping("login")
 	public Map<String,Object> login(HttpSession httpSession,Member dto) throws Exception{

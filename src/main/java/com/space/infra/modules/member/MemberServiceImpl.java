@@ -37,6 +37,14 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectListCount(vo);
 	}
 
+	
+	
+	@Override
+	public Member selectOne(int loginUserSeq) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectOne(loginUserSeq);
+	}
+
 	@Override
 	public void insert(Member dto) throws Exception {
 		// TODO Auto-generated method stub
@@ -109,6 +117,8 @@ public class MemberServiceImpl implements MemberService{
 		
 		return text;
 	}
+
+	
 	
 	
 }

@@ -19,7 +19,7 @@
 			/* border: solid 1px orange; */
 		}
 		.main-banner-main{
-			background-image: url(/resources/images/mainbanner.jpg);
+			background-image: url(/resources/images/main_banner_04.png);
 			background-position: center center;
 			background-size: cover;
 			min-height: 380px;
@@ -57,18 +57,7 @@
 	
 			<!-- ***** Banner Start ***** -->
 	          <div class="main-banner-main">
-	            <div class="row">
-	              <div class="col-lg-7">
-	                <div class="header-text">
-	                  <h6>위치기반 중고거래 서비스</h6>
-	                  <h4><em>우</em>리<em>주</em>변 중고거래</h4>
-	                  <h4><em>우주마켓</em></h4>
-	                  <div class="main-button">
-	                    <a href="browse.html">지금 시작하기</a>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
+	            
 	          </div><br><br>
 	          <!-- ***** Banner End ***** -->
 	          <!-- ***** Featured Games Start ***** -->

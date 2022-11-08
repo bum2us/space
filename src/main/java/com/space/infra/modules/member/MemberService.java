@@ -8,4 +8,5 @@ public interface MemberService {
 	public List<Member> selectList(MemberVo vo) throws Exception;
 	public Integer selectListCount(MemberVo vo) throws Exception;
 	public void insert(Member dto) throws Exception;
+	public Member selectOne(int loginUserSeq) throws Exception;
 }

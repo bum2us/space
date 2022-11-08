@@ -26,6 +26,8 @@ public class MemberDao {
 	public void insert(Member dto) { sqlSession.insert(namespace+".insert", dto); }
 
 	public void insertUpload(Member dto) { sqlSession.insert(namespace+".insertProfileUpload",dto); }
+
+	public Member selectOne(int loginUserSeq) { return sqlSession.selectOne(namespace+".selectOne",loginUserSeq);}
 	
 	
 	

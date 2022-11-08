@@ -5,8 +5,8 @@
 	  <div class="container"> 
           <nav class="main-nav">
               <!-- ***** Logo Start ***** -->
-              <a href="index.html" class="logo">
-                  <img src="/resources/images/space_logo.png" alt="">
+              <a href="/home" class="logo">
+                  <img src="/resources/images/space_logo.png" alt=""> 
               </a>
               <!-- ***** Logo End ***** -->
               <!-- ***** Search End ***** -->
@@ -24,7 +24,7 @@
                   <li><a href="details.html">동네소식</a></li>
                   <li><a href="streams.html" class="active">채팅</a></li>
                   <li><a href="profile.html">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li> 
-                  <li><a href="profile.html">프로필</a></li>  
+                  <li><a href="/member/profile">프로필</a></li>  
               </ul>   
               <a class='menu-trigger'>
                   <span>Menu</span>
