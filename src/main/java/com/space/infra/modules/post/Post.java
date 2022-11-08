@@ -2,7 +2,9 @@ package com.space.infra.modules.post;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class Post {
+import com.space.infra.modules.base.Base;
+
+public class Post extends Base{
 	
 	private Integer postSeq;
 	private Integer postWriter;
@@ -13,7 +15,6 @@ public class Post {
 	private String  postCreateDate;
 	private String  postEditDate;
 	private String  postContent;
-	private MultipartFile[] multipartFile;
 	
 	
 	public Integer getPostSeq() {
@@ -69,12 +70,6 @@ public class Post {
 	}
 	public void setPostContent(String postContent) {
 		this.postContent = postContent;
-	}
-	public MultipartFile[] getMultipartFile() {
-		return multipartFile;
-	}
-	public void setMultipartFile(MultipartFile[] multipartFile) {
-		this.multipartFile = multipartFile;
 	}
 	
 	

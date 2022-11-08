@@ -20,6 +20,16 @@
 		div	{ 
 			/* border: solid 1px orange; */
 		}
+		select{
+			padding: 15px; 
+			height: 60px; 
+			width: 100%; 
+			background: #27292A; 
+			border: none; 
+			border-radius:5px; 
+			color: #E75E8D;  
+			font-size: 10pt;   	
+		}
 		
 		input { 
 			padding: 15px; 
@@ -126,6 +136,11 @@
 	                		<input type="text" name="mmName" placeholder="이름">    
 	                	</div>
 	                </div>
+	                 <div class="row my-3">
+	                	<div class="col">  
+	                		<input type="text" name="mmEmail" placeholder="이메일">    
+	                	</div>
+	                </div>
 	                <div class="row my-3">
 	                	<div class="col-5">
 	                		<input type="text" name="mmDob" placeholder="생년월일 6자리">    
@@ -141,14 +156,22 @@
 	                	</div> 
 	                </div>	  
 	                 <div class="row my-3">
+	                 	<div class="col-3">
+	                 		<select name="mmTelecom">
+	                 			<option value="1">SKT</option>
+	                 			<option value="2">KT</option>
+	                 			<option value="3">LG</option>
+	                 			<option value="4">기타</option>
+	                 		</select>
+	                 	</div>
 	                 	<div class="col"> 
-	                		<input type="text" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
-	                		<button class="spaceBtnInner" name="mmPhone" type="button" onclick="">인증요청</button>    
+	                		<input type="text" name="mmPhone" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
+	                		<button style="right:7%;" class="spaceBtnInner" type="button" onclick="">인증요청</button>    
 	                	</div>
 	                </div>
 	                <div class="row my-3">
 	                	<div class="col" style="position:relative;">  
-	                		<input type="text" placeholder="인증번호 6자리를 입력해주세요">
+	                		<input type="text" id="checkCode" placeholder="인증번호 6자리를 입력해주세요">
 	                		<button class="spaceBtnInner" type="button" onclick="">인증확인</button>        
 	                	</div>  
 	                </div> 
@@ -172,6 +195,10 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+		goForm = function(){
+			$("#mainForm").attr("action","memberInst").submit();
+		}
+	
 		upload = function(objName) {
 			
 			var obj = $("#" + objName +"")[0].files;	

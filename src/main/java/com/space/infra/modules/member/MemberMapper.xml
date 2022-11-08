@@ -57,12 +57,40 @@
 			,#{mmName}
 			,#{mmNickName}
 			,#{mmPassword}
-			,#{mmGender}
+			,#{mmGender} 
 			,#{mmAge}
 			,#{mmDob}
 			,#{mmEmail}
 			,#{mmTelecom}
 			,#{mmPhone}
+		)
+		<selectKey resultType="Integer" keyProperty="mmSeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<insert id="insertProfileUpload">
+		INSERT INTO uploadedMember 
+		(
+			upDefaultNy
+			,upSort
+			,pSize
+			,upOriginalName
+			,upUuidName
+			,upExt
+			,upPath
+			,upMemberSeq
+		)
+		VALUES
+		(
+			#{upDefaultNy}
+			,#{upSort}
+			,#{pSize}
+			,#{upOriginalName}
+			,#{upUuidName}
+			,#{upExt}
+			,#{upPath}
+			,#{mmSeq}
 		)
 	</insert>
 	

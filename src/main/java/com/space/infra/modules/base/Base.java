@@ -1,5 +1,7 @@
 package com.space.infra.modules.base;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Base {
 
 	
@@ -23,6 +25,8 @@ public class Base {
 	private Integer upDefaultNy;
 	private Integer upSort;
 	private Integer upDelNy;
+
+	private MultipartFile[] multipartFile;
 
 	public String getUpPath() {
 		return upPath;
@@ -78,5 +82,13 @@ public class Base {
 	public void setUpDelNy(Integer upDelNy) {
 		this.upDelNy = upDelNy;
 	}
+	public MultipartFile[] getMultipartFile() {
+		return multipartFile;
+	}
+	public void setMultipartFile(MultipartFile[] multipartFile) {
+		this.multipartFile = multipartFile;
+	}
+	
+	
 	
 }

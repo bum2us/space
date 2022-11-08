@@ -23,7 +23,9 @@ public class MemberDao {
 
 	public Integer selectListCount(MemberVo vo) { return sqlSession.selectOne(namespace+".selectListCount", vo); }
 
-	public void insert(Member dto) { sqlSession.insert(namespace+".insert", dto); }
+	public int insert(Member dto) { return sqlSession.insert(namespace+".insert", dto); }
+
+	public void insertUpload(Member dto) { sqlSession.insert(namespace+".insertProfileUpload",dto); }
 	
 	
 	

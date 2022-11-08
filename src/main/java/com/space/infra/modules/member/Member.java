@@ -1,8 +1,8 @@
 package com.space.infra.modules.member;
 
-import org.springframework.web.multipart.MultipartFile;
+import com.space.infra.modules.base.Base;
 
-public class Member {
+public class Member extends Base{
 	
 	private Integer mmSeq;
 	private Integer mmGender;
@@ -21,8 +21,6 @@ public class Member {
 	
 	
 
-	private MultipartFile[] multipartFile;
-	
 	public Integer getMmSeq() {
 		return mmSeq;
 	}
@@ -94,12 +92,6 @@ public class Member {
 	}
 	public void setMmDob(String mmDob) {
 		this.mmDob = mmDob;
-	}
-	public MultipartFile[] getMultipartFile() {
-		return multipartFile;
-	}
-	public void setMultipartFile(MultipartFile[] multipartFile) {
-		this.multipartFile = multipartFile;
 	}
 	public Integer getMmAdminNy() {
 		return mmAdminNy;
