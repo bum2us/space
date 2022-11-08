@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>동네소식</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/f92c8dde3d.js" crossorigin="anonymous"></script>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+
+    <style type="text/css">
+      div {
+        border: 1px solid green;
+      }
+
+      .btn {
+        width: 60px; 
+        height: 60px; 
+        border-radius: 50%; 
+        font-size: 8pt; 
+        display: flex; 
+        margin-left: auto; 
+        margin-right: auto;
+        background: #fff;
+      }
+
+      .btn:hover {
+        background: orange;
+        color: white;
+
+      }
+    </style>
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Search End ***** -->
+                    <div class="search-input">
+                      <form id="search" action="#">
+                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                        <i class="fa fa-search"></i>
+                      </form>
+                    </div>
+                    <!-- ***** Search End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="details.html">Details</a></li>
+                        <li><a href="streams.html">Streams</a></li>
+                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          
+          <div class="row">
+          	<div class="col-8">
+          		<div class="row">
+          			<div class="col">
+          				<img src="assets/images/map.jpg" alt="지도 이미지">
+          			</div>
+          		</div>
+          	</div>
+          	<div class="col-4">
+          		<div class="row">
+          			<div class="col">
+          				<div class="row">
+          					<div class="col">
+          						우리주변 동네 정보
+          					</div>
+          				</div>
+          				<div class="row">
+          					<div class="col">
+          						우주지도
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          		<div class="row">
+          			<div class="col">
+          				<div class="row">
+          					<div class="col">
+          						step01
+          					</div>
+          					<div class="col">
+          						지역을 선택하세요
+          					</div>
+          				</div>
+          				<div class="row">
+          					<div class="col">
+          						<select class="form-select">
+          							<option value="">시/도 선택</option>
+          							<option value="">서울특별시</option>
+          							<option value="">경기도</option>
+          						</select>
+          					</div>
+          				</div>
+          				<div class="row">
+          					<div class="col">
+          						<select class="form-select">
+          							<option value="">시/군/도 선택</option>
+          							<option value="">서울특별시</option>
+          							<option value="">경기도</option>
+          						</select>
+          					</div>
+          				</div>
+          			</div>
+          		</div>
+          		<hr>
+          		<div class="row">
+          			<div class="col">
+          				<div class="row">
+          					<div class="col">
+          						step02
+          					</div>
+          					<div class="col">
+          						물품 종류를 선택하세요
+          					</div>
+          				</div>
+          				<div class="row">
+          					<div class="col">
+          						
+          					</div>
+          					<div class="col">
+          					</div>
+          					<div class="col">
+          					</div>
+          					<div class="col">
+          					</div>
+          				</div>
+          				<div class="row">
+          				
+          				</div>
+          				<div class="row">
+          				
+          				</div>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+          
+          
+          <!-- <div class="main-banner" style="background-color: black;">
+
+            우주지도 안에 한 section
+            <div class="row p-1" style="text-align: left;">
+              <div class="col-lg-4">
+                <div class="header-text">
+                  <h6>우리 주변 동네 정보</h6> 
+                  <h4><em>우주</em>지도</h4>
+                </div>
+              </div>
+            </div>
+          한 section 끝
+
+          우주지도 안에 한 section
+          <div class="row-3">
+            <div class="col-lg-4">
+              <div class="header-text">
+                <span class="badge" style="background-color: rgba(247, 52, 133, 0.849); border-radius: 3px;">Step 01</span>
+                <span style="color: white; margin-left: 10px;">지역을 선택하세요</span>
+                <div>
+                  <select id="city" class="form-select-sm m-2" style="width: 200px;">
+                    <option value="">시/도 선택</option>
+                    <option value="경기도">경기도</option>
+                    <option value="서울">서울특별시</option>
+                    <option value="충청남도">충청남도</option>
+                  </select>
+                </div>
+                <div>
+                  <select id="village" class="form-select-sm m-2" style="width: 200px;"> 
+                    <option value="">시/군/도 선택</option>
+                    <option value="남양주시">남양주시</option>
+                    <option value="부천시">부천시</option>
+                    <option value="서초구">서초구</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        한 section 끝
+
+          <hr>
+          우주지도 안에 한 section
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="header-text">
+                <span class="badge" style="background-color: rgba(202, 60, 221, 0.938); border-radius: 3px;">Step 02</span>
+                <span style="color: white; margin-left: 10px;">물품 종류를 선택하세요 <i class="fa-solid fa-loveseat"></i></span>
+              </div>
+              <div class="row">
+
+                카테고리 첫째줄
+                <div class="col-3 p-2">
+                  <input type="checkbox" class="btn-check" id="categoryCheck1" autocomplete="off">
+                  <label class="btn btn-outline-warning" for="categoryCheck1" style="border-color: black; color: black;">그림</label>  
+                  <span></span>
+                </div>
+ 
+                <div class="col-3 p-2">
+                  <input type="checkbox" class="btn-check" id="categoryCheck2" autocomplete="off">
+                  <label class="btn btn-outline-warning" for="categoryCheck2" style="border-color: black; color: black;">카테고리</label>
+                </div>
+
+                <div class="col-3 p-2">
+                  <input type="checkbox" class="btn-check" id="categoryCheck3" autocomplete="off">
+                  <label class="btn btn-outline-warning" for="categoryCheck3" style="border-color: black; color: black;">카테고리</label>
+                </div>
+
+                <div class="col-3 p-2">
+                  <input type="checkbox" class="btn-check" id="categoryCheck4" autocomplete="off">
+                  <label class="btn btn-outline-warning" for="categoryCheck4" style="border-color: black; color: black;">카테고리</label>
+                </div>
+              </div>
+
+              카테고리 둘쨰줄
+              <div class="row" style="text-align: center; color: white;">
+                <div class="col-3 p-2">
+                 aa
+                </div>
+ 
+                <div class="col-3 p-2">
+                  aa
+                </div>
+
+                <div class="col-3 p-2">
+                  aa
+                </div>
+
+                <div class="col-3 p-2">
+                  aa
+                </div> 
+              </div>
+              
+            </div>
+          </div>
+        한 section 끝
+          </div> -->
+          
+          
+          
+          <!-- ***** Banner End ***** -->
+
+          <!-- ***** Gaming Library Start ***** -->
+          <div class="gaming-library profile-library">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em>삽니다</em></h4>
+              </div>
+              <div class="buy-table">
+              	<table class="table text-white">
+				  <thead>
+				    <tr>
+				      <th scope="col">No.</th>
+				      <th scope="col">Id</th>
+				      <th scope="col">Addr.</th>
+				      <th scope="col">Contents</th>
+				      <th scope="col">like</th>
+				      <th scope="col">comment</th>
+				      <th scope="col">RegDate</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>bums0810</td>
+				      <td>서초구 서초3동</td>
+				      <td>안쓰는 선풍기 있으신분</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 17:00</td>
+				    </tr>
+				     <tr>
+				      <th scope="row">2</th>
+				      <td>dnwk203</td>
+				      <td>서초구 서초3동</td>
+				      <td>러닝머신 삽니다~</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 16:57</td>
+				    </tr>
+				     <tr>
+				      <th scope="row">3</th>
+				      <td>MJzzang</td>
+				      <td>서초구 서초3동</td>
+				      <td>다 푼 토익책구해요</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 16:43</td>
+				    </tr>
+				     <tr>
+				      <th scope="row">4</th>
+				      <td>minsookun</td>
+				      <td>서초구 서초3동</td>
+				      <td>선풍기 삽니다</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 16:42</td>
+				    </tr>
+				     <tr>
+				      <th scope="row">5</th>
+				      <td>JINgold</td>
+				      <td>서초구 서초3동</td>
+				      <td>아이패드 충전기구합니다</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 16:30</td>
+				    </tr>
+				     <tr>
+				      <th scope="row">6</th>
+				      <td>UziNs</td>
+				      <td>서초구 서초3동</td>
+				      <td>뉴진스 포토카드 삽니다~</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 17:00</td>
+				    </tr>
+				     <tr>
+				      <th scope="row">7</th>
+				      <td>JAE2</td>
+				      <td>서초구 서초3동</td>
+				      <td>무선마우스 구해요.</td>
+				      <td>356</td>
+				      <td>365</td>
+				      <td>2022.10.31. 17:00</td>
+				    </tr>
+				  </tbody>
+				</table>
+              
+              </div>
+              
+            </div>
+          </div>
+          <!-- ***** Gaming Library End ***** -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
+          
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a>  Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+<script src="https://kit.fontawesome.com/f92c8dde3d.js" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
