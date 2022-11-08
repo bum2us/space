@@ -240,10 +240,23 @@
     </script>
 	<script>
 	
+		var goUrlList = "/code/codeList";
+		var goUrlInst = "/code/codeInst";
+		var goUrlUpdt = "/code/codeUpdt";
+		var goUrlUele = "/code/codeUele";
+		var goUrlDele = "/code/codeDele";
+		var goUrlForm = "/code/codeForm"; 
+
+		
+		$("#btnForm").on("click", function(){
+			goForm(0);
+		});
+		
 		goForm = function(keyValue){
 		
-			$("#seq").val(keyValue);
-			$("#mainForm").attr("action", "/code/codeForm").submit();
+			if (keyValue != 0)
+				$("#seq").val(keyValue);
+			$("#mainForm").attr("action", goUrlForm).submit();
 		}
 	</script>	
 </body>

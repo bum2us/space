@@ -14,14 +14,14 @@ import com.space.infra.modules.codegroup.CodeGroupVo;
 
 @RequestMapping(value="/code/")
 @Controller
-public class CodeController {
+public class CodeController { 
 	
 	@Autowired
 	CodeServiceImpl service;
 
 	@Autowired
 	CodeGroupServiceImpl ccgService;
-	
+	 
 	@RequestMapping(value="codeList")
 	public String codeList(@ModelAttribute("vo")CodeVo vo, Model model) throws Exception{
 		
@@ -36,12 +36,12 @@ public class CodeController {
 	@RequestMapping(value="codeForm")
 	public String codeForm(@ModelAttribute("vo")CodeVo vo,Model model) throws Exception {
 		
+		List<CodeGroup> list = ccgService.selectList();
+		model.addAttribute("list", list);
+		
 		if(vo.getCcSeq() != null) {
 			Code result = service.selectOne(vo);
 			model.addAttribute("item", result);
-		} else {
-			List<CodeGroup> list = ccgService.selectList();
-			model.addAttribute("list", list);
 		}
 		return "infra/code/xdmin/codeForm";
 	}

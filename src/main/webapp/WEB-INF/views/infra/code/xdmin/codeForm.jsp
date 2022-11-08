@@ -85,13 +85,13 @@
                                         <div class="row">
                                         	<div class="col p-2">
                                         		<label class="form-label" for="inputccGroupSeq">코드 그룹 시퀀스</label>
-                                        		<input type="text" class="form-control" name="ccGroupSeq" id="inputccGroupSeq" value="${item.ccGroupSeq}" readonly>
+                                        		<input type="text" class="form-control" name="ccGroupSeq" id="inputccGroupSeq" value="${item.cgSeq}" readonly>
                                         	</div>
                                         	<div class="col p-2">
                                         		<label class="form-label" for="inputCgname">코드 그룹 이름</label>
                                         		<select class="form-control" name="cgName" id="inputCgname">
                                         			<c:forEach items="${list}" var="list" varStatus="statusCgName">
-                                        				<option value="${list.cgSeq}">${list.cgName}</option>
+                                        				<option value="${list.cgSeq}" <c:if test ="${item.cgSeq eq list.cgSeq}">selected</c:if>>${list.cgName}</option>
                                         			</c:forEach>	
                                         		</select>
                                         	</div>
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="card-footer">
 					                     <div class="demo-inline-spacing">
-											<button type="button" class="btn btn-outline-info" id="btnList" onclick="location.href='/code/codeList'">
+											<button type="button" class="btn btn-outline-info" id="btnList">
 												<i class="fa-solid fa-bars"></i>
 											</button>
 											<button type="button" class="btn btn-outline-danger" id="btnUelete">
@@ -208,6 +208,9 @@
 	var goUrlDele = "/code/codeDele";
 
 
+	$("#btnList").on("click", function(){
+		$("#mainForm").attr("action", goUrlList).submit();
+	});
 	
 	$("#btnSave").on("click", function(){
 		if(seq.val() == "0" || seq.val() == ""){
