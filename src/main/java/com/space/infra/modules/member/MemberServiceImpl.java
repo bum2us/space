@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
 import com.space.infra.common.utils.UtilDateTime;
 import com.space.infra.common.utils.UtilSecurity;
 import com.space.infra.common.utils.UtilUpload;
@@ -76,7 +77,7 @@ public class MemberServiceImpl implements MemberService{
 		dto.setMmAge(Integer.parseInt(UtilDateTime.nowString().substring(0, 4))-Integer.parseInt(dto.getMmDob().substring(0, 4)) +1);
 		
 		//멤버 정보 추가
-		int seq = dao.insert(dto);
+		dao.insert(dto);
 		
 		//프로필 이미지 업로드
 		
@@ -90,7 +91,7 @@ public class MemberServiceImpl implements MemberService{
 				
 				dto.setUpDefaultNy(j == 0 ? 1 : 0);
 				dto.setUpSort(j+1);
-				dto.setMmSeq(seq);
+				dto.setMmSeq(dto.getMmSeq());
 				
 				dao.insertUpload(dto);
 				j++;
