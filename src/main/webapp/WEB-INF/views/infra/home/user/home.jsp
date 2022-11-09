@@ -19,7 +19,7 @@
 			/* border: solid 1px orange; */
 		}
 		.main-banner-main{
-			background-image: url(/resources/images/main_banner_04.png);
+			background-image: url(/resources/images/mainBanner1.PNG);
 			background-position: center center;
 			background-size: cover;
 			min-height: 380px;
