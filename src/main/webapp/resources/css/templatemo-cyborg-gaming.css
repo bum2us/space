@@ -215,6 +215,63 @@ p {
   background-color: transparent;
 }
 
+/* ============ base-main-button S ============= */
+
+.base-button {
+  font-size: 14px;
+  color: #fff;
+  background-color: #e75e8d;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.base-button:hover {
+  background-color: #fff;
+  color: #e75e8d;
+}
+
+.base-border-button {
+  font-size: 14px;
+  color: #ec6090;
+  background-color: transparent;
+  border: 1px solid #ec6090;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.base-border-button:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #e75e8d;
+}
+
+.border-no-active {
+  border-color: #666;
+  color: #666;
+}
+
+.border-no-active:hover{
+  border-color: #666;
+  color: #666;
+  background-color: transparent;
+}
+
+/* ============== base-main-button E ================= */
+
 section {
   margin-top: 120px;
 }

@@ -1,38 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
+<head>
 
-  <head>
+	<title>🛸동네소식🛸</title>
+	
+	<!-- link -->
+	<%@include file="/resources/include/link.jsp"%>
+	
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>동네소식</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   	
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-
-
-    <style type="text/css">
-      div {
-        border: 1px solid green;
-      }
-
-      .btn {
-        width: 60px; 
-        height: 60px; 
+	<style>
+		div	{
+			border: solid 1px orange;
+		}
+		
+		.btn {
+        width: 50px; 
+        height: 50px; 
         border: 1px solid grey;
         border-radius: 50%; 
         color: black;
-        font-size: 8pt; 
         display: flex; 
         margin-left: auto; 
         margin-right: auto;
@@ -48,74 +40,29 @@
       #category {
       	color: white;
       }
-    </style>
-  </head>
-
+		
+	</style>
+</head>
 <body>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Search End ***** -->
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <!-- ***** Search End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="browse.html">Browse</a></li>
-                        <li><a href="details.html">Details</a></li>
-                        <li><a href="streams.html">Streams</a></li>
-                        <li><a href="profile.html">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="page-content">
-
-          <!-- ***** Banner Start ***** -->
-          
-          <div class="row">
+	<!-- Preloader Start -->
+	<%@include file="/resources/include/preloader.jsp"%>
+	
+	<!-- header  -->
+	<%@include file="/resources/include/header.jsp"%>
+	
+	<div class="container">
+	    <div class="row">
+	      <div class="col-lg-12">
+	        <div class="page-content">
+	
+	          <!-- ***** Banner Start ***** -->
+	          
+	          <div class="row">
           	<div class="col-8">
-          		<div class="row">
+          		<div class="row" style="height: 100%;">
           			<div class="col">
-          				<img src="assets/images/map.jpg" alt="지도 이미지">
+          				<img src="/resources/images/map.jpg" style="height: 100%;" alt="지도 이미지"> 
           			</div>
           		</div>
           	</div>
@@ -137,15 +84,15 @@
           		<div class="row">
           			<div class="col">
           				<div class="row">
-          					<div class="col">
-          						step01
+          					<div class="col-4">
+          						<span class="badge" style="background-color: rgba(247, 52, 133, 0.849); border-radius: 3px;">Step 01</span>
           					</div>
-          					<div class="col">
-          						지역을 선택하세요
+          					<div class="col-8">
+				                <span style="color: white; font-size: 10pt;">지역을 선택하세요</span> 
           					</div>
           				</div>
           				<div class="row">
-          					<div class="col">
+          					<div class="col p-2">
           						<select class="form-select">
           							<option value="">시/도 선택</option>
           							<option value="">서울특별시</option>
@@ -154,7 +101,7 @@
           					</div>
           				</div>
           				<div class="row">
-          					<div class="col">
+          					<div class="col p-2">
           						<select class="form-select">
           							<option value="">시/군/도 선택</option>
           							<option value="">서울특별시</option>
@@ -168,18 +115,18 @@
           		<div class="row">
           			<div class="col">
           				<div class="row">
-          					<div class="col">
-          						step02
+          					<div class="col-4">
+          						<span class="badge" style="background-color: rgba(202, 60, 221, 0.938); border-radius: 3px;">Step 02</span>
           					</div>
-          					<div class="col">
-          						물품 종류를 선택하세요
+          					<div class="col-8">
+          						<span style="color: white; font-size: 10pt;">물품 종류를 선택하세요</span>     
           					</div>
           				</div>
           				<div class="row" id="category">
           					<div class="col">
           						<div class="row">
           							<div class="col">
-          								<button type="button" class="btn"><box-icon type='solid' name='t-shirt'></box-icon></button>
+          								<button type="button" class="btn"><i class="fa-solid fa-shirt"></i></button>
           							</div>
           						</div>
           						<div class="row">
@@ -191,7 +138,7 @@
           					<div class="col">
           						<div class="row">
           							<div class="col">
-          								<button type="button" class="btn"><i class="fa-regular fa-shirt"></i></button>
+          								<button type="button" class="btn"><i class="fa-solid fa-wand-magic-sparkles"></i></button> 
           							</div>
           						</div>
           						<div class="row">
@@ -203,7 +150,7 @@
           					<div class="col">
           						<div class="row">
           							<div class="col">
-          								<button type="button" class="btn"><i class="fa-regular fa-shirt"></i></button>
+          								<button type="button" class="btn"><i class="fa-solid fa-baby"></i></button>
           							</div>
           						</div>
           						<div class="row">
@@ -215,7 +162,57 @@
           					<div class="col">
           						<div class="row">
           							<div class="col">
-          								<button type="button" class="btn"><i class="fa-regular fa-shirt"></i></button>
+          								<button type="button" class="btn"><i class="fa-solid fa-utensils"></i></button>
+          							</div>
+          						</div>
+          						<div class="row">
+          							<div class="col">
+          								식품
+          							</div>
+          						</div>
+          					</div>
+          				</div>
+          				<div class="row" id="category">
+          					<div class="col">
+          						<div class="row">
+          							<div class="col">
+          								<button type="button" class="btn"><i class="fa-solid fa-shirt"></i></button>
+          							</div>
+          						</div>
+          						<div class="row">
+          							<div class="col" style="font-size: 5pt;">
+          								패션의류/잡화
+          							</div>
+          						</div>
+          					</div>
+          					<div class="col">
+          						<div class="row">
+          							<div class="col">
+          								<button type="button" class="btn"><i class="fa-solid fa-wand-magic-sparkles"></i></button> 
+          							</div>
+          						</div>
+          						<div class="row">
+          							<div class="col">
+          								뷰티
+          							</div>
+          						</div>
+          					</div>
+          					<div class="col">
+          						<div class="row">
+          							<div class="col">
+          								<button type="button" class="btn"><i class="fa-solid fa-baby"></i></button>
+          							</div>
+          						</div>
+          						<div class="row">
+          							<div class="col">
+          								출산/유아동
+          							</div>
+          						</div>
+          					</div>
+          					<div class="col">
+          						<div class="row">
+          							<div class="col">
+          								<button type="button" class="btn"><i class="fa-solid fa-utensils"></i></button>
           							</div>
           						</div>
           						<div class="row">
@@ -226,15 +223,17 @@
           					</div>
           				</div>
           				<div class="row">
-          					뭔데요
-          				</div>
-          				<div class="row">
-          					뭔데요
+          					<div class="col">
+          						<button class="base-button" type="button"><i class="fa-solid fa-pen"></i></button> 
+          						<button class="base-button" type="button"><i class="fa-solid fa-rotate-left"></i></button>
+          					</div>
           				</div>
           			</div>
           		</div>
           	</div>
           </div>
+          
+          
           
           
           <div class="main-banner" style="background-color: black;">
@@ -433,33 +432,15 @@
       </div>
     </div>
   </div>
-  
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved. 
-          
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a>  Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Scripts -->
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <script src="https://kit.fontawesome.com/f92c8dde3d.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
-  </body>
-
+	
+	<!-- footer -->
+	<%@include file="/resources/include/footer.jsp"%>
+	
+	<!--  스크립트  -->		
+	<%@include file="/resources/include/script.jsp"%>
+	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+	<script>
+		
+	</script>	
+</body>
 </html>

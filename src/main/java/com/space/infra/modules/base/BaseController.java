@@ -33,4 +33,10 @@ public class BaseController {
 		return "infra/home/xdmin/home";
 	}
 	
+	@RequestMapping(value="vgStory")
+	public String vgStory() throws Exception  {
+		
+		return "infra/vgStory/user/vgStoryList";
+	}
+	
 }
