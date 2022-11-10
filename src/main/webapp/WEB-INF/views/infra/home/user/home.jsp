@@ -18,8 +18,7 @@
 		div	{
 			/* border: solid 1px orange; */
 		}
-		.main-banner-main{
-			background-image: url(/resources/images/mainBanner1.PNG);
+		.main-banner-main{			
 			background-position: center center;
 			background-size: cover;
 			min-height: 380px;
@@ -56,8 +55,8 @@
 	        <div class="page-content">
 	
 			<!-- ***** Banner Start ***** -->
-	          <div class="main-banner-main">
-	            
+	          <div id="main-banner" class="main-banner-main">
+	          <input id="bannerPath" type="hidden" value="url(/resources/images/mainBanner${no}.PNG)">
 	          </div><br><br>
 	          <!-- ***** Banner End ***** -->
 	          <!-- ***** Featured Games Start ***** -->
@@ -469,6 +468,10 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+		window.onload = function() {
+			
+			$("#main-banner").css('background-image',$("#bannerPath").val()); 
+		};
 		
 	</script>	
 </body>

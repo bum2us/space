@@ -1,6 +1,7 @@
 package com.space.infra.modules.base;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,7 +23,17 @@ public class BaseController {
 	}
 	
 	@RequestMapping(value="home")
-	public String home() throws Exception  {
+	public String home(Model model) throws Exception  {
+		
+		int rnd = 0;
+		
+		while(1 > rnd || rnd > 3){
+			
+			rnd = (int)(Math.random()*10)+1;
+			 
+		}
+		
+		model.addAttribute("no", rnd);
 		
 		return "infra/home/user/home";
 	}
