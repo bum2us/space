@@ -19,7 +19,7 @@
 			color: #212529;
 		}
 		div	{
-			border: solid 1px orange;
+			/* border: solid 1px orange; */
 		}
 		
 		.btn {
@@ -39,15 +39,6 @@
 	        color: white;
 
       	}
-      
-      /* #category {
-      	color: white;
-      } */
-      
-      /* em {
-      	color: #E75E8D;
-      } */
-		
 	</style>
 </head>
 <body>
@@ -64,7 +55,7 @@
 	        <div class="page-content">
 	
 	          <!-- ***** Banner Start ***** -->
-	          <div class="row" style="border-radius: 23px; background: white;">
+	          <div class="row" style="background: white;">
 	          	<div class="col-8">
 	          		<div class="row" style="width:100%; height: 100%;">
 	          			<div class="col">
@@ -87,6 +78,7 @@
 	          				</div>
 	          			</div>
 	          		</div>
+	          		<hr>
 	          		<div class="row">
 	          			<div class="col">
 	          				<div class="row">
@@ -128,7 +120,7 @@
 	          						<span style="font-size: 10pt;">물품 종류를 선택하세요</span>     
 	          					</div>
 	          				</div>
-	          				<div class="row" id="category">
+	          				<div class="row">
 	          					<div class="col">
 	          						<div class="row">
 	          							<div class="col">
@@ -178,7 +170,7 @@
 	          						</div>
 	          					</div>
 	          				</div>
-	          				<div class="row" id="category">
+	          				<div class="row">
 	          					<div class="col">
 	          						<div class="row">
 	          							<div class="col">
