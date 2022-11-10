@@ -244,7 +244,7 @@
 				},
 				success:function(result){
 					if(result.rt=="success"){
-						swal("로그인 성공!", result.mmId + " 회원님 로그인되었습니다.", "success")
+						swal("로그인 성공!", result.mmId + "님 로그인되었습니다.", "success")
 						.then(function() {
 							if(result.mmAdminNy == 1) {				
 								location.href="/adminhome";   //관리자
@@ -253,7 +253,7 @@
 							}
 						});
 					}else{
-						swal("로그인 실패","로그인 정보가 일치하는 회원이 없습니다.","error");
+						swal("로그인 실패","회원정보가 없습니다.","error");
 					}  
 				},
 				error:function(){

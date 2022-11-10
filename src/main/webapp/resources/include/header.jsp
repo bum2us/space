@@ -22,7 +22,7 @@
                   <li><a href="index.html">Live</a></li>
                   <li><a href="browse.html">중고거래</a></li>
                   <li><a href="details.html">동네소식</a></li>
-                  <li><a href="streams.html" class="active">채팅</a></li>
+                  <li><a href="streams.html">채팅</a></li>
                   <li><a href="profile.html">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li> 
                   <li><a href="/member/profile">프로필</a></li>  
               </ul>   
