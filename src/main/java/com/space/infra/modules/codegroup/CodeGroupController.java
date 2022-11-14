@@ -24,7 +24,7 @@ public class CodeGroupController {
 		List<CodeGroup> search = service.search(vo);
 		model.addAttribute("list", search);
 		
-		return "infra/member/xdmin/codeGroupList";
+		return "infra/codeGroup/xdmin/codeGroupList";
 	}
 	
 	@RequestMapping("codeGroupInst")
