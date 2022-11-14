@@ -426,6 +426,8 @@
 	                    </div>
 	                    <h4>정우경</h4>
 	                    <p>팀장. 근데 오늘 빠짐</p>
+	                    <h6>개별프로젝트</h6> 
+	                    <a href="http://13.209.12.240"  style="color:#E75E8D;">Sports Mate</a>
 	                  </div>
 	                </div>
 	                <div class="col-lg-4">
@@ -434,7 +436,9 @@
 	                      <img src="/resources/images/service-02.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
 	                    </div>
 	                    <h4>신범수</h4>
-	                    <p>엘리트. 근데 자주 빠짐</p>
+	                    <p>빨리 배우고 잘 써먹는 신입사원</p>    
+	                    <h6>개별프로젝트</h6>
+	                    <a href="http://3.38.214.0"  style="color:#E75E8D;">ALBUM's</a>
 	                  </div>
 	                </div>
 	                <div class="col-lg-4">
@@ -444,6 +448,8 @@
 	                    </div>
 	                    <h4>고명지</h4>
 	                    <p>팀원. 근데 안빠짐</p>
+	                    <h6>개별프로젝트</h6>
+	                    <a href="http://3.35.136.131" style="color:#E75E8D;">MEGABOX</a> 
 	                  </div>
 	                </div>
 	                <div class="col-lg-12">
