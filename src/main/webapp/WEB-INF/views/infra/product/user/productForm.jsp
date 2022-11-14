@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeServiceImpl" class="com.space.infra.modules.code.CodeServiceImpl"/> 
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -54,22 +56,39 @@
 			font-size: 10pt;
 	    }
 	    
+	    .slimscroll::-webkit-scrollbar {
+		    width: 10px;
+		    height: 10px;
+		}
+		
+		.slimscroll::-webkit-scrollbar-thumb {
+		    background-color: gray;
+		    border-radius: 10px;
+		    background-clip: padding-box;
+		    border: 2px solid transparent;
+		}
+		
+		.slimscroll::-webkit-scrollbar-track {
+		    background-color: #27292A; 
+		}
+	    
 	</style>
 </head> 
 <body>
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	<div class="container"> 
+	<div class="container header-text"> 
 		<form method="POST" id="mainForm">
+			<c:set var = "codeList" value = "${CodeServiceImpl.selectListCachedCode('5')}"/>
 		    <div class="page-content">
 		    	<div class="row mb-4">
 		    		<div class="col">
 		    			<span style="font-size:16pt; font-weight:bold; color:#E75E8D">중고거래 글쓰기</span>
 		    		</div> 
 		    	</div>
-		    	<div class="row"> 
-		    		<div class="col-2"> 
+		    	<div class="d-flex flex-row">  
+		    		<div style="margin-right:40px;"> 
 		    			<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">
 		    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
 		    				<br>
@@ -78,6 +97,9 @@
 		    			</div>
 		    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
 		    		</div> 
+		    		<div class="d-flex flex-row slimscroll" style="overflow:auto;" id="imgContainer">			     		
+			    		<!-- 첨부 이미지들 들어오는 곳 -->
+		    		</div>  
 		    	</div>
 		    	
 		    	<div class="row mt-4">
@@ -108,32 +130,19 @@
 		    	</div>
 		    </div>
 		    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			    <div class="modal-dialog">
+			    <div class="modal-dialog modal-dialog-centered">
 			        <div class="modal-content">
-			            <div class="modal-header">
-			                <h1 class="modal-title fs-5" id="exampleModalLabel">카테고리</h1>
+			            <div class="modal-header justify-content-center">
+			                <h1 class="modal-title fs-5" id="exampleModalLabel">카테고리 선택</h1>
 			                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			            </div>
 			            <div class="modal-body">
-			                <div class="row">
-			                	패션의류/잡화
-			                </div>
-			                <div class="row">
-			                	뷰티
-			                </div>
-			                <div class="row">
-			                	식품
-			                </div>
-			                <div class="row">
-			                	주방용품
-			                </div>
-			                <div class="row">
-			                	생활용품
-			                </div>
-			                <div class="row">
-			                	홈인테리어 
-			                </div>
-			            </div>
+			            	<c:forEach items="${codeList }" var = "list" varStatus="Status">
+				                <div class="row justify-content-center mb-2" style="cursor:pointer" onclick="selectCategory('${list.ccSeq}')"> 
+				                	<c:out value="${ list.ccName}"/> 	
+				                </div>			            	
+			            	</c:forEach>
+			            </div>			            
 			        </div>
 			    </div>
 			</div>
@@ -147,18 +156,44 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		
+		selectCategory = function(seq){
+			alert(seq);
+		};
 			
 		upload = function(objName) {
 			
 			var files = $("#" + objName +"")[0].files;
 			console.log(files);
 			
-			for(int i = 0; i<files.length; i++){
+			for(var i = 0; i<files.length; i++){
 				
+				var file = files[i];
+				var picReader = new FileReader();
+				
+			    picReader.addEventListener("load", addEventListenerCustom (i, file));
+			    picReader.readAsDataURL(file);
 			}
-		}
-			
+		};
+		
+		addEventListenerCustom = function (i, file) { 
+			return function(event) {
+				var imageFile = event.target;
+				var sort = i;
+				var txt = "";
+				
+				txt += '<div style="margin-right:10px; position:relative;">';
+				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+				txt += '<img alt="" src="';
+				txt += imageFile.result;
+				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
+				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark"></i></div>';
+					
+				
+				$("#imgContainer").append(txt);
+		    };
+		};
+		
+		
 	</script>	
 </body>
 </html>
