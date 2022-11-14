@@ -405,7 +405,7 @@
 	              </div>
 	              <div class="col-lg-12">
 	                <div class="main-button">
-	                  <a href="streams.html">Discover All Streams</a>
+	                  <a href="streams.html">전체 상품 보기</a>
 	                </div>
 	              </div>
 	            </div>
@@ -447,7 +447,7 @@
 	                      <img src="/resources/images/service-03.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
 	                    </div>
 	                    <h4>고명지</h4>
-	                    <p>팀원. 근데 안빠짐</p>
+	                    <p>목표를 향해 질주.</p>
 	                    <h6>개별프로젝트</h6>
 	                    <a href="http://3.35.136.131" style="color:#E75E8D;">MEGABOX</a> 
 	                  </div>
