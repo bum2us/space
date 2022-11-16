@@ -448,7 +448,22 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
+	<script>
+        
+	selectChatRoom = function (roomNo) {
+            
+            var roomArray = $("li[name=room]");
+            roomArray.each(function (index, item) {
+                if (index != roomNo - 1)
+                    item.classList.remove("active");
+                else
+                    item.classList.add("active");
+            });
+
+
+            
+        }
+    </script>
 </body>
 
 </html>
