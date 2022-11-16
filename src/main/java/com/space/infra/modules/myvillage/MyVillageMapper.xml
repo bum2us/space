@@ -18,7 +18,11 @@
 			,mvCreateDate
 		FROM myVillage
 		WHERE 1=1
-		
+		<if test="shDelNy != null and !shDelNy.equals('')">AND mvDelNy = #{shDelNy}</if>
+			<choose>
+				<when test="shOption == 1">AND mvMemberSeq = #{shValue}</when>
+				<when test="shOption == 2">AND mvName LIKE CONCAT('%', #{shValue},'%')</when>
+			</choose>
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -33,6 +37,52 @@
 		WHERE 
 		 mvSeq = #{mvSeq}
 	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM myVillage
+		WHERE 1=1
+		<if test="shDelNy != null and !shDelNy.equals('')">AND mvDelNy = #{shDelNy}</if>
+			<choose>
+				<when test="shOption == 1">AND mvMemberSeq = #{shValue}</when>
+				<when test="shOption == 2">AND mvName LIKE CONCAT('%', #{shValue},'%')</when>
+			</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO myVillage(
+			mvName
+			,mvMemberSeq
+		)
+		VALUES(
+			#{mvName}
+			,#{mvMemberSeq}
+		)
+		<selectKey resultType="String" keyProperty="tdmvSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<update id="update">
+		UPDATE myVillage
+		SET
+			mvName = #{mvName}
+			,mvMemberSeq = #{mvMemberSeq}
+		WHERE 
+			mvSeq = #{mvSeq}
+	</update>
+	
+	<update id="uelete">
+		UPDATE myVillage
+		SET
+			mvDelNy = 1
+		WHERE 
+			mvSeq = #{mvSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM myVillage WHERE mvSeq = #{mvSeq}
+	</delete>
 	
 	
 	
