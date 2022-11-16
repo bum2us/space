@@ -8,10 +8,39 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.post.Post"></resultMap>
     
-    <select id="" resultMap="resultMapObj">
+    <select id="selectList" resultMap="resultMapObj">
+    	SELECT
+    		*
+    	FROM post
+    </select>
     
-    	
+    <insert id="insert">
+    	INSERT INTO post (
+    		poWriter
+    		,poTitle
+    		,poContent
+    		,poCategory
+    		,poLng
+    		,poLat
+    		,poAddr
+    	)
+    	VALUES (
+    		#{poWriter}
+    		,#{poTitle}
+    		,#{poContent}
+    		,#{poCategory}
+    		,#{poLng}
+    		,#{poLat}
+    		,#{poAddr}
+    	)
+    </insert>
     
+    <select id="selectOne" resultMap="resultMapObj">
+    	SELECT
+    		*
+    	FROM post
+    	WHERE 1=1
+    		AND poSeq = #{seq}
     </select>
     
 </mapper> 

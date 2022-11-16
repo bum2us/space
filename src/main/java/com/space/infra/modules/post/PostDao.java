@@ -1,5 +1,7 @@
 package com.space.infra.modules.post;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -14,7 +16,8 @@ public class PostDao {
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
 	
-	private String namespace ="com.space.infra.modules.post.PostMapper";
+	private String namespace = "com.space.infra.modules.post.PostMapper";
 	
+	public List<Post> selectList() throws Exception { return sqlSession.selectList(namespace + ".selectList", "");}
 	
 }

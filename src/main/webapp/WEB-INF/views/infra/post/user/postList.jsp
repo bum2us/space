@@ -54,16 +54,16 @@
 	      <div class="col-lg-12">
 	        <div class="page-content">
 	
-	          <!-- ***** Banner Start ***** -->
-	          <div class="row" style="background: white;">
-	          	<div class="col-8">
+	          <!-- ***** 우주지도 Start ***** -->
+	          <div class="row">
+	          	<div class="col-8 p-0">
 	          		<div class="row" style="width:100%; height: 100%;">
-	          			<div class="col">
+	          			<div class="col p-0">
 	          				<img src="/resources/images/map.jpg" style="width: 100%; height: 100%;" alt="지도 이미지"> 
 	          			</div>
 	          		</div>
 	          	</div>
-	          	<div class="col-4">
+	          	<div class="col-4" style="background: white;">
 	          		<div class="row" style="background: #E75E8D;">
 	          			<div class="col">
 	          				<div class="row">
@@ -230,9 +230,9 @@
 	          		</div>
 	          	</div>
 	          </div>
-          <!-- ***** Banner End ***** -->
+          <!-- ***** 우주지도 End ***** -->
 
-          <!-- ***** Gaming Library Start ***** -->
+          <!-- ***** 동네소식 List Start***** -->
           <div class="gaming-library profile-library">
             <div class="col-lg-12">
               <div class="heading-section">
@@ -252,6 +252,18 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				  	<%-- <c:foreach items="list" var="list" vatStatus="listStatus">
+				  		<tr>
+				  			<td><c:out value="${list.poSeq }"/></td>
+				  			<td><c:out value="${list.poWriter }"/></td>
+				  			<td><c:out value="${list.poAddr }"/></td>
+				  			<td><c:out value="${list.poContent }"/></td>
+				  			<td>like</td>
+				  			<td>comment</td>
+				  			<td><c:out value="${list.poCreateDate}"/></td>
+				  		</tr>
+				  	</c:foreach> --%>
+				  	
 				    <tr>
 				      <th scope="row">1</th>
 				      <td>bums0810</td>
@@ -322,7 +334,8 @@
               
             </div>
           </div>
-          <!-- ***** Gaming Library End ***** -->
+          <!-- ***** 동네소식 List End ***** -->
+          
         </div>
       </div>
     </div>

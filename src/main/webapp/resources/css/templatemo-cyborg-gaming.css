@@ -223,6 +223,7 @@ p {
   background-color: #e75e8d;
   padding: 12px 30px;
   display: inline-block;
+  border: none;
   border-radius: 25px;
   font-weight: 400;
   text-transform: capitalize;
@@ -235,6 +236,7 @@ p {
 .base-button:hover {
   background-color: #fff;
   color: #e75e8d;
+  border: 1px solid #e75e8d; 
 }
 
 .base-border-button {

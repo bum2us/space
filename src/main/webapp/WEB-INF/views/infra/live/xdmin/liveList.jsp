@@ -22,7 +22,6 @@
 		div	{
 			/* border: solid 1px orange; */
 		}
-		
 	</style>
 </head>
 <body>
