@@ -222,7 +222,7 @@
 	          				</div>
 	          				<div class="row">
 	          					<div class="col">
-	          						<button class="base-button" type="button"><i class="fa-solid fa-pen"></i></button> 
+	          						<button class="base-button" type="button" onclick="location.href='/post/postForm'"><i class="fa-solid fa-pen"></i></button> 
 	          						<button class="base-button" type="button"><i class="fa-solid fa-rotate-left"></i></button>
 	          					</div>
 	          				</div>
@@ -333,7 +333,6 @@
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
-	<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 	<script>
 		
 	</script>	

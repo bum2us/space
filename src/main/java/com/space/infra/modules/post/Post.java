@@ -1,7 +1,5 @@
 package com.space.infra.modules.post;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.space.infra.modules.base.Base;
 
 public class Post extends Base{

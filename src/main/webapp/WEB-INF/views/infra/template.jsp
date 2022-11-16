@@ -22,6 +22,9 @@
 	</style>
 </head>
 <body>
+	<!-- preloader -->
+	<%@include file="/resources/include/preloader.jsp"%>
+	
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
