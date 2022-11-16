@@ -48,7 +48,10 @@ public class MemberController {
 			
 			item = service.selectOne(loginUserSeq);
 		}
-		
+		if(item.getUpPath() == null) {
+			item.setUpPath("/resources/images/");
+			item.setUpUuidName("empty.png");
+		}
 		model.addAttribute("item", item);
 		
 		return "infra/member/user/myPage";

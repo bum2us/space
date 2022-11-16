@@ -14,4 +14,6 @@ public class ProductDao {
 	private SqlSession sqlSession;
 	
 	private String namesapce="com.space.infra.modules.product.ProductMapper";
+
+	public void insert(Product dto) { sqlSession.insert(namesapce + ".insert",dto); }
 }

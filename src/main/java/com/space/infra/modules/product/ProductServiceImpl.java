@@ -8,5 +8,12 @@ public class ProductServiceImpl implements ProductService{
 
 	@Autowired
 	ProductDao dao;
+
+	@Override
+	public void insert(Product dto) throws Exception {
+		// TODO Auto-generated method stub
+		dao.insert(dto);
+	}
+
 	
 }

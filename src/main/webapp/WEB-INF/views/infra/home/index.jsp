@@ -28,9 +28,8 @@
 		.linkContainer {
 			background : #27292A;
 			border-radius: 20px;
-			width: 600px;
-			height: 600px;
-			margin: 0px 100px 0px 10px;
+			width: 400px;
+			height: 600px; 
 		}
 		
 		.linkicon{
@@ -58,7 +57,7 @@
 			<form id="mainForm" method="POST">
 				<input type="hidden" id="xdminNy" name="xdminNy"> 
 				<div class="row">
-					<div class="col linkContainer">
+					<div class="col linkContainer"  style="margin-right:30px;">
 						<div class="row">
 							<div class="col linkicon">
 								<i class="fa-solid fa-user"></i>
@@ -67,10 +66,10 @@
 						<div class="row">
 							<div class="main-button">
 								<a class="index-links" href="javascript:runForm('0')"  style="font-size:24pt; font-weight:600;">USER</a>
-							</div>	
-						</div>
+							</div>	 
+						</div> 
 					</div>
-					<div class="col linkContainer">
+					<div class="col linkContainer" style="margin-right:30px;"> 
 						<div class="row">
 							<div class="col linkicon">
 								<i class="fa-solid fa-screwdriver-wrench"></i>

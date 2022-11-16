@@ -1,18 +1,21 @@
 package com.space.infra.modules.product;
 
-import org.springframework.web.multipart.MultipartFile;
 
-public class Product {
+import com.space.infra.modules.base.Base;
+
+public class Product extends Base{
 	
 	private Integer pdSeq;
 	private Integer pdSeller;
+	private Integer pdType;
+	private Integer pdState;
 	private Integer pdDelNy;
 	private Integer pdCategory;
+	private String pdTitle;
 	private String pdCreateDate;
-	private String pdEditDate;
 	private String pdContent;
 	private String pdPrice;
-	private MultipartFile[] multipartFile;
+	
 	public Integer getPdSeq() {
 		return pdSeq;
 	}
@@ -24,6 +27,18 @@ public class Product {
 	}
 	public void setPdSeller(Integer pdSeller) {
 		this.pdSeller = pdSeller;
+	}
+	public Integer getPdType() {
+		return pdType;
+	}
+	public void setPdType(Integer pdType) {
+		this.pdType = pdType;
+	}
+	public Integer getPdState() {
+		return pdState;
+	}
+	public void setPdState(Integer pdState) {
+		this.pdState = pdState;
 	}
 	public Integer getPdDelNy() {
 		return pdDelNy;
@@ -37,17 +52,17 @@ public class Product {
 	public void setPdCategory(Integer pdCategory) {
 		this.pdCategory = pdCategory;
 	}
+	public String getPdTitle() {
+		return pdTitle;
+	}
+	public void setPdTitle(String pdTitle) {
+		this.pdTitle = pdTitle;
+	}
 	public String getPdCreateDate() {
 		return pdCreateDate;
 	}
 	public void setPdCreateDate(String pdCreateDate) {
 		this.pdCreateDate = pdCreateDate;
-	}
-	public String getPdEditDate() {
-		return pdEditDate;
-	}
-	public void setPdEditDate(String pdEditDate) {
-		this.pdEditDate = pdEditDate;
 	}
 	public String getPdContent() {
 		return pdContent;
@@ -61,12 +76,7 @@ public class Product {
 	public void setPdPrice(String pdPrice) {
 		this.pdPrice = pdPrice;
 	}
-	public MultipartFile[] getMultipartFile() {
-		return multipartFile;
-	}
-	public void setMultipartFile(MultipartFile[] multipartFile) {
-		this.multipartFile = multipartFile;
-	}
+	
 	
 	
 }
