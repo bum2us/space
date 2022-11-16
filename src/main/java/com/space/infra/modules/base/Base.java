@@ -27,7 +27,29 @@ public class Base {
 	private Integer upDelNy;
 
 	private MultipartFile[] multipartFile;
+	
+	private String shValue;
+	private Integer shDelNy;
+	private Integer shOption;
 
+	public String getShValue() {
+		return shValue;
+	}
+	public void setShValue(String shValue) {
+		this.shValue = shValue;
+	}
+	public Integer getShDelNy() {
+		return shDelNy;
+	}
+	public void setShDelNy(Integer shDelNy) {
+		this.shDelNy = shDelNy;
+	}
+	public Integer getShOption() {
+		return shOption;
+	}
+	public void setShOption(Integer shOption) {
+		this.shOption = shOption;
+	}
 	public String getUpPath() {
 		return upPath;
 	}
