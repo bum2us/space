@@ -16,7 +16,7 @@ public class ChatServiceImpl implements ChatService{
 	public List<Chat> selectChatListFromOne(Integer seq) throws Exception {
 		// TODO Auto-generated method stub
 		List<Chat> resultList = new ArrayList<Chat>();
-		
+
 		for(Chat chatRoom : dao.selectChatListFromOne(seq)) {
 			chatRoom.setCuMember(seq); 
 			Chat resultRoom = dao.selectChatWithoutLoginUser(chatRoom);
@@ -26,9 +26,9 @@ public class ChatServiceImpl implements ChatService{
 			}
 			resultList.add(resultRoom);
 		}
-		
+
 		return resultList;
 	}
 
-	
+
 }

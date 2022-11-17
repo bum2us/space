@@ -5,13 +5,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="ko">
 <head>
 
 	<title>🛸우주마켓🛸</title>
 	
 	<!-- link -->
 	<%@include file="/resources/include/link.jsp"%>
+	
 	
 
 	<style>
@@ -189,6 +190,7 @@
             position: absolute;
             left: 0;
             margin-left: 10px;
+            min-width: 100px;
             bottom: -15px;
             color: rgba(255, 255, 255, 0.5);
             font-size: 10px;
@@ -198,9 +200,11 @@
             position: absolute;
             right: 0;
             margin-right: 10px;
+            min-width: 100px;
             bottom: -15px;
             color: rgba(255, 255, 255, 0.5);
             font-size: 10px;
+            text-align:end; 
         }
 
         .msg_head {
@@ -287,7 +291,7 @@
 	                </div>
 	                <div class="col-md-8 col-xl-6 chat">
 	                    <div class="card">
-	                        <!-- <div class="card-header msg_head">
+	                        <div class="card-header msg_head">
 	                            <div class="d-flex bd-highlight" style="padding-right:20px">
 	                                <div class="img_cont">
 	                                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
@@ -300,7 +304,7 @@
 	                                    <p>16,000원</p>
 	                                </div>
 	                            </div>
-	                        </div> -->
+	                        </div>
 	                        <div id="chatBox" class="card-body msg_card_body">
 	
 	<!-- 
