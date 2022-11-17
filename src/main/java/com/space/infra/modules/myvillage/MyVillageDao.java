@@ -21,6 +21,11 @@ public class MyVillageDao {
 		return list;
 	}
 	
+	public List<MyVillage> selectListMyvillage(MyVillageVo vo){
+		List<MyVillage> list = sqlSession.selectList(namespace +".selectListMyvillage", vo);
+		return list;
+	}
+	
 	public MyVillage selectOne(MyVillageVo vo) {
 		MyVillage result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		return result;

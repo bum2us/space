@@ -25,9 +25,23 @@
 			</choose>
 	</select>
 	
-	<select id="selectOne" resultMap="resultMapObj">
+	<select id="selectListMyvillage" resultMap="resultMapObj">
 		SELECT
 			mvSeq
+			,mvOriginalAddr
+			,mvName
+			,mvDefaultNy
+			,mvDelNy
+			,mvCreateDate
+		FROM myVillage
+		WHERE 
+			mvMemberSeq = #{mvMemberSeq} 
+	
+	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			mvOriginalAddr
 			,mvName
 			,mvMemberSeq
 			,mvDefaultNy
@@ -52,13 +66,15 @@
 	<insert id="insert">
 		INSERT INTO myVillage(
 			mvName
+			,mvOriginalAddr
 			,mvMemberSeq
 		)
 		VALUES(
 			#{mvName}
+			,#{mvOriginalAddr}
 			,#{mvMemberSeq}
 		)
-		<selectKey resultType="String" keyProperty="tdmvSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="mvSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
@@ -68,6 +84,7 @@
 		SET
 			mvName = #{mvName}
 			,mvMemberSeq = #{mvMemberSeq}
+			,mvOriginalAddr =#{mvOriginalAddr}
 		WHERE 
 			mvSeq = #{mvSeq}
 	</update>

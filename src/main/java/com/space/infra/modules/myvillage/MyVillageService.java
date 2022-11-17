@@ -5,8 +5,10 @@ import java.util.List;
 public interface MyVillageService {
 
 	public List<MyVillage> selectList (MyVillageVo vo) throws Exception;
+	public List<MyVillage> selectListMyvillage(MyVillageVo vo) throws Exception;
 	public MyVillage selectOne (MyVillageVo vo) throws Exception;
 	public int selectOneCount (MyVillageVo vo) throws Exception;
+	
 	
 	public int insert(MyVillage dto) throws Exception;
 	public int update(MyVillage dto) throws Exception;

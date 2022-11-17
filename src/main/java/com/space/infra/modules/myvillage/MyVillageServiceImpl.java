@@ -18,6 +18,13 @@ public class MyVillageServiceImpl implements MyVillageService {
 	}
 
 	@Override
+	public List<MyVillage> selectListMyvillage(MyVillageVo vo) throws Exception {
+		List<MyVillage> list = dao.selectListMyvillage(vo);
+		return list;
+	}
+
+
+	@Override
 	public MyVillage selectOne(MyVillageVo vo) throws Exception {
 		MyVillage result = dao.selectOne(vo);
 		return result;

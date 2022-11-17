@@ -4,31 +4,37 @@ import com.space.infra.modules.base.Base;
 
 public class MyVillage extends Base {
 	
-	private String mvSeq;
+	private Integer mvSeq;
+	private Integer mvMemberSeq;
+	private String mvOriginalAddr;
 	private String mvName;
-	private String mvMemberSeq;
 	private Integer mvDefaultNy;
 	private Integer mvDelNy;
 	private String mvCreateDate;
 	
-	
-	public String getMvSeq() {
+	public Integer getMvSeq() {
 		return mvSeq;
 	}
-	public void setMvSeq(String mvSeq) {
+	public void setMvSeq(Integer mvSeq) {
 		this.mvSeq = mvSeq;
+	}
+	public Integer getMvMemberSeq() {
+		return mvMemberSeq;
+	}
+	public void setMvMemberSeq(Integer mvMemberSeq) {
+		this.mvMemberSeq = mvMemberSeq;
+	}
+	public String getMvOriginalAddr() {
+		return mvOriginalAddr;
+	}
+	public void setMvOriginalAddr(String mvOriginalAddr) {
+		this.mvOriginalAddr = mvOriginalAddr;
 	}
 	public String getMvName() {
 		return mvName;
 	}
 	public void setMvName(String mvName) {
 		this.mvName = mvName;
-	}
-	public String getMvMemberSeq() {
-		return mvMemberSeq;
-	}
-	public void setMvMemberSeq(String mvMemberSeq) {
-		this.mvMemberSeq = mvMemberSeq;
 	}
 	public Integer getMvDefaultNy() {
 		return mvDefaultNy;
@@ -48,5 +54,8 @@ public class MyVillage extends Base {
 	public void setMvCreateDate(String mvCreateDate) {
 		this.mvCreateDate = mvCreateDate;
 	}
-
+	
+	
+	
+	
 }
