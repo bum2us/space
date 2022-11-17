@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.space.infra.modules.chat.ChatMapper">
+	
+	<resultMap id="resultMapObj" type="com.space.infra.modules.chat.Chat" ></resultMap>
+
+	<select id="selectChatListFromOne" parameterType="Integer" resultMap="resultMapObj">
+		SELECT
+			cu.cuChatSeq as chatSeq
+		FROM chatUser cu
+		JOIN chat ct
+		ON ct.chatSeq = cu.cuChatSeq
+		AND ct.chatDelNy = 0
+		WHERE 1=1
+		AND cu.cuMember = #{seq}
+	</select>
+
+	<select id="selectChatWithoutLoginUser" resultMap="resultMapObj">
+		
+		SELECT 
+			cu.cuChatSeq as chatSeq 
+			,cu.cuMember 
+			,mm.mmSeq 
+			,mm.mmNickName 
+			,up.upPath 
+			,up.upUuidName 
+		FROM chatUser cu 
+		JOIN member mm 
+		ON cu.cuMember  = mm.mmSeq
+		LEFT JOIN uploadedMember up 
+		ON mm.mmSeq = up.upMemberSeq
+		AND up.upDelNy = 0 
+		AND up.upDefaultNy = 1 
+		WHERE 1=1 
+		AND cu.cuMember != #{cuMember} 
+		AND cu.cuChatSeq = #{chatSeq} 
+	
+	</select>
+
+</mapper>

@@ -22,7 +22,7 @@
                   <li><a href="">Live</a></li>
                   <li><a href="">중고거래</a></li>
                   <li><a href="/post/postList">동네소식</a></li>
-                  <li><a href="">채팅</a></li>
+                  <li><a href="/chat/">채팅</a></li>
                   <li><a href="/myVillage/form">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li> 
                   <li><a href="/member/profile">프로필</a></li>  
               </ul>   
