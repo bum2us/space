@@ -4,70 +4,83 @@ import com.space.infra.modules.base.Base;
 
 public class Post extends Base{
 	
-	private Integer postSeq;
-	private Integer postWriter;
-	private Integer postDelNy;
-	private Integer postCategory;
-	private Integer postLat; //경도
-	private Integer postLng; //위도
-	private String  postCreateDate;
-	private String  postEditDate;
-	private String  postContent;
+	private Integer poSeq;
+	private Integer poWriter;
+	private String poTitle;
+	private String  poContent;
+	private Integer poCategory;
+	private String poAddr;
+	private double poLat; //경도
+	private double poLng; //위도
+	private String  poCreateDate;
+	private String  poEditDate;
+	private Integer poDelNy;
 	
-	
-	public Integer getPostSeq() {
-		return postSeq;
+	public Integer getPoSeq() {
+		return poSeq;
 	}
-	public void setPostSeq(Integer postSeq) {
-		this.postSeq = postSeq;
+	public void setPoSeq(Integer poSeq) {
+		this.poSeq = poSeq;
 	}
-	public Integer getPostWriter() {
-		return postWriter;
+	public Integer getPoWriter() {
+		return poWriter;
 	}
-	public void setPostWriter(Integer postWriter) {
-		this.postWriter = postWriter;
+	public void setPoWriter(Integer poWriter) {
+		this.poWriter = poWriter;
 	}
-	public Integer getPostDelNy() {
-		return postDelNy;
+	public Integer getPoDelNy() {
+		return poDelNy;
 	}
-	public void setPostDelNy(Integer postDelNy) {
-		this.postDelNy = postDelNy;
+	public void setPoDelNy(Integer poDelNy) {
+		this.poDelNy = poDelNy;
 	}
-	public Integer getPostCategory() {
-		return postCategory;
+	public Integer getPoCategory() {
+		return poCategory;
 	}
-	public void setPostCategory(Integer postCategory) {
-		this.postCategory = postCategory;
+	public void setPoCategory(Integer poCategory) {
+		this.poCategory = poCategory;
 	}
-	public Integer getPostLat() {
-		return postLat;
+	public double getPoLat() {
+		return poLat;
 	}
-	public void setPostLat(Integer postLat) {
-		this.postLat = postLat;
+	public void setPoLat(double poLat) {
+		this.poLat = poLat;
 	}
-	public Integer getPostLng() {
-		return postLng;
+	public double getPoLng() {
+		return poLng;
 	}
-	public void setPostLng(Integer postLng) {
-		this.postLng = postLng;
+	public void setPoLng(double poLng) {
+		this.poLng = poLng;
 	}
-	public String getPostCreateDate() {
-		return postCreateDate;
+	public String getPoCreateDate() {
+		return poCreateDate;
 	}
-	public void setPostCreateDate(String postCreateDate) {
-		this.postCreateDate = postCreateDate;
+	public void setPoCreateDate(String poCreateDate) {
+		this.poCreateDate = poCreateDate;
 	}
-	public String getPostEditDate() {
-		return postEditDate;
+	public String getPoEditDate() {
+		return poEditDate;
 	}
-	public void setPostEditDate(String postEditDate) {
-		this.postEditDate = postEditDate;
+	public void setPoEditDate(String poEditDate) {
+		this.poEditDate = poEditDate;
 	}
-	public String getPostContent() {
-		return postContent;
+	public String getPoContent() {
+		return poContent;
 	}
-	public void setPostContent(String postContent) {
-		this.postContent = postContent;
+	public void setPoContent(String poContent) {
+		this.poContent = poContent;
+	}
+	public String getPoTitle() {
+		return poTitle;
+	}
+	public void setPoTitle(String poTitle) {
+		this.poTitle = poTitle;
+	}
+	public String getPoAddr() {
+		return poAddr;
+	}
+	public void setPoAddr(String poAddr) {
+		this.poAddr = poAddr;
 	}
 	
 	

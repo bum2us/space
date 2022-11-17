@@ -20,4 +20,8 @@ public class PostDao {
 	
 	public List<Post> selectList() throws Exception { return sqlSession.selectList(namespace + ".selectList", "");}
 	
+	public int insert(Post dto) throws Exception { return sqlSession.insert(namespace + ".insert", dto);}
+	
+	public int selectLastSeq() throws Exception {return sqlSession.selectOne(namespace + ".selectLastSeq", "");}
+	
 }

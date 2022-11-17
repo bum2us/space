@@ -33,6 +33,40 @@
     		,#{poLat}
     		,#{poAddr}
     	)
+	    <selectKey resultType="Integer" keyProperty="seq" order="AFTER">
+	    	SELECT last_insert_id()
+	    </selectKey> 
+    </insert>
+    
+    <select id="selectLastSeq" resultType="Integer">
+    	SELECT
+    		poSeq
+    	FROM post
+    	ORDER BY poSeq DESC
+    	LIMIT 1
+    </select>
+    
+    <insert id="insertMemberUpload">
+    	INSERT INTO uploadedPost (
+    		upDefaultNy
+    		,upSort
+    		,upSize
+    		,upOriginalName
+    		,upUuidName
+    		,upExt
+    		,upPath
+    		,upPostSeq
+    	)
+    	VALUES (
+    		#{upDefaultNy}
+    		,#{upSort}
+    		,#{upSize}
+    		,#{upOriginalName}
+    		,#{upUuidName}
+    		,#{upExt}
+    		,#{upPath}
+    		,#{upPostSeq}
+    	)
     </insert>
     
     <select id="selectOne" resultMap="resultMapObj">

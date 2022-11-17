@@ -26,6 +26,14 @@ public class PostController {
 		return "infra/post/user/postList";
 	}
 	
+	@RequestMapping(value="postInst")
+	public String postInst(Post dto) throws Exception {
+		
+		service.insert(dto);
+		
+		return "infra/post/user/postList";
+	}
+	
 	@RequestMapping(value = "postForm")
 	public String postForm() throws Exception {
 		

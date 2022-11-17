@@ -78,9 +78,10 @@
 	
 	<c:set var="codeList" value="${CodeServiceImpl.selectListCachedCode('3')}" />
 	
-	<form id="mainForm">
-		
-		<input type="hidden" name="poWriter">
+	<form id="mainForm" enctype="multipart/form-data" method="post">
+	
+		<input type="hidden" id="poWriter" name="poWriter" value="${sessSeq }">
+		<input type="hidden" id="poCategory" name="poCategory">
 		
 		<div class="container">
 		    <div class="row">
@@ -101,23 +102,13 @@
 								<img id="imgProfile" src="" alt="첨부 이미지" style="left: 0%; top: 50%; width:100%; height:100%;">
 								<!-- <input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 3);" style="opacity: 0%; position: absolute; left: 0%; height: 100%;"> -->
 							</div>
-							<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 3);" style="color: #757575;">
+							<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 1);" style="color: #757575;">
 		                </div>
 		                <hr class="mt-5 mb-5">
 		                <div class="container text-center mb-5">
 		                  <div class="row mb-5">
 		                    <div class="col-3 form">
 				    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">카테고리 선택</button>
-								<%-- <select class="form-select" id="category">
-									<c:foreach items="${codeList }" var="list" varStatus="status">
-										<option value="${list.ccOrder }"><c:out value="${list.ccName }"/></option>
-									</c:foreach>
-								  <option value="" selected>카테고리</option>
-								  <option value="1">꿀팁</option>
-								  <option value="2">일상</option>
-								  <option value="3">맛집</option>
-								  <option value="4">문화</option>
-								</select> --%>
 		                    </div>
 		                    <div class="col-9">
 		                      <input type="text" id="poTitle" name="poTitle" placeholder="제목을 입력해주세요.">
@@ -129,9 +120,9 @@
 		                </div>
 		            </center>
 		            <div class="col-lg-12 text-center" style="justify-content: space-between;">
-		               <button type="button" class="base-border-button" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
+		               <button type="button" class="base-button" onclick="location.href='/post/postList'">돌아가기</button>
 		               <button type="button" class="base-button" onclick="Reg()">등록</button>
-		               <button type="button" class="base-border-button" onclick="location.href='/post/postList'">취소</button>
+		               <button type="button" class="base-border-button" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
 		            </div>
 		          </div>
 		          <!-- ***** 등록Form End ***** -->
@@ -165,26 +156,42 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+		/* Url 세팅 */
+		var goUrlList = "/post/postList";
+		var goUrlInst = "/post/postInst";
+		var goUrlUpdt = "/post/postUpdt";
+		var goUrlDele = "/post/postDele";
+		
+		var form = $("#mainForm");
+		
+		/* 리셋 버튼 */
 		function regFormClear() {
 	    	$("#imgProfile").attr("src","");
 	    	$("#imgFile").val("");
-	    	$("#category").val("");
-	    	$("#title").val("");
-	    	$("#contents").val("");
+	    	$("#categoryBtn").text("카테고리 선택");
+	    	$("#poTitle").val("");
+	    	$("#poContent").val("");
 	    };
 	    
+	    /* 카테고리 선택 이벤트 */
 	    selectCategory = function(seq,category){
 			$("#categoryBtn").text(category);
-			$("#pdCategory").val(seq);
+			$("#poCategory").val(seq);
 		};
 	    
+		/* 게시물 등록 */
+		function Reg() {
+			form.attr("action", goUrlInst).submit();
+		};
+		
+		/* 이미지 파일 첨부 */
 	    upload = function (objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
 			
 			var totalFileSize = 0;
 			var obj = $("#" + objName)[0].files;
 			var fileCount = obj.length;
 			
-			if (uiType == 3) {
+			if (uiType == 1) {
 				
 				var fileReader = new FileReader();
 				fileReader.readAsDataURL($("#" + objName)[0].files[0]);
