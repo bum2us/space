@@ -22,7 +22,7 @@
             wow.init();
         }
     });
-
+	/*
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
 	  var box = $('.header-text').height();
@@ -34,7 +34,7 @@
 	    $("header").removeClass("background-header");
 	  }
 	});
-	
+	*/
 	$('.filters ul li').click(function(){
         $('.filters ul li').removeClass('active');
         $(this).addClass('active');
