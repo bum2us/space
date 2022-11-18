@@ -67,6 +67,22 @@
 			background: #27292A; 
 			border:  1px solid #E75E8D;
 		}
+		
+		.slimscroll::-webkit-scrollbar {
+		    width: 10px;
+		    height: 10px;
+		}
+		
+		.slimscroll::-webkit-scrollbar-thumb {
+		    background-color: gray;
+		    border-radius: 10px;
+		    background-clip: padding-box;
+		    border: 2px solid transparent;
+		} 
+		
+		.slimscroll::-webkit-scrollbar-track {
+		    background-color: #27292A; 
+		}
 	</style>
 </head>
 <body>
@@ -97,32 +113,45 @@
 		            </div>
 		            <center>
 		              <div class="col-lg-12" style="width: 80%;"> 
-		                <div class="container col-8 mt-3">
-		                	<div id="ifmmUploadedImage1View" class="col-12 filebox mb-3" style="position: relative; width: 300px; height: 300px; background: transparent; border-radius: 20px; border: 5px solid #27292A">
+		                <div class="container col-12 mt-3">
+			                <div class="d-flex flex-row">  
+					    		<div style="margin-right:25px;"> 
+					    			<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#27292A; position:relative; ">
+					    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
+					    				<br>
+					    				<span id="imageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/10</span>
+					    				<input type="file" multiple="multiple"  id="multipartFile" name="multipartFile" onChange="upload('multipartFile');" style="position:absolute; opacity:0%; width:100px; height:100px; top:10%; right:20%; cursor:pointer;">    
+					    			</div>
+					    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
+					    		</div> 
+					    		<div class="d-flex flex-row slimscroll" style="width: 100%; background: #27292A; border-radius: 10px; overflow:auto;" id="imgContainer">			     		
+						    		<!-- 첨부 이미지들 들어오는 곳 -->
+					    		</div>  
+					    	</div>
+		                	<!-- <div id="ifmmUploadedImage1View" class="col-12 filebox mb-3" style="position: relative; width: 300px; height: 300px; background: transparent; border-radius: 20px; border: 5px solid #27292A">
 								<img id="imgProfile" src="" alt="첨부 이미지" style="left: 0%; top: 50%; width:100%; height:100%;">
-								<!-- <input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 3);" style="opacity: 0%; position: absolute; left: 0%; height: 100%;"> -->
+								<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 3);" style="opacity: 0%; position: absolute; left: 0%; height: 100%;">
 							</div>
-							<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 1);" style="color: #757575;">
+							<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 1);" style="color: #757575;"> -->
 		                </div>
-		                <hr class="mt-5 mb-5">
-		                <div class="container text-center mb-5">
-		                  <div class="row mb-5">
+		                <div class="container text-center mt-4 mb-2">
+		                  <div class="row mb-3">
 		                    <div class="col-3 form">
 				    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">카테고리 선택</button>
 		                    </div>
 		                    <div class="col-9">
 		                      <input type="text" id="poTitle" name="poTitle" placeholder="제목을 입력해주세요.">
 		                    </div>
-		                    <div class="col-12 mt-5">
+		                    <div class="col-12 mt-2">
 		                      <textarea id="poContent" name="poContent" placeholder="내용을 입력해주세요." rows="10"></textarea>
 		                    </div>
 		                  </div>
 		                </div>
 		            </center>
 		            <div class="col-lg-12 text-center" style="justify-content: space-between;">
-		               <button type="button" class="base-button" onclick="location.href='/post/postList'">돌아가기</button>
-		               <button type="button" class="base-button" onclick="Reg()">등록</button>
-		               <button type="button" class="base-border-button" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
+		               <button type="button" class="base-button" style="width: 15%;" onclick="location.href='/post/postList'">돌아가기</button>
+		               <button type="button" class="base-button" style="width: 15%;" onclick="Reg()">등록</button>
+		               <button type="button" class="base-border-button"  style="width: 15%;" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
 		            </div>
 		          </div>
 		          <!-- ***** 등록Form End ***** -->
@@ -185,22 +214,40 @@
 		};
 		
 		/* 이미지 파일 첨부 */
-	    upload = function (objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
+	    upload = function(objName) {
 			
-			var totalFileSize = 0;
-			var obj = $("#" + objName)[0].files;
-			var fileCount = obj.length;
+			var files = $("#" + objName +"")[0].files;
+			console.log(files);
 			
-			if (uiType == 1) {
+			for(var i = 0; i<files.length; i++){
 				
-				var fileReader = new FileReader();
-				fileReader.readAsDataURL($("#" + objName)[0].files[0]);
+				var file = files[i];
+				var picReader = new FileReader();
 				
-				fileReader.onload = function() {
-					$("#imgProfile").attr("src", fileReader.result);
-				}
-			} return false;
-		}
+			    picReader.addEventListener("load", addEventListenerCustom (i, file));
+			    picReader.readAsDataURL(file);
+			}
+			
+			$("#imageCounter").html(files.length+"/10");
+		};
+		
+		/* 여러개의 첨부파일시 append 되는 div부분 */
+	    addEventListenerCustom = function (i, file) { 
+			return function(event) {
+				var imageFile = event.target;
+				var sort = i;
+				var txt = "";
+				
+				txt += '<div style="margin-right:10px; position:relative;">';
+				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#27292A; position:relative; ">';
+				txt += '<img alt="" src="';
+				txt += imageFile.result;
+				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
+				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark"></i></div>';
+				
+				$("#imgContainer").append(txt);
+		    };
+		};
 	</script>	
 </body>
 </html>

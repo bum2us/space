@@ -46,7 +46,7 @@
     	LIMIT 1
     </select>
     
-    <insert id="insertMemberUpload">
+    <insert id="insertPostUpload">
     	INSERT INTO uploadedPost (
     		upDefaultNy
     		,upSort
