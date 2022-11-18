@@ -1,5 +1,7 @@
 package com.space.infra.modules.product;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +36,25 @@ public class ProductController {
 		return "infra/product/user/productView";
 	}
 	
+	@RequestMapping("productList")
+	public String productList (HttpSession httpSession,Model model) throws Exception {
+		
+		List<Product> saleList =  service.selectSaleList();
+		model.addAttribute("saleList", saleList);
+		
+		List<Product> buyList = service.selectBuyList();
+		model.addAttribute("buyList", buyList);
+		
+		return "infra/product/user/productList";
+	}
+	
+	@RequestMapping("productView")
+	public String productView (HttpSession httpSession,Product dto,Model model) throws Exception {
+		
+		Product item = service.selectOneProduct(dto);
+		
+		model.addAttribute("item", item);
+		
+		return "infra/product/user/productView";
+	}
 }

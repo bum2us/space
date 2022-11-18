@@ -1,5 +1,7 @@
 package com.space.infra.modules.product;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -16,4 +18,10 @@ public class ProductDao {
 	private String namesapce="com.space.infra.modules.product.ProductMapper";
 
 	public void insert(Product dto) { sqlSession.insert(namesapce + ".insert",dto); }
+
+	public List<Product> selectBuyList() { return sqlSession.selectList(namesapce +".selectBuyList"); }
+
+	public List<Product> selectSaleList() { return sqlSession.selectList(namesapce +".selectSaleList"); }
+
+	public Product selectOneProduct(Product dto) { return sqlSession.selectOne(namesapce+".selectOneProduct",dto);}
 }

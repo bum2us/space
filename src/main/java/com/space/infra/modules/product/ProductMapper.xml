@@ -8,10 +8,28 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.product.Product"></resultMap>
     
-    <select id="" resultMap="resultMapObj">
+    <select id="selectBuyList" resultMap="resultMapObj">
+    	SELECT
+    		*
+   		FROM product 
+   		WHERE 1=1
+   		AND pdType = 2
+    </select>
     
-    	
+    <select id="selectSaleList" resultMap="resultMapObj">
+    	SELECT
+    		*
+   		FROM product
+   		WHERE 1=1
+   		AND pdType = 1
+    </select>
     
+    <select id="selectOneProduct" resultMap="resultMapObj">
+    	SELECT
+    		*
+   		FROM product
+   		WHERE 1=1
+   		AND pdSeq = #{pdSeq}
     </select>
     
     <insert id="insert">

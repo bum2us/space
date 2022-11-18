@@ -18,10 +18,10 @@
                 </form>
             </div>
             <!-- ***** Search End ***** -->
-            <!-- ***** Menu Start ***** -->
+            <!-- ***** Menu Start ***** --> 
             <ul class="nav">
                 <li><a href="">Live</a></li>
-                <li><a href="">중고거래</a></li>
+                <li><a href="/product/productList">중고거래</a></li>
                 <li><a href="/post/postList">동네소식</a></li>
                 <li><a href="/chat/">채팅</a></li>
                 <li><a href="/myVillage/form">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
