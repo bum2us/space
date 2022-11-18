@@ -22,9 +22,10 @@ public class MyVillageController {
 	public String MyVillageForm(HttpSession httpSession, MyVillageVo vo, Model model) throws Exception {
 
 		vo.setMvMemberSeq((Integer) httpSession.getAttribute("sessSeq"));
-
+		System.out.println(vo.getMvMemberSeq());
 		List<MyVillage> list = service.selectListMyvillage(vo);
 		model.addAttribute("list", list);
+		 
 
 		return "infra/myvillage/user/myVillageForm";
 	}
@@ -34,7 +35,7 @@ public class MyVillageController {
 		
 		 service.insert(dto);
 		 
-		 return "infra/myvillage/user/myVillageForm";
-	 }
+		 return "redirect:/myVillage/form";
+	 } 
 	
 }

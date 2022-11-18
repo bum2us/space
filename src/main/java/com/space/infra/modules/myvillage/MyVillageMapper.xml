@@ -30,13 +30,12 @@
 			mvSeq
 			,mvOriginalAddr
 			,mvName
-			,mvDefaultNy
 			,mvDelNy
 			,mvCreateDate
 		FROM myVillage
-		WHERE 
-			mvMemberSeq = #{mvMemberSeq} 
-	
+		WHERE 1=1
+			and mvMemberSeq = #{mvMemberSeq} 
+			and mvDefaultNy = 1;
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -74,7 +73,7 @@
 			,#{mvOriginalAddr}
 			,#{mvMemberSeq}
 		)
-		<selectKey resultType="String" keyProperty="mvSeq" order="AFTER">
+		<selectKey resultType="Integer" keyProperty="mvSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>

@@ -102,7 +102,13 @@
 	        new daum.Postcode({
 	            oncomplete: function(data) {
 	                var addr = data.address; // 최종 주소 변수
-	                var name = data.bname1;
+	                var name = "";
+	                
+	                if(data.bname1 == ""){
+	                	name += data.bname;
+	                } else {
+						name += data.bname1;	                	
+	                }
 	                
 	                // 주소 정보를 해당 필드에 넣는다.
 	                document.getElementById("sample5_address").value = addr;
@@ -130,6 +136,7 @@
 	    }
 	    
 	    function btnSubmit() {
+	    	seq.val();
 	    	form.attr("action", goUrlInst).submit();
 	    }
 	    
