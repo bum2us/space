@@ -91,10 +91,11 @@
                             </div>
                         </div>
                         <div class="row my-2 pt-3" style="border-top:1px solid #1F2122;">
-                            <div class="col">
-                                <img src="../images/empty.png" alt=""
-                                    style="width:30px; height: 30px; border-radius:50%;">
-                                <span style="color:gray;"><c:out value="${item.pdSeller}"/></span>
+                            <div class="col" style="cursor:pointer;" onclick="userInfo(${item.pdSeller})">
+                                <img src="
+                                	${item.upPath}${item.upUuidName}
+                                " style="width:30px; height: 30px; border-radius:50%;">
+                                <span style="color:gray;"><c:out value="${item.mmNickName}"/></span>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -121,7 +122,11 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		
+		userInfo = function(seq){
+			
+			alert("상품 등록자 시퀀스:"+seq);
+			
+		}
 	</script>	
 </body>
 </html>

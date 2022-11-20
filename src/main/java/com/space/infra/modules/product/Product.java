@@ -16,6 +16,8 @@ public class Product extends Base{
 	private String pdContent;
 	private String pdPrice;
 	
+	private String mmNickName;
+	
 	public Integer getPdSeq() {
 		return pdSeq;
 	}
@@ -75,6 +77,12 @@ public class Product extends Base{
 	}
 	public void setPdPrice(String pdPrice) {
 		this.pdPrice = pdPrice;
+	}
+	public String getMmNickName() {
+		return mmNickName;
+	}
+	public void setMmNickName(String mmNickName) {
+		this.mmNickName = mmNickName;
 	}
 	
 	

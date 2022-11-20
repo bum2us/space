@@ -32,7 +32,14 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product selectOneProduct(Product dto) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.selectOneProduct(dto);
+		Product result = dao.selectOneProduct(dto);
+		
+		if(result.getUpPath() == null) {
+			result.setUpPath("/resources/images/");
+			result.setUpUuidName("empty.png");
+		}
+		
+		return result;
 	}
 	
 	

@@ -26,10 +26,19 @@
     
     <select id="selectOneProduct" resultMap="resultMapObj">
     	SELECT
-    		*
-   		FROM product
-   		WHERE 1=1
-   		AND pdSeq = #{pdSeq}
+		pd.*
+		,mm.mmNickName
+		,upm.upPath
+		,upm.upUuidName
+		FROM product pd
+		JOIN member mm
+		ON pd.pdSeller = mm.mmSeq
+		LEFT JOIN uploadedMember upm
+		ON mm.mmSeq = upm.upMemberSeq
+		AND upm.upDelNy = 0
+		AND upm.upDefaultNy = 1
+		WHERE 1=1
+		AND pdSeq = #{pdSeq}
     </select>
     
     <insert id="insert">
