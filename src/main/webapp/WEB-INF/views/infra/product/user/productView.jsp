@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeServiceImpl" class="com.space.infra.modules.code.CodeServiceImpl"/> 
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -22,6 +24,9 @@
 	</style>
 </head>
 <body>
+	<c:set var = "ccState" value = "${CodeServiceImpl.selectListCachedCode('4')}"/>
+	<c:set var = "ccCategory" value = "${CodeServiceImpl.selectListCachedCode('5')}"/>
+	<c:set var = "ccType" value = "${CodeServiceImpl.selectListCachedCode('6')}"/>
 	<!-- preloader -->
 	<%@include file="/resources/include/preloader.jsp"%>
 	
@@ -61,7 +66,11 @@
                     <div class="col ml-2 p-2">
                         <div class="row">
                             <div class="col">
-                                <span style="color:gray; font-size: 10pt;"><c:out value="${item.pdCategory}"/></span>
+                                <span style="color:gray; font-size: 10pt;">
+                                	<c:forEach items="${ccCategory }" var="list" varStatus="status">
+										<c:if test="${item.pdCategory eq list.ccOrder}"><c:out value="${list.ccName}"/></c:if>
+                                	</c:forEach>                                	
+                                </span>
                             </div>
                         </div>
                         <div class="row">
@@ -69,8 +78,11 @@
                                 <h3 class="my-1" style="padding: 0; font-weight: bold;"><c:out value="${item.pdTitle}"/></h3>
                             </div>
                             <div class="col-3 pt-1" style="justify-content:end;">
-                                <span
-                                    style="padding: 4px; background: #1F2122; border-radius: 5px; color:gray; font-size: 12pt; width:auto;"><c:out value="${item.pdState}"/></span>
+                                <span style="padding: 4px; background: #1F2122; border-radius: 5px; color:gray; font-size: 12pt; width:auto;">
+                                	<c:forEach items="${ccState}" var ="list" varStatus="status">
+                                		<c:if test="${item.pdState eq list.ccOrder }"><c:out value="${list.ccName}"/></c:if>    
+                                	</c:forEach>
+                                </span>
                             </div>
                         </div>
                         <div class="row my-3 pt-3" style="border-top:1px solid #1F2122;">
