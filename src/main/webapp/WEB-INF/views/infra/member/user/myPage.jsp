@@ -27,6 +27,7 @@
 	<div class="container">
 	    <div class="page-content">
 	    	<form id="mainForm" method="POST">
+	    		<input type="hidden" id="pdSeq" name="pdSeq"> 
 		        <div class="row">
 				    <div class="col-lg-12">
 				        <div class="main-profile "> 
@@ -68,11 +69,10 @@
 				                            <c:choose>
 				                            	<c:when test="${saleList.size() ne 0}">
 				                            		<c:forEach items="${saleList }" var="list" varStatus="status">
-						                            	<div class="col-lg-3 col-sm-6"> 
+						                            	<div class="col-lg-3 col-sm-6" style="cursor:pointer;" onclick="openProduct(${list.pdSeq})"> 
 							                                <div class="item">
 							                                    <div class="thumb">
 							                                        <img src="${list.upPath }${list.upUuidName}" alt="" style="border-radius: 23px;">
-							                                        <a href="" target="_blank"><i class="fa fa-play"></i></a>
 							                                    </div>
 							                                    <div class="down-content">
 							                                        <h4><c:out value="${list.pdTitle }"/></h4>
@@ -105,12 +105,11 @@
 				                             <c:choose>
 				                            	<c:when test="${buyList.size() ne 0}">
 				                            		<c:forEach items="${buyList }" var="list" varStatus="status">
-						                            	<div class="col-lg-3 col-sm-6"> 
+						                            	<div class="col-lg-3 col-sm-6" style="cursor:pointer;" onclick="openProduct(${list.pdSeq})"> 
 							                                <div class="item">
 							                                    <div class="thumb">
 							                                        <img src="${list.upPath }${list.upUuidName}" alt="" style="border-radius: 23px;">
-							                                        <a href="" target="_blank"><i class="fa fa-play"></i></a>
-							                                    </div>
+						                                        </div>
 							                                    <div class="down-content">
 							                                        <h4><c:out value="${list.pdTitle }"/></h4>
 							                                        <span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
@@ -142,6 +141,12 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+	
+		openProduct = function(productSeq){
+			
+			$("#pdSeq").val(productSeq);
+			$("#mainForm").attr("action","/product/productView").submit();
+		};
 		
 		runForm = function(key){
 			
