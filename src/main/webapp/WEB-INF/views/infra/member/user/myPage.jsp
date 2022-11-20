@@ -38,8 +38,10 @@
 				                    <div class="main-info header-text">
 				                        <h4><c:out value="${item.mmNickName }"/></h4>
 				                        <p>안녕하세요. 질 좋고 값 싼 물건만 연쇄적으로 판매합니다.</p>
-				                        <button type="button" class="base-border-button" onclick="runForm('profile')">프로필 편집</button> 
-				                        <button type="button" class="base-border-button" onclick="runForm('village')">동네 설정</button> 
+				                        <c:if test="${item.mmSeq eq sessSeq}">
+					                        <button type="button" class="base-border-button" onclick="runForm('profile')">프로필 편집</button> 
+					                        <button type="button" class="base-border-button" onclick="runForm('village')">동네 설정</button>
+				                        </c:if> 
 				                    </div>
 				                </div>
 				                <div class="col-lg-4 align-self-center">

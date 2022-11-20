@@ -37,6 +37,7 @@
 	    <div class="page-content">
 			<form method="POST" id="mainForm">
 				<input type="hidden" value="${item.pdSeq}">
+				<input type="hidden" id="mmSeq" name="mmSeq">
                 <div class="row justify-content-center">
                     <div class="col">
                         <div id="carouselExampleFade" class="carousel carousel-fade" data-bs-ride="carousel"
@@ -124,7 +125,9 @@
 	<script>
 		userInfo = function(seq){
 			
-			alert("상품 등록자 시퀀스:"+seq);
+			//alert("상품 등록자 시퀀스:"+seq);
+			$("#mmSeq").val(seq);
+		 	$("#mainForm").attr("action","/member/profile").submit();
 			
 		}
 	</script>	
