@@ -9,21 +9,33 @@
     <resultMap id="resultMapObj" type="com.space.infra.modules.product.Product"></resultMap>
     
     <select id="selectBuyList" resultMap="resultMapObj">
-    	SELECT
-    		*
-   		FROM product 
-   		WHERE 1=1
-   		AND pdType = 2
-   		ORDER BY pdCreateDate DESC
+		SELECT
+	   		pd.*
+	   		,up.upPath
+        	,up.upUuidName
+	    FROM product pd
+	    JOIN uploadedProduct up
+	    ON pd.pdSeq = up.upProductSeq
+	    AND up.upDefaultNy = 1
+	    AND up.upDelNy = 0
+	    WHERE 1=1
+	    AND pdType = 2
+	    ORDER BY pdCreateDate DESC
     </select>
-    
+     
     <select id="selectSaleList" resultMap="resultMapObj">
-    	SELECT
-    		*
-   		FROM product
-   		WHERE 1=1
-   		AND pdType = 1
-   		ORDER BY pdCreateDate DESC
+		SELECT
+	   		pd.*
+	   		,up.upPath
+        	,up.upUuidName
+	    FROM product pd
+	    JOIN uploadedProduct up
+	    ON pd.pdSeq = up.upProductSeq
+	    AND up.upDefaultNy = 1
+	    AND up.upDelNy = 0
+	    WHERE 1=1
+	    AND pdType = 1
+	    ORDER BY pdCreateDate DESC
     </select>
         
     <select id="selectOneProduct" resultMap="resultMapObj">

@@ -73,7 +73,7 @@
 	                            <c:forEach items="${saleList}" var="list" varStatus="status">
 		                            <div class="col-lg-3 col-sm-6" onclick="openProduct(${list.pdSeq})" style="cursor:pointer;">
 		                                <div class="item">
-		                                    <img style="height: 180px;" src="../images/item2.png" alt="">
+		                                    <img style="height: 180px;" src="${list.upPath }${list.upUuidName}" alt="">
 		                                    <h4>${list.pdTitle }<br><span style="color:#E75E8D"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></span></h4>
 		                                </div>
 		                            </div>
@@ -99,7 +99,7 @@
 								<c:forEach items="${buyList}" var="list" varStatus="status">
 		                            <div class="col-lg-3 col-sm-6" onclick="openProduct(${list.pdSeq})" style="cursor:pointer;">
 		                                <div class="item">
-		                                    <img style="height: 180px;" src="../images/item2.png" alt="">
+		                                    <img style="height: 180px;" src="${list.upPath }${list.upUuidName}" alt="">
 		                                    <h4>${list.pdTitle }<br><span style="color:#E75E8D"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></span></h4>
 		                                </div>
 		                            </div>
