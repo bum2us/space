@@ -48,6 +48,20 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return dao.selectSaleList();
 	}
+	
+	
+
+	@Override
+	public List<Product> selectBuyListFromMember(Product dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectBuyListFromMember(dto);
+	}
+
+	@Override
+	public List<Product> selectSaleListFromMember(Product dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectSaleListFromMember(dto);
+	}
 
 	@Override
 	public Product selectOneProduct(Product dto) throws Exception {
@@ -67,6 +81,8 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return dao.selectImgFromProduct(dto);
 	}
+
+	
 
 	
 

@@ -13,12 +13,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.space.infra.modules.product.Product;
+import com.space.infra.modules.product.ProductServiceImpl;
+
 @Controller
 @RequestMapping("/member/")
 public class MemberController {
 	
 	@Autowired
 	MemberServiceImpl service;
+	
+	@Autowired
+	ProductServiceImpl serviceProduct;
 	
 	@RequestMapping("joinForm")
 	public String joinForm() throws Exception{
@@ -54,6 +60,14 @@ public class MemberController {
 		}
 		model.addAttribute("item", item);
 		
+		Product seller = new Product();
+		seller.setPdSeller(item.getMmSeq());
+		
+		List<Product> saleList = serviceProduct.selectSaleListFromMember(seller);
+		model.addAttribute("saleList", saleList);
+		
+		List<Product> buyList = serviceProduct.selectBuyListFromMember(seller);
+		model.addAttribute("buyList", buyList);
 		return "infra/member/user/myPage";
 	}
 	

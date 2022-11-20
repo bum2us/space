@@ -47,8 +47,8 @@
 				                <div class="col-lg-4 align-self-center">
 				                    <ul>
 				                        <li>팔로워 <span>3</span></li>
-				                        <li>판매상품 <span>16</span></li>
-				                        <li>구매상품 <span>None</span></li> 
+				                        <li>판매상품 <span><c:out value="${saleList.size() }"/> </span></li>
+				                        <li>구매상품 <span><c:out value="${buyList.size() }"/></span></li> 
 				                    </ul>
 				                </div>
 				            </div>
@@ -65,57 +65,27 @@
 				                                	</div>
 				                                </div>
 				                            </div>
-				                            <div class="col-lg-3 col-sm-6"> 
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item1.png" alt="" style="border-radius: 23px;">
-				                                        <a href="" target="_blank"><i class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>스투시 컨버스</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 36000원</span>
-				                                    </div>
-				                                </div> 
-				                            </div> 
-				                            <div class="col-lg-3 col-sm-6"> 
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item2.png" alt="" style="border-radius: 23px;">
-				                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i
-				                                                class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>마샬 스피커</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 125000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item3.png" alt="" style="border-radius: 23px;">
-				                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i
-				                                                class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>에어팟 프로</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 100000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item4.png" alt="" style="border-radius: 23px;">
-				                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i
-				                                                class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>데스크탑</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 525000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
+				                            <c:choose>
+				                            	<c:when test="${saleList.size() ne 0}">
+				                            		<c:forEach items="${saleList }" var="list" varStatus="status">
+						                            	<div class="col-lg-3 col-sm-6"> 
+							                                <div class="item">
+							                                    <div class="thumb">
+							                                        <img src="${list.upPath }${list.upUuidName}" alt="" style="border-radius: 23px;">
+							                                        <a href="" target="_blank"><i class="fa fa-play"></i></a>
+							                                    </div>
+							                                    <div class="down-content">
+							                                        <h4><c:out value="${list.pdTitle }"/></h4>
+							                                        <span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
+							                                    </div>
+							                                </div> 
+							                            </div> 
+						                            </c:forEach>	
+				                            	</c:when>
+				                            	<c:otherwise>
+				                            		<div class="text-center" style="margin:100px 0px;">판매상품 없음</div>   
+				                            	</c:otherwise>
+				                            </c:choose>				                            
 				                        </div> 
 				                    </div>
 				                </div>
@@ -132,57 +102,27 @@
 				                                	</div>
 				                                </div>
 				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item1.png" alt="" style="border-radius: 23px;">
-				                                        <a href="" target="_blank"><i class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>스투시 컨버스</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 36000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item2.png" alt="" style="border-radius: 23px;">
-				                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i
-				                                                class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>마샬 스피커</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 125000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item3.png" alt="" style="border-radius: 23px;">
-				                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i
-				                                                class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>에어팟 프로</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 100000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
-				                                <div class="item">
-				                                    <div class="thumb">
-				                                        <img src="assets/images/item4.png" alt="" style="border-radius: 23px;">
-				                                        <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i
-				                                                class="fa fa-play"></i></a>
-				                                    </div>
-				                                    <div class="down-content">
-				                                        <h4>데스크탑</h4>
-				                                        <span><i class="fa-solid fa-comments-dollar"></i> 525000원</span>
-				                                    </div>
-				                                </div>
-				                            </div>
+				                             <c:choose>
+				                            	<c:when test="${buyList.size() ne 0}">
+				                            		<c:forEach items="${buyList }" var="list" varStatus="status">
+						                            	<div class="col-lg-3 col-sm-6"> 
+							                                <div class="item">
+							                                    <div class="thumb">
+							                                        <img src="${list.upPath }${list.upUuidName}" alt="" style="border-radius: 23px;">
+							                                        <a href="" target="_blank"><i class="fa fa-play"></i></a>
+							                                    </div>
+							                                    <div class="down-content">
+							                                        <h4><c:out value="${list.pdTitle }"/></h4>
+							                                        <span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
+							                                    </div>
+							                                </div> 
+							                            </div> 
+						                            </c:forEach>	
+				                            	</c:when>
+				                            	<c:otherwise>
+				                            		<div class="text-center" style="margin:100px 0px;">구매상품 없음</div>   
+				                            	</c:otherwise>
+				                            </c:choose>		
 				                        </div>
 				                    </div>
 				                </div>

@@ -37,6 +37,38 @@
 	    AND pdType = 1
 	    ORDER BY pdCreateDate DESC
     </select>
+    
+    <select id="selectBuyListFromMember" resultMap="resultMapObj">
+    	SELECT
+	   		pd.*
+	   		,up.upPath
+        	,up.upUuidName
+	    FROM product pd
+	    JOIN uploadedProduct up
+	    ON pd.pdSeq = up.upProductSeq
+	    AND up.upDefaultNy = 1
+	    AND up.upDelNy = 0
+	    WHERE 1=1
+	    AND pdType = 2
+	    AND pdSeller = #{pdSeller}
+	    ORDER BY pdCreateDate DESC
+    </select>
+    
+    <select id="selectSaleListFromMember" resultMap="resultMapObj">
+    	SELECT
+	   		pd.*
+	   		,up.upPath
+        	,up.upUuidName
+	    FROM product pd
+	    JOIN uploadedProduct up
+	    ON pd.pdSeq = up.upProductSeq
+	    AND up.upDefaultNy = 1
+	    AND up.upDelNy = 0
+	    WHERE 1=1
+	    AND pdType = 1
+	    AND pdSeller = #{pdSeller} 
+	    ORDER BY pdCreateDate DESC
+    </select>
         
     <select id="selectOneProduct" resultMap="resultMapObj">
     	SELECT
