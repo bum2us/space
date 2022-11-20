@@ -31,7 +31,13 @@ public class ProductController {
 		
 		service.insert(dto);
 		
-		model.addAttribute("item", dto);
+		Product item = service.selectOneProduct(dto);
+		
+		model.addAttribute("item", item);
+		
+		List<Product> img = service.selectImgFromProduct(dto);
+		
+		model.addAttribute("img",img);
 		
 		return "infra/product/user/productView";
 	}
@@ -54,6 +60,10 @@ public class ProductController {
 		Product item = service.selectOneProduct(dto);
 		
 		model.addAttribute("item", item);
+		
+		List<Product> img = service.selectImgFromProduct(dto);
+		
+		model.addAttribute("img",img);
 		
 		return "infra/product/user/productView";
 	}

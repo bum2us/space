@@ -14,6 +14,7 @@
    		FROM product 
    		WHERE 1=1
    		AND pdType = 2
+   		ORDER BY pdCreateDate DESC
     </select>
     
     <select id="selectSaleList" resultMap="resultMapObj">
@@ -22,8 +23,9 @@
    		FROM product
    		WHERE 1=1
    		AND pdType = 1
+   		ORDER BY pdCreateDate DESC
     </select>
-    
+        
     <select id="selectOneProduct" resultMap="resultMapObj">
     	SELECT
 		pd.*
@@ -33,12 +35,22 @@
 		FROM product pd
 		JOIN member mm
 		ON pd.pdSeller = mm.mmSeq
-		LEFT JOIN uploadedMember upm
+		LEFT JOIN uploadedMember upm 
 		ON mm.mmSeq = upm.upMemberSeq
 		AND upm.upDelNy = 0
 		AND upm.upDefaultNy = 1
 		WHERE 1=1
-		AND pdSeq = #{pdSeq}
+		AND pdSeq = #{pdSeq} 
+    </select>
+    
+    <select id="selectImgFromProduct" resultMap="resultMapObj">
+    	SELECT
+    		upPath
+    		,upUuidName
+   		FROM uploadedProduct 
+   		WHERE 1=1
+   		AND upProductSeq = #{pdSeq}
+   		ORDER BY upSort 
     </select>
     
     <insert id="insert">
@@ -63,6 +75,31 @@
 		<selectKey resultType="Integer" keyProperty="pdSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
+    </insert>
+    
+    <insert id="insertUpload">
+    	INSERT INTO uploadedProduct
+    	(
+    		upDefaultNy
+			,upSort
+			,upExt
+			,upOriginalName
+			,upUuidName
+			,upSize
+			,upPath
+			,upProductSeq
+    	)
+    	VALUES
+    	(
+    		#{upDefaultNy}
+			,#{upSort}
+			,#{upExt}
+			,#{upOriginalName}
+			,#{upUuidName}
+			,#{upSize}
+			,#{upPath}
+			,#{pdSeq} 
+    	)
     </insert>
     
 </mapper> 

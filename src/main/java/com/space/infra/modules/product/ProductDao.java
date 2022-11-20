@@ -24,4 +24,8 @@ public class ProductDao {
 	public List<Product> selectSaleList() { return sqlSession.selectList(namesapce +".selectSaleList"); }
 
 	public Product selectOneProduct(Product dto) { return sqlSession.selectOne(namesapce+".selectOneProduct",dto);}
+
+	public void insertUpload(Product dto) { sqlSession.insert(namesapce+".insertUpload", dto); }
+
+	public List<Product> selectImgFromProduct(Product dto) { return sqlSession.selectList(namesapce+".selectImgFromProduct", dto); }
 }

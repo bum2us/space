@@ -65,7 +65,7 @@
 				                                	</div>
 				                                </div>
 				                            </div>
-				                            <div class="col-lg-3 col-sm-6">
+				                            <div class="col-lg-3 col-sm-6"> 
 				                                <div class="item">
 				                                    <div class="thumb">
 				                                        <img src="assets/images/item1.png" alt="" style="border-radius: 23px;">
@@ -76,7 +76,7 @@
 				                                        <span><i class="fa-solid fa-comments-dollar"></i> 36000원</span>
 				                                    </div>
 				                                </div> 
-				                            </div>
+				                            </div> 
 				                            <div class="col-lg-3 col-sm-6"> 
 				                                <div class="item">
 				                                    <div class="thumb">

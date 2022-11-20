@@ -43,14 +43,12 @@
                         <div id="carouselExampleFade" class="carousel carousel-fade" data-bs-ride="carousel"
                             style="width: 500px; height: 500px;">
                             <div class="carousel-inner" style="width: 100%; height: 100%;">
-                                <div class="carousel-item active" style="width: 100%; height: 100%;">
-                                    <img style="object-fit: cover; width: 100%; height: 100%; border-radius: 15px;"
-                                        src="../images/item1.png">
-                                </div>
-                                <div class="carousel-item" style="width: 100%; height: 100%;">
-                                    <img style="object-fit: cover; width: 100%; height: 100%; border-radius: 15px;"
-                                        src="../images/item2.png">
-                                </div>
+                            	<c:forEach items="${img}" var="list" varStatus="status"> 
+	                                <div class="carousel-item <c:if test="${ status.count eq 1}">active</c:if>" style="width: 100%; height: 100%;">
+	                                    <img style="object-fit: cover; width: 100%; height: 100%; border-radius: 15px;"
+	                                        src="${list.upPath}${list.upUuidName}">
+	                                </div>
+                                </c:forEach>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
                                 data-bs-slide="prev">

@@ -199,7 +199,20 @@
 			    picReader.readAsDataURL(file);
 			}
 			
-			$("#imageCounter").html(files.length+"/10");
+			$("#imageCounter").html(files.length+"/10"); 
+		};
+		
+		delImg = function(seq){
+			
+			$("#img"+seq).remove();
+			
+			return;
+			var imgs = $("div[name=img]");
+			for(var i = 0 ; i < imgs.length; i ++){
+				imgs[i].children[1].onclick="delImg("+i+")";
+				imgs[i].id="img"+i;
+			}
+			
 		};
 		
 		addEventListenerCustom = function (i, file) { 
@@ -208,12 +221,12 @@
 				var sort = i;
 				var txt = "";
 				
-				txt += '<div style="margin-right:10px; position:relative;">';
+				txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
 				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
-				txt += '<img alt="" src="';
+				txt += '<img alt="" src="'; 
 				txt += imageFile.result;
 				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
-				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark"></i></div>';
+				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark" onclick="delImg('+i+')"></i></div>';
 				
 				$("#imgContainer").append(txt);
 		    };
