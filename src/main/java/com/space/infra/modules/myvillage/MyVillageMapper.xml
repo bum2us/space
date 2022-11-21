@@ -35,7 +35,6 @@
 		FROM myVillage
 		WHERE 1=1
 			and mvMemberSeq = #{mvMemberSeq} 
-			and mvDefaultNy = 1;
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">

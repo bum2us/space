@@ -24,7 +24,7 @@
                 <li><a href="/product/productList">중고거래</a></li>
                 <li><a href="/post/postList">동네소식</a></li>
                 <li><a href="/chat/">채팅</a></li>
-                <li><a href="/myVillage/form">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
+                <li><a href="/myVillage/list">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
                 <li><a href="/member/profile">프로필</a></li>
             </ul>
             <a class='menu-trigger'>

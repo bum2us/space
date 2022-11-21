@@ -20,6 +20,19 @@
 			/* border: solid 1px orange; */
 		}
 		
+		input { 
+			background: #1F2122; 
+			border: none; 
+			border-radius:5px; 
+			color: #E75E8D;  
+			font-size: 12pt;  
+		}
+		 
+		input:focus { 
+			background: #1F2122; 
+			border:  1px solid #E75E8D;
+		}
+		
 	</style>
 </head>
 <body>
@@ -33,29 +46,36 @@
         <div class="page-content">
         	<form id="form" name="form">
         		<input type="hidden" name="mvMemberSeq" value="${sessSeq}">
+        		<input type="hidden" name="mvSeq">
         		
         		<div class="gaming-library">
 					<div class="heading-section">
 		                <h4>내 동네 설정</h4>
 	              	</div>
-	              <div class="col-lg-12" style="width: 80%;">
-		              <div class="input-group">
-						<input type="text" class="form-control" id="sample5_address" name="mvOriginalAddr" placeholder="주소" aria-describedby="btnAddress" readonly>
-		              	<button type="button" class="base-border-button"  onclick="sample5_execDaumPostcode()" value="주소 검색">
-							<i class="fa-solid fa-magnifying-glass"></i>
-						</button>
+	             <div class="row justify-content-center p-2">
+					<div class="col-8 text-center">	
+		            	<div class="input-group">
+							<input type="text" class="form-control" id="sample5_address" name="mvOriginalAddr" value="${result.mvOriginalAddr}" style="height: 47px;" placeholder="주소" aria-describedby="btnAddress">
+			              	<button type="button" class="base-border-button"  onclick="sample5_execDaumPostcode()" value="주소 검색">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</button>
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-12" style="width: 80%;">
-					<input type="text" class="form-control" id="mvName" name="mvName" readonly>
+				<div class="row justify-content-center p-2">
+					<div class="col-8 text-center">	
+						<input type="text" class="form-control" id="mvName" name="mvName" value="${result.mvName}" style="height: 47px;">
+					</div>	
 				</div>
-				<div class="col-lg-12" style="width: 80%;">	
-	               	<div id="map" style="width:500px;height:400px;margin-top:10px;display:none""></div> 
+				<div class="row justify-content-center p-2 mb-3">
+					<div class="col-8 text-center">	
+						<div id="box" style="width:600px;height:400px;margin-top:10px;border:1px;display:block;"></div>
+	               		<div id="map" style="width:600px;height:400px;margin-top:10px;display:none;"></div> 
+					</div>	
 	            </div> 
 	            <div class="col-lg-12 text-center" style="justify-content: between;">
-		             <button type="button" class="base-border-button" onclick="btnReset()"><i class="fa-solid fa-rotate-left"></i></button>
 		             <button type="button" class="base-button" onclick="btnSubmit()">등록</button>
-		             <button type="button" class="base-border-button" onclick="location.href='/member/profile'">취소</button>
+		             <button type="button" class="base-border-button" onclick="location.href='/myVillage/list'">취소</button>
 	            </div>
 	       	 </div>
 	       </form>
@@ -77,9 +97,12 @@
 	    var goUrlInst = "/myVillage/inst";
 	    var goUrlUpdt = "/myVillage/updt";
 	    var goUrlUele = "/myVillage/uele";
+	    var goUrlList = "/myVillage/list";
 	    
 	    var seq= $("input:hidden[name=mvMemberSeq]");
 		var form = $("form[name=form]");
+		
+		var boxContainer = document.getElementById('box');
 		
 	    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	        mapOption = {
@@ -123,6 +146,7 @@
 	                        // 해당 주소에 대한 좌표를 받아서
 	                        var coords = new daum.maps.LatLng(result.y, result.x);
 	                        // 지도를 보여준다.
+	                        boxContainer.style.display = "none";
 	                        mapContainer.style.display = "block";
 	                        map.relayout();
 	                        // 지도 중심을 변경한다.
@@ -140,6 +164,7 @@
 	    	form.attr("action", goUrlInst).submit();
 	    }
 	    
+
 	</script>
             
 	

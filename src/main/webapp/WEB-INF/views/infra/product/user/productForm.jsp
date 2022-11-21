@@ -21,7 +21,6 @@
 			/* border: solid 1px orange; */
 		}
 		input { 
-			padding: 15px; 
 			height: 60px; 
 			width: 100%; 
 			background: #1F2122; 

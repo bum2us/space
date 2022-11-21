@@ -17,15 +17,22 @@ public class MyVillageController {
 
 	@Autowired
 	MyVillageServiceImpl service;
+	
+	@RequestMapping(value="list")
+	public String MyViilageList(HttpSession httpSession, MyVillageVo vo, Model model) throws Exception {
+		vo.setMvMemberSeq((Integer) httpSession.getAttribute("sessSeq"));
+		System.out.println(vo.getMvMemberSeq());
+		
+		List<MyVillage> list = service.selectListMyvillage(vo);
+		model.addAttribute("list", list);
+		
+		return "infra/myvillage/user/myVillageList";
+	}
 
 	@RequestMapping(value = "form")
 	public String MyVillageForm(HttpSession httpSession, MyVillageVo vo, Model model) throws Exception {
-
-		vo.setMvMemberSeq((Integer) httpSession.getAttribute("sessSeq"));
-		System.out.println(vo.getMvMemberSeq());
-		List<MyVillage> list = service.selectListMyvillage(vo);
-		model.addAttribute("list", list);
-		 
+		MyVillage result = service.selectOne(vo);
+		model.addAttribute("result", result);
 
 		return "infra/myvillage/user/myVillageForm";
 	}
