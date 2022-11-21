@@ -13,3 +13,29 @@
 <script src="/resources/js/tabs.js"></script>
 <script src="/resources/js/popup.js"></script>
 <script src="/resources/js/custom.js"></script>
+
+<script>
+$("#btnLogout").on("click", function(){
+	
+	$.ajax({
+		async: true
+		,cach: false
+		,type: "post"
+		,url: "/member/logout"
+		,data: {}
+		,success: function(response) {
+			if(response.rt == "success"){
+				location.href = "/";
+			} else {
+				//by pass
+			}
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate" + jqXHR.textStatus + ": " + jqXHR.errorThrown);
+		}
+		
+	});
+});
+
+
+</script>

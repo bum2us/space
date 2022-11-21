@@ -43,7 +43,7 @@ public class MemberController {
 	@RequestMapping("profile")
 	public String profile(HttpSession httpSession,Member dto,Model model) throws Exception{
 		
-		Member item = new Member();
+		Member item = new Member(); 
 		
 		if(dto.getMmSeq() != null) {
 			//다른 사람의 프로필로 갈 때
@@ -101,13 +101,16 @@ public class MemberController {
 		return result;
 	}
 	
+	@ResponseBody
 	@RequestMapping("logout")
-	public String logout(HttpSession httpSession) throws Exception{
+	public Map<String, Object> logout(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		httpSession.invalidate();
 		
-		return "infra/member/loginForm";
-	}	
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
 	
 	
 	

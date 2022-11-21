@@ -24,14 +24,21 @@
                 <li><a href="/product/productList">중고거래</a></li>
                 <li><a href="/post/postList">동네소식</a></li>
                 <li><a href="/chat/">채팅</a></li>
+                <li class="nav-item dropdown">
+                	<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">프로필</a>
+                	<ul class="dropdown-menu">
+                		<li><a><c:out value="${sessName}"/> 님<br> 안녕하세요</a></li>
+                		<li><a href="/member/profile">마이페이지</a></li>
+	            		<li><a id="btnLogout">로그아웃</a></li>
+                	</ul>
+               	</li>
                 <li><a href="/myVillage/list">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
-                <li><a href="/member/profile">프로필</a></li>
             </ul>
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
+          
+            
             <!-- ***** Menu End ***** -->
         </nav>
+        
     </div>
 </header>
 <br><br>
