@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeServiceImpl" class="com.space.infra.modules.code.CodeServiceImpl"/> 
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -77,268 +79,221 @@
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	<div class="container">
-	    <div class="row">
-	      <div class="col-lg-12">
-	        <div class="page-content">
+	<c:set var="codeList" value="${CodeServiceImpl.selectListCachedCode('3')}" />
 	
-	          <!-- ***** 우주지도 Start ***** -->
-	          <div class="row" style="border-radius: 25px;">
-	          	<div class="col-8 p-0">
-	          		<div class="row m-0" style="width:100%; height: 100%;">
-	          			<div class="col p-0">
-	          				<!-- <img src="/resources/images/map.jpg" style="width: 100%; height: 100%;" alt="지도 이미지"> --> 
-							<div class="map_wrap" style="width: 100%; height: 100%;">
-							    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-							    <ul id="category">
-							        <li id="MT1" data-order="1"> 
-							            <span class="category_bg mart"></span>
-							            꿀팁
-							        </li>  
-							        <li id="PM9" data-order="2"> 
-							            <span class="category_bg pharmacy"></span>
-							            일상
-							        </li>  
-							        <li id="OL7" data-order="3"> 
-							            <span class="category_bg oil"></span>
-							            맛집
-							        </li>  
-							        <li id="CE7" data-order="4"> 
-							            <span class="category_bg cafe"></span>
-							            문화
-							        </li>  
-							    </ul>
-							</div> 
-	          			</div>
-	          		</div>
-	          	</div>
-	          	<div class="col-4" style="background: white;">
-	          		<div class="row" style="background: #E75E8D;">
-	          			<div class="col">
-	          				<div class="row mt-3">
-	          					<div class="col">
-	          						<h6 style="margin: 0;">우리 주변 동네 정보</h6>
-	          					</div>
-	          				</div>
-	          				<div class="row mb-2">
-	          					<div class="col">
-	          						<h2 style="margin: 0;"><b><em>우주지도</em></b></h2>
-	          					</div>
-	          				</div>
-	          			</div>
-	          		</div>
-	          		<hr>
-	          		<div class="row">
-	          			<div class="col">
-	          				<div class="row mb-2">
-	          					<div class="col-4 text-center">
-	          						<span class="badge" style="background-color: rgba(247, 52, 133, 0.849); border-radius: 3px;">Step 01</span>
-	          					</div>
-	          					<div class="col-8">
-					                <span style="font-size: 13pt;"><b>지역을 선택하세요</b></span> 
-	          					</div>
-	          				</div>
-	          				<div class="row">
-	          					<div class="col p-2">
-	          						<select class="form-select">
-	          							<option value="">시/도 선택</option>
-	          							<option value="">서울특별시</option>
-	          							<option value="">경기도</option>
-	          						</select>
-	          					</div>
-	          				</div>
-	          				<div class="row">
-	          					<div class="col p-2">
-	          						<select class="form-select">
-	          							<option value="">시/군/도 선택</option>
-	          							<option value="">서울특별시</option>
-	          							<option value="">경기도</option>
-	          						</select>
-	          					</div>
-	          				</div>
-	          			</div>
-	          		</div>
-	          		<hr>
-	          		<div class="row">
-	          			<div class="col">
-	          				<div class="row mb-2">
-	          					<div class="col-4 text-center">
-	          						<span class="badge" style="background-color: rgba(202, 60, 221, 0.938); border-radius: 3px;">Step 02</span>
-	          					</div>
-	          					<div class="col-8">
-	          						<span style="font-size: 13pt;"><b>물품 종류를 선택하세요</b></span>     
-	          					</div>
-	          				</div>
-	          				<div class="row">
-	          					<div class="col-3">
-	          						<div class="row">
-	          							<div class="col">
-	          								<button type="button" class="btn"><i class="fa-solid fa-shirt"></i></button>
-	          							</div>
-	          						</div>
-	          						<div class="row text-center">
-	          							<div class="col">
-	          								꿀팁
-	          							</div>
-	          						</div>
-	          					</div>
-	          					<div class="col-3">
-	          						<div class="row">
-	          							<div class="col">
-	          								<button type="button" class="btn"><i class="fa-solid fa-wand-magic-sparkles"></i></button> 
-	          							</div>
-	          						</div>
-	          						<div class="row text-center">
-	          							<div class="col">
-	          								일상
-	          							</div>
-	          						</div>
-	          					</div>
-	          					<div class="col-3">
-	          						<div class="row">
-	          							<div class="col">
-	          								<button type="button" class="btn"><i class="fa-solid fa-baby"></i></button>
-	          							</div>
-	          						</div>
-	          						<div class="row text-center">
-	          							<div class="col">
-	          								맛집
-	          							</div>
-	          						</div>
-	          					</div>
-	          					<div class="col-3">
-	          						<div class="row text-center">
-	          							<div class="col">
-	          								<button type="button" class="btn"><i class="fa-solid fa-utensils"></i></button>
-	          							</div>
-	          						</div>
-	          						<div class="row text-center">
-	          							<div class="col">
-	          								문화
-	          							</div>
-	          						</div>
-	          					</div>
-	          				</div>
-	          				<div class="row mt-3 mb-3 text-end">
-	          					<div class="col">
-	          						<button class="base-button" type="button" onclick="location.href='/post/postForm'"><i class="fa-solid fa-pen"></i></button> 
-	          						<button class="base-button" type="button"><i class="fa-solid fa-rotate-left"></i></button>
-	          					</div>
-	          				</div>
-	          			</div>
-	          		</div>
-	          	</div>
+	<form id="mainForm">
+		<div class="container">
+		    <div class="row">
+		      <div class="col-lg-12">
+		        <div class="page-content">
+		
+		          <!-- ***** 우주지도 Start ***** -->
+		          <div class="row" style="border-radius: 25px;">
+		          	<div class="col-8 p-0">
+		          		<div class="row m-0" style="width:100%; height: 100%;">
+		          			<div class="col p-0">
+		          				<!-- <img src="/resources/images/map.jpg" style="width: 100%; height: 100%;" alt="지도 이미지"> --> 
+								<div class="map_wrap" style="width: 100%; height: 100%;">
+								    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+								    <ul id="category">
+								        <li id="MT1" data-order="1"> 
+								            <span class="category_bg mart"></span>
+								            꿀팁
+								        </li>  
+								        <li id="PM9" data-order="2"> 
+								            <span class="category_bg pharmacy"></span>
+								            일상
+								        </li>  
+								        <li id="OL7" data-order="3"> 
+								            <span class="category_bg oil"></span>
+								            맛집
+								        </li>  
+								        <li id="CE7" data-order="4"> 
+								            <span class="category_bg cafe"></span>
+								            문화
+								        </li>  
+								    </ul>
+								</div> 
+		          			</div>
+		          		</div>
+		          	</div>
+		          	<div class="col-4" style="background: white;">
+		          		<div class="row" style="background: #E75E8D;">
+		          			<div class="col">
+		          				<div class="row mt-3">
+		          					<div class="col">
+		          						<h6 style="margin: 0;">우리 주변 동네 정보</h6>
+		          					</div>
+		          				</div>
+		          				<div class="row mb-2">
+		          					<div class="col">
+		          						<h2 style="margin: 0;"><b><em>우주지도</em></b></h2>
+		          					</div>
+		          				</div>
+		          			</div>
+		          		</div>
+		          		<hr>
+		          		<div class="row">
+		          			<div class="col">
+		          				<div class="row mb-2">
+		          					<div class="col-4 text-center">
+		          						<span class="badge" style="background-color: rgba(247, 52, 133, 0.849); border-radius: 3px;">Step 01</span>
+		          					</div>
+		          					<div class="col-8">
+						                <span style="font-size: 13pt;"><b>지역을 선택하세요</b></span> 
+		          					</div>
+		          				</div>
+		          				<div class="row">
+		          					<div class="col p-2">
+		          						<select class="form-select">
+		          							<option value="">시/도 선택</option>
+		          							<option value="">서울특별시</option>
+		          							<option value="">경기도</option>
+		          						</select>
+		          					</div>
+		          				</div>
+		          				<div class="row">
+		          					<div class="col p-2">
+		          						<select class="form-select">
+		          							<option value="">시/군/도 선택</option>
+		          							<option value="">서울특별시</option>
+		          							<option value="">경기도</option>
+		          						</select>
+		          					</div>
+		          				</div>
+		          			</div>
+		          		</div>
+		          		<hr>
+		          		<div class="row">
+		          			<div class="col">
+		          				<div class="row mb-2">
+		          					<div class="col-4 text-center">
+		          						<span class="badge" style="background-color: rgba(202, 60, 221, 0.938); border-radius: 3px;">Step 02</span>
+		          					</div>
+		          					<div class="col-8">
+		          						<span style="font-size: 13pt;"><b>물품 종류를 선택하세요</b></span>     
+		          					</div>
+		          				</div>
+		          				<div class="row">
+		          					<div class="col-3">
+		          						<div class="row">
+		          							<div class="col">
+		          								<button type="button" class="btn"><i class="fa-solid fa-shirt"></i></button>
+		          							</div>
+		          						</div>
+		          						<div class="row text-center">
+		          							<div class="col">
+		          								꿀팁
+		          							</div>
+		          						</div>
+		          					</div>
+		          					<div class="col-3">
+		          						<div class="row">
+		          							<div class="col">
+		          								<button type="button" class="btn"><i class="fa-solid fa-wand-magic-sparkles"></i></button> 
+		          							</div>
+		          						</div>
+		          						<div class="row text-center">
+		          							<div class="col">
+		          								일상
+		          							</div>
+		          						</div>
+		          					</div>
+		          					<div class="col-3">
+		          						<div class="row">
+		          							<div class="col">
+		          								<button type="button" class="btn"><i class="fa-solid fa-baby"></i></button>
+		          							</div>
+		          						</div>
+		          						<div class="row text-center">
+		          							<div class="col">
+		          								맛집
+		          							</div>
+		          						</div>
+		          					</div>
+		          					<div class="col-3">
+		          						<div class="row text-center">
+		          							<div class="col">
+		          								<button type="button" class="btn"><i class="fa-solid fa-utensils"></i></button>
+		          							</div>
+		          						</div>
+		          						<div class="row text-center">
+		          							<div class="col">
+		          								문화
+		          							</div>
+		          						</div>
+		          					</div>
+		          				</div>
+		          				<div class="row mt-3 mb-3 text-end">
+		          					<div class="col">
+		          						<button class="base-button" type="button" onclick="location.href='/post/postForm'"><i class="fa-solid fa-pen"></i></button> 
+		          						<button class="base-button" type="button"><i class="fa-solid fa-rotate-left"></i></button>
+		          					</div>
+		          				</div>
+		          			</div>
+		          		</div>
+		          	</div>
+		          </div>
+	          <!-- ***** 우주지도 End ***** -->
+	
+	          <!-- ***** 동네소식 List Start***** -->
+	          <div class="gaming-library profile-library">
+	            <div class="col-lg-12">
+	              <div class="heading-section">
+	                <h4><em>동네소식</em></h4>
+	              </div>
+	              <div class="buy-table">
+	              	<table class="table text-white">
+					  <thead>
+					    <tr>
+					      <th>No.</th>
+					      <th>작성자(닉네임)</th>
+					      <th>동네</th>
+					      <th>카테고리</th>
+					      <th>제목</th>
+					      <th>댓글(수)</th>
+					      <th>작성일자</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  	<c:choose>
+				  			<c:when test="${fn:length(list) eq 0}">
+				  				<tr>
+				  					<td colspan="7">동네 소식이 없습니다!</td>
+				  				</tr>
+				  			</c:when>
+					  	</c:choose>
+					  	<c:forEach items="${list}" var="list">
+					  		<tr>
+					  			<td><c:out value="${list.poSeq }"/></td>
+					  			<td><c:out value="${list.poWriter }"/></td>
+					  			<td>서초</td>
+					  			<%-- <td><c:out value="${list.poAddr }"/></td> --%>
+					  			<td>
+						  			<c:forEach items="${codeList}" var="ccList">
+						  				<c:if test="${list.poCategory eq ccList.ccOrder}"><c:out value="${ccList.ccName}"/></c:if>
+						  			</c:forEach>
+					  			</td>
+					  			<td><c:out value="${list.poTitle }"/></td>
+					  			<td>7</td>
+					  			<%-- <td><c:out value="${list.poComment }"/></td> --%>
+					  			<td><c:out value="${list.poCreateDate}"/></td>
+					  		</tr>
+				  		</c:forEach>
+					  </tbody>
+					</table>
+	              
+	              </div>
+	              
+	            </div>
 	          </div>
-          <!-- ***** 우주지도 End ***** -->
-
-          <!-- ***** 동네소식 List Start***** -->
-          <div class="gaming-library profile-library">
-            <div class="col-lg-12">
-              <div class="heading-section">
-                <h4><em>동네소식</em></h4>
-              </div>
-              <div class="buy-table">
-              	<table class="table text-white">
-				  <thead>
-				    <tr>
-				      <th scope="col">No.</th>
-				      <th scope="col">Id</th>
-				      <th scope="col">Addr.</th>
-				      <th scope="col">Contents</th>
-				      <th scope="col">like</th>
-				      <th scope="col">comment</th>
-				      <th scope="col">RegDate</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				  	<%-- <c:foreach items="list" var="list" vatStatus="listStatus">
-				  		<tr>
-				  			<td><c:out value="${list.poSeq }"/></td>
-				  			<td><c:out value="${list.poWriter }"/></td>
-				  			<td><c:out value="${list.poAddr }"/></td>
-				  			<td><c:out value="${list.poContent }"/></td>
-				  			<td>like</td>
-				  			<td>comment</td>
-				  			<td><c:out value="${list.poCreateDate}"/></td>
-				  		</tr>
-				  	</c:foreach> --%>
-				  	
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>bums0810</td>
-				      <td>서초구 서초3동</td>
-				      <td>안쓰는 선풍기 있으신분</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 17:00</td>
-				    </tr>
-				     <tr>
-				      <th scope="row">2</th>
-				      <td>dnwk203</td>
-				      <td>서초구 서초3동</td>
-				      <td>러닝머신 삽니다~</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 16:57</td>
-				    </tr>
-				     <tr>
-				      <th scope="row">3</th>
-				      <td>MJzzang</td>
-				      <td>서초구 서초3동</td>
-				      <td>다 푼 토익책구해요</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 16:43</td>
-				    </tr>
-				     <tr>
-				      <th scope="row">4</th>
-				      <td>minsookun</td>
-				      <td>서초구 서초3동</td>
-				      <td>선풍기 삽니다</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 16:42</td>
-				    </tr>
-				     <tr>
-				      <th scope="row">5</th>
-				      <td>JINgold</td>
-				      <td>서초구 서초3동</td>
-				      <td>아이패드 충전기구합니다</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 16:30</td>
-				    </tr>
-				     <tr>
-				      <th scope="row">6</th>
-				      <td>UziNs</td>
-				      <td>서초구 서초3동</td>
-				      <td>뉴진스 포토카드 삽니다~</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 17:00</td>
-				    </tr>
-				     <tr>
-				      <th scope="row">7</th>
-				      <td>JAE2</td>
-				      <td>서초구 서초3동</td>
-				      <td>무선마우스 구해요.</td>
-				      <td>356</td>
-				      <td>365</td>
-				      <td>2022.10.31. 17:00</td>
-				    </tr>
-				  </tbody>
-				</table>
-              
-              </div>
-              
-            </div>
-          </div>
-          <!-- ***** 동네소식 List End ***** -->
-          
-        </div>
-      </div>
-    </div>
-  </div>
+	          <!-- ***** 동네소식 List End ***** -->
+	          
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</form>
 	
 	<!-- footer -->
 	<%@include file="/resources/include/footer.jsp"%>

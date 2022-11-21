@@ -5,7 +5,7 @@ import com.space.infra.modules.base.Base;
 public class Post extends Base{
 	
 	private Integer poSeq;
-	private Integer poWriter;
+	private String poWriter;
 	private String poTitle;
 	private String  poContent;
 	private Integer poCategory;
@@ -22,10 +22,10 @@ public class Post extends Base{
 	public void setPoSeq(Integer poSeq) {
 		this.poSeq = poSeq;
 	}
-	public Integer getPoWriter() {
+	public String getPoWriter() {
 		return poWriter;
 	}
-	public void setPoWriter(Integer poWriter) {
+	public void setPoWriter(String poWriter) {
 		this.poWriter = poWriter;
 	}
 	public Integer getPoDelNy() {

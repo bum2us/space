@@ -425,9 +425,9 @@
 	                      <img src="/resources/images/service-01.jpg" alt="" style="max-width: 60px; border-radius: 50%;">
 	                    </div>
 	                    <h4>정우경</h4>
-	                    <p>팀장. 근데 오늘 빠짐</p>
+	                    <p>유저에게 도움이되는 서비스를 만드는 개발자</p>
 	                    <h6>개별프로젝트</h6> 
-	                    <a href="http://13.209.12.240"  style="color:#E75E8D;">Sports Mate</a>
+	                    <a href="http://13.209.12.240"  style="color:#E75E8D;">SportsMate</a>
 	                  </div>
 	                </div>
 	                <div class="col-lg-4">

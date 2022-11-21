@@ -10,8 +10,21 @@
     
     <select id="selectList" resultMap="resultMapObj">
     	SELECT
-    		*
-    	FROM post
+			poSeq
+		    ,mm.mmNickName as poWriter
+		    ,poTitle
+		    ,poContent
+		    ,poDelNy
+		    ,poCategory
+		    ,poLng
+		    ,poLat
+		    ,poCreateDate
+		    ,poAddr
+		FROM post po
+		LEFT JOIN member mm on mm.mmSeq = po.poWriter
+		WHERE 1=1
+			AND poDelNy = 0
+		ORDER BY poSeq DESC
     </select>
     
     <insert id="insert">

@@ -98,6 +98,8 @@
 	
 		<input type="hidden" id="poWriter" name="poWriter" value="${sessSeq }">
 		<input type="hidden" id="poCategory" name="poCategory">
+		<input type="hidden" id="poLng" name="poLng">
+		<input type="hidden" id="poLat" name="poLat">
 		
 		<div class="container">
 		    <div class="row">
@@ -135,14 +137,29 @@
 							<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 1);" style="color: #757575;"> -->
 		                </div>
 		                <div class="container text-center mt-4 mb-2">
-		                  <div class="row mb-3">
-		                    <div class="col-3 form">
+		                  <div class="row mb-1">
+		                    <div class="col-3">
+				    			<button type="button" onclick="searchAddr()" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">주소검색</button>
+		                    </div>
+		                    <div class="col-9">
+		                      <input type="text" id="poAddr" name="poAddr" placeholder="게시물에 관련된 위치를 입력해주세요." readonly>
+		                    </div>
+		                  </div>
+		                  <div class="row">
+		                  	<div cloass="col">
+		                  		<div id="map" style="height:300px;margin-top:10px; margin-bottom:10px; display:none"></div>
+		                  	</div>
+		                  </div>
+		                  <div class="row mb-2 mt-1">
+		                    <div class="col-3">
 				    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">카테고리 선택</button>
 		                    </div>
 		                    <div class="col-9">
 		                      <input type="text" id="poTitle" name="poTitle" placeholder="제목을 입력해주세요.">
 		                    </div>
-		                    <div class="col-12 mt-2">
+		                  </div>
+		                  <div class="row">
+		                    <div class="col-12">
 		                      <textarea id="poContent" name="poContent" placeholder="내용을 입력해주세요." rows="10"></textarea>
 		                    </div>
 		                  </div>
@@ -160,6 +177,7 @@
 		      </div>
 		    </div>
 		  </div>
+		  <!-- 카테고리 선택 modal -->
 		  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		    <div class="modal-dialog modal-dialog-centered">
 		        <div class="modal-content">
@@ -183,7 +201,8 @@
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
-	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efddea1f7d5df9c3c3197204f57f2cc1&libraries=services"></script>
 	<script>
 		/* Url 세팅 */
 		var goUrlList = "/post/postList";
@@ -195,11 +214,14 @@
 		
 		/* 리셋 버튼 */
 		function regFormClear() {
-	    	$("#imgProfile").attr("src","");
+	    	$("#imgContainer").attr("src","");
 	    	$("#imgFile").val("");
 	    	$("#categoryBtn").text("카테고리 선택");
 	    	$("#poTitle").val("");
 	    	$("#poContent").val("");
+	    	$("#poAddr").val("");
+	    	const div = $("map");
+	    	div.remove();
 	    };
 	    
 	    /* 카테고리 선택 이벤트 */
@@ -247,6 +269,52 @@
 				
 				$("#imgContainer").append(txt);
 		    };
+		};
+		
+		/* 카카오 주소 검색 */
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+	        mapOption = {
+	            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+	            level:2 // 지도의 확대 레벨
+	        };
+	
+	    //지도를 미리 생성
+	    var map = new daum.maps.Map(mapContainer, mapOption);
+	    //주소-좌표 변환 객체를 생성
+	    var geocoder = new daum.maps.services.Geocoder();
+	    //마커를 미리 생성
+	    var marker = new daum.maps.Marker({
+	        position: new daum.maps.LatLng(37.537187, 127.005476),
+	        map: map
+	    });
+		
+		function searchAddr() {
+			new daum.Postcode({
+	            oncomplete: function(data) {
+	                var addr = data.address; // 최종 주소 변수
+
+	                // 주소 정보를 해당 필드에 넣는다.
+	                document.getElementById("poAddr").value = addr;
+	                // 주소로 상세 정보를 검색
+	                geocoder.addressSearch(data.address, function(results, status) {
+	                    // 정상적으로 검색이 완료됐으면
+	                    if (status === daum.maps.services.Status.OK) {
+
+	                        var result = results[0]; //첫번째 결과의 값을 활용
+
+	                        // 해당 주소에 대한 좌표를 받아서
+	                        var coords = new daum.maps.LatLng(result.y, result.x);
+	                        // 지도를 보여준다.
+	                        mapContainer.style.display = "block";
+	                        map.relayout();
+	                        // 지도 중심을 변경한다.
+	                        map.setCenter(coords);
+	                        // 마커를 결과값으로 받은 위치로 옮긴다.
+	                        marker.setPosition(coords)
+	                    }
+	                });
+	            }
+	        }).open();
 		};
 	</script>	
 </body>
