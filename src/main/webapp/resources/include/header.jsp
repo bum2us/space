@@ -33,7 +33,7 @@
                 	</ul>
                	</li>
                	<c:choose>
-               		<c:when test="${sessVillage eq null}">
+               		<c:when test="${empty sessVillage}">
                			<li><a href="/myVillage/form">동네 설정<i class="fa-solid fa-user-astronaut"></i></a></li>
                		</c:when>
                		<c:otherwise>

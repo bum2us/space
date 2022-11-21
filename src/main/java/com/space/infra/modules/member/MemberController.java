@@ -96,8 +96,8 @@ public class MemberController {
 			httpSession.setAttribute("sessName", LoginMember.getMmName());
 			
 			vo.setMvMemberSeq(LoginMember.getMmSeq());
-			if (vo.getMvSeq() != null) {
-				MyVillage LoginVillage = serviceVillage.selectOneHome(vo);
+			MyVillage LoginVillage = serviceVillage.selectOneHome(vo);
+			if (LoginVillage != null) {
 				httpSession.setAttribute("sessVillage", LoginVillage.getMvName());
 			} else {
 				

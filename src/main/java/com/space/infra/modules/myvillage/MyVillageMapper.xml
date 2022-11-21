@@ -40,6 +40,7 @@
 	<select id="selectOneHome" resultMap="resultMapObj">
 		SELECT
 			mvOriginalAddr
+			,mvSeq
 			,mvName
 			,mvDelNy
 			,mvCreateDate
@@ -78,11 +79,13 @@
 			mvName
 			,mvOriginalAddr
 			,mvMemberSeq
+			,mvDefaultNy
 		)
 		VALUES(
 			#{mvName}
 			,#{mvOriginalAddr}
 			,#{mvMemberSeq}
+			,#{mvDefaultNy}
 		)
 		<selectKey resultType="Integer" keyProperty="mvSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -95,6 +98,7 @@
 			mvName = #{mvName}
 			,mvMemberSeq = #{mvMemberSeq}
 			,mvOriginalAddr =#{mvOriginalAddr}
+			,mvDefaultNy = #{mvDefaultNy}
 		WHERE 
 			mvSeq = #{mvSeq}
 	</update>

@@ -52,32 +52,40 @@
 					<div class="heading-section">
 		                <h4>내 동네 설정</h4>
 	              	</div>
-	             <div class="row justify-content-center p-2">
-					<div class="col-8 text-center">	
-		            	<div class="input-group">
-							<input type="text" class="form-control" id="sample5_address" name="mvOriginalAddr" value="${result.mvOriginalAddr}" style="height: 47px;" placeholder="주소" aria-describedby="btnAddress">
-			              	<button type="button" class="base-border-button"  onclick="sample5_execDaumPostcode()" value="주소 검색">
-								<i class="fa-solid fa-magnifying-glass"></i>
-							</button>
+	              	<div class="row justify-content-center p-2">
+						<div class="col-8">
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" role="switch" value="1" name="mvDefaultNy" id="mvDefaultNy" checked>
+								<label class="form-check-label" for="mvDefaultNy">기본으로 설정</label>
+							</div>	
+						</div>
+					</div>	
+		             <div class="row justify-content-center p-2">
+						<div class="col-8 text-center">	
+			            	<div class="input-group">
+								<input type="text" class="form-control" id="sample5_address" name="mvOriginalAddr" value="${result.mvOriginalAddr}" style="height: 47px;" placeholder="주소" aria-describedby="btnAddress">
+				              	<button type="button" class="base-border-button"  onclick="sample5_execDaumPostcode()" value="주소 검색">
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row justify-content-center p-2">
-					<div class="col-8 text-center">	
-						<input type="text" class="form-control" id="mvName" name="mvName" value="${result.mvName}" style="height: 47px;">
-					</div>	
-				</div>
-				<div class="row justify-content-center p-2 mb-3">
-					<div class="col-8 text-center">	
-						<div id="box" style="width:600px;height:400px;margin-top:10px;border:1px;display:block;"></div>
-	               		<div id="map" style="width:600px;height:400px;margin-top:10px;display:none;"></div> 
-					</div>	
-	            </div> 
-	            <div class="col-lg-12 text-center" style="justify-content: between;">
-		             <button type="button" class="base-button" onclick="btnSubmit()">등록</button>
-		             <button type="button" class="base-border-button" onclick="location.href='/myVillage/list'">취소</button>
-	            </div>
-	       	 </div>
+					<div class="row justify-content-center p-2">
+						<div class="col-8 text-center">	
+							<input type="text" class="form-control" id="mvName" name="mvName" value="${result.mvName}" style="height: 47px;">
+						</div>	
+					</div>
+					<div class="row justify-content-center p-2 mb-3">
+						<div class="col-8 text-center">	
+							<div id="box" style="width:600px;height:400px;margin-top:10px;border:1px;display:block;"></div>
+		               		<div id="map" style="width:600px;height:400px;margin-top:10px;display:none;"></div> 
+						</div>	
+		            </div> 
+		            <div class="col-lg-12 text-center" style="justify-content: between;">
+			             <button type="button" class="base-button" onclick="btnSubmit()">등록</button>
+			             <button type="button" class="base-border-button" onclick="location.href='/myVillage/list'">취소</button>
+		            </div>
+	       	 	</div>
 	       </form>
 	  </div>
 	</div>
@@ -161,6 +169,7 @@
 	    
 	    function btnSubmit() {
 	    	seq.val();
+	    
 	    	form.attr("action", goUrlInst).submit();
 	    }
 	    
