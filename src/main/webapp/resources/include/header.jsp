@@ -32,7 +32,14 @@
 	            		<li><a id="btnLogout">로그아웃</a></li>
                 	</ul>
                	</li>
-                <li><a href="/myVillage/list"><c:out value="${sessVillage}"/> <i class="fa-solid fa-user-astronaut"></i></a></li>
+               	<c:choose>
+               		<c:when test="${sessVillage eq null}">
+               			<li><a href="/myVillage/list">동네 설정<i class="fa-solid fa-user-astronaut"></i></a></li>
+               		</c:when>
+               		<c:otherwise>
+               			<li><a href="/myVillage/list"><c:out value="${sessVillage}"/> <i class="fa-solid fa-user-astronaut"></i></a></li>
+               		</c:otherwise>	
+               	</c:choose>
             </ul>
           
             
