@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.space.infra.modules.myvillage.MyVillage;
+import com.space.infra.modules.myvillage.MyVillageServiceImpl;
+import com.space.infra.modules.myvillage.MyVillageVo;
 import com.space.infra.modules.product.Product;
 import com.space.infra.modules.product.ProductServiceImpl;
 
@@ -25,6 +28,9 @@ public class MemberController {
 	
 	@Autowired
 	ProductServiceImpl serviceProduct;
+	
+	@Autowired 
+	MyVillageServiceImpl serviceVillage;
 	
 	@RequestMapping("joinForm")
 	public String joinForm() throws Exception{
@@ -73,11 +79,9 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping("login")
-	public Map<String,Object> login(HttpSession httpSession,Member dto) throws Exception{
+	public Map<String,Object> login(HttpSession httpSession, Member dto, MyVillageVo vo) throws Exception{
 		
 		Map<String,Object> result = new HashMap<String,Object>();
-		
-		
 		Member LoginMember = service.checkLogin(dto);
 		
 		if(LoginMember == null) {
@@ -90,7 +94,13 @@ public class MemberController {
 			httpSession.setAttribute("sessSeq",LoginMember.getMmSeq());
 			httpSession.setAttribute("sessId", LoginMember.getMmId());
 			httpSession.setAttribute("sessName", LoginMember.getMmName());
+			
+			vo.setMvMemberSeq(LoginMember.getMmSeq());
+			MyVillage LoginVillage = serviceVillage.selectOneHome(vo);
+			httpSession.setAttribute("sessVillage", LoginVillage.getMvName());
+			
 			//httpSession.setAttribute("sessNickName", LoginMember.getMmNickName());
+			
 			//사용자 프로필 이미지 추가 필요
 			
 			result.put("mmId", LoginMember.getMmId());

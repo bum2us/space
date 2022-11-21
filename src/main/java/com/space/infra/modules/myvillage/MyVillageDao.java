@@ -31,6 +31,11 @@ public class MyVillageDao {
 		return result;
 	}
 	
+	public MyVillage selectOneHome(MyVillageVo vo) {
+		MyVillage result = sqlSession.selectOne(namespace + ".selectOneHome", vo);
+		return result;
+	}
+	
 	public int selectOneCount (MyVillageVo vo) {
 		return sqlSession.selectOne(namespace +".selectOneCount", vo);
 	}

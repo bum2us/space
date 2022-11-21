@@ -37,6 +37,18 @@
 			and mvMemberSeq = #{mvMemberSeq} 
 	</select>
 	
+	<select id="selectOneHome" resultMap="resultMapObj">
+		SELECT
+			mvOriginalAddr
+			,mvName
+			,mvDelNy
+			,mvCreateDate
+		FROM myVillage
+		WHERE 1=1
+		 and mvMemberSeq = #{mvMemberSeq}
+		 and mvDefaultNy = 1;
+	</select>
+	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			mvOriginalAddr

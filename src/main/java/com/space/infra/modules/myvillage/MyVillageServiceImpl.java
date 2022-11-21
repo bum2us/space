@@ -30,6 +30,13 @@ public class MyVillageServiceImpl implements MyVillageService {
 		return result;
 	}
 
+	
+	@Override
+	public MyVillage selectOneHome(MyVillageVo vo) throws Exception {
+		MyVillage result = dao.selectOneHome(vo);
+		return result;
+	}
+
 	@Override
 	public int selectOneCount(MyVillageVo vo) throws Exception {
 		return dao.selectOneCount(vo);

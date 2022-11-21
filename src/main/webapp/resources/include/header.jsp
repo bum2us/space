@@ -32,7 +32,7 @@
 	            		<li><a id="btnLogout">로그아웃</a></li>
                 	</ul>
                	</li>
-                <li><a href="/myVillage/list">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
+                <li><a href="/myVillage/list"><c:out value="${sessVillage}"/> <i class="fa-solid fa-user-astronaut"></i></a></li>
             </ul>
           
             
