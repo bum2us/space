@@ -38,9 +38,11 @@ public class MyVillageController {
 	}
 	
 	 @RequestMapping(value="inst") 
-	 public String MyVillageInst(MyVillage dto)throws Exception {
+	 public String MyVillageInst(HttpSession httpSession,MyVillage dto)throws Exception {
 		
 		 service.insert(dto);
+		 
+		 httpSession.setAttribute("sessVillage", dto.getMvName());
 		 
 		 return "redirect:/myVillage/form";
 	 } 

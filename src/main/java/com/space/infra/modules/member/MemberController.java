@@ -79,7 +79,7 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping("login")
-	public Map<String,Object> login(HttpSession httpSession, Member dto, MyVillageVo vo) throws Exception{
+	public Map<String,Object> login(HttpSession httpSession, Member dto) throws Exception{
 		
 		Map<String,Object> result = new HashMap<String,Object>();
 		Member LoginMember = service.checkLogin(dto);
@@ -95,6 +95,7 @@ public class MemberController {
 			httpSession.setAttribute("sessId", LoginMember.getMmId());
 			httpSession.setAttribute("sessName", LoginMember.getMmName());
 			
+			MyVillageVo vo = new MyVillageVo();
 			vo.setMvMemberSeq(LoginMember.getMmSeq());
 			MyVillage LoginVillage = serviceVillage.selectOneHome(vo);
 			if (LoginVillage != null) {
