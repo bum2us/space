@@ -85,7 +85,10 @@
 			#{mvName}
 			,#{mvOriginalAddr}
 			,#{mvMemberSeq}
-			,#{mvDefaultNy}
+			<choose>
+				<when test="mvDefaultNy ==''">,0</when>
+				<otherwise>,#{mvDefaultNy}</otherwise>
+			</choose>
 		)
 		<selectKey resultType="Integer" keyProperty="mvSeq" order="AFTER">
 			SELECT last_insert_id()
@@ -98,7 +101,10 @@
 			mvName = #{mvName}
 			,mvMemberSeq = #{mvMemberSeq}
 			,mvOriginalAddr =#{mvOriginalAddr}
-			,mvDefaultNy = #{mvDefaultNy}
+			<choose>
+				<when test="mvDefaultNy ==''">,0</when>
+				<otherwise>,#{mvDefaultNy}</otherwise>
+			</choose>
 		WHERE 
 			mvSeq = #{mvSeq}
 	</update>

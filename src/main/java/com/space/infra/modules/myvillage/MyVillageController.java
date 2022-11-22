@@ -46,5 +46,13 @@ public class MyVillageController {
 		 
 		 return "redirect:/myVillage/form";
 	 } 
+	 
+	 @RequestMapping(value="updt")
+	 public String MyVillageUpdt(HttpSession httpSession, MyVillage dto) throws Exception{
+		 
+		 service.update(dto);
+		 httpSession.setAttribute("sessVillage", dto.getMvName());
+		 return "redirect:/myVillage/form";
+	 }
 	
 }

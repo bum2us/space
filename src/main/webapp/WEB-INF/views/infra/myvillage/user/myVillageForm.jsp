@@ -46,7 +46,7 @@
         <div class="page-content">
         	<form id="form" name="form">
         		<input type="hidden" name="mvMemberSeq" value="${sessSeq}">
-        		<input type="hidden" name="mvSeq">
+        		<input type="hidden" name="mvSeq" value="${dto.mvSeq}">
         		
         		<div class="gaming-library">
 					<div class="heading-section">
@@ -107,7 +107,7 @@
 	    var goUrlUele = "/myVillage/uele";
 	    var goUrlList = "/myVillage/list";
 	    
-	    var seq= $("input:hidden[name=mvMemberSeq]");
+	    var seq= $("input:hidden[name=mvSeq]");
 		var form = $("form[name=form]");
 		
 		var boxContainer = document.getElementById('box');
@@ -168,9 +168,12 @@
 	    }
 	    
 	    function btnSubmit() {
-	    	seq.val();
-	    
-	    	form.attr("action", goUrlInst).submit();
+	    	
+	    	if(seq.val() =="0" || seq.val()== ""){
+	    		form.attr("action", goUrlInst).submit();
+	    	} else {
+	    		form.attr("action", goUrlUpdt).submit();
+	    	}
 	    }
 	    
 
