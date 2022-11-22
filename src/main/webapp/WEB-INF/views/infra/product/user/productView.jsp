@@ -36,7 +36,7 @@
 	<div class="container">
 	    <div class="page-content">
 			<form method="POST" id="mainForm">
-				<input type="hidden" value="${item.pdSeq}">
+				<input type="hidden" id="pdSeq" name="pdSeq" value="${item.pdSeq}">
 				<input type="hidden" id="mmSeq" name="mmSeq">
                 <div class="row justify-content-center">
                     <div class="col">
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="row my-2 pt-3" style="border-top:1px solid #1F2122;">
-                            <div class="col" style="cursor:pointer;" onclick="userInfo(${item.pdSeller})">
+                            <div class="col" style="cursor:pointer;" onclick="userInfo('profile',${item.pdSeller})">
                                 <img src="
                                 	${item.upPath}${item.upUuidName}
                                 " style="width:30px; height: 30px; border-radius:50%;">
@@ -105,8 +105,16 @@
                         </div>
                         <div class="row mt-3" style="justify-content:space-between;">
                             <button type="button" class="base-button" style="width:30%">돌아가기</button>
-                            <button type="button" class="base-button" style="width:30%">찜하기</button>
-                            <button type="button" class="base-button" style="width:30%">채팅보내기</button> 
+                            <c:choose>
+                            	<c:when test="${item.pdSeller eq sessSeq}">
+		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('update',${item.pdSeq})">수정하기</button>
+		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('delete',${item.pdSeq})">삭제하기</button> 
+                                </c:when>
+                            	<c:otherwise>
+		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('liked',${item.pdSeq})">찜하기</button>
+		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('chat',${item.pdSeq})">채팅보내기</button>                             	
+                            	</c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>
@@ -121,13 +129,44 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-		userInfo = function(seq){
+		
+		goForm = function(key,seq){
 			
-			//alert("상품 등록자 시퀀스:"+seq);
-			$("#mmSeq").val(seq);
-		 	$("#mainForm").attr("action","/member/profile").submit();
+			var form = $("#mainForm");
 			
-		}
+			switch(key)
+			{
+				case 'profile':
+				{
+					$("#mmSeq").val(seq);
+					form.attr("action","/member/profile").submit();
+					break;
+				}
+				case 'update':
+				{
+				
+					break;
+				}
+				case 'delete':
+				{
+				
+					break;
+				}
+				case 'chat':
+				{
+					form.attr("action","/chat/instChat").submit();
+					break;
+				}
+				case 'liked':
+				{
+				
+					break;
+				}
+				default :
+					break;
+			}
+			
+		};
 	</script>	
 </body>
 </html>

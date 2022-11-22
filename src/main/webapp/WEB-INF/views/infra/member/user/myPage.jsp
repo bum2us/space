@@ -62,7 +62,9 @@
 				                                <div class="heading-section">
 				                                	<div class="d-flex mb-3" style="justify-content:space-between;">
 					                                    <h4 style="margin:0px;">판매상품</h4> 
-														<button type="button" class="base-button" onclick="runForm('sale')">판매 등록</button> 			                                	
+					                                    <c:if test="${item.mmSeq eq sessSeq}">
+															<button type="button" class="base-button" onclick="runForm('sale')">판매 등록</button> 
+														</c:if> 			                                	
 				                                	</div>
 				                                </div>
 				                            </div>
@@ -98,12 +100,14 @@
 				                                <div class="heading-section">
 				                                    <div class="d-flex mb-3" style="justify-content:space-between;">
 					                                    <h4 style="margin:0px;">구매상품</h4>
-														<button type="button" class="base-button" onclick="runForm('buy')">구매 등록</button> 			                                	
+					                                    <c:if test="${item.mmSeq eq sessSeq}">
+															<button type="button" class="base-button" onclick="runForm('buy')">구매 등록</button>
+														</c:if> 			                                	
 				                                	</div>
 				                                </div>
 				                            </div>
 				                             <c:choose>
-				                            	<c:when test="${buyList.size() ne 0}">
+				                            	<c:when test="${buyList.size() ne 0}"> 
 				                            		<c:forEach items="${buyList }" var="list" varStatus="status">
 						                            	<div class="col-lg-3 col-sm-6" style="cursor:pointer;" onclick="openProduct(${list.pdSeq})"> 
 							                                <div class="item">

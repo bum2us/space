@@ -5,6 +5,7 @@ public class Chat {
 	private Integer chatSeq;
 	private Integer chatDelNy;
 	private Integer cuMember;
+	private Integer chatProductSeq;
 	private String chatCreateDate;
 	
 	//채팅 맴버 정보 추출을 위한 필드 
@@ -30,6 +31,12 @@ public class Chat {
 	}
 	public void setCuMember(Integer cuMember) {
 		this.cuMember = cuMember;
+	}
+	public Integer getChatProductSeq() {
+		return chatProductSeq;
+	}
+	public void setChatProductSeq(Integer chatProductSeq) {
+		this.chatProductSeq = chatProductSeq;
 	}
 	public String getChatCreateDate() {
 		return chatCreateDate;
