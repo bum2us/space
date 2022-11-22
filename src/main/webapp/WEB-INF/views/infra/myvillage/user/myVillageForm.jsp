@@ -46,7 +46,7 @@
         <div class="page-content">
         	<form id="form" name="form">
         		<input type="hidden" name="mvMemberSeq" value="${sessSeq}">
-        		<input type="hidden" name="mvSeq" value="${dto.mvSeq}">
+        		<input type="hidden" name="mvSeq" value="${result.mvSeq}">
         		
         		<div class="gaming-library">
 					<div class="heading-section">

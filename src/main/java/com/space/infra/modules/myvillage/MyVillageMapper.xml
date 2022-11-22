@@ -53,6 +53,7 @@
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			mvOriginalAddr
+			,mvSeq
 			,mvName
 			,mvMemberSeq
 			,mvDefaultNy
@@ -86,7 +87,7 @@
 			,#{mvOriginalAddr}
 			,#{mvMemberSeq}
 			<choose>
-				<when test="mvDefaultNy ==''">,0</when>
+				<when test="mvDefaultNy ==null">,0</when>
 				<otherwise>,#{mvDefaultNy}</otherwise>
 			</choose>
 		)
@@ -101,9 +102,10 @@
 			mvName = #{mvName}
 			,mvMemberSeq = #{mvMemberSeq}
 			,mvOriginalAddr =#{mvOriginalAddr}
+			,mvDefaultNy
 			<choose>
-				<when test="mvDefaultNy ==''">,0</when>
-				<otherwise>,#{mvDefaultNy}</otherwise>
+				<when test="mvDefaultNy ==null">=0</when>
+				<otherwise>=#{mvDefaultNy}</otherwise>
 			</choose>
 		WHERE 
 			mvSeq = #{mvSeq}

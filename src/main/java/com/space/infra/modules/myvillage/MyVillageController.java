@@ -50,7 +50,7 @@ public class MyVillageController {
 		 
 		 service.update(dto);
 		 httpSession.setAttribute("sessVillage", dto.getMvName());
-		 return "redirect:/myVillage/form";
+		 return "redirect:/myVillage/list";
 	 }
 	
 }
