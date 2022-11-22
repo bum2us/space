@@ -5,12 +5,9 @@ import com.space.infra.modules.base.BaseVo;
 public class MemberVo extends BaseVo{
 	
 	private Integer shGender;
-
 	private Integer mmSeq;
 	
-	private Integer shOption;
-	private String shValue;
-	private Integer shDelNy;
+	
 	
 	public Integer getShGender() {
 		return shGender;
@@ -24,27 +21,6 @@ public class MemberVo extends BaseVo{
 	public void setMmSeq(Integer mmSeq) {
 		this.mmSeq = mmSeq;
 	}
-	public Integer getShOption() {
-		return shOption;
-	}
-	public void setShOption(Integer shOption) {
-		this.shOption = shOption;
-	}
-	public String getShValue() {
-		return shValue;
-	}
-	public void setShValue(String shValue) {
-		this.shValue = shValue;
-	}
-	public Integer getShDelNy() {
-		return shDelNy;
-	}
-	public void setShDelNy(Integer shDelNy) {
-		this.shDelNy = shDelNy;
-	}
-	
-	
-	
 
 	
 }

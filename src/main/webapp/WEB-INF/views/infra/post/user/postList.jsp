@@ -82,6 +82,9 @@
 	<c:set var="codeList" value="${CodeServiceImpl.selectListCachedCode('3')}" />
 	
 	<form id="mainForm">
+	
+		<input type="hidden" id="poSeq" name="poSeq">
+	
 		<div class="container">
 		    <div class="row">
 		      <div class="col-lg-12">
@@ -266,7 +269,7 @@
 					  	<c:forEach items="${list}" var="list">
 					  		<tr>
 					  			<td><c:out value="${list.poSeq }"/></td>
-					  			<td><c:out value="${list.poWriter }"/></td>
+					  			<td><c:out value="${list.mmNickName }"/></td>
 					  			<td>서초</td>
 					  			<%-- <td><c:out value="${list.poAddr }"/></td> --%>
 					  			<td>
@@ -493,6 +496,15 @@
 		        el.className = 'on';
 		    } 
 		} 
+		
+		/* list 선택해서 view로 가기 */
+		var form = $("#mainForm");
+		var seq = $("#poSeq");
+		var goView = "/post/postView";
+		function goView() {
+			form.attr("action", goView).submit();
+		};
+		
 	</script>	
 </body>
 </html>

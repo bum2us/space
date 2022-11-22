@@ -11,7 +11,7 @@
     <select id="selectList" resultMap="resultMapObj">
     	SELECT
 			poSeq
-		    ,mm.mmNickName as poWriter
+		    ,mm.mmNickName
 		    ,poTitle
 		    ,poContent
 		    ,poDelNy
@@ -21,7 +21,9 @@
 		    ,poCreateDate
 		    ,poAddr
 		FROM post po
-		LEFT JOIN member mm on mm.mmSeq = po.poWriter
+		JOIN member mm on mm.mmSeq = po.poWriter
+			AND mmDelNy = 0
+			AND mmAdminNy = 0
 		WHERE 1=1
 			AND poDelNy = 0
 		ORDER BY poSeq DESC
@@ -83,11 +85,24 @@
     </insert>
     
     <select id="selectOne" resultMap="resultMapObj">
-    	SELECT
-    		*
-    	FROM post
-    	WHERE 1=1
-    		AND poSeq = #{seq}
+   		SELECT
+			poSeq
+		    ,mm.mmNickName
+		    ,poTitle
+		    ,poContent
+		    ,poDelNy
+		    ,poCategory
+		    ,poLng
+		    ,poLat
+		    ,poCreateDate
+		    ,poAddr
+		FROM post po
+		JOIN member mm on mm.mmSeq = po.poWriter
+			AND mmDelNy = 0
+			AND mmAdminNy = 0
+		WHERE 1=1
+			AND poDelNy = 0
+			AND poSeq = #{poSeq}
     </select>
     
 </mapper> 
