@@ -47,7 +47,9 @@
 		FROM myVillage
 		WHERE 1=1
 		 and mvMemberSeq = #{mvMemberSeq}
-		 and mvDefaultNy = 1;
+		 and mvDefaultNy = 1
+		order by mvSeq desc
+		limit 1 
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
