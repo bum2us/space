@@ -109,7 +109,7 @@
 	                </div> 
 	                <div class="row my-4 justify-content-center" style="position:relative">  
 	                	<img id="profileImg" alt="" src="/resources/images/empty.png"  style="border-radius:50%; border:none; width:100px; height:100px; padding:0px;">   
-	                	<input type="file" id="multipartFile" name="multipartFile" onChange="upload('multipartFile');" style="position:absolute; opacity:0; cursor:pointer; border-radius:50%; border:none; width:100px; height:100px;"> 
+	                	<input type="" id="multipartFile" name="multipartFile" onChange="upload('multipartFile');" style="position:absolute; opacity:0; cursor:pointer; border-radius:50%; border:none; width:100px; height:100px;"> 
 	                </div>
 	                <div class="row my-3">
 	                	<div class="col"> 

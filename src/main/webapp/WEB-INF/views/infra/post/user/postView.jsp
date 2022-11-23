@@ -49,15 +49,20 @@
 	
 	          <!-- ***** Gaming Library Start ***** -->
 	          <div class="gaming-library">
+				<div class="col-lg-12 mb-5" style="text-align: center; margin: auto; width: 80%;">
+	              	<div class="heading-section">
+	              		<h4>자세한 이야기</h4>
+	              	</div>
+				</div>
 	            <center>
-	              <div class="col-lg-12 mb-5 mt-5">
+	              <div class="col-lg-12 mb-5">
 	                <div id="carouselExampleControls" style="width: 40%;" class="carousel slide" data-bs-ride="carousel">
 	                  <div class="carousel-inner">
 	                    <div class="carousel-item active">
-	                      <img src="assets/images/yuza.jpg">
+	                      <img src="/resources/images/yuza.jpg">
 	                    </div>
 	                    <div class="carousel-item">
-	                      <img src="assets/images/yuza2.jpg">
+	                      <img src="/resources/images/yuza2.jpg">
 	                    </div>
 	                  </div>
 	                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -76,19 +81,19 @@
 		            	<div class="col-1">
 		            		<div class="row">
 		            			<div class="col">
-		            				<img src="assets/images/bums.jpg" alt="이미지" style="width: 45px; height: 45px; border-radius: 50%;">
+		            				<img src="/resources/images/bums.jpg" alt="이미지" style="width: 45px; height: 45px; border-radius: 50%;">
 		            			</div>
 		            		</div>
 		            	</div>
 		            	<div class="col-2 text-start" style="font-size: 10pt;">
 		            		<div class="row">
 		            			<div class="col">
-		            				신범구
+		            				<c:out value="${one.mmNickname }"/>
 		            			</div>
 		            		</div>
 		            		<div class="row">
 		            			<div class="col">
-		            				서울특별시 서초구
+		            				<c:out value="${one.poAddr }"/>
 		            			</div>
 		            		</div>
 		            	</div>
@@ -110,7 +115,7 @@
 	                <hr>
 	                <div class="container mt-5 mb-5" style="height: 300px;">
 	                  <div class="row">
-	                    <div class="col-8"><h4>우리집 냥이를 소개합니다~!!</h4></div>
+	                    <div class="col-8"><h4><c:out value="${one.poTitle }"/></h4></div>
 	                    <div class="col-4">좋아요 777&nbsp;&nbsp;댓글 7&nbsp;&nbsp;조회수 777</div>
 	                  </div>
 	                  <div class="row text-start mt-5">
@@ -118,7 +123,7 @@
 	                      #cat #고양이 #월요일 #행운의고먐미
 	                    </div>
 	                    <div class="col-12 mt-5">
-	                      이 고양이를 보면 당신은 당신이 희망하는 회사로 출근을 하게됩니다.
+	                      <c:out value="${one.poContent }"/>
 	                    </div>
 	                  </div>
 	                </div>

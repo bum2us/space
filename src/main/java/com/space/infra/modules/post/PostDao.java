@@ -24,6 +24,6 @@ public class PostDao {
 	
 	public int selectLastSeq() throws Exception {return sqlSession.selectOne(namespace + ".selectLastSeq", "");}
 	
-	public int selectOne(PostVo vo) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", "vo");}
+	public Post selectOne(PostVo vo) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", "vo");}
 	
 }

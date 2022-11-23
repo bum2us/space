@@ -25,4 +25,12 @@ public class ChatController {
 		
 		return "infra/chat/user/chat";
 	}
+	
+	@RequestMapping(value="instChat")
+	public String instChat(HttpSession httpSession,Model model,Chat dto) throws Exception {
+		
+		
+		
+		return "infra/chat/user/chat";
+	}
 }

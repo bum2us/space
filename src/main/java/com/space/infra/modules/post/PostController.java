@@ -41,7 +41,10 @@ public class PostController {
 	}
 	
 	@RequestMapping(value = "postView")
-	public String postView() throws Exception {
+	public String postView(PostVo vo, Model model) throws Exception {
+		
+		Post selectOne = service.selectOne(vo);
+		model.addAttribute("one", selectOne);
 		
 		return "infra/post/user/postView";
 	}
