@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import com.space.infra.common.utils.UtilUpload;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -60,6 +57,16 @@ public class PostServiceImpl implements PostService {
 		
 		return dao.insert(dto);
 	}
+
+
+
+	@Override
+	public Post selectOne(PostVo vo) throws Exception {
+		
+		return dao.selectOne(vo);
+	}
+	
+
 
 	
 	

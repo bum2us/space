@@ -206,7 +206,14 @@
 					<div class="form">
 						<h2>Login</h2>
 						<div class="inputBox">
-							<input type="text"  id="mmId" value="space">
+							<c:choose>
+								<c:when test="${loginCheck.xdminNy eq 1}">
+									<input type="text"  id="mmId" value="space">
+								</c:when>
+								<c:otherwise>
+									<input type="text"  id="mmId" value="jwk">
+								</c:otherwise>
+							</c:choose>
 							<span>ID</span>
 							<i></i>
 						</div>

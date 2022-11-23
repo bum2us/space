@@ -91,14 +91,13 @@
 		        <div class="page-content">
 		
 		          <!-- ***** 우주지도 Start ***** -->
-		          <div class="row" style="border-radius: 25px;">
+		          <div class="row" style="margin: 3px;">
 		          	<div class="col-8 p-0">
 		          		<div class="row m-0" style="width:100%; height: 100%;">
 		          			<div class="col p-0">
-		          				<!-- <img src="/resources/images/map.jpg" style="width: 100%; height: 100%;" alt="지도 이미지"> --> 
-								<div class="map_wrap" style="width: 100%; height: 100%;">
-								    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-								    <ul id="category">
+								<div class="map_wrap" style="width: 100%; height: 100%; border-top-left-radius: 23px; border-bottom-left-radius: 23px;">
+								    <div id="map" style="width:100%; height:100%; position:relative; overflow:hidden; border-top-left-radius: 23px; border-bottom-left-radius: 23px;"></div>
+								    <!-- <ul id="category">
 								        <li id="MT1" data-order="1"> 
 								            <span class="category_bg mart"></span>
 								            꿀팁
@@ -115,13 +114,13 @@
 								            <span class="category_bg cafe"></span>
 								            문화
 								        </li>  
-								    </ul>
+								    </ul> -->
 								</div> 
 		          			</div>
 		          		</div>
 		          	</div>
-		          	<div class="col-4" style="background: white;">
-		          		<div class="row" style="background: #E75E8D;">
+		          	<div class="col-4" style="background: white; border-top-right-radius: 23px; border-bottom-right-radius: 23px;">
+		          		<div class="row" style="background: #E75E8D; border-top-right-radius: 23px;">
 		          			<div class="col">
 		          				<div class="row mt-3">
 		          					<div class="col">
@@ -168,7 +167,7 @@
 		          		</div>
 		          		<hr>
 		          		<div class="row">
-		          			<div class="col">
+		          			<div class="col" style="border-bottom-right-radius: 25px;">
 		          				<div class="row mb-2">
 		          					<div class="col-4 text-center">
 		          						<span class="badge" style="background-color: rgba(202, 60, 221, 0.938); border-radius: 3px;">Step 02</span>
@@ -267,7 +266,7 @@
 				  			</c:when>
 					  	</c:choose>
 					  	<c:forEach items="${list}" var="list">
-					  		<tr>
+					  		<tr onclick="openPost(${list.poSeq})">
 					  			<td><c:out value="${list.poSeq }"/></td>
 					  			<td><c:out value="${list.mmNickName }"/></td>
 					  			<td>서초</td>
@@ -305,6 +304,22 @@
 	<%@include file="/resources/include/script.jsp"%>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efddea1f7d5df9c3c3197204f57f2cc1"></script>
 	<script>
+		/* list 선택해서 view로 가기 */
+		/* var form = $("#mainForm");
+		var seq = $("#poSeq");
+		var viewForm = "/post/postView";
+		
+		function viewForm() {
+			location.href = viewForm;
+		}; */
+		
+		function openPost(poSeq) {
+			$("#poSeq").val(poSeq);
+			$("#mainForm").attr("action", "/post/postView").submit();
+		}
+	</script>
+	<script>
+		/* 카카오 지도 */
 		// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
 		var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
 		    contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
@@ -321,7 +336,7 @@
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
 		// 장소 검색 객체를 생성합니다
-		var ps = new kakao.maps.services.Places(map); 
+		/* var ps = new kakao.maps.services.Places(map); */ 
 	
 		// 지도에 idle 이벤트를 등록합니다
 		kakao.maps.event.addListener(map, 'idle', searchPlaces);
@@ -452,8 +467,7 @@
 		    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
 		    placeOverlay.setMap(map);  
 		}
-	
-	
+	 
 		// 각 카테고리에 클릭 이벤트를 등록합니다
 		function addCategoryClickEvent() {
 		    var category = document.getElementById('category'),
@@ -496,15 +510,6 @@
 		        el.className = 'on';
 		    } 
 		} 
-		
-		/* list 선택해서 view로 가기 */
-		var form = $("#mainForm");
-		var seq = $("#poSeq");
-		var goView = "/post/postView";
-		function goView() {
-			form.attr("action", goView).submit();
-		};
-		
 	</script>	
 </body>
 </html>

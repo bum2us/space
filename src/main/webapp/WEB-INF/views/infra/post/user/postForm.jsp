@@ -108,7 +108,7 @@
 		        
 		          <!-- ***** 등록Form Start ***** -->
 		          <div class="gaming-library mt-0">
-		            <div class="col-lg-12">
+		            <div class="col-lg-12 text-center mb-5" style="text-align: center; margin: auto; width: 80%;">
 		              <div class="heading-section">
 		                <h4>동네소식 등록</h4>
 		              </div>
@@ -130,11 +130,6 @@
 						    		<!-- 첨부 이미지들 들어오는 곳 -->
 					    		</div>  
 					    	</div>
-		                	<!-- <div id="ifmmUploadedImage1View" class="col-12 filebox mb-3" style="position: relative; width: 300px; height: 300px; background: transparent; border-radius: 20px; border: 5px solid #27292A">
-								<img id="imgProfile" src="" alt="첨부 이미지" style="left: 0%; top: 50%; width:100%; height:100%;">
-								<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 3);" style="opacity: 0%; position: absolute; left: 0%; height: 100%;">
-							</div>
-							<input id="imgFile" name="multipartFile" multiple="multiple" type="file" onChange="upload('imgFile', 0, 1, 1, 0, 0, 1);" style="color: #757575;"> -->
 		                </div>
 		                <div class="container text-center mt-4 mb-2">
 		                  <div class="row mb-1">

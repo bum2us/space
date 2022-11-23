@@ -9,4 +9,7 @@ public interface PostService {
 	public int insert(Post dto) throws Exception;
 	
 	public int selectLastSeq() throws Exception;
+	
+	public Post selectOne(PostVo vo) throws Exception;
+	
 }
