@@ -15,6 +15,50 @@
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/admin_style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <style>
+        .details {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-gap: 30px;
+            margin-top: 10px;
+        }
+
+        .details .left {
+            position: relative;
+            display: grid;
+            min-height: 500px;
+            background: #1F2122;
+            border-radius: 20px;
+        }
+
+        .liveInfo {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 5px;
+        }
+
+        .details .right {
+            position: relative;
+            display: grid;
+            min-height: 500px;
+            background: #1F2122;
+            padding: 5px;
+            border-radius: 20px;
+        }
+
+        .chatInput {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -69,17 +113,33 @@
     <!-- ***** Header Area End ***** -->
     <div class="container">
         <div class="page-content">
-            <div class="row justify-content-center text-center" style="width:200px;">
-                <input id="host-room-id" data-id="host" type="text" name="roomId" placeholder="Type room ID" />
-                <br>
-                <button type="button" class="base-button" id="connect-host">라이브 시작</button>
-            </div>
-            <div class="row justify-content-center text-center">
-                <div id="status">Disconnected</div>
+            <div class="details">
+                <div class="left" id="videoView">
+                    <div class="liveInfo">
+                        <div class="row" style="width:100%">
+                            <div class="col-2 text-left">
+                                <img src="" alt="" style="width:40px; height: 45px;">
+                            </div>
+                            <div class="col text-left">
+                                <div class="row">
+                                    <h3>LIVE 방송 테스트 중입니다</h3>
+                                </div>
+                                <div class="row">
+                                    <span>연쇄중고마</span>
+                                </div>
+                            </div>
+                            <div class="col-3 text-right">
+                                좋아요,공유
+                            </div>
+                        </div>
+                    </div>
 
-                <div id="video-list">
-                    <ul id="local-container"></ul>
-                    <ul id="remote-container"></ul>
+                </div>
+                <div class="right">
+                    <div class="chatInput">
+                        <button type="button" onclick="createRoom()">host</button>
+                        <button type="button" onclick="exitRoom()">stop</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,6 +176,55 @@
     <script src="../js/tabs.js"></script>
     <script src="../js/popup.js"></script>
     <script src="../js/custom.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@connectlive/connectlive-web-sdk/dist/connectlive-web-sdk.min.js"></script>
+
+    <script>
+        // 커넥트 라이브 내부 인증
+
+        ConnectLive.signIn({
+
+            serviceId: 'LJJF547WX1HE',
+
+            serviceSecret: 'LJJF547WX1HEYPQ0:mtO4PbZsC1vdiROD'
+
+        }).then(() => {
+
+            console.log('인증에 성공했습니다.');
+
+        }).catch((promise) => {
+
+            console.log('인증에 실패했습니다.');
+        });
+
+        var myLocalMedia;
+
+        createRoom = function () {
+            ConnectLive.createLocalMedia({
+
+                audio: true,
+
+                video: true
+
+            }).then((localMedia) => {
+
+                // 방법 1. attach() 메서드 사용하기
+                myLocalMedia = localMedia;
+                var video = localMedia.video.attach();
+                $('#videoView').append(video);
+                $('#videoView').children()[1].style.height = "auto";
+                $('#videoView').children()[1].style.width = "100%";
+                $('#videoView').children()[1].style.borderRadius = "20px 20px 0px 0px";
+                $('#videoView').children()[1].style.position = "absolute";
+            });
+
+        };
+
+        exitRoom = function () {
+            myLocalMedia.stop();
+            ConnectLive.signOut();
+        }
+    </script>
 </body>
 
 </html>
