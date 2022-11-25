@@ -28,6 +28,7 @@
         }
 
         .details .left {
+            max-height: ;
             position: relative;
             display: grid;
             min-height: 500px;
@@ -37,6 +38,7 @@
 
         .liveInfo {
             display: flex;
+            position: relative;
             justify-content: space-between;
             align-items: flex-end;
             padding: 5px;
@@ -52,10 +54,42 @@
         }
 
         .chatInput {
-            position: absolute;
             display: flex;
+            position: relative;
             justify-content: space-between;
             align-items: flex-end;
+            min-height: 50px;
+        }
+
+        .chatInput textarea {
+            position: absolute;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-top: 2px solid #27292A;
+            padding: 10px;
+            color: #E75E8D;
+            font-size: 10pt;
+        }
+
+        .chatInput i {
+            position: absolute;
+            top: 40%;
+            right: 4%;
+        }
+
+        .chatBox {
+            padding: 10px;
+        }
+
+        .user {
+            font-weight: bold;
+            color: gray;
+            margin-right: 10px;
+        }
+
+        .message {
+            font-size: 10pt;
         }
     </style>
 
@@ -112,33 +146,211 @@
     <br><br>
     <!-- ***** Header Area End ***** -->
     <div class="container">
-        <div class="page-content">
+        <div class="page-content" style="padding:30px;">
             <div class="details">
-                <div class="left" id="videoView">
+                <div class="left" id="videoView" style="overflow:hidden;">
                     <div class="liveInfo">
-                        <div class="row" style="width:100%">
-                            <div class="col-2 text-left">
-                                <img src="" alt="" style="width:40px; height: 45px;">
+                        <div class="row pb-2" style="width:100%; position:absolute;">
+                            <div class="col-2 text-center pl-4 pt-2">
+                                <img src="../images/empty.png" alt=""
+                                    style="width:45px; height: 45px; border-radius: 50%;">
                             </div>
                             <div class="col text-left">
                                 <div class="row">
                                     <h3>LIVE 방송 테스트 중입니다</h3>
                                 </div>
                                 <div class="row">
-                                    <span>연쇄중고마</span>
+                                    <span style="font-weight: bold;;">연쇄중고마</span>
                                 </div>
                             </div>
-                            <div class="col-3 text-right">
-                                좋아요,공유
+                            <div class="col-3 pt-3 text-right">
+                                <i style="font-size:20pt; cursor:pointer; color:#E75E8D;" class="fa-solid fa-heart"></i>
+                                &nbsp;&nbsp;&nbsp;
+                                <i style="font-size:20pt; cursor:pointer; color:#E75E8D;"
+                                    class="fa-solid fa-share-nodes"></i>
+                                &nbsp;&nbsp;
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="right">
+                    <div class="chatBox">
+
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">보리아빠</span>와 이걸 중고로 판매하신다구요???</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">유자와함께춤을</span>진짜 역대급</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">불광동어린i</span>와 진짜 상태 너무 좋은데 이걸
+                                        판매하시네😍😍😍😍😍😍</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">보리아빠</span>ㅋㅋㅋ 풀박스 아니면 진짜 눈길도 안주는데 구성품까지
+                                        다있다니</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">무제이개</span>아 집에가고싶다.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">jwy1912</span>​아 근데 진짜 탈덕각이다 젠지는 요근래 뭔가 그냥
+                                        그저그런팀 그이상 그이하도 아니네</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">김민수</span>에버랜드랑 인천공항 하나씩 넣을까?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">PGS_RANGER</span>그럼 연신내랑 별내중에 고르자</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">김민수</span> 아 그럼 나 이제 말 안할게</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">김민수</span>근데 진짜 주먹고기 맛집있어</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">불광동어린i</span>이제 아무도 말하지마세요! </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">무제이개</span>아 나는 진짜 4호선은 타고싶지 않아😥</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">무제이개</span>다가려 다가려</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">불광동어린i</span>동대문이야 나이스 나이스!!!!! 나이스 !!!
+                                        😝😝😝 </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/empty.png" alt=""
+                                        style="width:20px; height:20px; border-radius:50%;">
+                                </div>
+                                <div class="col" style="padding: 2px; margin-left: 10px;">
+                                    <span class="message"><span class="user">불광동어린i</span>토요일 동대문에서 만나요~</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="chatInput">
-                        <button type="button" onclick="createRoom()">host</button>
-                        <button type="button" onclick="exitRoom()">stop</button>
+                        <textarea name="" id="" cols="27" rows="1" placeholder="type message.."></textarea>
+                        <i style="font-size:12pt; cursor:pointer; color:#E75E8D;" class="fa-solid fa-paper-plane"></i>
                     </div>
                 </div>
             </div>
@@ -152,7 +364,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved.
-
+                        <button type="button" onclick="createRoom()">host</button>
+                        <button type="button" onclick="exitRoom()">stop</button>
                         <br>Design: <a href="https://templatemo.com" target="_blank"
                             title="free CSS templates">TemplateMo</a> Distributed By <a href="https://themewagon.com"
                             target="_blank">ThemeWagon</a>
@@ -211,11 +424,11 @@
                 // 방법 1. attach() 메서드 사용하기
                 myLocalMedia = localMedia;
                 var video = localMedia.video.attach();
-                $('#videoView').append(video);
-                $('#videoView').children()[1].style.height = "auto";
-                $('#videoView').children()[1].style.width = "100%";
-                $('#videoView').children()[1].style.borderRadius = "20px 20px 0px 0px";
-                $('#videoView').children()[1].style.position = "absolute";
+                $('#videoView').prepend(video);
+                $('#videoView').children()[0].style.height = "100%";
+                $('#videoView').children()[0].style.width = "auto";
+                $('#videoView').children()[0].style.borderRadius = "20px";
+                $('#videoView').children()[0].style.position = "absolute";
             });
 
         };
