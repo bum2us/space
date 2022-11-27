@@ -40,5 +40,12 @@
 		AND cu.cuChatSeq = #{chatSeq} 
 	
 	</select>
+	
+	<insert id="insertChatFromProduct">
+		
+	</insert>
 
+	<insert id="insertChatUserFromProduct">
+		
+	</insert>
 </mapper>

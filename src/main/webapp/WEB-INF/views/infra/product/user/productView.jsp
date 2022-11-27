@@ -37,6 +37,7 @@
 	    <div class="page-content">
 			<form method="POST" id="mainForm">
 				<input type="hidden" id="pdSeq" name="pdSeq" value="${item.pdSeq}">
+				<input type="hidden" id="chatProductSeq" name="chatProductSeq" value="${item.pdSeq }">
 				<input type="hidden" id="mmSeq" name="mmSeq">
                 <div class="row justify-content-center">
                     <div class="col">
@@ -104,15 +105,16 @@
                             </div>
                         </div>
                         <div class="row mt-3" style="justify-content:space-between;">
-                            <button type="button" class="base-button" style="width:30%">돌아가기</button>
                             <c:choose>
                             	<c:when test="${item.pdSeller eq sessSeq}">
+                            		<button type="button" class="base-button" style="width:30%" onclick="goForm('live',${item.pdSeq})">Live 시작하기</button>	
 		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('update',${item.pdSeq})">수정하기</button>
 		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('delete',${item.pdSeq})">삭제하기</button> 
                                 </c:when>
                             	<c:otherwise>
+                            		<button type="button" class="base-button" style="width:30%">돌아가기</button>
 		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('liked',${item.pdSeq})">찜하기</button>
-		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('chat',${item.pdSeq})">채팅보내기</button>                             	
+		                            <button type="button" class="base-button" style="width:30%" onclick="goForm('chat',${item.pdSeller})">채팅보내기</button>                             	
                             	</c:otherwise>
                             </c:choose>
                         </div>
@@ -154,6 +156,7 @@
 				}
 				case 'chat':
 				{
+					$("#mmSeq").val(seq);
 					form.attr("action","/chat/instChat").submit();
 					break;
 				}

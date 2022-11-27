@@ -29,7 +29,11 @@ public class ChatController {
 	@RequestMapping(value="instChat")
 	public String instChat(HttpSession httpSession,Model model,Chat dto) throws Exception {
 		
+		service.createChatFromProduct(dto.getChatProductSeq(),(int)httpSession.getAttribute("sessSeq"),dto.getMmSeq());
 		
+		List<Chat> list = service.selectChatListFromOne((int)httpSession.getAttribute("sessSeq"));
+		
+		model.addAttribute("list", list);
 		
 		return "infra/chat/user/chat";
 	}

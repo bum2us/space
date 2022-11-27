@@ -30,5 +30,19 @@ public class ChatServiceImpl implements ChatService{
 		return resultList;
 	}
 
-
+	@Override
+	public void createChatFromProduct(int productSeq, int userA, int userB) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Chat dto = new Chat();
+		dto.setChatProductSeq(productSeq);
+		dao.insertChatFromProduct(dto);
+		
+		dto.setCuMember(userA);
+		dao.insertChatUserFromProduct(dto);
+		
+		dto.setCuMember(userB);
+		dao.insertChatUserFromProduct(dto);
+	}
+	
 }
