@@ -35,20 +35,14 @@
     		,poTitle
     		,poContent
     		,poCategory
-    		,poLng
-    		,poLat
-    		,poAddr
     	)
     	VALUES (
     		#{poWriter}
     		,#{poTitle}
     		,#{poContent}
     		,#{poCategory}
-    		,#{poLng}
-    		,#{poLat}
-    		,#{poAddr}
     	)
-	    <selectKey resultType="Integer" keyProperty="seq" order="AFTER">
+	    <selectKey resultType="Integer" keyProperty="poSeq" order="AFTER">
 	    	SELECT last_insert_id()
 	    </selectKey> 
     </insert>
@@ -104,5 +98,29 @@
 			AND poDelNy = 0
 			AND poSeq = #{poSeq}
     </select>
+    
+    
+    <insert id="insertUpload">
+    	INSERT INTO uploadedPost (
+    		upPath
+    		,upOriginalName
+    		,upUuidName
+    		,upExt
+    		,upSize
+    		,upDefaultNy
+    		,upSort
+    		,upPostSeq
+    	)
+    	VALUES (
+    		#{upPath}
+    		,#{upOriginalName}
+    		,#{upUuidName}
+    		,#{upExt}
+    		,#{upSize}
+    		,#{upDefaultNy}
+    		,#{upSort}
+    		,#{poSeq}
+    	)
+    </insert>
     
 </mapper> 

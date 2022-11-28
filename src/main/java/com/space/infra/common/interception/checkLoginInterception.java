@@ -10,14 +10,16 @@ public class checkLoginInterception extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// TODO Auto-generated method stub
-		/*
-		 * if(request.getSession().getAttribute("sessSeq") != null) {
-		 * 
-		 * }else { response.sendRedirect("/administrator");
-		 * System.out.println("intercepter go url : /administrator"); return false; }
-		 */
-		return super.preHandle(request, response, handler);
+		 if (request.getSession().getAttribute("sessSeq") != null) {
+			 //by pass
+		 } else { 
+			 response.sendRedirect("/");
+		 
+			 System.out.println("로그인세션 없이는 접근 불가능한 페이지입니다.(로그인 세션 유지시간 초과) servlet-context 파일을 확인해주세요!");
+			 
+			 return false; 
+		 }
+		 return super.preHandle(request, response, handler);
 	}
 
 	

@@ -2,6 +2,8 @@ package com.space.infra.modules.post;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,11 +29,15 @@ public class PostController {
 	}
 	
 	@RequestMapping(value="postInst")
-	public String postInst(Post dto) throws Exception {
+	public String postInst(HttpSession httpSession, Model model, Post dto, PostVo vo) throws Exception {
 		
 		service.insert(dto);
 		
-		return "infra/post/user/postList";
+		Post one = service.selectOne(vo);
+		
+		model.addAttribute("one", one);
+		
+		return "infra/post/user/postView";
 	}
 	
 	@RequestMapping(value = "postForm")
@@ -41,10 +47,10 @@ public class PostController {
 	}
 	
 	@RequestMapping(value = "postView")
-	public String postView(PostVo vo, Model model) throws Exception {
+	public String postView(HttpSession httpSession, PostVo vo, Model model) throws Exception {
 		
-		Post selectOne = service.selectOne(vo);
-		model.addAttribute("one", selectOne);
+		Post one = service.selectOne(vo);
+		model.addAttribute("one", one);
 		
 		return "infra/post/user/postView";
 	}

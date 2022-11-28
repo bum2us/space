@@ -38,7 +38,7 @@ public class UtilUpload {
 		return path+uuidFileName;
 	}
 	
-	public static String uploadProduct (MultipartFile multipartFile, String className, Post dto) throws Exception {
+	public static String uploadPost (MultipartFile multipartFile, String className, Post dto) throws Exception {
 		String fileName = multipartFile.getOriginalFilename();
 		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
 		String uuid = UUID.randomUUID().toString();
@@ -46,7 +46,13 @@ public class UtilUpload {
 		String pathModule = className;
 		String nowString = UtilDateTime.nowString();
 		String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
-		String path = "D://factory/ws_sts_4151/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+		/*
+		 * String path =
+		 * "D://factory/ws_sts_4151/space/src/main/webapp/resources/uploaded" + "/" +
+		 * pathModule + "/" + pathDate + "/";
+		 */
+		String path = "C://factory/WS_STS_4151/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+
 		//EC2 서버용
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";
 		

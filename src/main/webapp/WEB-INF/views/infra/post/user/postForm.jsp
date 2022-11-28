@@ -162,7 +162,7 @@
 		            </center>
 		            <div class="col-lg-12 text-center" style="justify-content: space-between;">
 		               <button type="button" class="base-button" style="width: 15%;" onclick="location.href='/post/postList'">돌아가기</button>
-		               <button type="button" class="base-button" style="width: 15%;" onclick="Reg()">등록</button>
+		               <button type="button" class="base-button" style="width: 15%;" onclick="reg()">등록</button>
 		               <button type="button" class="base-border-button"  style="width: 15%;" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
 		            </div>
 		          </div>
@@ -226,7 +226,7 @@
 		};
 	    
 		/* 게시물 등록 */
-		function Reg() {
+		function reg() {
 			form.attr("action", goUrlInst).submit();
 		};
 		
@@ -255,15 +255,29 @@
 				var sort = i;
 				var txt = "";
 				
-				txt += '<div style="margin-right:10px; position:relative;">';
-				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#27292A; position:relative; ">';
-				txt += '<img alt="" src="';
+				txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
+				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+				txt += '<img alt="" src="'; 
 				txt += imageFile.result;
 				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
-				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark"></i></div>';
+				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark" onclick="delImg('+i+')"></i></div>';
 				
 				$("#imgContainer").append(txt);
 		    };
+		};
+		
+		/* 첨부 이미지 제거 */
+		delImg = function(seq){
+			
+			$("#img"+seq).remove();
+			
+			return;
+			var imgs = $("div[name=img]");
+			for(var i = 0 ; i < imgs.length; i ++){
+				imgs[i].children[1].onclick="delImg(" + i + ")";
+				imgs[i].id="img" + i;
+			}
+			
 		};
 		
 		/* 카카오 주소 검색 */
@@ -299,6 +313,11 @@
 
 	                        // 해당 주소에 대한 좌표를 받아서
 	                        var coords = new daum.maps.LatLng(result.y, result.x);
+	                        
+	                        // 위도 경도 값 콘솔에 출력 //
+	                        console.log("result.y : " + result.y);
+	                        console.log("result.x : " + result.x);
+	                        
 	                        // 지도를 보여준다.
 	                        mapContainer.style.display = "block";
 	                        map.relayout();

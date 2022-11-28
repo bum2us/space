@@ -10,8 +10,8 @@ public class Post extends Base{
 	private String  poContent;
 	private Integer poCategory;
 	private String poAddr;
-	private double poLat; //경도
-	private double poLng; //위도
+	private String poLat; //경도
+	private String poLng; //위도
 	private String  poCreateDate;
 	private String  poEditDate;
 	private Integer poDelNy;
@@ -41,18 +41,6 @@ public class Post extends Base{
 	}
 	public void setPoCategory(Integer poCategory) {
 		this.poCategory = poCategory;
-	}
-	public double getPoLat() {
-		return poLat;
-	}
-	public void setPoLat(double poLat) {
-		this.poLat = poLat;
-	}
-	public double getPoLng() {
-		return poLng;
-	}
-	public void setPoLng(double poLng) {
-		this.poLng = poLng;
 	}
 	public String getPoCreateDate() {
 		return poCreateDate;
@@ -89,6 +77,18 @@ public class Post extends Base{
 	}
 	public void setMmNickName(String mmNickName) {
 		this.mmNickName = mmNickName;
+	}
+	public String getPoLat() {
+		return poLat;
+	}
+	public void setPoLat(String poLat) {
+		this.poLat = poLat;
+	}
+	public String getPoLng() {
+		return poLng;
+	}
+	public void setPoLng(String poLng) {
+		this.poLng = poLng;
 	}
 	
 	
