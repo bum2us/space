@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.space.infra.modules.myvillage.MyVillage;
@@ -127,6 +128,24 @@ public class MemberController {
 		return returnMap;
 	}
 	
+	//카카오페이
+	@ResponseBody
+	@RequestMapping("kakaopayReady")
+	public KakaopayReady kakaopayReady (@ModelAttribute("dto") Member dto, Model model) throws Exception {
+		KakaopayReady kakaopayReady = service.payReady(dto);
+		model.addAttribute(null, kakaopayReady);
+		return kakaopayReady;
+	}
+	
+	@RequestMapping("kakaopayApproval")
+	public String kakaopayApproval (@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid, @ModelAttribute("dto") Member dto, Model model, HttpSession httpSession) throws Exception {
+		
+		KakaopayApproval kakaopayApproval = service.payApprove(tid, pgToken, dto); 
+		 
+		
+		
+		return "redirect:/member/profile";
+	}
 	
 	
 	

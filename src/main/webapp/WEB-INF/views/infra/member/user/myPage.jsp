@@ -18,6 +18,21 @@
 		div	{
 			/* border: solid 1px orange; */
 		}
+		input { 
+			padding: 15px; 
+			height: 30px; 
+			width: 90%; 
+			background: #27292A; 
+			border: none; 
+			border-radius:5px; 
+			color: #E75E8D;  
+			font-size: 10pt;   	
+		}
+		
+		input:focus {
+			background: #1F2122; 
+			border:  1px solid #E75E8D;
+		}
 		
 	</style>
 </head>
@@ -40,8 +55,8 @@
 				                        <h4><c:out value="${item.mmNickName }"/></h4>
 				                        <p>안녕하세요. 질 좋고 값 싼 물건만 연쇄적으로 판매합니다.</p>
 				                        <c:if test="${item.mmSeq eq sessSeq}">
-					                        <button type="button" class="base-border-button" onclick="runForm('profile')">프로필 편집</button> 
-					                        <button type="button" class="base-border-button" onclick="runForm('village')">동네 설정</button>
+					                        <button type="button" class="base-border-button mb-2" style="width: 165px;" onclick="runForm('profile')">프로필 편집</button>
+					                        <button type="button" class="base-border-button" style="width: 165px;" id="moneyAdd" data-bs-toggle="modal" data-bs-target="#exampleModal">우주머니 충전</button>
 				                        </c:if> 
 				                    </div>
 				                </div>
@@ -134,6 +149,26 @@
 				        </div>
 				    </div>
 				</div>
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				    <div class="modal-dialog modal-dialog-centered">
+				        <div class="modal-content">
+				            <div class="modal-header justify-content-center">
+				                <h1 class="modal-title fs-5" id="exampleModalLabel">충전금액 선택</h1>
+				            </div>
+				            <div class="modal-body">
+				                <div class="row justify-content-between mb-2"> 
+				                	<div class="col-3 text-center mb-2"><label for="balance">잔액</label></div>
+				                	<div class="col-9 text-start mb-2"><input type="text" id="balance" readonly></div>
+				                	<div class="col-3 text-center"><label for="chargeInput">충전금액</label></div>
+				                	<div class="col-9 text-start"><input type="text" id="chargeInput"></div>
+				                </div>	
+				                <div class="row justify-content-center mt-3 mb-2">
+				                	<button type="button" class="base-button" style="width: 30%;" onclick="kakaopay()">충전하기</button>
+				                </div>		            	
+				            </div>			            
+				        </div>
+				    </div>
+				</div>
 			</form>
 	    </div>
 	</div>
@@ -145,7 +180,7 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
-	
+		
 		openProduct = function(productSeq){
 			
 			$("#pdSeq").val(productSeq);
@@ -159,11 +194,6 @@
 			switch (key) 
 			{
 				case 'profile':
-				{
-					submitUrl="";			
-					break;
-				}
-				case 'village':
 				{
 					submitUrl="";			
 					break;
@@ -186,6 +216,23 @@
 			$("#mainForm").attr("action",submitUrl).submit();
 		}
 		
+		kakaopay = function(){
+			$.ajax({
+				async: true
+				,cach: false
+				,method: "post"
+				,url : "/member/kakaopayReady"
+				,data : {
+					form : $("#mainForm").serialize()
+				}
+				,success: function(response){
+					location.href = response.next_redirect_pc_url
+				}
+				,error: function(){
+					alert("ajax error..");
+				}
+			});
+		}
 	</script>	
 </body>
 </html>
