@@ -44,35 +44,28 @@
 	
 	<div class="container">
         <div class="page-content">
-        	<form id="form" name="form">
-        		<input type="hidden" name="mvMemberSeq" value="${sessSeq}">
-        		
-        		<div class="gaming-library">
-					<div class="heading-section">
-		                <h4>내 동네 설정</h4>
-	              	</div>
-	              	<div class="row justify-content-center">
-		              	<c:choose>
-		              		<c:when test = "${fn.length(list) eq 0}">
-		              			<button type="button" class="base-button" id="btnForm">설정하기</button>
-		              		</c:when>
-		              		<c:otherwise>
-		              			<c:forEach items="${list}" var="list" varStatus="varStatus">
-		              				<input type="hidden" name="mvSeq" value="${list.mvSeq}">
-			              			<div class="col-6 text-center">
-					              		<div class="input-group">
-											<input type="text" class="form-control" name="mvName" value="${list.mvName}" aria-describedby="btnAddress" style="border-top-left-radius:25px; border-bottom-left-radius:25px; height:47px;" >
-						              		<button type="button" class="base-border-button mx-2" onclick="goForm('${list.mvSeq}')"><i class="fa-regular fa-pen-to-square"></i>수정하기</button>
-										</div>	
-				              		</div>
-		              			</c:forEach>
-		              		</c:otherwise>	
-		              	</c:choose>
-		              </div>	
-	           
-	       	 </div>
-	       </form>
-	  </div>
+			<form id="form" name="form">
+			    <input type="hidden" name="mvMemberSeq" value="${sessSeq}">
+			    <input type="hidden" id="vCount" value="${fn:length(list)}"
+			    <div class="gaming-library">
+			        <div class="heading-section">
+			            <h4>내 동네 설정</h4>
+			        </div>
+			        <div class="row justify-content-center">
+			            <button type="button" class="base-button" id="btnForm">설정하기</button>
+			            <c:forEach items="${list}" var="list" varStatus="status">
+			                <input type="hidden" name="mvSeq" value="${list.mvSeq}">
+			                <div class="col-6 text-center">
+			                    <div class="input-group">
+			                        <input type="text" class="form-control" name="mvName" value="${list.mvName}" aria-describedby="btnAddress" style="border-top-left-radius:25px; border-bottom-left-radius:25px; height:47px;" >
+			                        <button type="button" class="base-border-button mx-2" onclick="goForm('${list.mvSeq}')"><i class="fa-regular fa-pen-to-square"></i>수정하기</button>
+			                    </div>	
+			                </div>
+			            </c:forEach>
+			        </div>   
+			    </div>	
+			</form>
+		</div>
 	</div>
 	
 	<!-- footer -->
@@ -96,8 +89,11 @@
 	    var seq= $("input:hidden[name=mvSeq]");
 		var form = $("form[name=form]");
 		
-		
 		$("#btnForm").on("click", function(){
+			if($("#vCount").val() == 2) {
+				alert("내 동네는 최대 2개까지 설정 가능합니다");
+				return;
+			} 
 			goForm(0);
 		});
 		
