@@ -49,10 +49,16 @@
 			    <input type="hidden" id="vCount" value="${fn:length(list)}"
 			    <div class="gaming-library">
 			        <div class="heading-section">
-			            <h4>내 동네 설정</h4>
+			        	<div class="row justify-content-between">
+			        		<div class="col text-start">
+			            		<h4>내 동네 설정</h4>
+			            	</div>
+			            	<div class="col text-end">
+			            		<button type="button" class="base-button" id="btnForm">설정하기</button>
+			            	</div>
+			            </div>		
 			        </div>
 			        <div class="row justify-content-center">
-			            <button type="button" class="base-button" id="btnForm">설정하기</button>
 			            <c:forEach items="${list}" var="list" varStatus="status">
 			                <input type="hidden" name="mvSeq" value="${list.mvSeq}">
 			                <div class="col-6 text-center">
