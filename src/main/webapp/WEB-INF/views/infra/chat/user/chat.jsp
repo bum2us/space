@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeServiceImpl" class="com.space.infra.modules.code.CodeServiceImpl"/> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -253,6 +254,7 @@
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
+	<c:set var = "listProductState" value = "${CodeServiceImpl.selectListCachedCode('4')}"/>
 	<div class="container">
         <div class="page-content">
         	<form id="mainForm" method="POST">
@@ -269,6 +271,7 @@
 	                        <div class="card-body contacts_body">
 	                            <ui class="contacts">
 	                            	<c:forEach items="${list }" var="list" varStatus="status">
+	                            		
 	                            		<li class="room" id="${list.chatSeq}" onclick="selectChatRoom(${list.chatSeq})">
 		                                    <div class="d-flex bd-highlight">
 		                                        <div class="img_cont">
@@ -277,33 +280,42 @@
 		                                        </div>
 		                                        <div class="chat_product_info">
 		                                            <span class="status"><c:out value="${list.mmNickName }"/></span>
-		                                 			<p>TEST TEXT FIELD</p>
+		                                 			<p><c:out value="${list.pdTitle}"/></p>
 		                                        </div>
 		                                    </div>
 		                                </li>
-	                            			
-	                            	</c:forEach>
-	                             
+	                            		<input type="hidden" id="pdImg${list.chatSeq }" value="${list.pdPath }${list.pdUuidName}">
+	                            		<input type="hidden" id="pdState${list.chatSeq }" value="
+											<c:forEach items="${listProductState }" var="stateList" varStatus="status">
+	                                    		<c:if test="${list.pdState eq stateList.ccOrder}">${stateList.ccName }</c:if>
+	                                    	</c:forEach>
+										">
+	                            		<input type="hidden" id="pdTitle${list.chatSeq }" value="${list.pdTitle }">
+	                            		<input type="hidden" id="pdPrice${list.chatSeq }" value="${list.pdPrice }">
+	                            	</c:forEach>	                             
 	                            </ui>
 	                        </div>
 	                        <div class="card-footer"></div>
-	                    </div>
+	                    </div> 
 	                </div>
 	                <div class="col-md-8 col-xl-6 chat">
 	                    <div class="card">
 	                        <div class="card-header msg_head">
 	                            <div class="d-flex bd-highlight" style="padding-right:20px">
 	                                <div class="img_cont">
-	                                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+	                                    <img id="pdImg" src="${list[0].pdPath }${list[0].pdUuidName}"
 	                                        class="chat_product_img">
 	                                    <span class="online_icon"></span>
 	                                </div>
 	                                <div class="chat_product_info">
-	                                    <span class="status">판매중</span><span class="title">프롬비 사일런트 스톰 저소음 휴대용
-	                                        선풍기asdasdasdasdasdasdasdasdasdasdasda</span>
-	                                    <p>16,000원</p>
+	                                    <span class="status" id="pdState">
+	                                    	<c:forEach items="${listProductState }" var="stateList" varStatus="status">
+	                                    		<c:if test="${list[0].pdState eq stateList.ccOrder}"><c:out value="${stateList.ccName }"/></c:if>
+	                                    	</c:forEach>
+	                                    </span><span class="title" id="pdTitle"><c:out value="${list[0].pdTitle }"/></span>
+	                                    <p id="pdPrice"><c:out value="${list[0].pdPrice }"/>원</p>
 	                                </div>
-	                            </div>
+	                            </div>  
 	                        </div>
 	                        <div id="chatBox" class="card-body msg_card_body">
 	
@@ -473,7 +485,11 @@
 
 	$(".room").click(function(){
 		readMessage(event.currentTarget);
-				
+		var id = event.currentTarget.id;	
+		$("#pdImg").attr("src",$("#pdImg"+id).val());
+		$("#pdState").html($("#pdState"+id).val());
+		$("#pdTitle").html($("#pdTitle"+id).val());
+		$("#pdPrice").html($("#pdPrice"+id).val()+"원");
 	}); 
 	function getTimeFormat(timetable){
 		//221105080634 

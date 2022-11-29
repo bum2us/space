@@ -11,6 +11,7 @@
 	<select id="selectChatListFromOne" parameterType="Integer" resultMap="resultMapObj">
 		SELECT
 			cu.cuChatSeq as chatSeq
+			,ct.chatProductSeq
 		FROM chatUser cu
 		JOIN chat ct
 		ON ct.chatSeq = cu.cuChatSeq
@@ -20,7 +21,6 @@
 	</select>
 
 	<select id="selectChatWithoutLoginUser" resultMap="resultMapObj">
-		
 		SELECT 
 			cu.cuChatSeq as chatSeq 
 			,cu.cuMember 
@@ -28,6 +28,11 @@
 			,mm.mmNickName 
 			,up.upPath 
 			,up.upUuidName 
+			,pd.pdTitle
+			,pd.pdPrice
+			,pd.pdState
+			,uppd.upPath as pdPath
+			,uppd.upUuidName as pdUuidName
 		FROM chatUser cu 
 		JOIN member mm 
 		ON cu.cuMember  = mm.mmSeq
@@ -35,10 +40,15 @@
 		ON mm.mmSeq = up.upMemberSeq
 		AND up.upDelNy = 0 
 		AND up.upDefaultNy = 1 
+		JOIN product pd
+		ON pd.pdSeq = #{chatProductSeq}
+		JOIN uploadedProduct uppd
+		ON uppd.upProductSeq = pd.pdSeq
+        AND uppd.upDefaultNy = 1
 		WHERE 1=1 
 		AND cu.cuMember != #{cuMember} 
 		AND cu.cuChatSeq = #{chatSeq} 
-	
+
 	</select>
 	
 	<insert id="insertChatFromProduct">
@@ -54,7 +64,7 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
- 
+
 	<insert id="insertChatUserFromProduct">
 		INSERT INTO chatUser
 		(
