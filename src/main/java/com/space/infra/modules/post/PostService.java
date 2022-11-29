@@ -12,4 +12,6 @@ public interface PostService {
 	
 	public Post selectOne(PostVo vo) throws Exception;
 	
+	public int update(Post dto) throws Exception;
+	
 }

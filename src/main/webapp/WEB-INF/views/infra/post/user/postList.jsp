@@ -269,8 +269,7 @@
 					  		<tr onclick="openPost(${list.poSeq})">
 					  			<td><c:out value="${list.poSeq }"/></td>
 					  			<td><c:out value="${list.mmNickName }"/></td>
-					  			<td>서초</td>
-					  			<%-- <td><c:out value="${list.poAddr }"/></td> --%>
+					  			<td><c:out value="${list.poAddr }"/></td>
 					  			<td>
 						  			<c:forEach items="${codeList}" var="ccList">
 						  				<c:if test="${list.poCategory eq ccList.ccOrder}"><c:out value="${ccList.ccName}"/></c:if>

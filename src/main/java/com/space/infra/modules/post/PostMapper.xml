@@ -99,6 +99,17 @@
 			AND poSeq = #{poSeq}
     </select>
     
+    <select id="selectPostImage" resultMap="resultMapObj">
+   		SELECT
+		    ,upPath
+		    ,upUuidName
+		FROM post po
+		JOIN uploadedPost uppo on uppo.upPostSeq = po.poSeq
+			AND upDelNy = 0
+		WHERE 1=1
+			AND poDelNy = 0
+			AND poSeq = #{poSeq}
+    </select>
     
     <insert id="insertUpload">
     	INSERT INTO uploadedPost (
@@ -122,5 +133,14 @@
     		,#{poSeq}
     	)
     </insert>
+    
+    <update id="update">
+    	UPDATE post
+    	SET
+    		poTitle = #{poTitle}
+    		,poContent = #{poContent}
+    		,poCategory = #{poCategory}
+    	WHERE poSeq = #{poSeq}
+    </update>
     
 </mapper> 

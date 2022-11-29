@@ -237,6 +237,7 @@
 		            <div class="col-lg-12">
 		              <div class="main-button">
 		              	<button type="button" class="base-button" style="width: 15%;" onclick="location.href='/post/postList'">돌아가기</button>
+		              	<button type="button" class="base-button" style="width: 15%;" onclick="modify()">수정하기</button>
 		               	<!-- <a href="#">댓글 더 보기</a> -->
 		              </div>
 		            </div>
@@ -255,6 +256,12 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script>
+		modify = function() {
+			
+			alert("ok");
+			$("#mainForm").attr("action", "/post/postForm").submit();
+			
+		}
 		
 	</script>	
 </body>

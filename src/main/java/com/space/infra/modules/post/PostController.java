@@ -33,6 +33,10 @@ public class PostController {
 		
 		service.insert(dto);
 		
+		int lastPoSeq = service.selectLastSeq();
+		
+		vo.setPoSeq(lastPoSeq);
+		
 		Post one = service.selectOne(vo);
 		
 		model.addAttribute("one", one);
@@ -41,13 +45,30 @@ public class PostController {
 	}
 	
 	@RequestMapping(value = "postForm")
-	public String postForm() throws Exception {
+	public String postForm(Post dto, PostVo vo, Model model) throws Exception {
+		
+		Post one = service.selectOne(vo);
+		model.addAttribute("one", one);
 		
 		return "infra/post/user/postForm";
 	}
 	
 	@RequestMapping(value = "postView")
 	public String postView(HttpSession httpSession, PostVo vo, Model model) throws Exception {
+		
+		Post one = service.selectOne(vo);
+		model.addAttribute("one", one);
+		
+		return "infra/post/user/postView";
+	}
+	
+	@RequestMapping(value="postUpdt")
+	public String postUpdt(Model model, Post dto, PostVo vo) throws Exception {
+		
+		service.update(dto);
+		
+		System.out.println("dto.getPoSeq : " + dto.getPoSeq());
+		vo.setPoSeq(dto.getPoSeq());
 		
 		Post one = service.selectOne(vo);
 		model.addAttribute("one", one);

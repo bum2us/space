@@ -100,6 +100,7 @@
 		<input type="hidden" id="poCategory" name="poCategory">
 		<input type="hidden" id="poLng" name="poLng">
 		<input type="hidden" id="poLat" name="poLat">
+		<input type="hidden" id="poSeq" name="poSeq">
 		
 		<div class="container">
 		    <div class="row">
@@ -134,10 +135,10 @@
 		                <div class="container text-center mt-4 mb-2">
 		                  <div class="row mb-1">
 		                    <div class="col-3">
-				    			<button type="button" onclick="searchAddr()" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">주소검색</button>
+			    				<button type="button" onclick="searchAddr()" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">주소검색</button>
 		                    </div>
 		                    <div class="col-9">
-		                      <input type="text" id="poAddr" name="poAddr" placeholder="게시물에 관련된 위치를 입력해주세요." readonly>
+		                      <input type="text" id="poAddr" name="poAddr" placeholder="게시물에 관련된 위치를 입력해주세요." readonly value="${one.poAddr }">
 		                    </div>
 		                  </div>
 		                  <div class="row">
@@ -150,12 +151,12 @@
 				    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">카테고리 선택</button>
 		                    </div>
 		                    <div class="col-9">
-		                      <input type="text" id="poTitle" name="poTitle" placeholder="제목을 입력해주세요.">
+		                      <input type="text" id="poTitle" name="poTitle" placeholder="제목을 입력해주세요." value="${one.poTitle }">
 		                    </div>
 		                  </div>
 		                  <div class="row">
 		                    <div class="col-12">
-		                      <textarea id="poContent" name="poContent" placeholder="내용을 입력해주세요." rows="10"></textarea>
+		                      <textarea id="poContent" name="poContent" placeholder="내용을 입력해주세요." rows="10">${one.poContent}</textarea>
 		                    </div>
 		                  </div>
 		                </div>
@@ -206,6 +207,7 @@
 		var goUrlDele = "/post/postDele";
 		
 		var form = $("#mainForm");
+		var seq = $("#poSeq");
 		
 		/* 리셋 버튼 */
 		function regFormClear() {
@@ -227,7 +229,12 @@
 	    
 		/* 게시물 등록 */
 		function reg() {
-			form.attr("action", goUrlInst).submit();
+			
+			if(seq.val() == 0 || seq.val() == null) {
+				form.attr("action", goUrlInst).submit();
+			} else {
+				form.attr("action", goUrlUpdt).submit();			
+			} 
 		};
 		
 		/* 이미지 파일 첨부 */

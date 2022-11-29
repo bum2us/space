@@ -21,14 +21,10 @@ public class PostServiceImpl implements PostService {
 		return dao.selectList();
 	}
 	
-	
-
 	@Override
 	public int selectLastSeq() throws Exception {
 		return dao.selectLastSeq();
 	}
-
-
 
 	@Override
 	public int insert(Post dto) throws Exception {
@@ -59,13 +55,19 @@ public class PostServiceImpl implements PostService {
 		return insert;
 	}
 
-
-
 	@Override
 	public Post selectOne(PostVo vo) throws Exception {
 		
 		return dao.selectOne(vo);
 	}
+
+	@Override
+	public int update(Post dto) throws Exception {
+		
+		return dao.update(dto);
+	}
+	
+	
 	
 
 

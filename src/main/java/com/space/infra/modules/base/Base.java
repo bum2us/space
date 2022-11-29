@@ -25,6 +25,8 @@ public class Base {
 	private Integer upDefaultNy;
 	private Integer upSort;
 	private Integer upDelNy;
+	
+//	private Integer upPostSeq;
 
 	private MultipartFile[] multipartFile;
 
@@ -88,6 +90,12 @@ public class Base {
 	public void setMultipartFile(MultipartFile[] multipartFile) {
 		this.multipartFile = multipartFile;
 	}
+//	public Integer getUpPostSeq() {
+//		return upPostSeq;
+//	}
+//	public void setUpPostSeq(Integer upPostSeq) {
+//		this.upPostSeq = upPostSeq;
+//	}
 	
 	
 	
