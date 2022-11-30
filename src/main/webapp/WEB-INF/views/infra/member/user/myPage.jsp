@@ -159,8 +159,8 @@
 				                <div class="row justify-content-between mb-2"> 
 				                	<div class="col-3 text-center mb-2"><label for="balance">잔액</label></div>
 				                	<div class="col-9 text-start mb-2"><input type="text" id="balance" readonly></div>
-				                	<div class="col-3 text-center"><label for="chargeInput">충전금액</label></div>
-				                	<div class="col-9 text-start"><input type="text" id="chargeInput"></div>
+				                	<div class="col-3 text-center"><label for="chargePrice">충전금액</label></div>
+				                	<div class="col-9 text-start"><input type="text" id="chargePrice"></div>
 				                </div>	
 				                <div class="row justify-content-center mt-3 mb-2">
 				                	<button type="button" class="base-button" style="width: 30%;" onclick="kakaopay()">충전하기</button>
@@ -223,7 +223,7 @@
 				,method: "post"
 				,url : "/member/kakaopayReady"
 				,data : {
-					form : $("#mainForm").serialize()
+					charge : $("#chargePrice").val()
 				}
 				,success: function(response){
 					location.href = response.next_redirect_pc_url

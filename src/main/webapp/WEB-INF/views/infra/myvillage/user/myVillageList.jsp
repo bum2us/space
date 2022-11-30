@@ -46,7 +46,7 @@
         <div class="page-content">
 			<form id="form" name="form">
 			    <input type="hidden" name="mvMemberSeq" value="${sessSeq}">
-			    <input type="hidden" id="vCount" value="${fn:length(list)}"
+			    <input type="hidden" id="vCount" value="${fn:length(list)}">
 			    <div class="gaming-library">
 			        <div class="heading-section">
 			        	<div class="row justify-content-between">

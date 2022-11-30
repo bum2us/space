@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.space.infra.modules.myvillage.MyVillage;
 import com.space.infra.modules.myvillage.MyVillageServiceImpl;
@@ -22,6 +23,7 @@ import com.space.infra.modules.product.ProductServiceImpl;
 
 @Controller
 @RequestMapping("/member/")
+@SessionAttributes({"tid"})
 public class MemberController {
 	
 	@Autowired
@@ -131,9 +133,9 @@ public class MemberController {
 	//카카오페이
 	@ResponseBody
 	@RequestMapping("kakaopayReady")
-	public KakaopayReady kakaopayReady (@ModelAttribute("dto") Member dto, Model model) throws Exception {
-		KakaopayReady kakaopayReady = service.payReady(dto);
-		model.addAttribute(null, kakaopayReady);
+	public KakaopayReady kakaopayReady (@ModelAttribute("dto") Member dto, int charge , Model model) throws Exception {
+		KakaopayReady kakaopayReady = service.payReady(dto, charge);
+		model.addAttribute("tid", kakaopayReady.getTid());
 		return kakaopayReady;
 	}
 	
@@ -141,12 +143,22 @@ public class MemberController {
 	public String kakaopayApproval (@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid, @ModelAttribute("dto") Member dto, Model model, HttpSession httpSession) throws Exception {
 		
 		KakaopayApproval kakaopayApproval = service.payApprove(tid, pgToken, dto); 
-		 
 		
 		
+		
+		
+		return "infra/member/user/myPage";
+	}
+	
+	@RequestMapping("kakaopayCancel")
+	public String kakaopayCancel () throws Exception {
 		return "redirect:/member/profile";
 	}
 	
+	@RequestMapping("kakaopayFail")
+	public String kakaopayFail () throws Exception {
+		return "redirect:/member/profile";
+	}
 	
 	
 	

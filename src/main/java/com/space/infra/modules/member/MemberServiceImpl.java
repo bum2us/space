@@ -131,17 +131,17 @@ public class MemberServiceImpl implements MemberService{
 		
 		return headers;
 	}
-	public KakaopayReady payReady(Member dto) throws Exception {
+	
+	public KakaopayReady payReady(Member dto, int charge) throws Exception {
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 		
 		params.add("cid", "TC0ONETIME");
 		params.add("partner_order_id", "spaceMarket");
 		params.add("partner_user_id", "spaceMarket");
-		params.add("item_name", "");
-		params.add("quantity", "");
-		params.add("total_amount", "");
-		params.add("item_code", "");
-		params.add("tax_free_amount", "");
+		params.add("item_name", "wouldyouMoney");
+		params.add("quantity", "1");
+		params.add("total_amount", ""+charge);
+		params.add("tax_free_amount", "0");
 		params.add("approval_url", "https://localhost:8081/member/kakaopayApproval");
 		params.add("cancel_url", "https://localhost:8081/member/kakaopayCancel");
 		params.add("fail_url", "https://localhost:8081/member/kakaopayFail");
