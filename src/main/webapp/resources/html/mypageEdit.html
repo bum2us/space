@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/fontawesome.css">
+    <link rel="stylesheet" href="../css/templatemo-cyborg-gaming.css">
+    <link rel="stylesheet" href="../css/owl.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/admin_style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <style>
+        select {
+            padding: 15px;
+            height: 60px;
+            width: 100%;
+            background: #27292A;
+            border: none;
+            border-radius: 5px;
+            color: #E75E8D;
+            font-size: 10pt;
+        }
+
+        input {
+            padding: 15px;
+            height: 60px;
+            width: 100%;
+            background: #27292A;
+            border: none;
+            border-radius: 5px;
+            color: #E75E8D;
+            font-size: 10pt;
+        }
+
+        input:focus {
+            background: #1F2122;
+            border: 1px solid #E75E8D;
+        }
+
+        .input_label {
+            font-weight: 400;
+            font-size: 10pt;
+            color: #E75E8D;
+        }
+
+        .spaceBtn {
+            background: #E75E8D;
+            padding: 5px 0px 5px 0px;
+            font-size: 10pt;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            height: 50px;
+            min-width: 70px;
+        }
+
+        .spaceBtn:hover {
+            background: white;
+            color: #E75E8D;
+        }
+
+        .spaceBtnInner {
+            background: #E75E8D;
+            padding: 5px 0px 5px 0px;
+            font-size: 10pt;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            height: 60%;
+            min-width: 70px;
+            position: absolute;
+            top: 20%;
+            right: 5%;
+        }
+
+        .spaceBtnInner:hover {
+            background: white;
+            color: #E75E8D;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <nav class="main-nav">
+                <!-- ***** Logo Start ***** -->
+                <a href="/home" class="logo">
+                    <img src="../images/space_logo.png" alt="">
+                </a>
+                <!-- ***** Logo End ***** -->
+                <!-- ***** Search End ***** -->
+                <div class="search-input" style="display:flex; align-items:center">
+                    <form id="search" action="#">
+                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"
+                            onkeypress="handle" />
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+                <!-- ***** Search End ***** -->
+                <!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                    <li><a href="">Live</a></li>
+                    <li><a href="">중고거래</a></li>
+                    <li><a href="/post/postList">동네소식</a></li>
+                    <li><a href="/chat/">채팅</a></li>
+                    <li><a href="/myVillage/form">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
+                    <li><a href="/member/profile">프로필</a></li>
+                </ul>
+                <a class='menu-trigger'>
+                    <span>Menu</span>
+                </a>
+                <!-- ***** Menu End ***** -->
+            </nav>
+        </div>
+    </header>
+    <br><br>
+    <!-- ***** Header Area End ***** -->
+    <div class="container">
+        <div class="page-content">
+            <div class="container-md" style="width:80%">
+                <form method="POST" id="mainForm" enctype="multipart/form-data">
+                    <div class="row jutify-content-center">
+                        <div class="col text-center" style=" padding: 10px;">
+                            <img alt="" src="../images/space_logo.png" style="width: 420px; height:200px;">
+                        </div>
+                    </div>
+                    <div class="page-content" style="margin-top:30px;">
+                        <!-- ***** Featured Games Start ***** -->
+                        <div class="main-profile p-5">
+                            <div class="row justify-content-center mb-2">
+                                <div class="col text-center">
+                                    <span style="font-weight: bold; font-size: 20pt; color: #E75E8D;">정보 수정</span>
+                                </div>
+                            </div>
+                            <div class="row my-4 justify-content-center" style="position:relative">
+                                <img id="profileImg" alt="" src="../images/empty.png"
+                                    style="border-radius:50%; border:none; width:100px; height:100px; padding:0px;">
+                                <input type="file" id="multipartFile" name="multipartFile"
+                                    onChange="upload('multipartFile');"
+                                    style="position:absolute; opacity:0; cursor:pointer; border-radius:50%; border:none; width:100px; height:100px;">
+                            </div>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" disabled placeholder="아이디">
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" disabled placeholder="이름">
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" name="mmNickName" placeholder="닉네임">
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col">
+                                    <input type="text" name="mmEmail" placeholder="이메일">
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-3">
+                                    <select name="mmTelecom">
+                                        <option value="1">SKT</option>
+                                        <option value="2">KT</option>
+                                        <option value="3">LG</option>
+                                        <option value="4">기타</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <input type="text" name="mmPhone" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
+                                    <button style="right:7%;" class="spaceBtnInner" type="button"
+                                        onclick="">인증요청</button>
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col" style="position:relative;">
+                                    <input type="text" id="checkCode" placeholder="인증번호 6자리를 입력해주세요">
+                                    <button class="spaceBtnInner" type="button" onclick="">인증확인</button>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center my-3">
+                                <div class="col text-center">
+                                    <button class="spaceBtn" type="button" onclick=""
+                                        style="width:100%;">비밀번호변경</button>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col text-center">
+                                    <button type="button" style="width:100%" class="spaceBtn"
+                                        onclick="location.href='/loginForm'">돌아가기</button>
+                                </div>
+                                <div class="col text-center">
+                                    <button type="button" style="width:100%" class="spaceBtn"
+                                        onclick="goForm()">수정하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ***** footer Area Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved.
+
+                        <br>Design: <a href="https://templatemo.com" target="_blank"
+                            title="free CSS templates">TemplateMo</a> Distributed By <a href="https://themewagon.com"
+                            target="_blank">ThemeWagon</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ***** footer Area End ***** -->
+    <!-- 공통 script -->
+    <script src="https://kit.fontawesome.com/63aa3074b3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/isotope.min.js"></script>
+    <script src="../js/owl-carousel.js"></script>
+    <script src="../js/tabs.js"></script>
+    <script src="../js/popup.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+
+</html>
