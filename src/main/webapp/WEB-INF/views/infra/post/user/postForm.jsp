@@ -100,7 +100,7 @@
 		<input type="hidden" id="poCategory" name="poCategory">
 		<input type="hidden" id="poLng" name="poLng">
 		<input type="hidden" id="poLat" name="poLat">
-		<input type="hidden" id="poSeq" name="poSeq">
+		<input type="hidden" id="poSeq" name="poSeq" value="${one.poSeq }">
 		
 		<div class="container">
 		    <div class="row">
@@ -147,9 +147,18 @@
 		                  	</div>
 		                  </div>
 		                  <div class="row mb-2 mt-1">
-		                    <div class="col-3">
-				    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">카테고리 선택</button>
-		                    </div>
+		                  	<c:choose>
+		                  		<c:when test="${one.poSeq ne null})">
+		                  			<div class="col-3">
+						    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">${one.poCategory }</button>
+				                    </div>
+		                  		</c:when>
+		                  		<c:otherwise>
+				                    <div class="col-3">
+						    			<button id="categoryBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" style="background:#27292A; color:#E75E8D; border-radius:5px; border:none; height:60px; width:100%; font-size:12pt; font-weight:600;">카테고리 선택</button>
+				                    </div>
+		                  		</c:otherwise>
+		                  	</c:choose>
 		                    <div class="col-9">
 		                      <input type="text" id="poTitle" name="poTitle" placeholder="제목을 입력해주세요." value="${one.poTitle }">
 		                    </div>
@@ -162,7 +171,7 @@
 		                </div>
 		            </center>
 		            <div class="col-lg-12 text-center" style="justify-content: space-between;">
-		               <button type="button" class="base-button" style="width: 15%;" onclick="location.href='/post/postList'">돌아가기</button>
+		               <button type="button" class="base-button" style="width: 15%;" onclick="back()">돌아가기</button>
 		               <button type="button" class="base-button" style="width: 15%;" onclick="reg()">등록</button>
 		               <button type="button" class="base-border-button"  style="width: 15%;" onclick="regFormClear()"><i class="fa-solid fa-rotate-left"></i></button>
 		            </div>
@@ -228,14 +237,25 @@
 		};
 	    
 		/* 게시물 등록 */
-		function reg() {
-			
+		reg = function() {
 			if(seq.val() == 0 || seq.val() == null) {
+				alert("insert");
 				form.attr("action", goUrlInst).submit();
 			} else {
+				alert("update");
 				form.attr("action", goUrlUpdt).submit();			
 			} 
 		};
+		
+		/* 돌아가기 버튼 경로 설정 */
+		back = function() {
+			
+			if(seq.val() == 0 || seq.val() == null) {
+				location.href="/post/postList";
+			} else {
+				form.attr("action", "/post/postView").submit();
+			}
+		}
 		
 		/* 이미지 파일 첨부 */
 	    upload = function(objName) {

@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+<jsp:useBean id="CodeServiceImpl" class="com.space.infra.modules.code.CodeServiceImpl"/> 
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -63,6 +64,8 @@
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
+	<c:set var="codeList" value="${CodeServiceImpl.selectListCachedCode('3')}" />
+	
 	<form id="mainForm">
 		<input type="hidden" name="poSeq" id="poSeq" value="${one.poSeq}">
 		
@@ -112,12 +115,12 @@
 			            	<div class="col-3">
 			            		<div class="row">
 			            			<div class="col">
-			            				<input type="text" value="${one.mmNickName }" readonly>
+			            				<c:out value="${one.mmNickName }"/>
 			            			</div>
 			            		</div>
 			            		<div class="row">
 			            			<div class="col">
-			            				<input type="text" value="${one.poAddr }" readonly>
+			            				<c:out value="${one.poAddr }"/>
 			            			</div>
 			            		</div>
 			            	</div>
@@ -131,7 +134,7 @@
 			            	<div class="col-5">
 			            		<div class="row">
 			            			<div class="col">
-			            				<input type="text" value="🚀팔로워 95" readonly>
+			            				<c:out value="🚀팔로워 95"/>
 			            			</div>
 			            		</div>
 			            	</div>
@@ -139,8 +142,11 @@
 		                <hr>
 		                <div class="container mb-5" style="height: 300px;">
 		                  <div class="row">
-		                    <div class="col-8">
-		                    	<input type="text" value="${one.poTitle }" readonly>
+		                  	<div class="col-2">
+                  				<input type="text" value="<c:forEach items="${codeList }" var="list" varStatus="status"><c:if test="${one.poCategory eq list.ccOrder}">${list.ccName}</c:if></c:forEach>" readonly>
+		                  	</div>
+	                    	<div class="col-6">
+	                    		<c:out value="${one.poTitle }"/>
 		                    </div>
 		                    <div class="col-4">
 		                    	<input type="text" value="좋아요 7&nbsp댓글 7&nbsp조회수 7" readonly>
@@ -148,7 +154,7 @@
 		                  </div>
 		                  <div class="row text-start mt-4">
 		                    <div class="col-12 mt-1">
-		                    	<textarea rows="10">${one.poContent }</textarea>
+		                    	<c:out value="${one.poContent }"/>
 		                    </div>
 		                  </div>
 		                </div>
@@ -258,7 +264,6 @@
 	<script>
 		modify = function() {
 			
-			alert("ok");
 			$("#mainForm").attr("action", "/post/postForm").submit();
 			
 		}
