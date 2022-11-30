@@ -32,6 +32,20 @@ font & reset css
     font-weight: 100,200,300,400,500,600,700,800,900;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'PyeongChangPeace-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 
 ---------------------------------------------
 reset
@@ -45,6 +59,7 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
+  font-family: 'NanumSquareRound';
 }
 
 .clearfix:after {
@@ -83,7 +98,7 @@ header, nav, section, article, aside, footer, hgroup {
 }
 
 html, body {
-  font-family: 'Pretendard-Regular';
+   font-family: 'NanumSquareRound';
   font-weight: 100,200,300,400,500,600,700,800,900;
   background-color: #1e1e1e;
   font-size: 16px;
@@ -100,11 +115,12 @@ a:hover {
 	color: #F99;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, em {
   margin-top: 0px;
   margin-bottom: 0px;
   color: #fff;
   font-weight: 700;
+  font-family: 'PyeongChangPeace-Bold';
 }
 
 ul {
@@ -130,7 +146,7 @@ Global Styles
 html,
 body {
   background: #1f2122;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'NanumSquareRound';
 }
 
 body .page-content {
