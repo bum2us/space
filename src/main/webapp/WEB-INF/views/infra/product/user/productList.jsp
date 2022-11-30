@@ -52,7 +52,7 @@
 	                    <div class="col-lg-7">
 	                        <div class="header-text">
 	                            <h6>우주마켓</h6>
-	                            <h4><em>우</em>리<em>주</em>변 근처에서 바로 중고거래</h4>
+	                            <h4><em>우</em>리<em>주</em>변 근처에서 바로<br>중고거래</h4>  
 	                            <div class="main-button">
 	                                <a href="/product/productForm">중고 거래하기</a>
 	                            </div>
@@ -74,9 +74,10 @@
 		                            <div class="col-lg-3 col-sm-6" onclick="openProduct(${list.pdSeq})" style="cursor:pointer;">
 		                                <div class="item">
 		                                    <img style="height: 180px;" src="${list.upPath }${list.upUuidName}" alt="">
-		                                    <h4>${list.pdTitle }<br><span style="color:#E75E8D"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></span></h4>
-		                                </div>
-		                            </div>
+		                                    <span style="color:white; font-weight:600; margin-top:10px;">${list.pdTitle }</span>
+		                                    <h5 style="color:#E75E8D; margin-top:10px;"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></h5>
+		                                </div> 
+		                            </div> 
 	                            </c:forEach>
 	                        </div>
 	                        <div class="row mt-3 text-center">
@@ -88,11 +89,11 @@
 	            </div>
 	            <!-- ***** 판매리스트 End ***** -->
 	
-	            <!-- ***** 구매리스트 Start ***** -->
+	            <!-- ***** 구매리스트 Start ***** --> 
 	            <div class="most-popular">
 	                <div class="row">
 	                    <div class="col-lg-12">
-	                        <div class="heading-section">
+	                        <div class="heading-section">   
 	                            <h4>우리동네 <em>삽니다</em></h4>
 	                        </div>
 	                        <div id="buyList" class="d-flex flex-row slimscroll mx-0" style="overflow:auto;">
@@ -100,7 +101,8 @@
 		                            <div class="col-lg-3 col-sm-6" onclick="openProduct(${list.pdSeq})" style="cursor:pointer;">
 		                                <div class="item">
 		                                    <img style="height: 180px;" src="${list.upPath }${list.upUuidName}" alt="">
-		                                    <h4>${list.pdTitle }<br><span style="color:#E75E8D"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></span></h4>
+		                                    <span style="color:white; font-weight:600; margin-top:10px;">${list.pdTitle }</span>
+		                                    <h5 style="color:#E75E8D; margin-top:10px;"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></h5>
 		                                </div>
 		                            </div>
 	                        	</c:forEach>

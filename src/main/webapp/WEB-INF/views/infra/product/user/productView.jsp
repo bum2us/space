@@ -40,7 +40,7 @@
 				<input type="hidden" id="chatProductSeq" name="chatProductSeq" value="${item.pdSeq }">
 				<input type="hidden" id="mmSeq" name="mmSeq">
                 <div class="row justify-content-center">
-                    <div class="col">
+                    <div class="col-6">
                         <div id="carouselExampleFade" class="carousel carousel-fade" data-bs-ride="carousel"
                             style="width: 500px; height: 500px;">
                             <div class="carousel-inner" style="width: 100%; height: 100%;">
@@ -54,7 +54,7 @@
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
+                                <span class="visually-hidden">Previous</span> 
                             </button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
                                 data-bs-slide="next">
@@ -63,7 +63,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col ml-2 p-2">
+                    <div class="col-6 ml-2 p-2">
                         <div class="row">
                             <div class="col">
                                 <span style="color:gray; font-size: 10pt;">
@@ -75,10 +75,8 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h3 class="my-1" style="padding: 0; font-weight: bold;"><c:out value="${item.pdTitle}"/></h3>
-                            </div>
-                            <div class="col-3 pt-1" style="justify-content:end;">
-                                <span style="padding: 4px; background: #1F2122; border-radius: 5px; color:gray; font-size: 12pt; width:auto;">
+                                <span class="my-1" style="padding: 0; font-size: 18pt; font-weight: bold;"><c:out value="${item.pdTitle}"/></span>
+                                <span style="margin-left:5px; padding: 4px; background: #1F2122; border-radius: 5px; color:gray; font-size: 18pt; font-weight:500; width:auto;">
                                 	<c:forEach items="${ccState}" var ="list" varStatus="status">
                                 		<c:if test="${item.pdState eq list.ccOrder }"><c:out value="${list.ccName}"/></c:if>    
                                 	</c:forEach>
@@ -100,7 +98,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col" style="background: #1F2122; height: 230px; border-radius: 10px;">
-                                <textarea name="" id="" cols="69" rows="10"
+                                <textarea readonly name="" id="" cols="69" rows="10"
                                     style="background: transparent; border:none; padding: 10px; font-size: 10pt; color:white"><c:out value="${item.pdContent}"/></textarea>
                             </div>
                         </div>
