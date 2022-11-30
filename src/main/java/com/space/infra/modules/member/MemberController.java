@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.space.infra.modules.myvillage.MyVillage;
 import com.space.infra.modules.myvillage.MyVillageServiceImpl;
 import com.space.infra.modules.myvillage.MyVillageVo;
@@ -23,7 +24,7 @@ import com.space.infra.modules.product.ProductServiceImpl;
 
 @Controller
 @RequestMapping("/member/")
-@SessionAttributes({"tid"})
+@SessionAttributes({"tid","dto"})
 public class MemberController {
 	
 	@Autowired
@@ -34,6 +35,11 @@ public class MemberController {
 	
 	@Autowired 
 	MyVillageServiceImpl serviceVillage;
+	
+	@ModelAttribute("dto")
+	public Member setEmptyMember() {
+		return new Member();
+	}
 	
 	@RequestMapping("joinForm")
 	public String joinForm() throws Exception{
@@ -144,10 +150,30 @@ public class MemberController {
 		
 		KakaopayApproval kakaopayApproval = service.payApprove(tid, pgToken, dto); 
 		
+		ObjectMapper objectMapper = new ObjectMapper();
+		Map<String, Object> map = objectMapper.convertValue(kakaopayApproval, Map.class);
+		
+		for(String key : map.keySet()) {
+			String value = String.valueOf(map.get(key));
+			System.out.println("[key]: " + key + ", [value]: " + value);
+		}
+		
+		Map<String, Object> amount = new HashMap<String, Object>();
+		amount = (Map<String, Object>) map.get("amount");
+		
+		for (String key : amount.keySet()) {
+			String value= String.valueOf(amount.get(key));
+			System.out.println("[key]: " + key + ", [value]: " + value);
+		}
+		
+		model.addAttribute(map);
+		model.addAllAttributes(amount);
+		
+		dto.setMmSeq((Integer)httpSession.getAttribute("sessSeq"));
+			
 		
 		
-		
-		return "infra/member/user/myPage";
+		return "redirect:/member/profile";
 	}
 	
 	@RequestMapping("kakaopayCancel")

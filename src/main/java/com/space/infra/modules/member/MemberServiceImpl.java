@@ -142,9 +142,9 @@ public class MemberServiceImpl implements MemberService{
 		params.add("quantity", "1");
 		params.add("total_amount", ""+charge);
 		params.add("tax_free_amount", "0");
-		params.add("approval_url", "https://localhost:8081/member/kakaopayApproval");
-		params.add("cancel_url", "https://localhost:8081/member/kakaopayCancel");
-		params.add("fail_url", "https://localhost:8081/member/kakaopayFail");
+		params.add("approval_url", "http://localhost:8081/member/kakaopayApproval");
+		params.add("cancel_url", "http://localhost:8081/member/kakaopayCancel");
+		params.add("fail_url", "http://localhost:8081/member/kakaopayFail");
 		
 		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params,this.getHeaders());
 		
