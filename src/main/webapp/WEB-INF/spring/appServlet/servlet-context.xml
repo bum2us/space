@@ -35,6 +35,7 @@
 				<exclude-mapping path="/"/> 
 				<exclude-mapping path="/resources/**"/>  
 				<exclude-mapping path="/loginForm"/>
+				<exclude-mapping path="/member/memberInst"/>
 				<exclude-mapping path="/member/joinForm"/>     <!-- 매핑에서 제외시킬 것을 추가한다 -->
 				<exclude-mapping path="/member/login"/>
 				<beans:bean id = "checkLoginInterception" class="com.space.infra.common.interception.checkLoginInterception"/>
