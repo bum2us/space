@@ -211,7 +211,7 @@
 									<input type="text"  id="mmId" value="space">
 								</c:when>
 								<c:otherwise>
-									<input type="text"  id="mmId" value="jwk">
+									<input type="text"  id="mmId" value="user">
 								</c:otherwise>
 							</c:choose>
 							<span>ID</span>
@@ -251,7 +251,7 @@
 				},
 				success:function(result){
 					if(result.rt=="success"){
-						swal("로그인 성공!", result.mmId + "님 로그인되었습니다.", "success")
+						swal("로그인 성공!", result.mmNickName + "님 로그인되었습니다.", "success")
 						.then(function() {
 							if(result.mmAdminNy == 1) {				
 								location.href="/adminhome";   //관리자

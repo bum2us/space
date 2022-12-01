@@ -120,6 +120,8 @@ public class MemberController {
 			result.put("mmId", LoginMember.getMmId());
 			//로그인할 때 adminNy 비교 조건
 			result.put("mmAdminNy", LoginMember.getMmAdminNy());
+			
+			result.put("mmNickName", LoginMember.getMmNickName());
 		}
 		
 		return result;
