@@ -258,10 +258,8 @@
 			
 			//동네소식 등록 구분
 			if(seq.val() == 0 || seq.val() == null) {
-				alert("insert");
 				form.attr("action", goUrlInst).submit();
 			} else {
-				alert("update");
 				form.attr("action", goUrlUpdt).submit();			
 			} 
 		};
@@ -360,11 +358,6 @@
 	            }
 	        }).open();
 	    }
-	</script>
-	
-	<script> /* validation */
-		
-	
 	</script>
 </body>
 </html>

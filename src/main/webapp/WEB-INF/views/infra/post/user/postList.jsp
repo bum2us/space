@@ -79,11 +79,12 @@
 	<!-- header  -->
 	<%@include file="/resources/include/header.jsp"%>
 	
-	<c:set var="codeList" value="${CodeServiceImpl.selectListCachedCode('3')}" />
+	<c:set var="poCategoryList" value="${CodeServiceImpl.selectListCachedCode('3')}" />
 	
 	<form id="mainForm">
 	
 		<input type="hidden" id="poSeq" name="poSeq">
+		<input type="hidden" id="poList" name="poList" value="${list}"> 
 	
 		<div class="container">
 		    <div class="row">
@@ -91,204 +92,76 @@
 		        <div class="page-content">
 		
 		          <!-- ***** 우주지도 Start ***** -->
-		          <div class="row" style="margin: 3px;">
-		          	<div class="col-8 p-0">
-		          		<div class="row m-0" style="width:100%; height: 100%;">
-		          			<div class="col p-0">
-								<div class="map_wrap" style="width: 100%; height: 100%; border-top-left-radius: 23px; border-bottom-left-radius: 23px;">
-								    <div id="map" style="width:100%; height:100%; position:relative; overflow:hidden; border-top-left-radius: 23px; border-bottom-left-radius: 23px;"></div>
-								    <!-- <ul id="category">
-								        <li id="MT1" data-order="1"> 
-								            <span class="category_bg mart"></span>
-								            꿀팁
-								        </li>  
-								        <li id="PM9" data-order="2"> 
-								            <span class="category_bg pharmacy"></span>
-								            일상
-								        </li>  
-								        <li id="OL7" data-order="3"> 
-								            <span class="category_bg oil"></span>
-								            맛집
-								        </li>  
-								        <li id="CE7" data-order="4"> 
-								            <span class="category_bg cafe"></span>
-								            문화
-								        </li>  
-								    </ul> -->
-								</div> 
-		          			</div>
-		          		</div>
-		          	</div>
-		          	<div class="col-4" style="background: white; border-top-right-radius: 23px; border-bottom-right-radius: 23px;">
-		          		<div class="row" style="background: #E75E8D; border-top-right-radius: 23px;">
-		          			<div class="col">
-		          				<div class="row mt-3">
-		          					<div class="col">
-		          						<h6 style="margin: 0;">우리 주변 동네 정보</h6>
-		          					</div>
-		          				</div>
-		          				<div class="row mb-2">
-		          					<div class="col">
-		          						<h2 style="margin: 0;"><b><em>우주지도</em></b></h2>
-		          					</div>
-		          				</div>
-		          			</div>
-		          		</div>
-		          		<hr>
-		          		<div class="row">
-		          			<div class="col">
-		          				<div class="row mb-2">
-		          					<div class="col-4 text-center">
-		          						<span class="badge" style="background-color: rgba(247, 52, 133, 0.849); border-radius: 3px;">Step 01</span>
-		          					</div>
-		          					<div class="col-8">
-						                <span style="font-size: 13pt;"><b>지역을 선택하세요</b></span> 
-		          					</div>
-		          				</div>
-		          				<div class="row">
-		          					<div class="col p-2">
-		          						<select class="form-select">
-		          							<option value="">시/도 선택</option>
-		          							<option value="">서울특별시</option>
-		          							<option value="">경기도</option>
-		          						</select>
-		          					</div>
-		          				</div>
-		          				<div class="row">
-		          					<div class="col p-2">
-		          						<select class="form-select">
-		          							<option value="">시/군/도 선택</option>
-		          							<option value="">서울특별시</option>
-		          							<option value="">경기도</option>
-		          						</select>
-		          					</div>
-		          				</div>
-		          			</div>
-		          		</div>
-		          		<hr>
-		          		<div class="row">
-		          			<div class="col" style="border-bottom-right-radius: 25px;">
-		          				<div class="row mb-2">
-		          					<div class="col-4 text-center">
-		          						<span class="badge" style="background-color: rgba(202, 60, 221, 0.938); border-radius: 3px;">Step 02</span>
-		          					</div>
-		          					<div class="col-8">
-		          						<span style="font-size: 13pt;"><b>물품 종류를 선택하세요</b></span>     
-		          					</div>
-		          				</div>
-		          				<div class="row">
-		          					<div class="col-3">
-		          						<div class="row">
-		          							<div class="col">
-		          								<button type="button" class="btn"><i class="fa-solid fa-shirt"></i></button>
-		          							</div>
-		          						</div>
-		          						<div class="row text-center">
-		          							<div class="col">
-		          								꿀팁
-		          							</div>
-		          						</div>
-		          					</div>
-		          					<div class="col-3">
-		          						<div class="row">
-		          							<div class="col">
-		          								<button type="button" class="btn"><i class="fa-solid fa-wand-magic-sparkles"></i></button> 
-		          							</div>
-		          						</div>
-		          						<div class="row text-center">
-		          							<div class="col">
-		          								일상
-		          							</div>
-		          						</div>
-		          					</div>
-		          					<div class="col-3">
-		          						<div class="row">
-		          							<div class="col">
-		          								<button type="button" class="btn"><i class="fa-solid fa-baby"></i></button>
-		          							</div>
-		          						</div>
-		          						<div class="row text-center">
-		          							<div class="col">
-		          								맛집
-		          							</div>
-		          						</div>
-		          					</div>
-		          					<div class="col-3">
-		          						<div class="row text-center">
-		          							<div class="col">
-		          								<button type="button" class="btn"><i class="fa-solid fa-utensils"></i></button>
-		          							</div>
-		          						</div>
-		          						<div class="row text-center">
-		          							<div class="col">
-		          								문화
-		          							</div>
-		          						</div>
-		          					</div>
-		          				</div>
-		          				<div class="row mt-3 mb-3 text-end">
-		          					<div class="col">
-		          						<button class="base-button" type="button" onclick="location.href='/post/postForm'"><i class="fa-solid fa-pen"></i></button> 
-		          						<button class="base-button" type="button"><i class="fa-solid fa-rotate-left"></i></button>
-		          					</div>
-		          				</div>
-		          			</div>
-		          		</div>
-		          	</div>
-		          </div>
-	          <!-- ***** 우주지도 End ***** -->
+		          <div class="map_wrap">
+					<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden; border-radius: 25px;"></div>
+					    <ul id="category">
+					    	<c:forEach items="${poCategoryList}" var="codeList">
+					    		<li>
+					    			<span>${codeList.ccName }</span>
+					    		</li>
+					    	</c:forEach>
+					    </ul>
+					</div>
+		          <!-- ***** 우주지도 End ***** -->
 	
-	          <!-- ***** 동네소식 List Start***** -->
-	          <div class="gaming-library profile-library">
-	            <div class="col-lg-12">
-	              <div class="heading-section">
-	                <h4><em>동네소식</em></h4>
-	              </div>
-	              <div class="buy-table">
-	              	<table class="table text-white">
-					  <thead>
-					    <tr>
-					      <th>No.</th>
-					      <th>작성자(닉네임)</th>
-					      <th>동네</th>
-					      <th>카테고리</th>
-					      <th>제목</th>
-					      <th>댓글(수)</th>
-					      <th>작성일자</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					  	<c:choose>
-				  			<c:when test="${fn:length(list) eq 0}">
-				  				<tr>
-				  					<td colspan="7">동네 소식이 없습니다!</td>
-				  				</tr>
-				  			</c:when>
-					  	</c:choose>
-					  	<c:forEach items="${list}" var="list">
-					  		<tr onclick="openPost(${list.poSeq})">
-					  			<td><c:out value="${list.poSeq }"/></td>
-					  			<td><c:out value="${list.mmNickName }"/></td>
-					  			<td><c:out value="${list.poAddr }"/></td>
-					  			<td>
-						  			<c:forEach items="${codeList}" var="ccList">
-						  				<c:if test="${list.poCategory eq ccList.ccOrder}"><c:out value="${ccList.ccName}"/></c:if>
-						  			</c:forEach>
-					  			</td>
-					  			<td><c:out value="${list.poTitle }"/></td>
-					  			<td>7</td>
-					  			<%-- <td><c:out value="${list.poComment }"/></td> --%>
-					  			<td><c:out value="${list.poCreateDate}"/></td>
-					  		</tr>
-				  		</c:forEach>
-					  </tbody>
-					</table>
-	              
-	              </div>
-	              
-	            </div>
-	          </div>
-	          <!-- ***** 동네소식 List End ***** -->
+		          <!-- ***** 동네소식 List Start***** -->
+		          <div class="gaming-library profile-library">
+		            <div class="col-lg-12">
+		              <div class="heading-section">
+		              	<div class="row">
+		              		<div class="col-6">
+				                <h4><em>동네소식</em></h4>
+		              		</div>
+		              		<div class="col-6 text-end">
+		              			<button class="base-button" style="background: #27292a;" type="button" onclick="location.href='/post/postForm'"><i class="fa-solid fa-pen"></i></button>
+		              		</div>
+		              	</div>
+		              </div>
+		              <div class="postTable">
+		              	<table class="table text-white">
+						  <thead>
+						    <tr>
+						      <th>No.</th>
+						      <th>작성자(닉네임)</th>
+						      <th>동네</th>
+						      <th>카테고리</th>
+						      <th>제목</th>
+						      <th>댓글(수)</th>
+						      <th>작성일자</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<c:choose>
+					  			<c:when test="${fn:length(list) eq 0}">
+					  				<tr>
+					  					<td colspan="7">동네 소식이 없습니다!</td>
+					  				</tr>
+					  			</c:when>
+						  	</c:choose>
+						  	<c:forEach items="${list}" var="list">
+						  		<tr onclick="openPost(${list.poSeq})">
+						  			<td><c:out value="${list.poSeq }"/></td>
+						  			<td><c:out value="${list.mmNickName }"/></td>
+						  			<td><c:out value="${list.poAddr }"/></td>
+						  			<td>
+							  			<c:forEach items="${poCategoryList}" var="codeList">
+							  				<c:if test="${list.poCategory eq codeList.ccOrder}"><c:out value="${codeList.ccName}"/></c:if>
+							  			</c:forEach>
+						  			</td>
+						  			<td><c:out value="${list.poTitle }"/></td>
+						  			<td>7</td>
+						  			<%-- <td><c:out value="${list.poComment }"/></td> --%>
+						  			<td><c:out value="${list.poCreateDate}"/></td>
+						  		</tr>
+					  		</c:forEach>
+						  </tbody>
+						</table>
+		              
+		              </div>
+		              
+		            </div>
+		          </div>
+		          <!-- ***** 동네소식 List End ***** -->
 	          
 	        </div>
 	      </div>
@@ -317,198 +190,8 @@
 			$("#mainForm").attr("action", "/post/postView").submit();
 		}
 	</script>
+	
 	<script>
-		/* 카카오 지도 */
-		// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
-		var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
-		    contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
-		    markers = [], // 마커를 담을 배열입니다
-		    currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
-		 
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-		        level: 3 // 지도의 확대 레벨
-		    };  
-	
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-	
-		// 장소 검색 객체를 생성합니다
-		/* var ps = new kakao.maps.services.Places(map); */ 
-	
-		// 지도에 idle 이벤트를 등록합니다
-		kakao.maps.event.addListener(map, 'idle', searchPlaces);
-	
-		// 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
-		contentNode.className = 'placeinfo_wrap';
-	
-		// 커스텀 오버레이의 컨텐츠 노드에 mousedown, touchstart 이벤트가 발생했을때
-		// 지도 객체에 이벤트가 전달되지 않도록 이벤트 핸들러로 kakao.maps.event.preventMap 메소드를 등록합니다 
-		addEventHandle(contentNode, 'mousedown', kakao.maps.event.preventMap);
-		addEventHandle(contentNode, 'touchstart', kakao.maps.event.preventMap);
-	
-		// 커스텀 오버레이 컨텐츠를 설정합니다
-		placeOverlay.setContent(contentNode);  
-	
-		// 각 카테고리에 클릭 이벤트를 등록합니다
-		addCategoryClickEvent();
-	
-		// 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
-		function addEventHandle(target, type, callback) {
-		    if (target.addEventListener) {
-		        target.addEventListener(type, callback);
-		    } else {
-		        target.attachEvent('on' + type, callback);
-		    }
-		}
-	
-		// 카테고리 검색을 요청하는 함수입니다
-		function searchPlaces() {
-		    if (!currCategory) {
-		        return;
-		    }
-		    
-		    // 커스텀 오버레이를 숨깁니다 
-		    placeOverlay.setMap(null);
-	
-		    // 지도에 표시되고 있는 마커를 제거합니다
-		    removeMarker();
-		    
-		    ps.categorySearch(currCategory, placesSearchCB, {useMapBounds:true}); 
-		}
-	
-		// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-		function placesSearchCB(data, status, pagination) {
-		    if (status === kakao.maps.services.Status.OK) {
-	
-		        // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
-		        displayPlaces(data);
-		    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-		        // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
-	
-		    } else if (status === kakao.maps.services.Status.ERROR) {
-		        // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
-		        
-		    }
-		}
-	
-		// 지도에 마커를 표출하는 함수입니다
-		function displayPlaces(places) {
-	
-		    // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
-		    // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
-		    var order = document.getElementById(currCategory).getAttribute('data-order');
-	
-		    
-	
-		    for ( var i=0; i<places.length; i++ ) {
-	
-		            // 마커를 생성하고 지도에 표시합니다
-		            var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
-	
-		            // 마커와 검색결과 항목을 클릭 했을 때
-		            // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
-		            (function(marker, place) {
-		                kakao.maps.event.addListener(marker, 'click', function() {
-		                    displayPlaceInfo(place);
-		                });
-		            })(marker, places[i]);
-		    }
-		}
-	
-		// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-		function addMarker(position, order) {
-		    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-		        imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
-		        imgOptions =  {
-		            spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
-		            spriteOrigin : new kakao.maps.Point(46, (order*36)), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-		            offset: new kakao.maps.Point(11, 28) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-		        },
-		        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-		            marker = new kakao.maps.Marker({
-		            position: position, // 마커의 위치
-		            image: markerImage 
-		        });
-	
-		    marker.setMap(map); // 지도 위에 마커를 표출합니다
-		    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-	
-		    return marker;
-		}
-	
-		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
-		function removeMarker() {
-		    for ( var i = 0; i < markers.length; i++ ) {
-		        markers[i].setMap(null);
-		    }   
-		    markers = [];
-		}
-	
-		// 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
-		function displayPlaceInfo (place) {
-		    var content = '<div class="placeinfo">' +
-		                    '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
-	
-		    if (place.road_address_name) {
-		        content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
-		                    '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
-		    }  else {
-		        content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
-		    }                
-		   
-		    content += '    <span class="tel">' + place.phone + '</span>' + 
-		                '</div>' + 
-		                '<div class="after"></div>';
-	
-		    contentNode.innerHTML = content;
-		    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-		    placeOverlay.setMap(map);  
-		}
-	 
-		// 각 카테고리에 클릭 이벤트를 등록합니다
-		function addCategoryClickEvent() {
-		    var category = document.getElementById('category'),
-		        children = category.children;
-	
-		    for (var i=0; i<children.length; i++) {
-		        children[i].onclick = onClickCategory;
-		    }
-		}
-	
-		// 카테고리를 클릭했을 때 호출되는 함수입니다
-		function onClickCategory() {
-		    var id = this.id,
-		        className = this.className;
-	
-		    placeOverlay.setMap(null);
-	
-		    if (className === 'on') {
-		        currCategory = '';
-		        changeCategoryClass();
-		        removeMarker();
-		    } else {
-		        currCategory = id;
-		        changeCategoryClass(this);
-		        searchPlaces();
-		    }
-		}
-	
-		// 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
-		function changeCategoryClass(el) {
-		    var category = document.getElementById('category'),
-		        children = category.children,
-		        i;
-	
-		    for ( i=0; i<children.length; i++ ) {
-		        children[i].className = '';
-		    }
-	
-		    if (el) {
-		        el.className = 'on';
-		    } 
-		} 
-	</script>	
+	</script>
 </body>
 </html>
