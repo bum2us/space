@@ -427,7 +427,7 @@
 	                    <h4>정우경</h4>
 	                    <p>유저에게 도움이되는 서비스를 만드는 개발자</p>
 	                    <h6>개별프로젝트</h6> 
-	                    <a href="http://3.37.61.229"  style="color:#E75E8D;">SportsMate</a>
+	                    <a href="http://3.37.61.229" style="color:#E75E8D;" target="_blank">SportsMate</a>
 	                  </div>
 	                </div>
 	                <div class="col-lg-4">
@@ -438,7 +438,7 @@
 	                    <h4>신범수</h4>
 	                    <p>빨리 배우고 잘 써먹는 신입사원</p>    
 	                    <h6>개별프로젝트</h6>
-	                    <a href="http://3.38.214.0"  style="color:#E75E8D;">ALBUM's</a>
+	                    <a href="http://3.38.214.0" style="color:#E75E8D;" target="_blank">ALBUM's</a>
 	                  </div>
 	                </div>
 	                <div class="col-lg-4">
@@ -449,7 +449,7 @@
 	                    <h4>고명지</h4>
 	                    <p>목표를 향해 질주.</p>
 	                    <h6>개별프로젝트</h6>
-	                    <a href="http://3.35.136.131" style="color:#E75E8D;">MEGABOX</a> 
+	                    <a href="http://3.35.136.131" style="color:#E75E8D;" target="_blank">MEGABOX</a> 
 	                  </div>
 	                </div>
 	                <div class="col-lg-12">

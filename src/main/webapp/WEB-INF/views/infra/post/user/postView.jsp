@@ -105,35 +105,27 @@
 		              
 		              <div class="col-lg-12" style="width: 80%;"> 
 		              	<div class="row">
-			            	<div class="col-2">
+		              		<div class="col-2 text-end p-1">
+                                <img src="/resources/images/bums.jpg" style="width: 50px; height: 50px; border-radius:50%;">
+		              		</div>
+			            	<div class="col-3">
 			            		<div class="row">
-			            			<div class="col">
-			            				<img src="/resources/images/bums.jpg" alt="이미지" style="width: 45px; height: 45px; border-radius: 50%;">
-			            			</div>
+					            	<div class="col text-start p-1" style="/* cursor:pointer; */" onclick="<%-- userInfo('profile',${one.mypage}) --%>">
+		                                <span style="color:gray;"><c:out value="${one.mmNickName}"/></span><br>
+		                                <span style="color:gray;"><c:out value="${one.poAddr}"/></span>
+		                            </div>
 			            		</div>
 			            	</div>
 			            	<div class="col-3">
 			            		<div class="row">
 			            			<div class="col">
-			            				<c:out value="${one.mmNickName }"/>
-			            			</div>
-			            		</div>
-			            		<div class="row">
-			            			<div class="col">
-			            				<c:out value="${one.poAddr }"/>
+			            				<button type="button" class="base-border-button" style="padding: 15px 25px;"">좋아요</button>
 			            			</div>
 			            		</div>
 			            	</div>
-			            	<div class="col-2">
+			            	<div class="col-4">
 			            		<div class="row">
-			            			<div class="col">
-			            				<button type="button" class="base-border-button" style="padding: 15px 25px;"">팔로우</button>
-			            			</div>
-			            		</div>
-			            	</div>
-			            	<div class="col-5">
-			            		<div class="row">
-			            			<div class="col">
+			            			<div class="col p-3">
 			            				<c:out value="🚀팔로워 95"/>
 			            			</div>
 			            		</div>
@@ -142,18 +134,18 @@
 		                <hr>
 		                <div class="container mb-5" style="height: 300px;">
 		                  <div class="row">
-		                  	<div class="col-2">
-                  				<input type="text" value="<c:forEach items="${codeList }" var="list" varStatus="status"><c:if test="${one.poCategory eq list.ccOrder}">${list.ccName}</c:if></c:forEach>" readonly>
+		                  	<div class="col-2 p-1">
+                  				<span><c:forEach items="${codeList }" var="list" varStatus="status"><c:if test="${one.poCategory eq list.ccOrder}">${list.ccName}</c:if></c:forEach></span>
 		                  	</div>
 	                    	<div class="col-6">
-	                    		<c:out value="${one.poTitle }"/>
+	                    		<span class="my-1" style="padding: 0; font-size: 18pt; font-weight: bold;"><c:out value="${one.poTitle}"/></span>
 		                    </div>
-		                    <div class="col-4">
-		                    	<input type="text" value="좋아요 7&nbsp댓글 7&nbsp조회수 7" readonly>
+		                    <div class="col-4 p-1">
+		                    	<span>좋아요 7&nbsp댓글 7&nbsp조회수 7</span>
 		                    </div>
 		                  </div>
 		                  <div class="row text-start mt-4">
-		                    <div class="col-12 mt-1">
+		                    <div class="col-12 mt-1 p-4" style="background: #27292a; height: 230px; border-radius: 10px;">
 		                    	<c:out value="${one.poContent }"/>
 		                    </div>
 		                  </div>
