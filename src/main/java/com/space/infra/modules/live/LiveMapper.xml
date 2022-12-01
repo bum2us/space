@@ -50,7 +50,25 @@
 			<when test = 'shDateStart == null or shDateStart ==""'> BETWEEN CONCAT('1700-01-01', ' 00:00:00') AND CONCAT('2300-01-01',' 00:00:00') </when>
 			<when test = "shDateStart != null and shDateEnd != null">BETWEEN CONCAT(#{shDateStart},' 00:00:00') AND CONCAT(#{shDateEnd},' 23:59:59')</when> 
 		</choose>   
-		
 	</sql> 
+	
+	<select id="selectLiveList" resultMap="resultMapObj">
+		
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO live
+		(
+			liveTitle
+			,liveProductSeq
+			,liveCode
+		)
+		VALUES
+		(
+			#{liveTitle}
+			,#{liveProductSeq}
+			,#{liveCode}
+		)
+	</insert>
     
 </mapper> 

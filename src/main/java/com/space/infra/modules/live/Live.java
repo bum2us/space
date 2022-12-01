@@ -9,6 +9,7 @@ public class Live{
 	private String liveTitle;
 	private String liveStartDate;
 	private String liveCreateDate;
+	
 	public Integer getLiveSeq() {
 		return liveSeq;
 	}

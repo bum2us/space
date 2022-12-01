@@ -37,6 +37,9 @@
 	    <div class="page-content">
 			<form method="POST" id="mainForm">
 				<input type="hidden" id="pdSeq" name="pdSeq" value="${item.pdSeq}">
+				<input type="hidden" id="pdTitle" name="pdTitle" value="${item.pdTitle }">
+				<input type="hidden" id="pdPrice" name="pdPrice" value="${item.pdPrice }">
+				<input type="hidden" id="pdDefaultImg" name="pdDefaultImg" value="${img[0].upPath}${img[0].upUuidName}">
 				<input type="hidden" id="chatProductSeq" name="chatProductSeq" value="${item.pdSeq }">
 				<input type="hidden" id="mmSeq" name="mmSeq">
                 <div class="row justify-content-center">
@@ -96,8 +99,8 @@
                                 <span style="color:gray;"><c:out value="${item.mmNickName}"/></span>
                             </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col" style="background: #1F2122; height: 230px; border-radius: 10px;">
+                        <div class="row mt-3"> 
+                            <div class="col p-4" style="background: #1F2122; height: 230px; border-radius: 10px;">
                                 <textarea readonly name="" id="" cols="69" rows="10"
                                     style="background: transparent; border:none; padding: 10px; font-size: 10pt; color:white"><c:out value="${item.pdContent}"/></textarea>
                             </div>
@@ -136,6 +139,11 @@
 			
 			switch(key)
 			{
+				case 'live':
+				{
+					form.attr("action","/live/form").submit();
+					break;
+				}
 				case 'profile':
 				{
 					$("#mmSeq").val(seq);

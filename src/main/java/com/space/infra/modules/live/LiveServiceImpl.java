@@ -24,6 +24,9 @@ public class LiveServiceImpl implements LiveService{
 		return dao.selectListCount(vo);
 	}
 
-	
-	
+	@Override
+	public void insert(Live dto) throws Exception {
+		// TODO Auto-generated method stub
+		dao.insert(dto);
+	}	
 }

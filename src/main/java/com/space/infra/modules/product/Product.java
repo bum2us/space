@@ -15,6 +15,7 @@ public class Product extends Base{
 	private String pdCreateDate;
 	private String pdContent;
 	private String pdPrice;
+	private String pdDefaultImg;
 	
 	private String mmNickName;
 	
@@ -84,8 +85,11 @@ public class Product extends Base{
 	public void setMmNickName(String mmNickName) {
 		this.mmNickName = mmNickName;
 	}
-	
-	
-	
-	
+	public String getPdDefaultImg() {
+		return pdDefaultImg;
+	}
+	public void setPdDefaultImg(String pdDefaultImg) {
+		this.pdDefaultImg = pdDefaultImg;
+	}
+	 
 }

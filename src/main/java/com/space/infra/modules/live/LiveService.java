@@ -7,4 +7,6 @@ public interface LiveService {
 	public List<Live> selectList(LiveVo vo) throws Exception;
 
 	public Integer selectListCount(LiveVo vo) throws Exception;
+	
+	public void insert(Live dto) throws Exception;
 }

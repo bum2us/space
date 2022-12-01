@@ -20,4 +20,6 @@ public class LiveDao {
 	public Integer selectListCount(LiveVo vo) { return sqlSession.selectOne(namesapce+".selectListCount", vo); }
 
 	public List<Live> selectList(LiveVo vo) { return sqlSession.selectList(namesapce+".selectList", vo); }
+
+	public void insert(Live dto) { sqlSession.insert(namesapce + ".insert", dto); } 
 }
