@@ -112,14 +112,14 @@
 			            		<div class="row">
 					            	<div class="col text-start p-1" style="/* cursor:pointer; */" onclick="<%-- userInfo('profile',${one.mypage}) --%>">
 		                                <span style="color:gray;"><c:out value="${one.mmNickName}"/></span><br>
-		                                <span style="color:gray;"><c:out value="${one.poAddr}"/></span>
+		                                <span style="color:gray;"><c:out value="${one.mvName}"/></span>
 		                            </div>
 			            		</div>
 			            	</div>
 			            	<div class="col-3">
 			            		<div class="row">
 			            			<div class="col">
-			            				<button type="button" class="base-border-button" style="padding: 15px 25px;"">좋아요</button>
+			            				<button type="button" class="base-border-button" style="padding: 15px 25px;""><i class="fa-regular fa-thumbs-up"></i></button>
 			            			</div>
 			            		</div>
 			            	</div>

@@ -98,8 +98,8 @@
 	
 		<input type="hidden" id="poWriter" name="poWriter" value="${sessSeq }">
 		<input type="hidden" id="poCategory" name="poCategory">
-		<input type="hidden" id="poLng" name="poLng">
 		<input type="hidden" id="poLat" name="poLat">
+		<input type="hidden" id="poLng" name="poLng">
 		<input type="hidden" id="poSeq" name="poSeq" value="${one.poSeq }">
 		
 		<div class="container">
@@ -154,11 +154,6 @@
 		                    <div class="col">
 			    				<button type="button" onclick="searchAddr()" style="position:absolute; right:3%; top:20%; background:#E75E8D; color:white; border-radius:5px; border:none; height:40px; width:80px; font-size:12pt; font-weight:600;">주소검색</button>
 		                   	   	<input type="text" id="poAddr" name="poAddr" placeholder="게시물에 관련된 위치를 입력해주세요." readonly value="${one.poAddr }">
-		                   	   	<input type="text" id="postcode" placeholder="우편번호">
-								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-								<input type="text" id="address" placeholder="주소"><br>
-								<input type="text" id="detailAddress" placeholder="상세주소">
-								<input type="text" id="extraAddress" placeholder="참고항목">
 		                    </div>
 		                  </div>
 		                  <div class="row">
@@ -236,6 +231,32 @@
 	    
 		/* 게시물 등록 */
 		reg = function() {
+			
+			if($("#poTitle").val() == null || $("#poTitle").val() == "") {
+				alert("제목을 입력해주세요.");
+				$("#poTitle").focus();
+				return false;
+			}
+			
+			if($("#poCategory").val() == null || $("#poCategory").val() == "") {
+				alert("카테고리를 선택해주세요.");
+				$("#categoryBtn").focus();
+				return false;
+			}
+			
+			if($("#poAddr").val() == null || $("#poAddr").val() == "") {
+				alert("위치를 선택해주세요.");
+				$("#poAddr").focus();
+				return false;
+			}
+			
+			if($("#poContent").val() == null || $("#poContent").val() == "") {
+				alert("이야기를 입력해주세요.");
+				$("#poContent").focus();
+				return false;
+			}
+			
+			//동네소식 등록 구분
 			if(seq.val() == 0 || seq.val() == null) {
 				alert("insert");
 				form.attr("action", goUrlInst).submit();
@@ -304,9 +325,10 @@
 			}
 			
 		};
-	</script>	
-	<script>  /* 카카오 주소 검색 */
-		function execDaumPostcode() {
+	</script>
+		
+	<script> /* 카카오 주소검색 */
+		function searchAddr() {
 	        new daum.Postcode({
 	            oncomplete: function(data) {
 	                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -315,6 +337,7 @@
 	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
 	                var addr = ''; // 주소 변수
 	                var extraAddr = ''; // 참고항목 변수
+	                var geocoder = new kakao.maps.services.Geocoder(); //위도,경도값 변수
 	
 	                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
 	                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
@@ -322,37 +345,26 @@
 	                } else { // 사용자가 지번 주소를 선택했을 경우(J)
 	                    addr = data.jibunAddress;
 	                }
-	
-	                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-	                if(data.userSelectedType === 'R'){
-	                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-	                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-	                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-	                        extraAddr += data.bname;
-	                    }
-	                    // 건물명이 있고, 공동주택일 경우 추가한다.
-	                    if(data.buildingName !== '' && data.apartment === 'Y'){
-	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-	                    }
-	                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-	                    if(extraAddr !== ''){
-	                        extraAddr = ' (' + extraAddr + ')';
-	                    }
-	                    // 조합된 참고항목을 해당 필드에 넣는다.
-	                    document.getElementById("extraAddress").value = extraAddr;
 	                
-	                } else {
-	                    document.getElementById("extraAddress").value = '';
-	                }
+	                geocoder.addressSearch(data.roadAddress, function(result, status) {
+		      		    if (status === kakao.maps.services.Status.OK) {
+		      		  	 	
+			      		  	document.getElementById('poLng').value = result[0].x; //경도
+			                document.getElementById('poLat').value = result[0].y; //위도
+		      		    }
+		    		   
+		      		});
 	
 	                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-	                document.getElementById('postcode').value = data.zonecode;
-	                document.getElementById("address").value = addr;
-	                // 커서를 상세주소 필드로 이동한다.
-	                document.getElementById("detailAddress").focus();
+	                document.getElementById("poAddr").value = addr;
 	            }
 	        }).open();
 	    }
+	</script>
+	
+	<script> /* validation */
+		
+	
 	</script>
 </body>
 </html>

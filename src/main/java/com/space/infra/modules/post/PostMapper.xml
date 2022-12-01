@@ -35,12 +35,19 @@
     		,poTitle
     		,poContent
     		,poCategory
+    		,poLat
+    		,poLng
+    		,poAddr
     	)
     	VALUES (
     		#{poWriter}
     		,#{poTitle}
     		,#{poContent}
     		,#{poCategory}
+    		,#{poLat}
+    		,#{poLng}
+    		,#{poAddr}
+    		
     	)
 	    <selectKey resultType="Integer" keyProperty="poSeq" order="AFTER">
 	    	SELECT last_insert_id()
@@ -90,10 +97,14 @@
 		    ,poLat
 		    ,poCreateDate
 		    ,poAddr
+            ,mv.mvName
 		FROM post po
 		JOIN member mm on mm.mmSeq = po.poWriter
 			AND mmDelNy = 0
 			AND mmAdminNy = 0
+        LEFT JOIN myVillage mv on mv.mvMemberSeq = mm.mmSeq
+        	AND mvDelNy = 0
+        	AND mvDefaultNy = 1
 		WHERE 1=1
 			AND poDelNy = 0
 			AND poSeq = #{poSeq}

@@ -10,13 +10,14 @@ public class Post extends Base{
 	private String  poContent;
 	private Integer poCategory;
 	private String poAddr;
-	private String poLat; //경도
-	private String poLng; //위도
+	private String poLat; //위도
+	private String poLng; //경도
 	private String  poCreateDate;
 	private String  poEditDate;
 	private Integer poDelNy;
 	
 	private String mmNickName;
+	private String mvName;
 	
 	public Integer getPoSeq() {
 		return poSeq;
@@ -89,6 +90,12 @@ public class Post extends Base{
 	}
 	public void setPoLng(String poLng) {
 		this.poLng = poLng;
+	}
+	public String getMvName() {
+		return mvName;
+	}
+	public void setMvName(String mvName) {
+		this.mvName = mvName;
 	}
 	
 	
