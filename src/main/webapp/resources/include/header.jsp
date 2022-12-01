@@ -29,7 +29,7 @@
                 	<ul class="dropdown-menu">
                 		<li><a><c:out value="${sessName}"/> 님<br> 안녕하세요</a></li>
                 		<li><a href="/member/profile">마이페이지</a></li>
-	            		<li><a id="btnLogout">로그아웃</a></li>
+	            		<li><a id="btnLogout" href="/member/logout">로그아웃</a></li>
                 	</ul>
                	</li>
                	<c:choose>

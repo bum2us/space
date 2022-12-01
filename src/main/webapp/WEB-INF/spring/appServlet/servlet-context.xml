@@ -38,6 +38,7 @@
 				<exclude-mapping path="/member/memberInst"/>
 				<exclude-mapping path="/member/joinForm"/>     <!-- 매핑에서 제외시킬 것을 추가한다 -->
 				<exclude-mapping path="/member/login"/>
+				<exclude-mapping path="/member/logout"/>
 				<beans:bean id = "checkLoginInterception" class="com.space.infra.common.interception.checkLoginInterception"/>
 				<!-- HandlerInterceptorAdapter를 상속받은 클래스파일 실제 동작할 작업이 작성된 파일-->
 		</interceptor>

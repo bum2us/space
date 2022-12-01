@@ -127,15 +127,13 @@ public class MemberController {
 		return result;
 	}
 	
-	@ResponseBody
-	@RequestMapping("logout")
-	public Map<String, Object> logout(HttpSession httpSession) throws Exception {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
+	@RequestMapping(value = "logout")
+	public String logout(HttpSession httpSession) throws Exception {
 		
 		httpSession.invalidate();
 		
-		returnMap.put("rt", "success");
-		return returnMap;
+		/* redirect로 해줘야 8081/로 온다 */
+		return "redirect:/";
 	}
 	
 	//카카오페이
