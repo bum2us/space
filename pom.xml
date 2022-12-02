@@ -201,6 +201,13 @@
 		    <version>2.11.0</version>
 		</dependency>
 		
+		<!-- 휴대폰 인증 solapi -->
+		<dependency>
+		  <groupId>net.nurigo</groupId>
+		  <artifactId>sdk</artifactId>
+		  <version>4.2.7</version>
+		</dependency>
+		
 		
 		
 	</dependencies>

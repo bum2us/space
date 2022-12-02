@@ -166,7 +166,7 @@
 	                 	</div>
 	                 	<div class="col"> 
 	                		<input type="text" name="mmPhone" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
-	                		<button style="right:7%;" class="spaceBtnInner" type="button" onclick="">인증요청</button>    
+	                		<button style="right:7%;" id="checkPhone" class="spaceBtnInner" type="button" onclick="">인증요청</button>    
 	                	</div>
 	                </div>
 	                <div class="row my-3">
@@ -212,7 +212,42 @@
 				 $("#profileImg").attr("src", fileReader.result);
 			 }	
 		}
-	</script>	
+	</script>
+	<script>
+		/* 휴대전화 인증 */
+		
+		$("#checkPhone").on("click", function() {
+			
+			$.ajax({
+				url:"/member/checkPhone"
+				,type:"post"
+				,dataType:"json"
+				,data: {
+					phoneNumber : $("#phoneNumber").val()
+				}
+				,success : function(result) {
+					$("#phonecheckcode").val(result.code);
+				}
+				,error : function(){
+					alert("ajax error...");
+				}
+				
+			});
+		});
+		
+		$("#authNumb").on("click", function(){
+			if($('#phCerti').val() == $('#phonecheckcode').val()) {
+				$("#phone_check").text("인증번호가 일치합니다.");
+				$("#phone_check").css("color", "lightgreen");	
+			} else {
+				$("#phone_check").text("인증번호가 일치하지 않습니다.");
+				$("#phone_check").css("color", "red");
+				$('#phCerti').val(""); 
+				$('#phCerti').focus(); 
+				return false; 
+			}
+		});
+	</script>
 </body>
 </html>
 

@@ -42,33 +42,21 @@
 
       	}
 	</style>
-	<style type="text/css" id="kakaoMapStyle">
-		.map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-		.map_wrap {position:relative;width:100%;height:350px;}
-		#category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
-		#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
-		#category li.on {background: #eee;}
-		#category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
-		#category li:last-child{margin-right:0;border-right:0;}
-		#category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-		#category li .category_bg {background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
-		#category li .bank {background-position: -10px 0;}
-		#category li .mart {background-position: -10px -36px;}
-		#category li .pharmacy {background-position: -10px -72px;}
-		#category li .oil {background-position: -10px -108px;}
-		#category li .cafe {background-position: -10px -144px;}
-		#category li .store {background-position: -10px -180px;}
-		#category li.on .category_bg {background-position-x:-46px;}
-		.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
-		.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
-		.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-		.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-		.placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
-		.placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-		.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
-		.placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
-		.placeinfo .tel {color:#0f7833;}
-		.placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
+	<style>
+	    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+	    .wrap * {padding: 0;margin: 0;}
+	    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+	    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+	    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+	    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+	    .info .close:hover {cursor: pointer;}
+	    .info .body {position: relative;overflow: hidden;}
+	    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+	    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+	    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+	    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+	    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+	    .info .link {color: #5085BB;}
 	</style>
 </head>
 <body>
@@ -92,16 +80,7 @@
 		        <div class="page-content">
 		
 		          <!-- ***** 우주지도 Start ***** -->
-		          <div class="map_wrap">
-					<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden; border-radius: 25px;"></div>
-					    <ul id="category">
-					    	<c:forEach items="${poCategoryList}" var="codeList">
-					    		<li>
-					    			<span>${codeList.ccName }</span>
-					    		</li>
-					    	</c:forEach>
-					    </ul>
-					</div>
+		          <div id="map" style="width:100%;height:100%; border-radius: 25px;"></div>
 		          <!-- ***** 우주지도 End ***** -->
 	
 		          <!-- ***** 동네소식 List Start***** -->
@@ -191,7 +170,170 @@
 		}
 	</script>
 	
+	<!-- <script type="text/javascript"> /* 카카오지도 */
+	
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = { 
+		        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+		        level: 5 // 지도의 확대 레벨
+		    };
+	
+		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+		//mapOtion값으로 id값이 map인 div를 파라미터를 가져가 카카오 맵을 생성한다.
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+		
+		// 장소 검색 객체를 생성합니다
+		/* var ps = new kakao.maps.services.Places(map); */ 
+		/* console.log(ps);  */
+		
+		window.onload = function(){
+			
+			// 마커 이미지
+			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+			
+			// 마커 이미지의 이미지 크기 입니다
+		    var imageSize = new kakao.maps.Size(24, 35); 
+			
+			<c:forEach items='${list}' var='list' varStatus="status">
+				var markerPosition = new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>')
+				console.log(markerPosition, '<c:out value="${list.poCategory}"/>');
+			    
+			    // 마커 이미지를 생성합니다    
+			    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
+			   
+			    // 마커를 생성합니다
+			    var marker = new kakao.maps.Marker({ 
+			        map: map, // 마커를 표시할 지도
+			        position: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>'), // 마커를 표시할 위치
+			        title : '<c:out value="${list.poTitle}"/>', // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+			        image : markerImage // 마커 이미지 
+			    });
+			    
+			        
+				 // 커스텀 오버레이에 표시할 컨텐츠 입니다
+				 // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+				 // 별도의 이벤트 메소드를 제공하지 않습니다 
+				 var content = '<div class="wrap">' + 
+					            '    <div class="info">' + 
+					            '        <div class="title">' + 
+					            '            카카오 스페이스닷원' + 
+					            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+					            '        </div>' + 
+					            '        <div class="body">' + 
+					            '            <div class="desc">' + 
+					            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
+					            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
+					            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+					            '            </div>' + 
+					            '        </div>' + 
+					            '    </div>' +    
+					            '</div>';   
+				             
+				             
+				             
+				             
+		             
+		           // 마커 위에 커스텀오버레이를 표시합니다
+		          // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+		          var overlay = new kakao.maps.CustomOverlay({
+		              content: content,
+		              map: map,
+		              position: marker.getPosition()            
+		          });   
+		          
+	       		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+		          kakao.maps.event.addListener(marker, 'click', function() {
+		              
+		              overlay.setMap(map); 
+		          }); 
+	       		
+		       // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+		          
+				             
+			        
+			    
+		     	/* // 마커에 마우스오버 이벤트를 등록합니다
+			    kakao.maps.event.addListener(marker, 'mouseover', function() {
+			          // 마커 위에 인포윈도우를 표시합니다
+			          
+			          alert('게시물 제목 : <c:out value="${list.poTitle}"/>');
+			          
+			    	 //infowindow.open(map, marker);     
+			    });
+		     	
+			 	// 마커에 마우스아웃 이벤트를 등록합니다
+			    kakao.maps.event.addListener(marker, 'mouseout', function() {
+			        // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+			        infowindow.close(map, marker);
+			    }); */
+				 
+			</c:forEach>
+			
+		} 
+		
+	</script> -->
+	
 	<script>
+		var mapContainer = document.getElementById('map'), // 지도의 중심좌표
+		    mapOption = { 
+		        center: new kakao.maps.LatLng(33.451475, 126.570528), // 지도의 중심좌표
+		        level: 3 // 지도의 확대 레벨
+		    }; 
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		
+		
+		
+		<c:forEach items="${list}" var="list" varStatus="status">
+		
+			// 지도에 마커를 표시합니다 
+			var marker = new kakao.maps.Marker({
+			    map: map, 
+			    position: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>')
+			});
+			
+			// 커스텀 오버레이에 표시할 컨텐츠 입니다
+			// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+			// 별도의 이벤트 메소드를 제공하지 않습니다 
+			var content = '<div class="wrap">' + 
+			            '    <div class="info">' + 
+			            '        <div class="title">' + 
+			            '            카카오 스페이스닷원' + 
+			            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+			            '        </div>' + 
+			            '        <div class="body">' + 
+			            '            <div class="img">' +
+			            '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+			            '           </div>' + 
+			            '            <div class="desc">' + 
+			            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
+			            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
+			            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+			            '            </div>' + 
+			            '        </div>' + 
+			            '    </div>' +    
+			            '</div>';
+			
+			// 마커 위에 커스텀오버레이를 표시합니다
+			// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+			var overlay = new kakao.maps.CustomOverlay({
+			    content: content,
+			    map: map,
+			    position: marker.getPosition()       
+			});
+			
+			// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+			kakao.maps.event.addListener(marker, 'click', function() {
+			    overlay.setMap(map);
+			});
+			
+			// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+			function closeOverlay() {
+			    overlay.setMap(null);     
+			}
+		</c:forEach>
+		
+		
 	</script>
 </body>
 </html>

@@ -204,9 +204,9 @@
 	
 	<script src="https://cdn.jsdelivr.net/npm/@connectlive/connectlive-web-sdk/dist/connectlive-web-sdk.min.js"></script>
 	<script>
+		var room;
 		// 커넥트 라이브 내부 인증
-		 
-	    ConnectLive.signIn({
+		ConnectLive.signIn({
 	
 	        serviceId: 'LJJF547WX1HE',
 	
@@ -215,18 +215,9 @@
 	    }).then(() => {
 	
 	        console.log('인증에 성공했습니다.');
-	
-	    }).catch((promise) => {
-	
-	        console.log('인증에 실패했습니다.');
-	        alert("ConnectLive 인증중 오류가 발생하였습니다.");
-	        return;
-	    });
-	    
-	    var room;
-		window.onload = function() {
-	    	room = ConnectLive.createRoom(); 
-	    	room.connect(${item.liveCode}).then(()=>{
+	        room = ConnectLive.createRoom();  
+	    	 
+	    	room.connect('<c:out value="${item.liveCode}"/>').then(()=>{
 		    	
 	    		room.on('connected', (param)=>{
 
@@ -258,7 +249,18 @@
         	}).catch((err)=>{ 
         		console.log("############");
         	});
-	    };
+	
+	    }).catch((promise) => { 
+	
+	        console.log('인증에 실패했습니다.');
+	        return;
+	    });
+	    	 
+    	 
+	   
+	    
+	    
+	    
 	    
 		
 	</script>	
