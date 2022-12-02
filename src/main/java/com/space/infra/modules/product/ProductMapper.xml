@@ -90,8 +90,8 @@
     <select id="selectListForHome" resultMap="resultMapObj">
     	SELECT
 	   		pd.*
-	   		,up.upPath as productPath
-        	,up.upUuidName as productUuidName
+	   		,up.upPath 
+        	,up.upUuidName
 	    FROM product pd
 	    JOIN uploadedProduct up
 	    ON pd.pdSeq = up.upProductSeq

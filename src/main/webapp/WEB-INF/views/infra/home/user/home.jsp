@@ -74,7 +74,7 @@
 		                    	<c:forEach items="${liveList}" var="list" varStatus="status">
 			                        <div class="item">
 			                            <div class="thumb">
-			                                <img src="${list.upPath }${list.upUuidName}" alt="">
+			                                <img src="${list.productPath }${list.productUuidName}" alt="">
 			                                <div class="hover-effect">
 			                                    <h6 onclick="goForm('live','${list.liveSeq}')">라이브 시청하기</h6>
 			                                </div>
@@ -106,7 +106,7 @@
 			                <div class="col-lg-3 col-sm-6">
 			                    <div class="item">
 			                        <div class="thumb"> 
-			                            <img src="${list.productPath }${list.productUuidName}" alt="">
+			                            <img src="${list.upPath }${list.upUuidName}" alt="">
 			                            <div class="hover-effect">
 			                                <div class="content"> 
 			                                    <div class="live">

@@ -43,8 +43,8 @@
     		,lv.liveTitle
     		,lv.liveCode
     		,mm.mmNickName
-    		,upd.upPath
-    		,upd.upUuidName
+    		,upd.upPath as productPath
+    		,upd.upUuidName as productUuidName
     	FROM live lv
     	JOIN product pd
     	ON lv.liveProductSeq = pd.pdSeq
