@@ -9,9 +9,16 @@ public class Live{
 	private String liveStartDate;
 	private String liveCode;
 	
+	private Integer mmSeq;
 	private String mmNickName;
-	private String upPath;
-	private String upUuidName;
+	private Integer pdSeq;
+	private String pdTitle;
+	private String pdPrice;
+	private String productPath;
+	private String productUuidName;
+	private String memberPath;
+	private String memberUuidName;
+	
 	
 	public Integer getLiveSeq() {
 		return liveSeq;
@@ -49,26 +56,63 @@ public class Live{
 	public void setLiveCode(String liveCode) {
 		this.liveCode = liveCode;
 	}
-	
-	
+	public Integer getMmSeq() {
+		return mmSeq;
+	}
+	public void setMmSeq(Integer mmSeq) {
+		this.mmSeq = mmSeq;
+	}
 	public String getMmNickName() {
 		return mmNickName;
 	}
 	public void setMmNickName(String mmNickName) {
 		this.mmNickName = mmNickName;
 	}
-	public String getUpPath() {
-		return upPath;
+	public Integer getPdSeq() {
+		return pdSeq;
 	}
-	public void setUpPath(String upPath) {
-		this.upPath = upPath;
+	public void setPdSeq(Integer pdSeq) {
+		this.pdSeq = pdSeq;
 	}
-	public String getUpUuidName() {
-		return upUuidName;
+	public String getPdTitle() {
+		return pdTitle;
 	}
-	public void setUpUuidName(String upUuidName) {
-		this.upUuidName = upUuidName;
+	public void setPdTitle(String pdTitle) {
+		this.pdTitle = pdTitle;
 	}
+	public String getPdPrice() {
+		return pdPrice;
+	}
+	public void setPdPrice(String pdPrice) {
+		this.pdPrice = pdPrice;
+	}
+	public String getProductPath() {
+		return productPath;
+	}
+	public void setProductPath(String productPath) {
+		this.productPath = productPath;
+	}
+	public String getProductUuidName() {
+		return productUuidName;
+	}
+	public void setProductUuidName(String productUuidName) {
+		this.productUuidName = productUuidName;
+	}
+	public String getMemberPath() {
+		return memberPath;
+	}
+	public void setMemberPath(String memberPath) {
+		this.memberPath = memberPath;
+	}
+	public String getMemberUuidName() {
+		return memberUuidName;
+	}
+	public void setMemberUuidName(String memberUuidName) {
+		this.memberUuidName = memberUuidName;
+	}
+
+
+	
 	
 	
 	

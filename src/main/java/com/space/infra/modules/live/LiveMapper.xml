@@ -8,8 +8,37 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.live.Live"></resultMap>
     
+    <select id="selectOne" resultMap="resultMapObj">
+		SELECT    		
+            lv.liveSeq
+            ,lv.liveTitle
+            ,lv.liveCode
+            ,pd.pdSeq
+            ,pd.pdTitle
+            ,pd.pdPrice
+            ,upd.upPath as productPath
+            ,upd.upUuidName as productUuidName
+            ,mm.mmSeq
+            ,mm.mmNickName
+            ,upm.upPath as memberPath 
+            ,upm.upUuidName as memberUuidName 
+    	FROM live lv
+    	JOIN product pd
+        ON lv.liveProductSeq = pd.pdSeq
+        JOIN uploadedProduct upd
+        ON pd.pdSeq = upd.upProductSeq
+        AND upd.upDefaultNy = 1
+        JOIN member mm
+        ON pd.pdSeller = mm.mmSeq
+        LEFT JOIN uploadedMember upm
+        ON mm.mmSeq = upm.upMemberSeq
+        AND upm.upDelNy = 0
+    	WHERE 1=1
+    	AND lv.liveSeq = #{liveSeq}
+    </select>
+    
     <select id="selectListForHome" resultMap="resultMapObj">
-    	SELECT
+    	SELECT 
     		lv.liveSeq
     		,lv.liveTitle
     		,lv.liveCode

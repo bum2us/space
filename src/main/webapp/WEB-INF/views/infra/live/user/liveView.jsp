@@ -128,15 +128,15 @@
                     	<div class="productInfo">
                     		<div class="row pt-3" style="width:100%; position:absolute;">
                     			<div class="col-2 text-center pl-4 pt-2">
-                                    <img src="/resources/images/empty.png" alt="" 
+                                    <img src="${item.productPath}${item.productUuidName }" alt="" 
                                         style="width:45px; height: 45px; border-radius: 10px;">
                                 </div>
                                 <div class="col text-left">
                                     <div class="row pt-1">
-                                        <h3>뿌띠끄 로얄 가죽 가방</h3>
+                                        <h3><c:out value="${item.pdTitle}"/></h3>
                                     </div>
                                     <div class="row">  
-                                        <span style="font-weight: bold;">320000원</span>
+                                        <span style="font-weight: bold;"><c:out value="${item.pdPrice}"/>원</span>
                                     </div>
                                 </div>   
                     		</div>  
@@ -144,15 +144,15 @@
                         <div class="liveInfo">
                             <div class="row pb-2" style="width:100%; position:absolute;">
                                 <div class="col-2 text-center pl-4 pt-2">
-                                    <img src="/resources/images/empty.png" alt="" 
+                                    <img src="${item.memberPath }${item.memberUuidName }" alt="" 
                                         style="width:45px; height: 45px; border-radius: 50%;">
                                 </div>
                                 <div class="col text-left">
                                     <div class="row">
-                                        <h3>LIVE 방송 테스트 중입니다</h3>
+                                        <h3><c:out value="${item.liveTitle }"/></h3>
                                     </div>
                                     <div class="row">
-                                        <span style="font-weight: bold;">연쇄중고마</span>
+                                        <span style="font-weight: bold;"><c:out value="${item.mmNickName }"/></span>
                                     </div>
                                 </div>
                                 <div class="col-3 pt-3 text-right">
@@ -192,8 +192,6 @@
                         </div>
                     </div>
                 </div>
-                <input type="text" id="liveCode">
-                <button type="button" onclick="connectLive()">연결하기</button>
             </form>
 	    </div>
 	</div>
@@ -226,10 +224,9 @@
 	    });
 	    
 	    var room;
-
-	    connectLive = function(){
+		window.onload = function() {
 	    	room = ConnectLive.createRoom(); 
-	    	room.connect($("#liveCode").val()).then(()=>{
+	    	room.connect(${item.liveCode}).then(()=>{
 		    	
 	    		room.on('connected', (param)=>{
 

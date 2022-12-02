@@ -36,5 +36,19 @@ public class LiveServiceImpl implements LiveService{
 		return dao.selectListForHome();
 	}
 
+	@Override
+	public Live selectOne(Live dto) throws Exception {
+		// TODO Auto-generated method stub
+		Live result = dao.selectOne(dto);
+		
+		if(result.getMemberPath() == null) {
+			result.setMemberPath("/resources/images/");
+			result.setMemberUuidName("empty.png");
+		}
+		
+		return result;
+	}
+
+	
 	
 }

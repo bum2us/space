@@ -11,4 +11,6 @@ public interface LiveService {
 	public void insert(Live dto) throws Exception;
 	
 	public List<Live>  selectListForHome() throws Exception;
+	
+	public Live selectOne(Live dto) throws Exception;
 }

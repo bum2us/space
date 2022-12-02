@@ -61,6 +61,8 @@
 	        <!-- ***** Banner End ***** -->
 	        <!-- ***** Featured Games Start ***** -->
 	        <form id="mainForm" method="POST">
+	        	<input type="hidden" id="pdSeq" name="pdSeq">
+	        	<input type="hidden" id="liveSeq" name="liveSeq">
 		        <div class="row">
 		            <div class="col-lg">
 		                <div class="featured-games header-text">
@@ -74,7 +76,7 @@
 			                            <div class="thumb">
 			                                <img src="${list.upPath }${list.upUuidName}" alt="">
 			                                <div class="hover-effect">
-			                                    <h6>라이브 시청하기</h6>
+			                                    <h6 onclick="goForm('live','${list.liveSeq}')">라이브 시청하기</h6>
 			                                </div>
 			                            </div>
 			                            <h4><c:out value="${list.liveTitle }" /><br><span><c:out value="${list.mmNickName }"/></span></h4>
@@ -97,21 +99,21 @@
 		            <div class="col-lg-12">
 		                <div class="heading-section">
 		                    <h4><em>지금</em>Hot<em>한 상품</em></h4>
-		                </div>
+		                </div> 
 		            </div>
-		            <div class="row">
+		            <div class="row"> 
 						<c:forEach items="${productList }" var="list" varStatus="status">					
 			                <div class="col-lg-3 col-sm-6">
 			                    <div class="item">
 			                        <div class="thumb"> 
-			                            <img src="${list.upPath }${list.upUuidName}" alt="">
+			                            <img src="${list.productPath }${list.productUuidName}" alt="">
 			                            <div class="hover-effect">
 			                                <div class="content"> 
 			                                    <div class="live">
 			                                        <!-- <a href="#">Live</a>  -->
 			                                    </div>
 			                                    <ul>
-			                                        <li><a href="#"><i class="fa fa-eye"></i> 상품보기</a></li>
+			                                        <li><a href="javascript:goForm('product','${list.pdSeq}')"><i class="fa fa-eye"></i> 상품보기</a></li>
 			                                        <!-- <li><a href="#"><i class="fa fa-gamepad"></i> CS-GO</a></li> -->
 			                                    </ul>
 			                                </div>  
@@ -205,6 +207,31 @@
 			
 			$("#main-banner").css('background-image',$("#bannerPath").val()); 
 		};
+		
+		goForm = function(key,seq)
+		{
+			var url="";
+			
+			switch (key) {
+			case 'live':
+			{
+				url="/live/view";
+				$("#liveSeq").val(seq); 
+				break;
+			}
+			case 'product':
+			{
+				url="/product/productView";
+				$("#pdSeq").val(seq); 
+				break;
+			}
+
+			default:
+				break;
+			}	
+			
+			$("#mainForm").attr("action",url).submit();
+		}
 		
 	</script>	
 </body>

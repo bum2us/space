@@ -23,5 +23,7 @@ public class LiveDao {
 
 	public void insert(Live dto) { sqlSession.insert(namespace + ".insert", dto); }
 
-	public List<Live> selectListForHome() { return sqlSession.selectList(namespace+".selectListForHome"); } 
+	public List<Live> selectListForHome() { return sqlSession.selectList(namespace+".selectListForHome"); }
+
+	public Live selectOne(Live dto) { return sqlSession.selectOne(namespace+".selectOne", dto); } 
 }

@@ -35,8 +35,11 @@ public class LiveController {
 	}
 	
 	@RequestMapping(value="view")
-	public String view()throws Exception {
+	public String view(Live dto,Model model)throws Exception {
 				
+		Live item = service.selectOne(dto);
+		model.addAttribute("item", item);
+		
 		return "infra/live/user/liveView";
 	}
 	
