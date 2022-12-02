@@ -80,7 +80,7 @@
 		        <div class="page-content">
 		
 		          <!-- ***** 우주지도 Start ***** -->
-		          <div id="map" style="width:100%;height:100%; border-radius: 25px;"></div>
+		          <div id="map" style="width:100%;height:350px;"></div>
 		          <!-- ***** 우주지도 End ***** -->
 	
 		          <!-- ***** 동네소식 List Start***** -->
@@ -170,170 +170,44 @@
 		}
 	</script>
 	
-	<!-- <script type="text/javascript"> /* 카카오지도 */
-	
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		    mapOption = { 
 		        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-		        level: 5 // 지도의 확대 레벨
-		    };
-	
-		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-		//mapOtion값으로 id값이 map인 div를 파라미터를 가져가 카카오 맵을 생성한다.
-		var map = new kakao.maps.Map(mapContainer, mapOption);
-		
-		// 장소 검색 객체를 생성합니다
-		/* var ps = new kakao.maps.services.Places(map); */ 
-		/* console.log(ps);  */
-		
-		window.onload = function(){
-			
-			// 마커 이미지
-			var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-			
-			// 마커 이미지의 이미지 크기 입니다
-		    var imageSize = new kakao.maps.Size(24, 35); 
-			
-			<c:forEach items='${list}' var='list' varStatus="status">
-				var markerPosition = new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>')
-				console.log(markerPosition, '<c:out value="${list.poCategory}"/>');
-			    
-			    // 마커 이미지를 생성합니다    
-			    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
-			   
-			    // 마커를 생성합니다
-			    var marker = new kakao.maps.Marker({ 
-			        map: map, // 마커를 표시할 지도
-			        position: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>'), // 마커를 표시할 위치
-			        title : '<c:out value="${list.poTitle}"/>', // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-			        image : markerImage // 마커 이미지 
-			    });
-			    
-			        
-				 // 커스텀 오버레이에 표시할 컨텐츠 입니다
-				 // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-				 // 별도의 이벤트 메소드를 제공하지 않습니다 
-				 var content = '<div class="wrap">' + 
-					            '    <div class="info">' + 
-					            '        <div class="title">' + 
-					            '            카카오 스페이스닷원' + 
-					            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-					            '        </div>' + 
-					            '        <div class="body">' + 
-					            '            <div class="desc">' + 
-					            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-					            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-					            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
-					            '            </div>' + 
-					            '        </div>' + 
-					            '    </div>' +    
-					            '</div>';   
-				             
-				             
-				             
-				             
-		             
-		           // 마커 위에 커스텀오버레이를 표시합니다
-		          // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-		          var overlay = new kakao.maps.CustomOverlay({
-		              content: content,
-		              map: map,
-		              position: marker.getPosition()            
-		          });   
-		          
-	       		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-		          kakao.maps.event.addListener(marker, 'click', function() {
-		              
-		              overlay.setMap(map); 
-		          }); 
-	       		
-		       // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-		          
-				             
-			        
-			    
-		     	/* // 마커에 마우스오버 이벤트를 등록합니다
-			    kakao.maps.event.addListener(marker, 'mouseover', function() {
-			          // 마커 위에 인포윈도우를 표시합니다
-			          
-			          alert('게시물 제목 : <c:out value="${list.poTitle}"/>');
-			          
-			    	 //infowindow.open(map, marker);     
-			    });
-		     	
-			 	// 마커에 마우스아웃 이벤트를 등록합니다
-			    kakao.maps.event.addListener(marker, 'mouseout', function() {
-			        // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
-			        infowindow.close(map, marker);
-			    }); */
-				 
-			</c:forEach>
-			
-		} 
-		
-	</script> -->
-	
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도의 중심좌표
-		    mapOption = { 
-		        center: new kakao.maps.LatLng(33.451475, 126.570528), // 지도의 중심좌표
 		        level: 3 // 지도의 확대 레벨
-		    }; 
+		    };
 		
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		
-		
-		
-		<c:forEach items="${list}" var="list" varStatus="status">
-		
-			// 지도에 마커를 표시합니다 
-			var marker = new kakao.maps.Marker({
-			    map: map, 
-			    position: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>')
-			});
-			
-			// 커스텀 오버레이에 표시할 컨텐츠 입니다
-			// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-			// 별도의 이벤트 메소드를 제공하지 않습니다 
-			var content = '<div class="wrap">' + 
-			            '    <div class="info">' + 
-			            '        <div class="title">' + 
-			            '            카카오 스페이스닷원' + 
-			            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-			            '        </div>' + 
-			            '        <div class="body">' + 
-			            '            <div class="img">' +
-			            '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
-			            '           </div>' + 
-			            '            <div class="desc">' + 
-			            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-			            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-			            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
-			            '            </div>' + 
-			            '        </div>' + 
-			            '    </div>' +    
-			            '</div>';
-			
-			// 마커 위에 커스텀오버레이를 표시합니다
-			// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-			var overlay = new kakao.maps.CustomOverlay({
-			    content: content,
-			    map: map,
-			    position: marker.getPosition()       
-			});
-			
-			// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-			kakao.maps.event.addListener(marker, 'click', function() {
-			    overlay.setMap(map);
-			});
-			
-			// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-			function closeOverlay() {
-			    overlay.setMap(null);     
-			}
-		</c:forEach>
-		
-		
+		 
+		// 마커를 표시할 위치와 title 객체 배열입니다 
+		var positions = [
+			<c:forEach items="${list}" var="list" varStatus="status">
+			{
+				title : '<c:out value="${list.poTitle}"/>',
+				latlng: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>')
+			},
+			</c:forEach>
+		];
+		  
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	    // 마커 이미지의 이미지 크기 입니다
+	    var imageSize = new kakao.maps.Size(24, 35); 
+	    
+	    // 마커 이미지를 생성합니다    
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);    
+	    
+		for (var i = 0; i < positions.length-1; i ++) {
+		    
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        map: map, // 마커를 표시할 지도
+		        position: positions[i].latlng, // 마커를 표시할 위치
+		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        image : markerImage // 마커 이미지 
+		    });
+		}
 	</script>
+	
 </body>
 </html>
