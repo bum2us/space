@@ -1,14 +1,27 @@
 package com.space.infra.modules.base;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.space.infra.modules.live.Live;
+import com.space.infra.modules.live.LiveServiceImpl;
+import com.space.infra.modules.product.Product;
+import com.space.infra.modules.product.ProductServiceImpl;
+
 
 @Controller
 public class BaseController {
 
+	@Autowired
+	ProductServiceImpl serviceProduct;
+	
+	@Autowired
+	LiveServiceImpl	serviceLive;
 	
 	@RequestMapping(value="")
 	public String index() throws Exception{		
@@ -25,6 +38,7 @@ public class BaseController {
 	@RequestMapping(value="home")
 	public String home(Model model) throws Exception  {
 		
+		//메인화면 배너 변경용 랜덤수 생성
 		int rnd = 0;
 		
 		while(1 > rnd || rnd > 3){
@@ -34,6 +48,14 @@ public class BaseController {
 		}
 		
 		model.addAttribute("no", rnd);
+		
+		//중고거래 물품 리스트 출력
+		  
+		List<Product> productList = serviceProduct.selectListForHome();
+		model.addAttribute("productList", productList);
+		
+		List<Live> liveList = serviceLive.selectListForHome();
+		model.addAttribute("liveList", liveList);
 		
 		return "infra/home/user/home";
 	}
@@ -49,5 +71,6 @@ public class BaseController {
 		
 		return "infra/post/user/postList";
 	}
+	
 	
 }
