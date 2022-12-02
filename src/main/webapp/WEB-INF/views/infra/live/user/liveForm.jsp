@@ -225,7 +225,7 @@
 	    var room;  	
 	    
 	    createLiveRoom = function () {
-	    	/*
+	    	
 	        ConnectLive.createLocalMedia({
 	
 	            audio: true,
@@ -255,7 +255,7 @@
 	            });
 	    	    
 	        });
-	        */
+	        
 	        
 	        $.ajax({
 	        	url: '/live/inst'
