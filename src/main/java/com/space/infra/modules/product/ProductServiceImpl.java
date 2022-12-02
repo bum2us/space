@@ -70,21 +70,22 @@ public class ProductServiceImpl implements ProductService{
 		
 		if(result.getUpPath() == null) {
 			result.setUpPath("/resources/images/");
-			result.setUpUuidName("empty.png");
+			result.setUpUuidName("empty.png"); 
 		}
 		
 		return result;
 	}
-
+ 
 	@Override
 	public List<Product> selectImgFromProduct(Product dto) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.selectImgFromProduct(dto);
 	}
 
-	
-
-	
-
+	@Override
+	public List<Product> selectListForHome() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectListForHome(); 
+	}
 	
 }

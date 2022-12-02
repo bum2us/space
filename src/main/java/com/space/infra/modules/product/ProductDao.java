@@ -33,4 +33,6 @@ public class ProductDao {
 
 	public List<Product> selectImgFromProduct(Product dto) { return sqlSession.selectList(namesapce+".selectImgFromProduct", dto); }
 
+	public List<Product> selectListForHome() { return sqlSession.selectList(namesapce + ".selectListForHome"); }
+
 }

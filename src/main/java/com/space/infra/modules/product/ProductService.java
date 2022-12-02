@@ -11,4 +11,5 @@ public interface ProductService {
 	public List<Product> selectSaleListFromMember(Product dto)throws Exception;
 	public Product selectOneProduct(Product dto) throws Exception;
 	public List<Product> selectImgFromProduct(Product dto)throws Exception;
+	public List<Product> selectListForHome()throws Exception;
 }

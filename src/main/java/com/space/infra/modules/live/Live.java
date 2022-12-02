@@ -4,11 +4,14 @@ public class Live{
 
 	private Integer liveSeq;
 	private Integer liveState;
-	private Integer liveDelNy;
 	private Integer liveProductSeq;
 	private String liveTitle;
 	private String liveStartDate;
-	private String liveCreateDate;
+	private String liveCode;
+	
+	private String mmNickName;
+	private String upPath;
+	private String upUuidName;
 	
 	public Integer getLiveSeq() {
 		return liveSeq;
@@ -21,12 +24,6 @@ public class Live{
 	}
 	public void setLiveState(Integer liveState) {
 		this.liveState = liveState;
-	}
-	public Integer getLiveDelNy() {
-		return liveDelNy;
-	}
-	public void setLiveDelNy(Integer liveDelNy) {
-		this.liveDelNy = liveDelNy;
 	}
 	public Integer getLiveProductSeq() {
 		return liveProductSeq;
@@ -46,12 +43,33 @@ public class Live{
 	public void setLiveStartDate(String liveStartDate) {
 		this.liveStartDate = liveStartDate;
 	}
-	public String getLiveCreateDate() {
-		return liveCreateDate;
+	public String getLiveCode() {
+		return liveCode;
 	}
-	public void setLiveCreateDate(String liveCreateDate) {
-		this.liveCreateDate = liveCreateDate;
+	public void setLiveCode(String liveCode) {
+		this.liveCode = liveCode;
 	}
+	
+	
+	public String getMmNickName() {
+		return mmNickName;
+	}
+	public void setMmNickName(String mmNickName) {
+		this.mmNickName = mmNickName;
+	}
+	public String getUpPath() {
+		return upPath;
+	}
+	public void setUpPath(String upPath) {
+		this.upPath = upPath;
+	}
+	public String getUpUuidName() {
+		return upUuidName;
+	}
+	public void setUpUuidName(String upUuidName) {
+		this.upUuidName = upUuidName;
+	}
+	
 	
 	
 }

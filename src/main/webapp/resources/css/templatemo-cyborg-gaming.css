@@ -1052,11 +1052,10 @@ Featured Games Style
 .featured-games .item .thumb {
   position: relative;
   overflow: hidden;
-}
+} 
 .featured-games .item .thumb img {
-	width:180px;
-	height:360px;
-	
+	width:100%;
+	height:350px; 
 }
 .featured-games .item .thumb .hover-effect {
   position: absolute;
@@ -1346,7 +1345,6 @@ Live Stream Style
   margin-top: 8px;
   font-size: 20px;
   font-weight: 700;
-  margin-left: 61px;
 }
 
 .live-stream .main-button {

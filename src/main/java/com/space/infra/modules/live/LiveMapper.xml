@@ -8,6 +8,27 @@
 
     <resultMap id="resultMapObj" type="com.space.infra.modules.live.Live"></resultMap>
     
+    <select id="selectListForHome" resultMap="resultMapObj">
+    	SELECT
+    		lv.liveSeq
+    		,lv.liveTitle
+    		,lv.liveCode
+    		,mm.mmNickName
+    		,upd.upPath
+    		,upd.upUuidName
+    	FROM live lv
+    	JOIN product pd
+    	ON lv.liveProductSeq = pd.pdSeq
+    	JOIN uploadedProduct upd
+    	ON lv.liveProductSeq = upd.upProductSeq
+    	AND upd.upDefaultNy = 1
+    	JOIN member mm
+    	ON pd.pdSeller = mm.mmSeq
+    	WHERE 1=1
+    	AND lv.liveState = 1
+    	LIMIT 5
+    </select>
+    
     <select id="selectListCount" resultType="Integer">
     	SELECT
     		COUNT(*)

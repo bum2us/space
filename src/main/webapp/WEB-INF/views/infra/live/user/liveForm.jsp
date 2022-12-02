@@ -225,6 +225,7 @@
 	    var room;  	
 	    
 	    createLiveRoom = function () {
+	    	/*
 	        ConnectLive.createLocalMedia({
 	
 	            audio: true,
@@ -254,8 +255,8 @@
 	            });
 	    	    
 	        });
-	       
-	        /*
+	        */
+	        
 	        $.ajax({
 	        	url: '/live/inst'
 	        	,type: 'POST'
@@ -272,7 +273,7 @@
 	        		alert("ajax error..!");
 	        	}
 	        });
-			*/
+			
 	    };
 	
 	    exitRoom = function () {

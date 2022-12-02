@@ -28,5 +28,13 @@ public class LiveServiceImpl implements LiveService{
 	public void insert(Live dto) throws Exception {
 		// TODO Auto-generated method stub
 		dao.insert(dto);
-	}	
+	}
+
+	@Override
+	public List<Live> selectListForHome() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectListForHome();
+	}
+
+	
 }

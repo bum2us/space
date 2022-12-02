@@ -15,11 +15,13 @@ public class LiveDao {
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
 	
-	private String namesapce="com.space.infra.modules.live.LiveMapper";
+	private String namespace="com.space.infra.modules.live.LiveMapper";
 
-	public Integer selectListCount(LiveVo vo) { return sqlSession.selectOne(namesapce+".selectListCount", vo); }
+	public Integer selectListCount(LiveVo vo) { return sqlSession.selectOne(namespace+".selectListCount", vo); }
 
-	public List<Live> selectList(LiveVo vo) { return sqlSession.selectList(namesapce+".selectList", vo); }
+	public List<Live> selectList(LiveVo vo) { return sqlSession.selectList(namespace+".selectList", vo); }
 
-	public void insert(Live dto) { sqlSession.insert(namesapce + ".insert", dto); } 
+	public void insert(Live dto) { sqlSession.insert(namespace + ".insert", dto); }
+
+	public List<Live> selectListForHome() { return sqlSession.selectList(namespace+".selectListForHome"); } 
 }

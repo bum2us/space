@@ -9,4 +9,6 @@ public interface LiveService {
 	public Integer selectListCount(LiveVo vo) throws Exception;
 	
 	public void insert(Live dto) throws Exception;
+	
+	public List<Live>  selectListForHome() throws Exception;
 }
