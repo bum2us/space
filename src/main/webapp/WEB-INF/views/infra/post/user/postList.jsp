@@ -171,20 +171,37 @@
 	</script>
 	
 	<script>
+	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		    mapOption = { 
 		        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-		        level: 3 // 지도의 확대 레벨
+		        level: 4 // 지도의 확대 레벨
 		    };
 		
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		 
-		// 마커를 표시할 위치와 title 객체 배열입니다 
+		
+		// 마커를 표시할 위치와 content 객체 배열입니다 
+		// 커스텀 오버레이에 표시할 컨텐츠 입니다
 		var positions = [
 			<c:forEach items="${list}" var="list" varStatus="status">
 			{
-				title : '<c:out value="${list.poTitle}"/>',
-				latlng: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>')
+				content: 
+					'<div class="wrap">' + 
+		            '    <div class="info">' + 
+		            '        <div class="title">' + 
+		            '            <c:out value="${list.poTitle}"/>' + 
+		            '        </div>' + 
+		            '        <div class="body">' + 
+		            '            <div class="desc">' + 
+		            '                <div class="ellipsis"><c:out value="${list.poContent}"/></div>' + 
+		            '                <div class="jibun ellipsis"><c:out value="${list.poAddr}"/></div>' + 
+		            '                <div><a href="#" target="_blank" class="link">자세히</a></div>' + 
+		            '            </div>' + 
+		            '        </div>' + 
+		            '    </div>' +    
+		            '</div>',
+				latlng: new kakao.maps.LatLng('<c:out value="${list.poLat}"/>', '<c:out value="${list.poLng}"/>'),
+				seq: '<c:out value="${list.poSeq}"/>'
 			},
 			</c:forEach>
 		];
@@ -195,17 +212,43 @@
 	    var imageSize = new kakao.maps.Size(24, 35); 
 	    
 	    // 마커 이미지를 생성합니다    
-	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);    
-	    
-		for (var i = 0; i < positions.length-1; i ++) {
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
+
+		for (var i = 0; i < positions.length; i ++) {
 		    
 		    // 마커를 생성합니다
 		    var marker = new kakao.maps.Marker({
 		        map: map, // 마커를 표시할 지도
 		        position: positions[i].latlng, // 마커를 표시할 위치
-		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 		        image : markerImage // 마커 이미지 
 		    });
+		 	
+			 // 마커 위에 커스텀오버레이를 표시합니다
+			 // 마커를 중심으로 커스텀오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+			 var customOverlay = new kakao.maps.CustomOverlay({
+			     content: positions[i].content, // 커스텀오버레이에 표시할 내용
+			     position: marker.getPosition()  // 커스텀오버레이를 표시할 위치 
+			 });
+			 
+			// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+		    // 이벤트 리스너로는 함수를 만들어 등록합니다 
+		    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+		    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, customOverlay));
+		    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(customOverlay));
+		    
+		 	// 커스텀오버레이를 표시하는 클로저를 만드는 함수입니다 
+			function makeOverListener(map, marker, customOverlay) {
+			    return function() {
+			    	customOverlay.setMap(map);
+			    };
+			}
+
+			// 커스텀오버레이를 닫는 클로저를 만드는 함수입니다 
+			function makeOutListener(customOverlay) {
+			    return function() {
+			    	customOverlay.setMap(null);
+			    };
+			}
 		}
 	</script>
 	
