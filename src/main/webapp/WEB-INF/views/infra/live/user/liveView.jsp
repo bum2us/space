@@ -139,6 +139,7 @@
 	<div class="container">
 	    <div class="page-content">
 			<form id="mainForm">
+				<input type="hidden" id="liveChat" value="${item.liveSeq }">
                 <div class="details">
                     <div class="left" id="videoView" style="overflow:hidden;">
                     	<div class="productInfo">
@@ -183,7 +184,7 @@
                         </div>
                     </div>
                     <div class="right">
-                        <div class="chatBox slimscroll">
+                        <div id="chatBox" class="chatBox slimscroll">
 
                             
 							<!-- 
@@ -198,12 +199,12 @@
                                     </div>
                                 </div>
                             </div>
-                            -->
+                            --> 
                            
                         </div>
                         <div class="chatInput">
-                            <textarea name="" id="" cols="27" rows="1" placeholder="type message.."></textarea>
-                            <i style="font-size:12pt; cursor:pointer; color:#E75E8D;"
+                            <textarea name="" id="chatMessage" cols="27" rows="1" placeholder="type message.."></textarea>
+                            <i id="sendBtn" style="font-size:12pt; cursor:pointer; color:#E75E8D;"
                                 class="fa-solid fa-paper-plane"></i>
                         </div>
                     </div>
@@ -271,14 +272,106 @@
 	        console.log('인증에 실패했습니다.');
 	        return;
 	    });
-	    	 
-    	 
-	   
-	    
-	    
-	    
-	    
 		
+	</script>
+	
+	<script type="module">
+
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+		// Initialize Firebase
+		const firebaseConfig = {
+   	 	apiKey: "AIzaSyCUPJTu3ADXESoGCbQs1QOnXCVvcxE3x5E",
+    	authDomain: "my-chat-77e35.firebaseapp.com",
+   	 	databaseURL: "https://my-chat-77e35-default-rtdb.firebaseio.com",
+    	projectId: "my-chat-77e35",
+    	storageBucket: "my-chat-77e35.appspot.com",
+    	messagingSenderId: "1052311956304",
+    	appId: "1:1052311956304:web:59304bc4496a0db7831a55"
+  		};
+
+		const app = initializeApp(firebaseConfig);
+
+		import { getDatabase, ref, set, onValue }	from "https://www.gstatic.com/firebasejs/9.12.1/firebase-database.js";
+	
+		const db = getDatabase();
+
+		function sendMessage(){
+
+			var room = $("#liveChat").val();
+
+			var message = $("#chatMessage").val();
+
+			//메시지 입력창 초기화
+			$("#chatMessage").val("");
+		
+			//새 메세지 추가하면 채팅방에 이전 기록도 다시 다 불러와서 한번 비워줌
+			$("#chatBox").html(""); 	
+	 
+			//새 메세지를 Firebase / realtime database / live / 채팅방seq / 시간대 / 작성자 / 메세지에 입력합니다.
+			set(ref(db,'live/'+room+'/'+getnow()+'/'+${sessNickName} ),{
+				Masseage: message
+			})
+
+			//스크롤을 제일 아래로 유지
+			$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+	};
+
+	function readMessage(){
+
+		const room = $("#liveChat").val();
+		
+		const dbRef = ref(db, 'live/'+room);
+		const txt = "";
+        onValue(dbRef,(snapshot) => {
+            if(snapshot.key == $("#liveChat").val()){
+				//채팅을 누르면 기존 채팅은 지우고 새로 불러오게
+				$("#chatBox").html("");
+                snapshot.forEach((childSnapshot) => {
+                    const timetable = childSnapshot.key;
+                    console.log(timetable); 
+                    onValue(ref(db,'live/'+room+'/'+timetable),(snapshot2) => {
+                        snapshot2.forEach((childSnapshot2) => {
+                            const writer = childSnapshot2.key
+                            console.log(writer);
+                        
+                            onValue(ref(db,'live/'+room+'/'+timetable+'/'+writer),(snapshot3) => {
+                                snapshot3.forEach((childSnapshot3) => {
+                                        const message = childSnapshot3.val()
+                                        console.log(message);
+                                            
+                                        var txt = '';
+
+                                        txt+= '<div class="chat"><div class="row"><div class="col-1"><img src="../images/empty.png" alt="" style="width:20px; height:20px; border-radius:50%;"></div><div class="col" style="padding: 2px; margin-left: 10px;">';
+                                        txt+= '<span class="message"><span class="user">';
+                                        txt+= writer;
+                                        txt+= '</span>';
+                                        txt+= message;
+                                        txt+= '</span></div></div></div>';
+
+                                        $("#chatBox").append(txt);
+                                        $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+                                    });
+                                }); 
+                            }); 
+                        });
+                    });
+                 }		
+            });	
+	};
+
+	$("#sendBtn").click(function(){
+		sendMessage();
+	});
+
+	$(window).on("load",function(){
+		readMessage();
+	});
+
+	function getTimeFormat(timetable){
+		//221105080634 
+		return timetable.substring(0,2)+"-"+timetable.substring(2,4)+"-"+timetable.substring(4,6)+" "+timetable.substring(6,8)+":"+timetable.substring(8,10)+":"+timetable.substring(10,12);	
+	};
+
 	</script>	
 </body>
 </html>

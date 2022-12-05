@@ -73,6 +73,8 @@ public class LiveController {
 		
 		service.insert(dto);
 		
+		result.put("seq", dto.getLiveSeq());
+		
 		return result;
 	}
 	

@@ -119,6 +119,9 @@
 			,#{liveProductSeq}
 			,#{liveCode}
 		)
+		<selectKey resultType="Integer" keyProperty="liveSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
     
 </mapper> 

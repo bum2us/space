@@ -140,6 +140,7 @@
 	        <form id="mainForm">
 	        	<input type="hidden" id="liveCode" name="liveCode" value="${code }">
 	        	<input type="hidden" id="liveProductSeq" name="liveProductSeq" value="${product.pdSeq }">
+	        	<input type="hidden" id="liveChat">
 	        	<div class="row settingArea">  
                     <input style="width:65%;" type="text" id="liveTitle" name="liveTitle" placeholder="LIVE 제목">
                     <button class="base-button" style="width:15%; height: 45px; border-radius: 10px; padding: 10px; margin-top: 3px;" type="button" onclick="createLiveRoom()">시작하기</button>
@@ -166,7 +167,7 @@
                         <!-- 영상 출력 화면 -->
                     </div>
                     <div class="right">
-                        <div class="chatBox slimscroll">
+                        <div id="chatBox" class="chatBox slimscroll">
 
                             <!-- 
                             <div class="chat">
@@ -184,8 +185,8 @@
 
                         </div>
                         <div class="chatInput">
-                            <textarea name="" id="" cols="27" rows="1" placeholder="type message.."></textarea>
-                            <i style="font-size:12pt; cursor:pointer; color:#E75E8D;"
+                            <textarea name="" id="chatMessage" cols="27" rows="1" placeholder="type message.."></textarea>
+                            <i id="sendBtn" style="font-size:12pt; cursor:pointer; color:#E75E8D;"
                                 class="fa-solid fa-paper-plane"></i>
                         </div>
                     </div>
@@ -268,6 +269,7 @@
 	        	},
 	        	success:function(rt){
 	        		console.log("라이브 시작");
+	        		$("#liveChat").val(rt.seq);
 	        	}, 
 	        	error:function(){
 	        		alert("ajax error..!");
