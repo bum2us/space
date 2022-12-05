@@ -93,7 +93,8 @@
 </head> 
 <body>  
 	 <div class="container-md" style="width:40%">  
-	    <form method="POST" id="mainForm" enctype="multipart/form-data"> 
+	    <form method="POST" id="mainForm" enctype="multipart/form-data">
+	    	<input type="hidden"  id="phonecheckcode"> 
 	        <div class="row jutify-content-center"> 
 	            <div class="col text-center" style=" padding: 10px;">
 	                <img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">
@@ -165,15 +166,16 @@
 	                 		</select>
 	                 	</div>
 	                 	<div class="col"> 
-	                		<input type="text" name="mmPhone" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
-	                		<button style="right:7%;" id="checkPhone" class="spaceBtnInner" type="button" onclick="checkPhone()">인증요청</button>    
+	                		<input type="text" name="mmPhone" id="mmPhone" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
+	                		<button style="right:7%;" id="checkPhone" class="spaceBtnInner" type="button">인증요청</button>    
 	                	</div>
 	                </div>
 	                <div class="row my-3">
 	                	<div class="col" style="position:relative;">  
 	                		<input type="text" id="checkCode" placeholder="인증번호 6자리를 입력해주세요">
-	                		<button class="spaceBtnInner" id="authNumb" type="button" onclick="">인증확인</button>        
+	                		<button class="spaceBtnInner" id="authNumb" type="button">인증확인</button>        
 	                	</div>  
+	                	<span id="phone_check"></span>
 	                </div> 
 	                <div class="row justify-content-center mt-4">   
 	                	<div class="col text-center">
@@ -214,8 +216,6 @@
 		}
 	</script>
 	<script>
-		/* 휴대전화 인증 */
-		
 		$("#checkPhone").on("click", function() {
 			
 			$.ajax({
@@ -223,7 +223,7 @@
 				,type:"post"
 				,dataType:"json"
 				,data: {
-					phoneNumber : $("#mmPhone").val()
+					mmPhone : $("#mmPhone").val()
 				}
 				,success : function(result) {
 					$("#phonecheckcode").val(result.code);
@@ -237,13 +237,11 @@
 		
 		$("#authNumb").on("click", function(){
 			if($('#checkCode').val() == $('#phonecheckcode').val()) {
-				alert("인증번호");
-				$("#checkCode").text($("#checkCode").val() + "인증번호가 일치합니다.");
-				$("#checkCode").css("color", "lightgreen");	
+				$("#phone_check").text("인증번호가 일치합니다.");
+				$("#phone_check").css("color", "lightgreen");	
 			} else {
-				alert("인증번호");
-				$("#checkCode").text($("#checkCode").val() + "인증번호가 일치하지 않습니다.");
-				$("#checkCode").css("color", "red");
+				$("#phone_check").text("인증번호가 일치하지 않습니다.");
+				$("#phone_check").css("color", "red");
 				$('#checkCode').val(""); 
 				$('#checkCode').focus(); 
 				return false; 
