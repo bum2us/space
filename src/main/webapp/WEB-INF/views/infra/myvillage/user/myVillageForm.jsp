@@ -55,7 +55,7 @@
 	              	<div class="row justify-content-center p-2">
 						<div class="col-8">
 							<div class="form-check form-switch">
-								<input class="form-check-input" type="checkbox" role="switch" value="1" name="mvDefaultNy" id="mvDefaultNy" checked>
+								<input class="form-check-input" type="checkbox" role="switch" value="1" name="mvDefaultNy" id="mvDefaultNy" <c:if test="${result.mvDefaultNy eq 1}">checked</c:if>>
 								<label class="form-check-label" for="mvDefaultNy">기본으로 설정</label>
 							</div>	
 						</div>
@@ -75,13 +75,7 @@
 							<input type="text" class="form-control" id="mvName" name="mvName" value="${result.mvName}" style="height: 47px;">
 						</div>	
 					</div>
-					<div class="row justify-content-center p-2 mb-3">
-						<div class="col-8 text-center">	
-							<div id="box" style="width:600px;height:400px;margin-top:10px;border:1px;display:block;"></div>
-		               		<div id="map" style="width:600px;height:400px;margin-top:10px;display:none;"></div> 
-						</div>	
-		            </div> 
-		            <div class="col-lg-12 text-center" style="justify-content: between;">
+		            <div class="col-lg-12 text-center mt-5" style="justify-content: between;">
 			             <button type="button" class="base-button" onclick="btnSubmit()">등록</button>
 			             <button type="button" class="base-border-button" onclick="location.href='/myVillage/list'">취소</button>
 		            </div>
@@ -147,21 +141,7 @@
 	                // 주소로 상세 정보를 검색
 	                geocoder.addressSearch(data.address, function(results, status) {
 	                    // 정상적으로 검색이 완료됐으면
-	                    if (status === daum.maps.services.Status.OK) {
-	
-	                        var result = results[0]; //첫번째 결과의 값을 활용
-	
-	                        // 해당 주소에 대한 좌표를 받아서
-	                        var coords = new daum.maps.LatLng(result.y, result.x);
-	                        // 지도를 보여준다.
-	                        boxContainer.style.display = "none";
-	                        mapContainer.style.display = "block";
-	                        map.relayout();
-	                        // 지도 중심을 변경한다.
-	                        map.setCenter(coords);
-	                        // 마커를 결과값으로 받은 위치로 옮긴다.
-	                        marker.setPosition(coords)
-	                    }
+	          
 	                });
 	            }
 	        }).open();
