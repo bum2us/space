@@ -273,6 +273,23 @@
 	        return;
 	    });
 		
+		
+		getnow = function() {
+			
+			var timestamp = new Date().getTime();
+			
+			var date = new Date(timestamp); //타임스탬프를 인자로 받아 Date 객체 생성
+			
+			var year = date.getFullYear().toString().slice(-2); //년도 뒤에 두자리
+			var month = ("0" + (date.getMonth() + 1)).slice(-2); //월 2자리 (01, 02 ... 12)
+			var day = ("0" + date.getDate()).slice(-2); //일 2자리 (01, 02 ... 31)
+			var hour = ("0" + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
+			var minute = ("0" + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
+			var second = ("0" + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59)
+			
+			return year+month+day+hour+minute+second;
+		}; 
+		
 	</script>
 	
 	<script type="module">
