@@ -360,7 +360,7 @@
                                             
                                         var txt = '';
 
-                                        txt+= '<div class="chat"><div class="row"><div class="col-1"><img src="../images/empty.png" alt="" style="width:20px; height:20px; border-radius:50%;"></div><div class="col" style="padding: 2px; margin-left: 10px;">';
+                                        txt+= '<div class="chat"><div class="row"><div class="col-1"><img src="/resources/images/empty.png" alt="" style="width:20px; height:20px; border-radius:50%;"></div><div class="col" style="padding: 2px; margin-left: 10px;">';
                                         txt+= '<span class="message"><span class="user">';
                                         txt+= writer;
                                         txt+= '</span>';
