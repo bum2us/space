@@ -109,7 +109,7 @@ public class MemberController {
 			httpSession.setAttribute("sessSeq",LoginMember.getMmSeq());
 			httpSession.setAttribute("sessId", LoginMember.getMmId());
 			httpSession.setAttribute("sessName", LoginMember.getMmName());
-			httpSession.setAttribute("sessName", LoginMember.getMmNickName());
+			httpSession.setAttribute("sessNickName", LoginMember.getMmNickName());
 			
 			MyVillageVo vo = new MyVillageVo();
 			vo.setMvMemberSeq(LoginMember.getMmSeq());
