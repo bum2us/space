@@ -80,7 +80,21 @@
 		        <div class="page-content">
 		
 		          <!-- ***** 우주지도 Start ***** -->
-		          <div id="map" style="width:100%;height:350px;"></div>
+		          <div class="gaming-library profile-library" style="margin-top: 0px;">
+			          <div class="col-lg-12">
+				          <div class="heading-section">
+			              	<div class="row">
+			              		<div class="col-6">
+					                <h4><em>동네지도</em></h4>
+			              		</div>
+			              		<div class="col-6 text-end">
+			              			<button class="base-button" style="background: #27292a;" type="button" onclick="myPlace()"><i class="fa-solid fa-location-dot"></i></button>
+			              		</div>
+			              	</div>
+			              </div>
+				          <div id="map" style="width:100%;height:350px; border-radius: 25px;"></div>
+				      </div>
+				  </div>
 		          <!-- ***** 우주지도 End ***** -->
 	
 		          <!-- ***** 동네소식 List Start***** -->
@@ -135,13 +149,11 @@
 					  		</c:forEach>
 						  </tbody>
 						</table>
-		              
 		              </div>
-		              
 		            </div>
 		          </div>
 		          <!-- ***** 동네소식 List End ***** -->
-	          
+		          
 	        </div>
 	      </div>
 	    </div>
@@ -193,7 +205,7 @@
 		            '        </div>' + 
 		            '        <div class="body">' + 
 		            '            <div class="desc">' + 
-		            '                <div class="ellipsis"><c:out value="${list.poContent}"/></div>' + 
+		            /* '                <div class="ellipsis"><c:out value="${list.poContent}"/></div>' +  */
 		            '                <div class="jibun ellipsis"><c:out value="${list.poAddr}"/></div>' + 
 		            '                <div><a href="#" target="_blank" class="link">자세히</a></div>' + 
 		            '            </div>' + 
