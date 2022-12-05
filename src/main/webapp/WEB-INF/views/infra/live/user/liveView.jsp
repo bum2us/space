@@ -318,7 +318,7 @@
 
 			var message = $("#chatMessage").val();
 
-			var nickName = ${sessNickName};
+			var nickName = '<c:out value="${sessNickName}"/>'; 
 
 			//메시지 입력창 초기화
 			$("#chatMessage").val("");
