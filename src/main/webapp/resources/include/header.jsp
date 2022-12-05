@@ -6,7 +6,7 @@
         <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="/home" class="logo">
-                <img src="/resources/images/space_logo.png" alt="">
+                <img src="/resources/images/space_logo.png" id="spaceLogo" alt="">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Search End ***** -->

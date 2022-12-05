@@ -133,7 +133,7 @@
 		
 		                <div class="col-lg-12">
 		                    <div class="main-button">
-		                        <a href="streams.html">내 물건 팔기</a>
+		                        <a href="/product/productForm">내 물건 팔기</a>
 		                    </div>
 		                </div>
 		            </div>
@@ -185,7 +185,7 @@
 		                    </div>
 		                    <div class="col-lg-12">
 		                        <div class="main-button">
-		                            <a href="profile.html">Go To Profile</a>
+		                            <a href="#spaceLogo">Go To Top</a>
 		                        </div>
 		                    </div>
 		                </div>
