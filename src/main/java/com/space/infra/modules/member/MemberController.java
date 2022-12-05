@@ -30,7 +30,6 @@ import net.nurigo.sdk.message.service.DefaultMessageService;
 
 @Controller
 @RequestMapping("/member/")
-@SessionAttributes({"tid","dto"})
 public class MemberController {
 	
 	@Autowired
@@ -42,10 +41,6 @@ public class MemberController {
 	@Autowired 
 	MyVillageServiceImpl serviceVillage;
 	
-	@ModelAttribute("dto")
-	public Member setEmptyMember() {
-		return new Member();
-	}
 	
 	@RequestMapping("joinForm")
 	public String joinForm() throws Exception{
@@ -142,57 +137,7 @@ public class MemberController {
 		/* redirect로 해줘야 8081/로 온다 */
 		return "redirect:/";
 	}
-	
-	//카카오페이
-	@ResponseBody
-	@RequestMapping("kakaopayReady")
-	public KakaopayReady kakaopayReady (@ModelAttribute("dto") Member dto, int charge , Model model) throws Exception {
-		KakaopayReady kakaopayReady = service.payReady(dto, charge);
-		model.addAttribute("tid", kakaopayReady.getTid());
-		return kakaopayReady;
-	}
-	
-	@RequestMapping("kakaopayApproval")
-	public String kakaopayApproval (@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid, @ModelAttribute("dto") Member dto, Model model, HttpSession httpSession) throws Exception {
-		
-		KakaopayApproval kakaopayApproval = service.payApprove(tid, pgToken, dto); 
-		
-		ObjectMapper objectMapper = new ObjectMapper();
-		Map<String, Object> map = objectMapper.convertValue(kakaopayApproval, Map.class);
-		
-		for(String key : map.keySet()) {
-			String value = String.valueOf(map.get(key));
-			System.out.println("[key]: " + key + ", [value]: " + value);
-		}
-		
-		Map<String, Object> amount = new HashMap<String, Object>();
-		amount = (Map<String, Object>) map.get("amount");
-		
-		for (String key : amount.keySet()) {
-			String value= String.valueOf(amount.get(key));
-			System.out.println("[key]: " + key + ", [value]: " + value);
-		}
-		
-		model.addAttribute(map);
-		model.addAllAttributes(amount);
-		
-		dto.setMmSeq((Integer)httpSession.getAttribute("sessSeq"));
-			
-		
-		
-		return "redirect:/member/profile";
-	}
-	
-	@RequestMapping("kakaopayCancel")
-	public String kakaopayCancel () throws Exception {
-		return "redirect:/member/profile";
-	}
-	
-	@RequestMapping("kakaopayFail")
-	public String kakaopayFail () throws Exception {
-		return "redirect:/member/profile";
-	}
-	
+
 	//휴대폰 인증
 	@ResponseBody
 	@RequestMapping(value = "checkPhone")

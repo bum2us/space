@@ -1,12 +1,16 @@
-package com.space.infra.modules.member;
+package com.space.infra.modules.kakaopay;
 
 import java.util.Date;
 
-public class KakaopayApproval {
+public class Kakaopay {
 
-	 //response
+	//ready
+	public String tid;
+	public String next_redirect_pc_url;
+	public String created_at;
+	
+	//approval
     private String aid;
-    private String tid; 
     private String cid; 
     private String sid; 
     private String partner_order_id;
@@ -40,20 +44,32 @@ public class KakaopayApproval {
     private Integer quantity;
     private Integer tax_free_amount;
     private Integer vat_amount;
-    private Date created_at;
     private Date approved_at;
     
-	public String getAid() {
-		return aid;
-	}
-	public void setAid(String aid) {
-		this.aid = aid;
-	}
+    
 	public String getTid() {
 		return tid;
 	}
 	public void setTid(String tid) {
 		this.tid = tid;
+	}
+	public String getNext_redirect_pc_url() {
+		return next_redirect_pc_url;
+	}
+	public void setNext_redirect_pc_url(String next_redirect_pc_url) {
+		this.next_redirect_pc_url = next_redirect_pc_url;
+	}
+	public String getCreated_at() {
+		return created_at;
+	}
+	public void setCreated_at(String created_at) {
+		this.created_at = created_at;
+	}
+	public String getAid() {
+		return aid;
+	}
+	public void setAid(String aid) {
+		this.aid = aid;
 	}
 	public String getCid() {
 		return cid;
@@ -228,12 +244,6 @@ public class KakaopayApproval {
 	}
 	public void setVat_amount(Integer vat_amount) {
 		this.vat_amount = vat_amount;
-	}
-	public Date getCreated_at() {
-		return created_at;
-	}
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
 	}
 	public Date getApproved_at() {
 		return approved_at;

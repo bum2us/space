@@ -221,7 +221,7 @@
 				async: true
 				,cach: false
 				,method: "post"
-				,url : "/member/kakaopayReady"
+				,url : "/kakaopay/ready"
 				,data : {
 					charge : $("#chargePrice").val()
 				}
