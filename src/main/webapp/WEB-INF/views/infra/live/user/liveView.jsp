@@ -318,6 +318,8 @@
 
 			var message = $("#chatMessage").val();
 
+			var nickName = ${sessNickName};
+
 			//메시지 입력창 초기화
 			$("#chatMessage").val("");
 		
@@ -325,7 +327,7 @@
 			$("#chatBox").html(""); 	
 	 
 			//새 메세지를 Firebase / realtime database / live / 채팅방seq / 시간대 / 작성자 / 메세지에 입력합니다.
-			set(ref(db,'live/'+room+'/'+getnow()+'/'+${sessNickName} ),{
+			set(ref(db,'live/'+room+'/'+getnow()+'/'+ nickName),{
 				Masseage: message
 			})
 
