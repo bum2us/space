@@ -166,13 +166,13 @@
 	                 	</div>
 	                 	<div class="col"> 
 	                		<input type="text" name="mmPhone" placeholder="휴대폰 번호를 (-) 제외하고 입력해주세요">
-	                		<button style="right:7%;" id="checkPhone" class="spaceBtnInner" type="button" onclick="">인증요청</button>    
+	                		<button style="right:7%;" id="checkPhone" class="spaceBtnInner" type="button" onclick="checkPhone()">인증요청</button>    
 	                	</div>
 	                </div>
 	                <div class="row my-3">
 	                	<div class="col" style="position:relative;">  
 	                		<input type="text" id="checkCode" placeholder="인증번호 6자리를 입력해주세요">
-	                		<button class="spaceBtnInner" type="button" onclick="">인증확인</button>        
+	                		<button class="spaceBtnInner" id="authNumb" type="button" onclick="">인증확인</button>        
 	                	</div>  
 	                </div> 
 	                <div class="row justify-content-center mt-4">   
@@ -223,7 +223,7 @@
 				,type:"post"
 				,dataType:"json"
 				,data: {
-					phoneNumber : $("#phoneNumber").val()
+					phoneNumber : $("#mmPhone").val()
 				}
 				,success : function(result) {
 					$("#phonecheckcode").val(result.code);
@@ -236,14 +236,16 @@
 		});
 		
 		$("#authNumb").on("click", function(){
-			if($('#phCerti').val() == $('#phonecheckcode').val()) {
-				$("#phone_check").text("인증번호가 일치합니다.");
-				$("#phone_check").css("color", "lightgreen");	
+			if($('#checkCode').val() == $('#phonecheckcode').val()) {
+				alert("인증번호");
+				$("#checkCode").text($("#checkCode").val() + "인증번호가 일치합니다.");
+				$("#checkCode").css("color", "lightgreen");	
 			} else {
-				$("#phone_check").text("인증번호가 일치하지 않습니다.");
-				$("#phone_check").css("color", "red");
-				$('#phCerti').val(""); 
-				$('#phCerti').focus(); 
+				alert("인증번호");
+				$("#checkCode").text($("#checkCode").val() + "인증번호가 일치하지 않습니다.");
+				$("#checkCode").css("color", "red");
+				$('#checkCode').val(""); 
+				$('#checkCode').focus(); 
 				return false; 
 			}
 		});
