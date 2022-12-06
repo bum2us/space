@@ -194,7 +194,7 @@
 <body>
 	<form id="mainForm" method="POST">
 		<!-- index에서 받아온 seq에 따라 user/admin 로그인 분류 -->
-		<input type="hidden" id="mmAdminNy" value="${loginCheck.xdminNy}">
+		<input type="hidden" id="mmAdminNy" name="xdminNy" value="${loginCheck.xdminNy}">
 		<div class="container-md">
 			<div class="row jutify-content-center">  
 				<div class="col text-center" style=" padding: 10px;">  
@@ -224,7 +224,7 @@
 						</div>
 						<div class="links">
 							<a href="#">Find ID/Password</a>
-							<a href="/member/joinForm">Signup</a> 
+							<a style="cursor: pointer;" onclick="signUp()">Signup</a> 
 						</div>
 						<button class="main-button" type="button" onclick="login()">Login</button>  
 					</div>
@@ -269,8 +269,12 @@
 				}
 			});
 			
+		};
+		
+		/* adminNy값을 가져가기 위해 form attr 해줌 */
+		signUp = function() {
+			$("#mainForm").attr("action", "/member/joinForm").submit();
 		}
-	
 	</script>	
 </body>
 </html>

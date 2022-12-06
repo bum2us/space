@@ -154,7 +154,7 @@
 		                                    style="max-width: 60px; border-radius: 50%;">
 		                            </div>
 		                            <h4>정우경</h4>
-		                            <p>유저에게 도움이되는 서비스를 만드는 개발자</p>
+		                            <p>우주개발자</p>
 		                            <h6>개별프로젝트</h6>
 		                            <a href="http://3.37.61.229" style="color:#E75E8D;" target="_blank">SportsMate</a>
 		                        </div>

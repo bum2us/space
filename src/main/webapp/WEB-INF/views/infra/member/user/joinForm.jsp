@@ -95,6 +95,9 @@
 	 <div class="container-md" style="width:40%">  
 	    <form method="POST" id="mainForm" enctype="multipart/form-data">
 	    	<input type="hidden"  id="phonecheckcode"> 
+	    	<!-- index에서 받아온 seq에 따라 user/admin 로그인 분류 -->
+	    	<!-- joinForm에도 있어야 회원가입 후 다시 index로 나가지 안아도 됨 -->
+	    	<input type="hidden" id="mmAdminNy" name="xdminNy" value="${loginCheck.xdminNy}">
 	        <div class="row jutify-content-center"> 
 	            <div class="col text-center" style=" padding: 10px;">
 	                <img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">
@@ -172,7 +175,7 @@
 	                </div>
 	                <div class="row my-3">
 	                	<div class="col" style="position:relative;">  
-	                		<input type="text" id="checkCode" placeholder="인증번호 6자리를 입력해주세요">
+	                		<input type="text" id="checkCode" placeholder="인증번호 5자리를 입력해주세요">
 	                		<button class="spaceBtnInner" id="authNumb" type="button">인증확인</button>        
 	                	</div>  
 	                	<span id="phone_check"></span>
@@ -198,6 +201,16 @@
 	
 	<script>
 		goForm = function(){
+			
+			if ($("#checkCode").val == null || $("#checkCode").val == "") {
+				alert("휴대전화 인증을 진행주세요.");
+				
+				$("#checkCode").val() = "";
+				$("#checkCode").focus();
+				
+				return false;				
+			}
+			
 			$("#mainForm").attr("action","memberInst").submit();
 		}
 	
@@ -247,6 +260,8 @@
 				return false; 
 			}
 		});
+		
+		
 	</script>
 </body>
 </html>

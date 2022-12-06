@@ -272,7 +272,7 @@
 			} else {
 				form.attr("action", "/post/postView").submit();
 			}
-		}
+		};
 		
 		/* 이미지 파일 첨부 */
 	    upload = function(objName) {
@@ -357,7 +357,7 @@
 	                document.getElementById("poAddr").value = addr;
 	            }
 	        }).open();
-	    }
+	    };
 	</script>
 </body>
 </html>

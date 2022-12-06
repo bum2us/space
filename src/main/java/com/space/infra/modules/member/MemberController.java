@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.space.infra.modules.base.Base;
 import com.space.infra.modules.myvillage.MyVillage;
 import com.space.infra.modules.myvillage.MyVillageServiceImpl;
 import com.space.infra.modules.myvillage.MyVillageVo;
@@ -40,13 +41,13 @@ public class MemberController {
 	
 	
 	@RequestMapping("joinForm")
-	public String joinForm() throws Exception{
+	public String joinForm(@ModelAttribute("loginCheck")Base dto) throws Exception{
 		
 		return "infra/member/user/joinForm";
 	}
 	
 	@RequestMapping("memberInst")
-	public String memberInst(Member dto) throws Exception{
+	public String memberInst(Member dto, @ModelAttribute("loginCheck")Base base) throws Exception{
 		
 		service.insert(dto);
 		
@@ -154,7 +155,7 @@ public class MemberController {
 		System.out.println("dto.getMmPhone : " + dto.getMmPhone());
 		message.setFrom("01084547909");
 		message.setTo(dto.getMmPhone());
-		message.setText("인증번호 : " + rndNumber);
+		message.setText("[우주마켓] 휴대전화 인증번호는 " + "[" + rndNumber + "]" + "입니다.");
 
 		try {
 		  // send 메소드로 ArrayList<Message> 객체를 넣어도 동작합니다!

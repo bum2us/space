@@ -21,9 +21,13 @@
 		    ,poCreateDate
 		    ,poAddr
 		FROM post po
-		JOIN member mm on mm.mmSeq = po.poWriter
+		JOIN uploadedPost uppo
+		ON po.poSeq = uppo.upPostSeq
+		AND uppo.upDefaultNy = 1
+		AND uppo.upDelNy = 0
+		<!-- JOIN member mm on mm.mmSeq = po.poWriter
 			AND mmDelNy = 0
-			AND mmAdminNy = 0
+			AND mmAdminNy = 0 -->
 		WHERE 1=1
 			AND poDelNy = 0
 		ORDER BY poSeq DESC
