@@ -22,7 +22,7 @@ public class UtilUpload {
 		//String path = "D://factory/ws_sts_4151/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		//EC2 서버용
 		//String path = "C://factory/WS_STS_4151/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
-		String path = "/01_DEV/wsEzen/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+		String path = "/01_DEV/wsEzen/space/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";
 		
 		createPath(path); //위에서 정의한 경로를 생성해주는 메소드
@@ -47,7 +47,7 @@ public class UtilUpload {
 		String pathModule = className;
 		String nowString = UtilDateTime.nowString();
 		String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10);
-		String path = "/01_DEV/wsEzen/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+		String path = "/01_DEV/wsEzen/space/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		//String path = "C://factory/WS_STS_4151/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";
 		
@@ -74,7 +74,7 @@ public class UtilUpload {
 		String nowString = UtilDateTime.nowString(); 
 		String pathDate = nowString.substring(0,4) + "/" + nowString.substring(5,7) + "/" + nowString.substring(8,10); 
 		//String path = "C://factory/WS_STS_4151/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
-		String path = "/01_DEV/wsEzen/space/src/main/webapp/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
+		String path = "/01_DEV/wsEzen/space/resources/uploaded" + "/" + pathModule + "/" + pathDate + "/";
 		//EC2 서버용 
 		String pathForView = "/resources/uploaded/" + pathModule + "/" + pathDate + "/";
 		 
