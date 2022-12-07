@@ -42,7 +42,7 @@ public class MyVillageController {
 		 
 		 httpSession.setAttribute("sessVillage", dto.getMvName());
 		 
-		 return "redirect:/myVillage/form";
+		 return "redirect:/myVillage/list";
 	 } 
 	 
 	 @RequestMapping(value="updt")

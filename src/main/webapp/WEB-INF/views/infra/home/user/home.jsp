@@ -67,13 +67,13 @@
 		            <div class="col-lg">
 		                <div class="featured-games header-text">
 		                    <div class="heading-section">
-		                        <h4><em>진행중인</em> Live</h4>
+		                        <h4><em>진행중인</em> LIVE</h4>
 		                    </div>
 	                    	<c:choose>
 			                    <c:when test = "${fn:length(liveList) eq 0}">
-		                    		<div class="row justify-content-center mb-3 mt-3">
+		                    		<div class="row justify-content-center mb-5 mt-3">
 		                    			<div class="col-12 text-center">
-		                    				<span style="font-size: 20px;">진행중인 Live 가 없습니다.</span> 
+		                    				<span style="font-size: 20px;">진행중인 <strong style="color:#ec6090;">LIVE</strong> 가 없습니다.</span> 
 		                    			</div>
 		                    		</div>
 		                    	</c:when>
@@ -106,7 +106,7 @@
 		        <div class="live-stream">
 		            <div class="col-lg-12">
 		                <div class="heading-section">
-		                    <h4><em>지금</em>Hot<em>한 상품</em></h4>
+		                    <h4><em>지금</em>HOT<em>한 상품</em></h4>
 		                </div> 
 		            </div>
 		            <div class="row"> 

@@ -20,7 +20,7 @@
             <!-- ***** Search End ***** -->
             <!-- ***** Menu Start ***** --> 
             <ul class="nav">
-                <li><a href="">Live</a></li>
+                <li><a href="">LIVE</a></li>
                 <li><a href="/product/productList">중고거래</a></li>
                 <li><a href="/post/postList">동네소식</a></li>
                 <li><a href="/chat/">채팅</a></li>
