@@ -119,7 +119,7 @@
 						      <th>동네</th>
 						      <th>카테고리</th>
 						      <th>제목</th>
-						      <th>댓글(수)</th>
+						      <!-- <th>댓글(수)</th> -->
 						      <th>작성일자</th>
 						    </tr>
 						  </thead>
@@ -127,7 +127,7 @@
 						  	<c:choose>
 					  			<c:when test="${fn:length(list) eq 0}">
 					  				<tr>
-					  					<td colspan="7">동네 소식이 없습니다!</td>
+					  					<td colspan="7">동네 소식이 없습니다.</td>
 					  				</tr>
 					  			</c:when>
 						  	</c:choose>
@@ -142,7 +142,7 @@
 							  			</c:forEach>
 						  			</td>
 						  			<td><c:out value="${list.poTitle }"/></td>
-						  			<td>7</td>
+						  			<!-- <td>7</td> -->
 						  			<%-- <td><c:out value="${list.poComment }"/></td> --%>
 						  			<td><c:out value="${list.poCreateDate}"/></td>
 						  		</tr>
@@ -165,7 +165,7 @@
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efddea1f7d5df9c3c3197204f57f2cc1"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efddea1f7d5df9c3c3197204f57f2cc1&libraries=services"></script>
 	<script>
 		/* list 선택해서 view로 가기 */
 		/* var form = $("#mainForm");
@@ -265,15 +265,14 @@
 			}
 		}
 		
-		// 주소-좌표 변환 객체를 생성합니다
+		
+		/* // 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
 		
-		console.log(sessVillageOrName);
 		
 		// 주소로 좌표를 검색합니다
 		geocoder.addressSearch(sessVillageOrName, function(result, status) {
 			
-
 		    // 정상적으로 검색이 완료됐으면 
 		     if (status === kakao.maps.services.Status.OK) {
 
@@ -294,7 +293,7 @@
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
 		    } 
-		});    
+		});   */  
 		
 		
 	</script>

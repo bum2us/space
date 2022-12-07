@@ -126,7 +126,8 @@
 		    ,upUuidName
 		FROM uploadedPost
 		WHERE 1=1
-			AND poSeq = #{poSeq}
+			AND upPostSeq = #{poSeq}
+			ORDER BY upSort
     </select>
     
     <insert id="insertUpload">

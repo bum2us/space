@@ -47,8 +47,9 @@ public class PostController {
 	@RequestMapping(value = "postForm")
 	public String postForm(Post dto, PostVo vo, Model model) throws Exception {
 		
-		Post one = service.selectOne(dto);
-		model.addAttribute("one", one);
+		/*
+		 * Post one = service.selectOne(dto); model.addAttribute("one", one);
+		 */
 		
 		return "infra/post/user/postForm";
 	}
@@ -56,9 +57,11 @@ public class PostController {
 	@RequestMapping(value = "postView")
 	public String postView(HttpSession httpSession, PostVo vo, Model model, Post dto) throws Exception {
 		
+		System.out.println("dto.getPoSeq : " +  dto.getPoSeq());
 		Post one = service.selectOne(dto);
 		model.addAttribute("one", one);
 		
+		System.out.println("dto.getPoSeq : " +  dto.getPoSeq());
 		List<Post> img = service.selectPostImage(dto);
 		model.addAttribute("img", img);
 		

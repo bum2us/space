@@ -75,40 +75,49 @@
 		        <div class="page-content">
 		
 		          <!-- ***** Gaming Library Start ***** -->
-		          <div class="gaming-library">
+		          <div class="gaming-library" style="margin-top: 0px;">
 					<div class="col-lg-12 mb-5" style="text-align: center; margin: auto; width: 80%;">
 		              	<div class="heading-section">
 		              		<h4>자세한 이야기</h4>
 		              	</div>
 					</div>
 		            <center>
-		              <div class="col-lg-12 mb-5">
-		                <div id="carouselExampleControls" style="width: 40%;" class="carousel slide" data-bs-ride="carousel">
-		                  <div class="carousel-inner">
-	                    	<c:forEach items=""${img} var="img" varStatus="status">
-			                    <div class="carousel-item <c:if test="${ status.count eq 1}">active</c:if>">
-			                      <img src="${img.upPath}${img.upUuidName}">
-			                    </div>
-	                    	</c:forEach>
-		                  </div>
-		                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-		                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		                    <span class="visually-hidden">Previous</span>
-		                  </button>
-		                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-		                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		                    <span class="visually-hidden">Next</span>
-		                  </button>
-		                </div>
-		              </div>
+		            <c:choose>
+			            <c:when test="${fn:length(img) eq 0}">
+			            	<div class="col-12 mb-5" style="width: 40%;">
+				           		<img src="/resources/images/space.png">
+			            	</div>
+			            </c:when>
+			            <c:otherwise>
+			              <div class="col-lg-12 mb-5">
+			                <div id="carouselExampleControls" style="width: 40%;" class="carousel slide" data-bs-ride="carousel">
+			                  <div class="carousel-inner">
+		                    	<c:forEach items="${img}" var="img" varStatus="status">
+				                    <div class="carousel-item <c:if test="${status.count eq 1}">active</c:if>">
+				                      <img src="${img.upPath}${img.upUuidName}">
+				                    </div>
+		                    	</c:forEach>
+			                  </div>
+			                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			                    <span class="visually-hidden">Previous</span>
+			                  </button>
+			                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			                    <span class="visually-hidden">Next</span>
+			                  </button>
+			                </div>
+			              </div>
+			            </c:otherwise>
+		            </c:choose>
 		              
 		              <div class="col-lg-12" style="width: 80%;"> 
 		              	<div class="row">
 		              		<div class="col-2 text-end p-1">
                                 <img src="${one.upPath}${one.upUuidName}" style="width: 50px; height: 50px; border-radius:50%;">
 		              		</div>
-			            	<div class="col-3">
-			            		<div class="row">
+			            	<div class="col-2">
+			            		<div class="row" style="width: 100px;">
 					            	<div class="col text-start p-1" style="/* cursor:pointer; */" onclick="<%-- userInfo('profile',${one.mypage}) --%>">
 		                                <span style="color:gray;"><c:out value="${one.mmNickName}"/></span><br>
 		                                <span style="color:gray;"><c:out value="${one.mvName}"/></span>
@@ -117,14 +126,14 @@
 			            	</div>
 			            	<div class="col-3">
 			            		<div class="row">
-			            			<div class="col">
+			            			<div class="col text-start">
 			            				<button type="button" class="base-border-button" style="padding: 15px 25px;""><i class="fa-regular fa-thumbs-up"></i></button>
 			            			</div>
 			            		</div>
 			            	</div>
-			            	<div class="col-4">
+			            	<div class="col-5">
 			            		<div class="row">
-			            			<div class="col p-3">
+			            			<div class="col p-3 text-end">
 			            				<c:out value="🚀팔로워 95"/>
 			            			</div>
 			            		</div>
@@ -133,15 +142,15 @@
 		                <hr>
 		                <div class="container mb-5" style="height: 300px;">
 		                  <div class="row">
-		                  	<div class="col-2 p-1">
+		                  	<div class="col-2 p-1" style="background: #27292a; border-radius: 10px;">
                   				<span><c:forEach items="${codeList }" var="list" varStatus="status"><c:if test="${one.poCategory eq list.ccOrder}">${list.ccName}</c:if></c:forEach></span>
 		                  	</div>
 	                    	<div class="col-6">
 	                    		<span class="my-1" style="padding: 0; font-size: 18pt; font-weight: bold;"><c:out value="${one.poTitle}"/></span>
 		                    </div>
-		                    <div class="col-4 p-1">
+		                    <!-- <div class="col-4 p-1 text-end">
 		                    	<span>좋아요 7&nbsp댓글 7&nbsp조회수 7</span>
-		                    </div>
+		                    </div> -->
 		                  </div>
 		                  <div class="row text-start mt-4">
 		                    <div class="col-12 mt-1 p-4" style="background: #27292a; height: 230px; border-radius: 10px;">
