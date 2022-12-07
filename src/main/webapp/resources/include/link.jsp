@@ -8,3 +8,5 @@
 <link rel="stylesheet" href="/resources/css/animate.css">
 <link rel="stylesheet" href="/resources/css/admin_style.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<link href="https://img.icons8.com/emoji/48/null/rocket-emji.png" rel="shortcut icon" type="image/x-icon">

@@ -69,26 +69,34 @@
 		                    <div class="heading-section">
 		                        <h4><em>진행중인</em> Live</h4>
 		                    </div>
-		                    <div class="owl-features owl-carousel">
-		                    	
-		                    	<c:forEach items="${liveList}" var="list" varStatus="status">
-			                        <div class="item">
-			                            <div class="thumb">
-			                                <img src="${list.productPath }${list.productUuidName}" alt="">
-			                                <div class="hover-effect">
-			                                    <h6 onclick="goForm('live','${list.liveSeq}')">라이브 시청하기</h6>
-			                                </div>
-			                            </div>
-			                            <h4><c:out value="${list.liveTitle }" /><br><span><c:out value="${list.mmNickName }"/></span></h4>
-			                            <ul>
-			                                <li><i class="fa fa-star"></i> 4.8</li>
-			                                <li><i class="fa fa-download"></i> 2.3M</li>
-			                            </ul>
-			                        </div>	                    	
-		                    	</c:forEach>
-		                    
-		                        
-		                    </div>
+	                    	<c:choose>
+			                    <c:when test = "${fn:length(liveList) eq 0}">
+		                    		<div class="row justify-content-center mb-3 mt-3">
+		                    			<div class="col-12 text-center">
+		                    				<span style="font-size: 20px;">진행중인 Live 가 없습니다.</span> 
+		                    			</div>
+		                    		</div>
+		                    	</c:when>
+			                    <c:otherwise>
+		                    		<div class="owl-features owl-carousel">
+				                    	<c:forEach items="${liveList}" var="list" varStatus="status">
+					                        <div class="item">
+					                            <div class="thumb">
+					                                <img src="${list.productPath }${list.productUuidName}" alt="">
+					                                <div class="hover-effect">
+					                                    <h6 onclick="goForm('live','${list.liveSeq}')">라이브 시청하기</h6>
+					                                </div>
+					                            </div>
+					                            <h4><c:out value="${list.liveTitle }" /><br><span><c:out value="${list.mmNickName }"/></span></h4>
+					                            <ul>
+					                                <li><i class="fa fa-star"></i> 4.8</li>
+					                                <li><i class="fa fa-download"></i> 2.3M</li>
+					                            </ul>
+					                        </div>	                    	
+				                    	</c:forEach>
+		                    		</div>
+		                    	</c:otherwise>
+		                    </c:choose>
 		                </div>
 		            </div>
 		        </div>
