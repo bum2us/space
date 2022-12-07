@@ -85,12 +85,11 @@
 		              <div class="col-lg-12 mb-5">
 		                <div id="carouselExampleControls" style="width: 40%;" class="carousel slide" data-bs-ride="carousel">
 		                  <div class="carousel-inner">
-		                    <div class="carousel-item active">
-		                      <img src="/resources/images/yuza.jpg">
-		                    </div>
-		                    <div class="carousel-item">
-		                      <img src="/resources/images/yuza2.jpg">
-		                    </div>
+	                    	<c:forEach items=""${img} var="img" varStatus="status">
+			                    <div class="carousel-item <c:if test="${ status.count eq 1}">active</c:if>">
+			                      <img src="${img.upPath}${img.upUuidName}">
+			                    </div>
+	                    	</c:forEach>
 		                  </div>
 		                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
 		                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -106,7 +105,7 @@
 		              <div class="col-lg-12" style="width: 80%;"> 
 		              	<div class="row">
 		              		<div class="col-2 text-end p-1">
-                                <img src="/resources/images/bums.jpg" style="width: 50px; height: 50px; border-radius:50%;">
+                                <img src="${one.upPath}${one.upUuidName}" style="width: 50px; height: 50px; border-radius:50%;">
 		              		</div>
 			            	<div class="col-3">
 			            		<div class="row">

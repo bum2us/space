@@ -56,9 +56,16 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Post selectOne(PostVo vo) throws Exception {
+	public Post selectOne(Post dto) throws Exception {
 		
-		return dao.selectOne(vo);
+		Post selectOne = dao.selectOne(dto);
+		
+		if(selectOne.getUpPath() == null) {
+			selectOne.setUpPath("/resources/images/");
+			selectOne.setUpUuidName("empty.png"); 
+		}
+		
+		return selectOne;
 	}
 
 	@Override
@@ -66,7 +73,12 @@ public class PostServiceImpl implements PostService {
 		
 		return dao.update(dto);
 	}
-	
+
+	@Override
+	public List<Post> selectPostImage(Post dto) throws Exception {
+		
+		return dao.selectPostImage(dto);
+	}
 	
 	
 

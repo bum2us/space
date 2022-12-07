@@ -20,21 +20,18 @@ public class PostDao {
 	
 	public List<Post> selectList() throws Exception { return sqlSession.selectList(namespace + ".selectList", "");}
 	
-	public int insert(Post dto) throws Exception { 
-		
-		System.out.println("dao getPoWriter : " + dto.getPoWriter());
-		
-		return sqlSession.insert(namespace + ".insert", dto);
-		
-	}
+	public int insert(Post dto) throws Exception { return sqlSession.insert(namespace + ".insert", dto);}
 	
 	public int selectLastSeq() throws Exception {return sqlSession.selectOne(namespace + ".selectLastSeq", "");}
 	
-	public Post selectOne(PostVo vo) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", vo);}
+	public Post selectOne(Post dto) throws Exception {return sqlSession.selectOne(namespace + ".selectOne", dto);}
 	
 	public int insertUpload(Post dto) {return sqlSession.insert(namespace + ".insertUpload", dto);}
 	
 	public int update(Post dto) {return sqlSession.update(namespace + ".update", dto);}
+	
+	public List<Post> selectPostImage(Post dto) throws Exception {return sqlSession.selectList(namespace + ".selectPostImage", dto);}
+	
 	
 	
 	

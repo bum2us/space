@@ -11,7 +11,7 @@
     <select id="selectList" resultMap="resultMapObj">
     	SELECT
 			poSeq
-		    ,mm.mmNickName
+		    ,mmNickName
 		    ,poTitle
 		    ,poContent
 		    ,poDelNy
@@ -20,14 +20,16 @@
 		    ,poLat
 		    ,poCreateDate
 		    ,poAddr
+		    ,uppo.upPath
+		    ,uppo.upUuidName
 		FROM post po
-		JOIN uploadedPost uppo
+		LEFT JOIN uploadedPost uppo
 		ON po.poSeq = uppo.upPostSeq
 		AND uppo.upDefaultNy = 1
 		AND uppo.upDelNy = 0
-		<!-- JOIN member mm on mm.mmSeq = po.poWriter
+		LEFT JOIN member mm on mm.mmSeq = po.poWriter
 			AND mmDelNy = 0
-			AND mmAdminNy = 0 -->
+			AND mmAdminNy = 0
 		WHERE 1=1
 			AND poDelNy = 0
 		ORDER BY poSeq DESC
@@ -102,27 +104,28 @@
 		    ,poCreateDate
 		    ,poAddr
             ,mv.mvName
+            ,upmm.upPath
+            ,upmm.upUuidName
 		FROM post po
-		JOIN member mm on mm.mmSeq = po.poWriter
+		LEFT JOIN member mm on mm.mmSeq = po.poWriter
 			AND mmDelNy = 0
 			AND mmAdminNy = 0
         LEFT JOIN myVillage mv on mv.mvMemberSeq = mm.mmSeq
         	AND mvDelNy = 0
         	AND mvDefaultNy = 1
+        LEFT JOIN uploadedMember upmm on upmm.upMemberSeq = po.poWriter
+	        AND upmm.upDefaultNy = 1
+			AND upmm.upDelNy = 0
 		WHERE 1=1
-			AND poDelNy = 0
 			AND poSeq = #{poSeq}
     </select>
     
     <select id="selectPostImage" resultMap="resultMapObj">
    		SELECT
-		    ,upPath
+		    upPath
 		    ,upUuidName
-		FROM post po
-		JOIN uploadedPost uppo on uppo.upPostSeq = po.poSeq
-			AND upDelNy = 0
+		FROM uploadedPost
 		WHERE 1=1
-			AND poDelNy = 0
 			AND poSeq = #{poSeq}
     </select>
     

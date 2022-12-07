@@ -109,6 +109,7 @@ public class MemberController {
 			MyVillage LoginVillage = serviceVillage.selectOneHome(vo);
 			if (LoginVillage != null) {
 				httpSession.setAttribute("sessVillage", LoginVillage.getMvName());
+				httpSession.setAttribute("sessVillageOrName", LoginVillage.getMvOriginalAddr());
 			} else {
 				
 			}

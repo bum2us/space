@@ -10,8 +10,10 @@ public interface PostService {
 	
 	public int selectLastSeq() throws Exception;
 	
-	public Post selectOne(PostVo vo) throws Exception;
+	public Post selectOne(Post dto) throws Exception;
 	
 	public int update(Post dto) throws Exception;
+	
+	public List<Post> selectPostImage(Post dto) throws Exception;
 	
 }
