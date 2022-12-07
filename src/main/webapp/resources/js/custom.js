@@ -204,6 +204,7 @@
 
 	function onScroll(event){
 	    var scrollPos = $(document).scrollTop();
+	    /*
 	    $('.nav a').each(function () {
 	        var currLink = $(this);
 	        var refElement = $(currLink.attr("href"));
@@ -215,6 +216,7 @@
 	            currLink.removeClass("active");
 	        }
 	    });
+	    */
 	}
 
 
