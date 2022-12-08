@@ -227,7 +227,7 @@
 	
 	        serviceId: 'LJJF547WX1HE',
 	
-	        serviceSecret: 'LJJF547WX1HEYPQ0:mtO4PbZsC1vdiROD'
+	        serviceSecret: 'LJJF547WX1HEEHWS:F7qEAQoMR7b0wanW'
 	
 	    }).then(() => {
 	
@@ -270,6 +270,7 @@
 	    }).catch((promise) => { 
 	
 	        console.log('인증에 실패했습니다.');
+	        console.log(promise);
 	        return;
 	    });
 		

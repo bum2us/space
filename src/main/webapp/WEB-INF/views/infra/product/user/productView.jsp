@@ -89,10 +89,10 @@
                         <div class="row my-3 pt-3" style="border-top:1px solid #1F2122;">
                             <div class="col">
                                 <h3 style="color:#E75E8D; font-weight: bold; margin: 0;"><c:out value="${item.pdPrice}"/>원</h3>
-                            </div>
+                            </div> 
                         </div>
                         <div class="row my-2 pt-3" style="border-top:1px solid #1F2122;">
-                            <div class="col" style="cursor:pointer;" onclick="userInfo('profile',${item.pdSeller})">
+                            <div class="col" style="cursor:pointer;" onclick="goForm('profile',${item.pdSeller})">
                                 <img src="
                                 	${item.upPath}${item.upUuidName}
                                 " style="width:30px; height: 30px; border-radius:50%;">
@@ -157,7 +157,6 @@
 				}
 				case 'delete':
 				{
-				
 					break;
 				}
 				case 'chat':

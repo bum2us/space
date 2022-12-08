@@ -204,12 +204,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/@connectlive/connectlive-web-sdk/dist/connectlive-web-sdk.min.js"></script>
 	<script>
 		// 커넥트 라이브 내부 인증
-	
+	 
 	    ConnectLive.signIn({
-	
+	 
 	        serviceId: 'LJJF547WX1HE',
 	
-	        serviceSecret: 'LJJF547WX1HEYPQ0:mtO4PbZsC1vdiROD'
+	        serviceSecret: 'LJJF547WX1HEEHWS:F7qEAQoMR7b0wanW'
 	
 	    }).then(() => {
 	
@@ -218,6 +218,7 @@
 	    }).catch((promise) => {
 	
 	        console.log('인증에 실패했습니다.');
+	        console.log(promise); 
 	        alert("ConnectLive 인증중 오류가 발생하였습니다.");
 	        return;
 	    });
