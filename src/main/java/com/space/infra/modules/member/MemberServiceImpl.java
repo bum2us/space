@@ -125,9 +125,9 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void update(Member dto) throws Exception {
 		// TODO Auto-generated method stub
-		
+		 
 		//만약 사용자가 새로운 사진을 등록했다면
-		if(dto.getStateKey() > 0)
+		if(dto.getStateKey() != null)
 		{
 			//이미 사용자의 프로필사진이 존재한다면 
 			if(dao.existProfileImg(dto) > 0)

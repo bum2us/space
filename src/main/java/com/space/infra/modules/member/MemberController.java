@@ -69,10 +69,10 @@ public class MemberController {
 		System.out.println("#############"); 
 		System.out.println(dto.getMmNickName());
 		System.out.println(dto.getMmEmail());
-		System.out.println(dto.getMmPhone());
-		System.out.println(dto.getMultipartFile().length);
-		//dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
-		//service.update(dto); 
+		System.out.println(dto.getMmPhone()); 
+		System.out.println(dto.getStateKey());
+		dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		service.update(dto); 
 		
 		return "redirect:/member/profile"; 
 	}

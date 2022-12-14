@@ -100,7 +100,7 @@
 	    <div class="page-content">
 	        <div class="container-md" style="width:80%">  
                 <form method="POST" id="mainForm" enctype="multipart/form-data">
-                	<input type="hidden" name="shOption" id="shOption">
+                	<input type="hidden" name="stateKey" id="stateKey"> 
                     <div class="row jutify-content-center">
                         <div class="col text-center" style=" padding: 10px;">
                             <img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">
@@ -208,7 +208,7 @@
 				 $("#profileImg").attr("src", fileReader.result);
 			}	
 			
-			$("#stateKey").val(1); 
+			$("#stateKey").val("1");  
 		};
 		
 		goForm = function()

@@ -72,13 +72,11 @@
 	<update id="update">
 		UPDATE member
 		SET
-			mmDelNy = 0
-			<choose>
-				<when test="mmNickName != null">,mmNickName = #{mmNickName}</when>
-				<when test="mmEmail != null">,mmEmail = #{mmEmail}</when>
-				<when test="mmTelecom != null">,mmTelecom = #{mmTelecom}</when>
-				<when test="mmPhone != null">,mmPhone = #{mmPhone}</when>
-			</choose>
+			mmDelNy = 0 
+			<if test="mmNickName != null">,mmNickName = #{mmNickName}</if>
+			<if test="mmEmail != null">,mmEmail = #{mmEmail}</if>
+			<if test="mmTelecom != null">,mmTelecom = #{mmTelecom}</if>
+			<if test="mmPhone != null">,mmPhone = #{mmPhone}</if>
 		WHERE 1=1
 		AND mmSeq = #{mmSeq}
 	</update>
