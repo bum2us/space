@@ -50,6 +50,39 @@
    		AND mmAdminNy = #{mmAdminNy}
     </select>
 	
+	<select id="existProfileImg" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM uploadedMember
+		WHERE 1=1
+		AND upDefaultNy = 1
+		AND upDelNy = 0
+		AND upMemberSeq = #{mmSeq}
+	</select>
+	
+	<update id="deleteProfileImg">
+		UPDATE uploadedMember 
+		SET 
+			upDelNy = 1 
+			,upDefaultNy = 0 
+		WHERE 1=1
+		AND upMemberSeq = #{mmSeq}
+	</update>
+	
+	<update id="update">
+		UPDATE member
+		SET
+			mmDelNy = 0
+			<choose>
+				<when test="mmNickName != null">,mmNickName = #{mmNickName}</when>
+				<when test="mmEmail != null">,mmEmail = #{mmEmail}</when>
+				<when test="mmTelecom != null">,mmTelecom = #{mmTelecom}</when>
+				<when test="mmPhone != null">,mmPhone = #{mmPhone}</when>
+			</choose>
+		WHERE 1=1
+		AND mmSeq = #{mmSeq}
+	</update>
+	
 	<insert id="insert">
 		INSERT member
 		(

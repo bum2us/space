@@ -15,6 +15,16 @@ public class Base {
 		this.xdminNy = xdminNy;
 	}
 	
+	//프로필이미지 편집시에 이미지를 새로 추가했는지 안했는지에대한 컨트롤을 위한 키
+	public Integer stateKey;
+	
+	public Integer getStateKey() {
+		return stateKey;
+	}
+	public void setStateKey(Integer stateKey) {
+		this.stateKey = stateKey;
+	}
+
 	// 파일 업로드용 필드
 	private String  upPath;
 	private String  upOriginalName;
@@ -25,8 +35,6 @@ public class Base {
 	private Integer upDefaultNy;
 	private Integer upSort;
 	private Integer upDelNy;
-	
-//	private Integer upPostSeq;
 
 	private MultipartFile[] multipartFile;
 
@@ -90,12 +98,6 @@ public class Base {
 	public void setMultipartFile(MultipartFile[] multipartFile) {
 		this.multipartFile = multipartFile;
 	}
-//	public Integer getUpPostSeq() {
-//		return upPostSeq;
-//	}
-//	public void setUpPostSeq(Integer upPostSeq) {
-//		this.upPostSeq = upPostSeq;
-//	}
 	
 	
 	

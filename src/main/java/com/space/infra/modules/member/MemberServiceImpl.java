@@ -122,6 +122,42 @@ public class MemberServiceImpl implements MemberService{
 		return text;
 	}
 
+	@Override
+	public void update(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		
+		//만약 사용자가 새로운 사진을 등록했다면
+		if(dto.getStateKey() > 0)
+		{
+			//이미 사용자의 프로필사진이 존재한다면 
+			if(dao.existProfileImg(dto) > 0)
+			{
+				//이미 존재하는 사용자 프로필의 defaultNy 값 혹은 DelNy값을 변경해준다
+				dao.deleteProfileImg(dto);
+			}
+		}
+		
+		dao.update(dto);
+		
+		int j = 0;
+		for(MultipartFile myFile : dto.getMultipartFile()) {
+			
+			if(!myFile.isEmpty()) {
+				
+				String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+				UtilUpload.uploadProfile(myFile, pathModule, dto);
+				
+				dto.setUpDefaultNy(j == 0 ? 1 : 0);
+				dto.setUpSort(j+1);
+				dto.setMmSeq(dto.getMmSeq());
+				
+				dao.insertUpload(dto);
+				j++;
+			}
+			
+		}
+	}
+
 	
 	
 	

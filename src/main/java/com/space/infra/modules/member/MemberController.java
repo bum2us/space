@@ -54,6 +54,29 @@ public class MemberController {
 		return "infra/member/loginForm";
 	}
 	
+	@RequestMapping("editProfile")
+	public String editProfile(HttpSession httpSession, Member dto,Model model) throws Exception{
+		 
+		Member item = service.selectOne((int)httpSession.getAttribute("sessSeq"));
+		model.addAttribute("item", item);
+		
+		return "infra/member/user/editForm";
+	}
+	
+	@RequestMapping("memberUpdt")
+	public String memberUpdt(HttpSession httpSession,Member dto,Model model) throws Exception{
+	
+		System.out.println("#############"); 
+		System.out.println(dto.getMmNickName());
+		System.out.println(dto.getMmEmail());
+		System.out.println(dto.getMmPhone());
+		System.out.println(dto.getMultipartFile().length);
+		//dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		//service.update(dto); 
+		
+		return "redirect:/member/profile"; 
+	}
+	
 	@RequestMapping("profile")
 	public String profile(HttpSession httpSession,Member dto,Model model) throws Exception{
 		

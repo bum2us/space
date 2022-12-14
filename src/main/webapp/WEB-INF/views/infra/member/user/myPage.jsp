@@ -48,7 +48,10 @@
 				        <div class="main-profile "> 
 				            <div class="row">
 				                <div class="col-lg-4">
-				                    <img src="${item.upPath }${item.upUuidName }" alt=""  style="width: 300px; height:300px; overflow:hidden; border-radius: 23px; ">
+				                    <img src="
+			                            <c:if test="${item.upPath eq null }">/resources/images/empty.png</c:if>
+			                            <c:if test="${item.upPath ne null }">${item.upPath }${item.upUuidName }</c:if>
+			                         " alt=""  style="width: 300px; height:300px; overflow:hidden; border-radius: 23px; ">
 				                </div>
 				                <div class="col-lg-4 align-self-center">
 				                    <div class="main-info header-text">
@@ -195,7 +198,7 @@
 			{
 				case 'profile':
 				{
-					submitUrl="";			
+					submitUrl="/member/editProfile";			
 					break;
 				}
 				case 'sale':

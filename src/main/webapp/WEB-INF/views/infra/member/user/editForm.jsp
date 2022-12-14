@@ -1,23 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
-<html lang="ko">
-
+<html lang="kr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../css/fontawesome.css">
-    <link rel="stylesheet" href="../css/templatemo-cyborg-gaming.css">
-    <link rel="stylesheet" href="../css/owl.css">
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/admin_style.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<title>🛸우주마켓🛸</title>
+	
+	<!-- link -->
+	<%@include file="/resources/include/link.jsp"%>
+	
 
-    <style>
-        select {
+	<style>
+		div	{
+			/* border: solid 1px orange; */
+		}
+		
+		select {
             padding: 15px;
             height: 60px;
             width: 100%;
@@ -83,67 +85,25 @@
         .spaceBtnInner:hover {
             background: white;
             color: #E75E8D;
-        }
-    </style>
+        } 	
+		
+	</style>
 </head>
-
 <body>
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-            <span class="dot"></span>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <nav class="main-nav">
-                <!-- ***** Logo Start ***** -->
-                <a href="/home" class="logo">
-                    <img src="../images/space_logo.png" alt="">
-                </a>
-                <!-- ***** Logo End ***** -->
-                <!-- ***** Search End ***** -->
-                <div class="search-input" style="display:flex; align-items:center">
-                    <form id="search" action="#">
-                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"
-                            onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                    </form>
-                </div>
-                <!-- ***** Search End ***** -->
-                <!-- ***** Menu Start ***** -->
-                <ul class="nav">
-                    <li><a href="">Live</a></li>
-                    <li><a href="">중고거래</a></li>
-                    <li><a href="/post/postList">동네소식</a></li>
-                    <li><a href="/chat/">채팅</a></li>
-                    <li><a href="/myVillage/form">은평구 <i class="fa-solid fa-user-astronaut"></i></a></li>
-                    <li><a href="/member/profile">프로필</a></li>
-                </ul>
-                <a class='menu-trigger'>
-                    <span>Menu</span>
-                </a>
-                <!-- ***** Menu End ***** -->
-            </nav>
-        </div>
-    </header>
-    <br><br>
-    <!-- ***** Header Area End ***** -->
-    <div class="container">
-        <div class="page-content">
-            <div class="container-md" style="width:80%">
+	<!-- preloader -->
+	<%@include file="/resources/include/preloader.jsp"%>
+	
+	<!-- header  -->
+	<%@include file="/resources/include/header.jsp"%>
+	
+	<div class="container">
+	    <div class="page-content">
+	        <div class="container-md" style="width:80%">  
                 <form method="POST" id="mainForm" enctype="multipart/form-data">
+                	<input type="hidden" name="shOption" id="shOption">
                     <div class="row jutify-content-center">
                         <div class="col text-center" style=" padding: 10px;">
-                            <img alt="" src="../images/space_logo.png" style="width: 420px; height:200px;">
+                            <img alt="" src="/resources/images/space_logo.png" style="width: 420px; height:200px;">
                         </div>
                     </div>
                     <div class="page-content" style="margin-top:30px;">
@@ -153,32 +113,34 @@
                                 <div class="col text-center">
                                     <span style="font-weight: bold; font-size: 20pt; color: #E75E8D;">정보 수정</span>
                                 </div>
-                            </div>
+                            </div>  
                             <div class="row my-4 justify-content-center" style="position:relative">
-                                <img id="profileImg" alt="" src="../images/empty.png"
-                                    style="border-radius:50%; border:none; width:100px; height:100px; padding:0px;">
+                                <img id="profileImg" alt=""  src="
+		                            <c:if test="${item.upPath eq null }">/resources/images/empty.png</c:if> 
+		                            <c:if test="${item.upPath ne null }">${item.upPath }${item.upUuidName }</c:if>
+			                    " style="border-radius:50%; border:none; width:100px; height:100px; padding:0px;">
                                 <input type="file" id="multipartFile" name="multipartFile"
                                     onChange="upload('multipartFile');"
                                     style="position:absolute; opacity:0; cursor:pointer; border-radius:50%; border:none; width:100px; height:100px;">
                             </div>
+                            <div class="row my-3"> 
+                                <div class="col">
+                                    <input type="text" style="color:gray;" disabled placeholder="아이디" value="${item.mmId }">
+                                </div> 
+                            </div> 
                             <div class="row my-3">
                                 <div class="col">
-                                    <input type="text" disabled placeholder="아이디">
+                                    <input type="text" style="color:gray;" disabled placeholder="이름" value="${item.mmName }">
+                                </div>
+                            </div>
+                            <div class="row my-3"> 
+                                <div class="col">
+                                    <input type="text" name="mmNickName" placeholder="닉네임" value="${item.mmNickName }">
                                 </div>
                             </div>
                             <div class="row my-3">
                                 <div class="col">
-                                    <input type="text" disabled placeholder="이름">
-                                </div>
-                            </div>
-                            <div class="row my-3">
-                                <div class="col">
-                                    <input type="text" name="mmNickName" placeholder="닉네임">
-                                </div>
-                            </div>
-                            <div class="row my-3">
-                                <div class="col">
-                                    <input type="text" name="mmEmail" placeholder="이메일">
+                                    <input type="text" name="mmEmail" placeholder="이메일" value="${item.mmEmail }">
                                 </div>
                             </div>
                             <div class="row my-3">
@@ -222,40 +184,38 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-
-
-    <!-- ***** footer Area Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved.
-
-                        <br>Design: <a href="https://templatemo.com" target="_blank"
-                            title="free CSS templates">TemplateMo</a> Distributed By <a href="https://themewagon.com"
-                            target="_blank">ThemeWagon</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ***** footer Area End ***** -->
-    <!-- 공통 script -->
-    <script src="https://kit.fontawesome.com/63aa3074b3.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="../js/isotope.min.js"></script>
-    <script src="../js/owl-carousel.js"></script>
-    <script src="../js/tabs.js"></script>
-    <script src="../js/popup.js"></script>
-    <script src="../js/custom.js"></script>
+	    </div>
+	</div>
+	
+	<!-- footer -->
+	<%@include file="/resources/include/footer.jsp"%>
+	
+	<!--  스크립트  -->		
+	<%@include file="/resources/include/script.jsp"%>
+	
+	<script> 
+	
+		upload = function(objName) {
+			
+			var obj = $("#" + objName +"")[0].files; 
+			
+			if(obj == null) return false;
+			
+			var fileReader = new FileReader();
+			fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
+			
+			fileReader.onload = function () {
+				 $("#profileImg").attr("src", fileReader.result);
+			}	
+			
+			$("#stateKey").val(1); 
+		};
+		
+		goForm = function()
+		{ 
+			$("#mainForm").attr("action","/member/memberUpdt").submit();	
+		};
+		
+	</script>	
 </body>
-
 </html>
