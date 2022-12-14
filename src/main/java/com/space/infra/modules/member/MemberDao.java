@@ -34,6 +34,10 @@ public class MemberDao {
 	public void deleteProfileImg(Member dto) { sqlSession.update(namespace+".deleteProfileImg", dto); }
 
 	public void update(Member dto) { sqlSession.update(namespace+".update", dto); }
+
+	public int checkPw(Member dto) { return sqlSession.selectOne(namespace+".checkPw", dto); }
+
+	public void changePw(Member dto) { sqlSession.update(namespace+".changePw", dto); }
 	
 	
 	

@@ -10,4 +10,6 @@ public interface MemberService {
 	public void insert(Member dto) throws Exception;
 	public void update(Member dto) throws Exception;
 	public Member selectOne(int loginUserSeq) throws Exception;
+	public int checkPw(Member dto) throws Exception;
+	public void changePw(Member dto) throws Exception;
 }

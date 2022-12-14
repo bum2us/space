@@ -166,7 +166,7 @@
                             </div>
                             <div class="row justify-content-center my-3">
                                 <div class="col text-center">
-                                    <button class="spaceBtn" type="button" onclick=""
+                                    <button class="spaceBtn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  
                                         style="width:100%;">비밀번호변경</button>
                                 </div>
                             </div>
@@ -177,11 +177,58 @@
                                 </div>
                                 <div class="col text-center">
                                     <button type="button" style="width:100%" class="spaceBtn"
-                                        onclick="goForm()">수정하기</button>
+                                        onclick="goForm('update')">수정하기</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					    <div class="modal-dialog modal-dialog-centered">
+					        <div class="modal-content" style="background-color: #1f2122;">
+					            <div class="modal-header justify-content-center">
+					                <h1 class="modal-title fs-5" id="exampleModalLabel">비밀번호 변경</h1>
+					            </div>
+					            <div class="modal-body" style="border-top:solid 1px #27292a; padding:20px;"> 
+					            	<div class="row mb-2 justify-content-center">
+					            		<div class="col-3" style="display: flex; align-items:center;">
+					            			<span>기존 비밀번호</span>
+					            		</div>
+					            		<div class="col" style="display:relative;"> 
+					            			<input type="password" id="originPw">
+					            			<button class="spaceBtnInner" type="button" onclick="goForm('check')">인증요청</button>
+					            		</div>
+					            	</div>   
+					            	<div class="row justify-content-center">
+					            		<div class="col text-center">
+					            			<span style="margin-top:20px; color:red;" class="chk_fail" id="id_check_fail">비밀번호가 일치하지 않습니다.</span>   
+					            		</div>
+					            	</div>
+					            	<div name="changePwTag" class="row mb-2 justify-content-center">
+					            		<div class="col-3" style="display: flex; align-items:center;">
+					            			<span>새 비밀번호</span>
+					            		</div>
+					            		<div class="col">
+					            			<input type="password" id="newPw">
+					            		</div>
+					            	</div> 
+					            	<div name="changePwTag" class="row mb-3 justify-content-center">
+					            		<div class="col-3" style="display: flex; align-items:center;">
+					            			<span>비밀번호 확인</span>
+					            		</div> 
+					            		<div class="col">
+					            			<input type="password" id="newPwRe">
+					            		</div>  
+					            	</div>
+					            	<input type="hidden" id="mmPassword" name="mmPassword">
+					            	<div name="changePwTag" class="row justify-content-center">
+					            		<div class="col text-center">
+					            			<button class="base-button" type="button" onclick="goForm('change')">변경하기</button>
+					            		</div>
+					            	</div>
+					            </div>			            
+					        </div>
+					    </div>
+					</div>
                 </form>
             </div>
 	    </div>
@@ -194,6 +241,10 @@
 	<%@include file="/resources/include/script.jsp"%>
 	
 	<script> 
+		window.onload = function(){
+			$('div[name=changePwTag]').hide();
+			$('#id_check_fail').hide();
+		}
 	
 		upload = function(objName) {
 			
@@ -211,9 +262,68 @@
 			$("#stateKey").val("1");  
 		};
 		
-		goForm = function()
+		goForm = function(key)
 		{ 
-			$("#mainForm").attr("action","/member/memberUpdt").submit();	
+			switch (key) {
+			case 'update':
+			{
+				$("#mainForm").attr("action","/member/memberUpdt").submit();	
+				break;
+			}
+			case 'change':
+			{
+				if($("#newPw").val().length < 4)
+				{
+					swal("길이가 너무 짧습니다","4자리 이상 입력하세요","error");
+					return;
+				}
+				if(!($("#newPw").val() === $("#newPwRe").val())) 
+				{
+					swal("비밀번호확인 에러","다시 확인해주세요","error"); 
+					return;
+				}
+				$("#mmPassword").val($("#newPw").val());
+				swal("변경되었습니다.","다시 로그인 하시기 바랍니다.","success").then((value) =>{
+					$("#mainForm").attr("action","/member/changePw").submit();		 	 	
+				});
+				break;
+			}
+			case 'check':
+			{
+				$.ajax({
+					url:'/member/checkPw'
+					,type:'POST'
+					,datatype:'json'
+					,data:{
+						mmPassword : $("#originPw").val()
+					}
+					,success:function(result){
+						if(result.rt == "success")
+						{
+		  					$('div[name=changePwTag]').show();
+		  					$('#id_check_fail').hide();
+						}
+						else
+						{
+		  					$('div[name=changePwTag]').hide();
+		  					$('#id_check_fail').show();
+						}
+					}
+					,error:function(){
+						alert("ajax error...!");
+					}
+				});
+				break;
+			}
+			case 'other':
+			{
+			
+				break;
+			}
+			default:
+				break;
+			}
+			
 		};
 		
 	</script>	

@@ -77,6 +77,32 @@ public class MemberController {
 		return "redirect:/member/profile"; 
 	}
 	
+	@ResponseBody
+	@RequestMapping("checkPw")
+	public Map<String,Object> checkPw(HttpSession httpSession,Member dto) throws Exception {
+		
+		Map<String,Object> result = new HashMap<String,Object>();
+		
+		dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		
+		if(service.checkPw(dto) == 0) 
+			result.put("rt","fail");
+		else
+			result.put("rt","success");
+		
+		return result;
+	}
+	
+	@RequestMapping("changePw")
+	public String changePw(HttpSession httpSession,Member dto) throws Exception{
+		
+		dto.setMmSeq((int)httpSession.getAttribute("sessSeq"));
+		service.changePw(dto);
+		httpSession.invalidate();
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping("profile")
 	public String profile(HttpSession httpSession,Member dto,Model model) throws Exception{
 		

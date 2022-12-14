@@ -60,6 +60,23 @@
 		AND upMemberSeq = #{mmSeq}
 	</select>
 	
+	<select id="checkPw" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM member
+		WHERE 1=1
+		AND mmSeq = #{mmSeq}
+		AND mmPassword = #{mmPassword}
+	</select>
+	
+	<update id="changePw">
+		UPDATE member
+		SET
+			mmPassword = #{mmPassword}
+		WHERE 1=1
+		AND mmSeq = #{mmSeq}
+	</update>
+	
 	<update id="deleteProfileImg">
 		UPDATE uploadedMember 
 		SET 

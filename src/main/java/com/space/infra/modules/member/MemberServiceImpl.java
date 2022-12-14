@@ -158,6 +158,23 @@ public class MemberServiceImpl implements MemberService{
 		}
 	}
 
+	@Override
+	public int checkPw(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		dto.setMmPassword(UtilSecurity.encryptSha256(dto.getMmPassword()));
+		
+		return dao.checkPw(dto);
+	}
+
+	@Override
+	public void changePw(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		dto.setMmPassword(UtilSecurity.encryptSha256(dto.getMmPassword()));
+		
+		dao.changePw(dto);
+	}
+
+	
 	
 	
 	
