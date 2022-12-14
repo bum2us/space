@@ -46,11 +46,9 @@ public class ProductController {
 	public String productList (HttpSession httpSession,Model model) throws Exception {
 		
 		List<Product> saleList =  service.selectSaleList();
-		saleList = checkTitleSize(saleList);
 		model.addAttribute("saleList", saleList);
 		
 		List<Product> buyList = service.selectBuyList();
-		buyList = checkTitleSize(buyList);
 		model.addAttribute("buyList", buyList);
 		
 		return "infra/product/user/productList";
@@ -69,17 +67,6 @@ public class ProductController {
 		model.addAttribute("img",img);
 		
 		return "infra/product/user/productView";
-	}
+	} 
 
-	private List<Product> checkTitleSize(List<Product> productList) {
-		
-		for(Product item : productList) 
-		{
-			if(item.getPdTitle().length() > 13) {
-				item.setPdTitle(item.getPdTitle().substring(0, 13) + "...");
-			}
-		}
-		
-		return productList;
-	}
 }

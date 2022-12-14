@@ -95,8 +95,8 @@
 							                                        <img src="${list.upPath }${list.upUuidName}" alt="" style="border-radius: 23px;">
 							                                    </div>
 							                                    <div class="down-content">
-							                                        <h4><c:out value="${list.pdTitle }"/></h4>
-							                                        <span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
+							                                        <h4 style="white-space : nowrap;  overflow : hidden; text-overflow: ellipsis;"><c:out value="${list.pdTitle }"/></h4>
+							                                        <br><span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
 							                                    </div>
 							                                </div> 
 							                            </div> 
@@ -108,7 +108,7 @@
 				                            </c:choose>				                            
 				                        </div> 
 				                    </div>
-				                </div>
+				                </div> 
 				            </div>
 				            <div class="row">
 				                <div class="col-lg-12">
@@ -133,8 +133,8 @@
 							                                        <img src="${list.upPath }${list.upUuidName}" alt="" style="border-radius: 23px;">
 						                                        </div>
 							                                    <div class="down-content">
-							                                        <h4><c:out value="${list.pdTitle }"/></h4>
-							                                        <span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
+							                                        <h4 style="white-space : nowrap;  overflow : hidden; text-overflow: ellipsis;"><c:out value="${list.pdTitle }"/></h4>
+							                                        <br><span><i class="fa-solid fa-comments-dollar"></i> <c:out value="${list.pdPrice }"/>원</span>
 							                                    </div>
 							                                </div> 
 							                            </div> 

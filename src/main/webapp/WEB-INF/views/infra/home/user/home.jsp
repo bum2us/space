@@ -131,7 +131,7 @@
 			                            <div class="avatar">
 			                                <img src="/resources/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
 			                            </div>
-			                            <h4><c:out value="${list.pdTitle }" /></h4>
+			                            <h4 style="white-space : nowrap;  overflow : hidden; text-overflow: ellipsis;"><c:out value="${list.pdTitle }" /></h4>
 			                            <span><i class="fa-solid fa-won-sign"></i> <c:out value="${list.pdPrice }"/> 원</span>
 			                        </div>
 			                    </div>

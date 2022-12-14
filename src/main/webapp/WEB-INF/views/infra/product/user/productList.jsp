@@ -74,7 +74,7 @@
 		                            <div class="col-lg-3 col-sm-6" onclick="openProduct(${list.pdSeq})" style="cursor:pointer;">
 		                                <div class="item">
 		                                    <img style="height: 180px;" src="${list.upPath }${list.upUuidName}" alt="">
-		                                    <span style="color:white; font-weight:600; margin-top:10px;">${list.pdTitle }</span>
+		                                    <span style="color:white; font-weight:600; margin-top:10px; white-space : nowrap;  overflow : hidden; text-overflow: ellipsis;">${list.pdTitle }</span>
 		                                    <h5 style="color:#E75E8D; margin-top:10px;"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></h5>
 		                                </div> 
 		                            </div> 
@@ -101,7 +101,7 @@
 		                            <div class="col-lg-3 col-sm-6" onclick="openProduct(${list.pdSeq})" style="cursor:pointer;">
 		                                <div class="item">
 		                                    <img style="height: 180px;" src="${list.upPath }${list.upUuidName}" alt="">
-		                                    <span style="color:white; font-weight:600; margin-top:10px;">${list.pdTitle }</span>
+		                                    <span style="color:white; font-weight:600; margin-top:10px; white-space : nowrap;  overflow : hidden; text-overflow: ellipsis;">${list.pdTitle }</span>
 		                                    <h5 style="color:#E75E8D; margin-top:10px;"><i class="fa-solid fa-dollar-sign"></i> <c:out value="${list.pdPrice}"/></h5>
 		                                </div>
 		                            </div>
