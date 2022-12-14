@@ -1261,17 +1261,17 @@ Live Stream Style
   padding: 30px;
 }
 
-.live-stream .item {
+.item { 
   margin-bottom: 30px;
 }
 
-.live-stream .thumb {
+.thumb {
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
 }
 
-.live-stream .thumb img {
+.thumb img {
   border-radius: 23px; 
   width: 210px;
   height: 210px;
