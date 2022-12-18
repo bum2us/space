@@ -145,7 +145,7 @@ input:focus {
 				<input type="hidden" id="liveProductSeq" name="liveProductSeq" value="${product.pdSeq }"> 
 				<input type="hidden" id="liveChat" value="info">  
 				<div class="row settingArea"> 
-					<input style="width: 65%;" type="text" id="liveTitle"
+					<input style="width: 65%;" type="text" id="liveTitle" 
 						name="liveTitle" placeholder="LIVE 제목">
 					<button id="createLiveBtn" class="base-button"
 						style="width: 15%; height: 45px; border-radius: 10px; padding: 10px; margin-top: 3px;"
