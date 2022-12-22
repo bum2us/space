@@ -87,5 +87,11 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return dao.selectListForHome(); 
 	}
+
+	@Override
+	public Integer selectCount() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectCount();
+	}
 	
 }

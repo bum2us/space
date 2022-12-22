@@ -79,10 +79,12 @@ public class PostServiceImpl implements PostService {
 		
 		return dao.selectPostImage(dto);
 	}
-	
-	
 
-
+	@Override
+	public Integer selectCount() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectCount();
+	}
 	
 	
 }

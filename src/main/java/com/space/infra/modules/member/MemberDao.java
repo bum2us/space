@@ -39,6 +39,8 @@ public class MemberDao {
 
 	public void changePw(Member dto) { sqlSession.update(namespace+".changePw", dto); }
 	
+	public Integer selectCount() { return sqlSession.selectOne(namespace+".selectCount");}
+
 	
 	
 }

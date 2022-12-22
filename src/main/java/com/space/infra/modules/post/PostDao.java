@@ -32,7 +32,7 @@ public class PostDao {
 	
 	public List<Post> selectPostImage(Post dto) throws Exception {return sqlSession.selectList(namespace + ".selectPostImage", dto);}
 	
-	
+	public Integer selectCount() { return sqlSession.selectOne(namespace+".selectCount");}
 	
 	
 }

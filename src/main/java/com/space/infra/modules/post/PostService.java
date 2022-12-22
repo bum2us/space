@@ -15,5 +15,5 @@ public interface PostService {
 	public int update(Post dto) throws Exception;
 	
 	public List<Post> selectPostImage(Post dto) throws Exception;
-	
+	public Integer selectCount()throws Exception;
 }

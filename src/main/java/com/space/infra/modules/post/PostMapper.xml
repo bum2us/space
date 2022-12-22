@@ -60,6 +60,13 @@
 	    </selectKey> 
     </insert>
     
+     <select id="selectCount" resultType="Integer">
+    	SELECT
+    		COUNT(*)
+   		FROM post
+   		WHERE 1=1
+    </select> 
+    
     <select id="selectLastSeq" resultType="Integer">
     	SELECT
     		poSeq

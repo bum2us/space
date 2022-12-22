@@ -12,4 +12,5 @@ public interface ProductService {
 	public Product selectOneProduct(Product dto) throws Exception;
 	public List<Product> selectImgFromProduct(Product dto)throws Exception;
 	public List<Product> selectListForHome()throws Exception;
+	public Integer selectCount()throws Exception;
 }

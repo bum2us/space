@@ -12,4 +12,5 @@ public interface MemberService {
 	public Member selectOne(int loginUserSeq) throws Exception;
 	public int checkPw(Member dto) throws Exception;
 	public void changePw(Member dto) throws Exception;
+	public Integer selectCount()throws Exception;
 }

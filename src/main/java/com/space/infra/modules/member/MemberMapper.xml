@@ -32,6 +32,13 @@
 		<include refid="rangeSql"/>
 	</select>
 	
+	  <select id="selectCount" resultType="Integer">
+    	SELECT
+    		COUNT(*)
+   		FROM member
+   		WHERE 1=1
+    </select>
+	
 	<select id="selectListCount" resultType ="Integer" >
 		SELECT
 			COUNT(*)

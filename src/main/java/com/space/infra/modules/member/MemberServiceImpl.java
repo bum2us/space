@@ -174,8 +174,10 @@ public class MemberServiceImpl implements MemberService{
 		dao.changePw(dto);
 	}
 
-	
-	
-	
+	@Override
+	public Integer selectCount() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.selectCount();
+	}	
 	
 }

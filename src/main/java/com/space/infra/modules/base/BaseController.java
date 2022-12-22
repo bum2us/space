@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.space.infra.modules.live.Live;
 import com.space.infra.modules.live.LiveServiceImpl;
+import com.space.infra.modules.member.MemberServiceImpl;
+import com.space.infra.modules.post.PostServiceImpl;
 import com.space.infra.modules.product.Product;
 import com.space.infra.modules.product.ProductServiceImpl;
 
@@ -22,6 +24,12 @@ public class BaseController {
 	
 	@Autowired
 	LiveServiceImpl	serviceLive;
+	
+	@Autowired
+	MemberServiceImpl serviceMember;
+	
+	@Autowired
+	PostServiceImpl servicePost;
 	
 	@RequestMapping(value="")
 	public String index() throws Exception{		
@@ -61,8 +69,12 @@ public class BaseController {
 	}
 	
 	@RequestMapping(value="adminhome")
-	public String adminhome() throws Exception  {
+	public String adminhome(Model model) throws Exception  {
 		
+		model.addAttribute("memberCount",serviceMember.selectCount());
+		model.addAttribute("productCount",serviceProduct.selectCount());
+		model.addAttribute("postCount",servicePost.selectCount());
+				
 		return "infra/home/xdmin/home";
 	}
 	

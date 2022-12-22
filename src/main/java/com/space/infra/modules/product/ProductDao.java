@@ -15,24 +15,25 @@ public class ProductDao {
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
 	
-	private String namesapce="com.space.infra.modules.product.ProductMapper";
+	private String namespace="com.space.infra.modules.product.ProductMapper";
 
-	public void insert(Product dto) { sqlSession.insert(namesapce + ".insert",dto); }
+	public void insert(Product dto) { sqlSession.insert(namespace + ".insert",dto); }
 
-	public List<Product> selectBuyList() { return sqlSession.selectList(namesapce +".selectBuyList"); }
+	public List<Product> selectBuyList() { return sqlSession.selectList(namespace +".selectBuyList"); }
 
-	public List<Product> selectSaleList() { return sqlSession.selectList(namesapce +".selectSaleList"); }
+	public List<Product> selectSaleList() { return sqlSession.selectList(namespace +".selectSaleList"); }
 
-	public List<Product> selectBuyListFromMember(Product dto) { return sqlSession.selectList(namesapce+".selectBuyListFromMember", dto); }
+	public List<Product> selectBuyListFromMember(Product dto) { return sqlSession.selectList(namespace+".selectBuyListFromMember", dto); }
 	
-	public List<Product> selectSaleListFromMember(Product dto) {return sqlSession.selectList(namesapce+".selectSaleListFromMember", dto); }
+	public List<Product> selectSaleListFromMember(Product dto) {return sqlSession.selectList(namespace+".selectSaleListFromMember", dto); }
 
-	public Product selectOneProduct(Product dto) { return sqlSession.selectOne(namesapce+".selectOneProduct",dto);}
+	public Product selectOneProduct(Product dto) { return sqlSession.selectOne(namespace+".selectOneProduct",dto);}
 
-	public void insertUpload(Product dto) { sqlSession.insert(namesapce+".insertUpload", dto); }
+	public void insertUpload(Product dto) { sqlSession.insert(namespace+".insertUpload", dto); }
 
-	public List<Product> selectImgFromProduct(Product dto) { return sqlSession.selectList(namesapce+".selectImgFromProduct", dto); }
+	public List<Product> selectImgFromProduct(Product dto) { return sqlSession.selectList(namespace+".selectImgFromProduct", dto); }
 
-	public List<Product> selectListForHome() { return sqlSession.selectList(namesapce + ".selectListForHome"); }
+	public List<Product> selectListForHome() { return sqlSession.selectList(namespace + ".selectListForHome"); }
 
+	public Integer selectCount() { return sqlSession.selectOne(namespace+".selectCount");}
 }
