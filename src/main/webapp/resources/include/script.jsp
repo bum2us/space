@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/resources/js/isotope.min.js"></script>
 <script src="/resources/js/owl-carousel.js"></script>
 <script src="/resources/js/tabs.js"></script>

@@ -103,6 +103,14 @@
 	    LIMIT 8 
     </select>
     
+    <select id="selectCountGroupByCategory" parameterType="Integer" resultType="Integer">
+       	SELECT
+    		COUNT(*)
+   		FROM product
+   		WHERE 1=1
+   		AND pdCategory = #{ccOrder}
+    </select> 
+     
     <select id="selectCount" resultType="Integer">
     	SELECT
     		COUNT(*)

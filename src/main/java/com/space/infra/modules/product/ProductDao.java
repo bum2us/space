@@ -36,4 +36,6 @@ public class ProductDao {
 	public List<Product> selectListForHome() { return sqlSession.selectList(namespace + ".selectListForHome"); }
 
 	public Integer selectCount() { return sqlSession.selectOne(namespace+".selectCount");}
+
+	public Integer selectCountGroupByCategory(Integer ccOrder) { return sqlSession.selectOne(namespace+".selectCountGroupByCategory" , ccOrder);}
 }

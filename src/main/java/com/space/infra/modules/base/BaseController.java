@@ -74,6 +74,7 @@ public class BaseController {
 		model.addAttribute("memberCount",serviceMember.selectCount());
 		model.addAttribute("productCount",serviceProduct.selectCount());
 		model.addAttribute("postCount",servicePost.selectCount());
+		model.addAttribute("categoryCountList", serviceProduct.selectCountGroupByCategory());
 				
 		return "infra/home/xdmin/home";
 	}

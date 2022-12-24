@@ -13,4 +13,5 @@ public interface ProductService {
 	public List<Product> selectImgFromProduct(Product dto)throws Exception;
 	public List<Product> selectListForHome()throws Exception;
 	public Integer selectCount()throws Exception;
+	public List<Integer> selectCountGroupByCategory()throws Exception;
 }

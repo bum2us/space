@@ -168,10 +168,10 @@
 	            <div class="col-md-4 grid-margin stretch-card">
 	              <div class="card">
 	                <div class="card-body">
-	                  <h4 class="card-title">상품 카테고리 비율</h4> 
-	                  <canvas id="pieChart" style="height:250px"></canvas>
+	                  <h4 class="card-title">상품 카테고리 비율</h4>  
+	                  <canvas id="myChart"></canvas>
 	                  
-	                </div>
+	                </div> 
 	              </div>
 	            </div>
 	            <div class="col-md-8 grid-margin stretch-card">
@@ -355,6 +355,32 @@
                 dateFormat: "yy-mm-dd"
             });
         });
+        
+        //Chart.js 사용
+        const ctx = document.getElementById('myChart');
+        <c:set var = "codeList" value = "${CodeServiceImpl.selectListCachedCode('5')}"/>
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: [
+            	  <c:forEach items='${categoryCountList}' var='list' varStatus='status'>
+		          	  	'<c:out value="${codeList[status.count].ccName}"/>',
+            	  </c:forEach>
+            	  ],
+              datasets: [{
+                label: ' 상품 수',
+                data: [
+                	 <c:forEach items='${categoryCountList}' var='list' varStatus='status'>
+             	  		'<c:out value="${list}"/>',
+                	 </c:forEach>
+                	],
+               	barThickness: '1',
+              }]
+            }
+        	,options:{
+        		indexAxis: 'y',
+        	}
+          });
     </script>
 	<script>
 		goForm = function(seq){
