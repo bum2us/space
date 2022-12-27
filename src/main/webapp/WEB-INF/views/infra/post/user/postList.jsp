@@ -73,6 +73,7 @@
 	
 		<input type="hidden" id="poSeq" name="poSeq">
 		<input type="hidden" id="poList" name="poList" value="${list}"> 
+		<input type="hidden" id="myAddress" name="myAddress" value="${sessVillageOrName}">
 	
 		<div class="container">
 		    <div class="row">
@@ -88,7 +89,7 @@
 					                <h4><em>동네지도</em></h4>
 			              		</div>
 			              		<div class="col-6 text-end">
-			              			<button class="base-button" style="background: #27292a;" type="button" onclick="myPlace()"><i class="fa-solid fa-location-dot"></i></button>
+			              			<button class="base-button" style="background: #27292a;" type="button" onclick="myPoint()"><i class="fa-solid fa-location-dot"></i></button>
 			              		</div>
 			              	</div>
 			              </div>
@@ -165,7 +166,7 @@
 	
 	<!--  스크립트  -->		
 	<%@include file="/resources/include/script.jsp"%>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efddea1f7d5df9c3c3197204f57f2cc1&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efddea1f7d5df9c3c3197204f57f2cc1&libraries=services,clusterer,drawing"></script>
 	<script>
 		/* list 선택해서 view로 가기 */
 		/* var form = $("#mainForm");
@@ -184,6 +185,8 @@
 	
 	<script> //카카오 map api
 	
+		 
+	
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		    mapOption = { 
 		        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -191,6 +194,38 @@
 		    };
 		
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		
+		var address = $("#myAddress").val();
+		
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+		
+		/* geocoder.addressSearch(address, function(result, status) {
+			
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+		
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			
+		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		        map.setCenter(coords);
+		    } 
+		}); */
+		
+		//나의 동네로 좌표 이동
+		myPoint = function() { 
+			geocoder.addressSearch(address, function(result, status) {
+			
+			    // 정상적으로 검색이 완료됐으면 
+			     if (status === kakao.maps.services.Status.OK) {
+			
+			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+				
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map.setCenter(coords);
+			    } 
+			});
+		};
 		
 		// 마커를 표시할 위치와 content 객체 배열입니다 
 		// 커스텀 오버레이에 표시할 컨텐츠 입니다
@@ -207,7 +242,6 @@
 		            '            <div class="desc">' + 
 		            /* '                <div class="ellipsis"><c:out value="${list.poContent}"/></div>' +  */
 		            '                <div class="jibun ellipsis"><c:out value="${list.poAddr}"/></div>' + 
-		            '                <div><a href="#" target="_blank" class="link">자세히</a></div>' + 
 		            '            </div>' + 
 		            '        </div>' + 
 		            '    </div>' +    
@@ -235,6 +269,10 @@
 		        map: map, // 마커를 표시할 지도
 		        position: positions[i].latlng, // 마커를 표시할 위치
 		        image : markerImage // 마커 이미지 
+		        poSeq : 
+		        	<c:forEach items="${list}" var="list" varStatus="status">
+		        		<c:out value="${list.poSeq}"/>
+		        	</c:forEach>
 		    });
 		 	
 			 // 마커 위에 커스텀오버레이를 표시합니다
@@ -247,22 +285,31 @@
 			// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
 		    // 이벤트 리스너로는 함수를 만들어 등록합니다 
 		    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-		    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, customOverlay));
-		    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(customOverlay));
+		    kakao.maps.event.addListener(marker, 'mouseover', markerOverListener(map, marker, customOverlay));
+		    kakao.maps.event.addListener(marker, 'mouseout', markerOutListener(customOverlay));
 		    
 		 	// 커스텀오버레이를 표시하는 클로저를 만드는 함수입니다 
-			function makeOverListener(map, marker, customOverlay) {
+			function markerOverListener(map, marker, customOverlay) {
 			    return function() {
 			    	customOverlay.setMap(map);
 			    };
 			}
 
 			// 커스텀오버레이를 닫는 클로저를 만드는 함수입니다 
-			function makeOutListener(customOverlay) {
+			function markerOutListener(customOverlay) {
 			    return function() {
 			    	customOverlay.setMap(null);
 			    };
 			}
+			
+			// 마커에 클릭이벤트를 등록합니다
+			kakao.maps.event.addListener(marker, 'click', function(poSeq) {
+				
+				$("#poSeq").val(poSeq)
+				
+				// 마커 클릭시 게시물로 이동
+				$("#mainForm").attr("action", "/post/postView").submit();
+			});
 		}
 		
 		
